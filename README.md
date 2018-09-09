@@ -45,6 +45,12 @@ Do not forget to upload your SSH Key into github and having the right access.
 git clone git@github.com:MM-IT/website.git
 ```
 
+Remember to always set your branch to the remote branch like this
+
+``` bash
+git push -u origin your-branch-name
+```
+
 ### Run it
 
 When everything is installed, if you want to run it, do the following:
