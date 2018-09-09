@@ -11,5 +11,3 @@ git stash pop -q
 # if test don't pass, exit 1
 [[ $RESULT -ne 0 ]] && exit 1
 exit 0
-
-# test webhooks
