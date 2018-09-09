@@ -92,6 +92,4 @@ Need to be define
 See also the list of [contributors](https://github.com/werayn/god-games/graphs/contributors) who participated in this project.
 
 ## License
-
 This project is no licensed - it's a completely private project.
----
