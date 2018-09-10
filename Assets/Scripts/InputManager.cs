@@ -14,14 +14,14 @@ public class InputManager : MonoBehaviour
 
         if (joystickPluggedNumber <= 1)
         {
-            cInput.SetKey("Up_P1", "Z");
-            cInput.SetKey("Up_P2", "Joy1 Axis 2-");
+            cInput.SetKey("Up_P1", "W");
+            cInput.SetKey("Up_P2", "Joy1 Axis 2-", "UpArrow");
             cInput.SetKey("Down_P1", "S");
-            cInput.SetKey("Down_P2", "Joy1 Axis 2+");
-            cInput.SetKey("Left_P1", "Q");
-            cInput.SetKey("Left_P2", "Joy1 Axis 1-");
+            cInput.SetKey("Down_P2", "Joy1 Axis 2+", "DownArrow");
+            cInput.SetKey("Left_P1", "A");
+            cInput.SetKey("Left_P2", "Joy1 Axis 1-", "LeftArrow");
             cInput.SetKey("Right_P1", "D");
-            cInput.SetKey("Right_P2", "Joy1 Axis 1+");
+            cInput.SetKey("Right_P2", "Joy1 Axis 1+", "RightArrow");
             cInput.SetKey("Jump_P1", "Space");
             cInput.SetKey("Jump_P2", "Joystick1Button0");
             cInput.SetKey("Dash_P1", "LeftShift");
