@@ -64,7 +64,12 @@
     <Compile Include="Assets\Scripts\AI\BT.cs" />
     <Compile Include="Assets\Scripts\AI\SendSignal.cs" />
     <Compile Include="Assets\Scripts\Characters\Monobehaviour\Character.cs" />
-    <Compile Include="Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs" />
+    <Compile Include="Assets\Scripts\Characters\Monobehaviour\Damageable.cs" />
+    <Compile Include="Assets\Scripts\Characters\Monobehaviour\Damager.cs" />
+    <Compile Include="Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs" />
+    <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs" />
+    <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\SceneLinkedSMB.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
