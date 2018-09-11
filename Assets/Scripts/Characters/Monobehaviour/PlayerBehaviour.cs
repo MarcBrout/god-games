@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SceneLinkedSMB;
-
 namespace GodsGame
 {
     [RequireComponent(typeof(Damageable))]
@@ -16,6 +15,8 @@ namespace GodsGame
         public float dashDistance = 5f;
         public LayerMask ground;
         public bool usingController = false;
+
+        [Space]
         public string verticalAxis = "Vertical_P1";
         public string horizontalAxis = "Horizontal_P1";
         public string rVerticalAxis = "RVertical_P1";
@@ -23,15 +24,14 @@ namespace GodsGame
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
 
-        private Rigidbody _Body;
-        private Vector3 _Inputs = Vector3.zero;
+        [Space]
+        public CooldownSkillUI dashSkillUI;
         private Transform _GroundChecker;
         private Vector3 _Input;
-        private float _Angle;
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
-        private Damageable _Damageable;
+        private DashSkill _DashSkill;
 
         protected readonly int _HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
         protected readonly int _HashVerticalSpeedPara = Animator.StringToHash("VerticalSpeed");
@@ -43,25 +43,26 @@ namespace GodsGame
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
 
+        public Rigidbody Body { get; private set; }
+        public Vector3 CInput { get { return _Input; } }
+
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
             set { _Animator.SetBool(_HashGroundedPara, value); }
         }
 
-        public Damageable Damageable
-        {
-            get { return _Damageable; }
-            private set { _Damageable = value; }
-        }
+        public Damageable Damageable { get; private set; }
 
         void Start()
         {
-            _Body = GetComponent<Rigidbody>();
+            Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
             _Animator = GetComponent<Animator>();
-            _Damageable = GetComponent<Damageable>();
+            Damageable = GetComponent<Damageable>();
+            _DashSkill = new DashSkill(this);
+            dashSkillUI.Skill = _DashSkill;
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -111,7 +112,7 @@ namespace GodsGame
         /// </summary>
         public void Move()
         {
-            _Body.MovePosition(_Body.position + _Input * moveSpeed * Time.fixedDeltaTime);
+            Body.MovePosition(Body.position + _Input * moveSpeed * Time.fixedDeltaTime);
         }
 
         /// <summary>
@@ -128,8 +129,8 @@ namespace GodsGame
         /// </summary>
         public void Jump()
         {
-            _Body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
-            _Animator.SetFloat(_HashJumpSpeedPara, _Body.velocity.y);
+            Body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+            _Animator.SetFloat(_HashJumpSpeedPara, Body.velocity.y);
         }
 
         /// <summary>
@@ -137,7 +138,7 @@ namespace GodsGame
         /// </summary>
         public bool CheckForDashInput()
         {
-            return cInput.GetButtonDown(dashButton);
+            return cInput.GetButtonDown(dashButton) && _DashSkill.CanUse();
         }
 
         /// <summary>
@@ -150,9 +151,7 @@ namespace GodsGame
 
         public void Dash()
         {
-            Vector3 dashVelocity = Vector3.Scale(_Input, dashDistance *
-               new Vector3((Mathf.Log(1f / (Time.deltaTime * _Body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * _Body.drag + 1)) / -Time.deltaTime)));
-            _Body.AddForce(dashVelocity, ForceMode.VelocityChange);
+            _DashSkill.Execute();
         }
 
         /// <summary>

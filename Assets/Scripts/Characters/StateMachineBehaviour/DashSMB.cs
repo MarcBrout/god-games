@@ -10,6 +10,7 @@ namespace GodsGame
         public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_MonoBehaviour.Damageable.EnableInvulnerability();
+            m_MonoBehaviour.dashSkillUI.TransitionToCooldownStart();
             m_MonoBehaviour.GetInput();
             m_MonoBehaviour.Dash();
         }
@@ -23,6 +24,5 @@ namespace GodsGame
         {
             m_MonoBehaviour.Damageable.DisableInvulnerability();
         }
-
     }
 }

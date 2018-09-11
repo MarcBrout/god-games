@@ -67,12 +67,16 @@
     <Compile Include="Assets\Scripts\Characters\Monobehaviour\Damageable.cs" />
     <Compile Include="Assets\Scripts\Characters\Monobehaviour\Damager.cs" />
     <Compile Include="Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Characters\Monobehaviour\Skills\DashSkill.cs" />
+    <Compile Include="Assets\Scripts\Characters\Monobehaviour\Skills\SkillStrategy.cs" />
     <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs" />
     <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs" />
     <Compile Include="Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\SceneLinkedSMB.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\UI\CooldownSkillSMB.cs" />
+    <Compile Include="Assets\Scripts\UI\CooldownSkillUI.cs" />
     <Compile Include="Assets\Scripts\Utility\ExtensionMethods.cs" />
     <Compile Include="Assets\Scripts\Utility\InputBuffer.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
