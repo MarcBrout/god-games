@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -105,10 +105,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 787, y: 492}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 706, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 588
+  controlID: 147
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 947
-  m_MinSize: {x: 787, y: 492}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 706, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 589
+  controlID: 148
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -153,10 +153,10 @@ MonoBehaviour:
     y: 0
     width: 1427
     height: 947
-  m_MinSize: {x: 510, y: 492}
-  m_MaxSize: {x: 14006, y: 14042}
+  m_MinSize: {x: 604, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 590
+  controlID: 149
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,10 +178,10 @@ MonoBehaviour:
     y: 0
     width: 1427
     height: 642
-  m_MinSize: {x: 510, y: 221}
-  m_MaxSize: {x: 12010, y: 4021}
+  m_MinSize: {x: 604, y: 221}
+  m_MaxSize: {x: 12004, y: 4021}
   vertical: 0
-  controlID: 591
+  controlID: 150
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -200,8 +200,8 @@ MonoBehaviour:
     y: 0
     width: 220
     height: 642
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -225,15 +225,15 @@ MonoBehaviour:
     y: 0
     width: 599
     height: 642
-  m_MinSize: {x: 104, y: 121}
-  m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 608
     height: 642
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -280,10 +280,10 @@ MonoBehaviour:
     y: 642
     width: 1427
     height: 305
-  m_MinSize: {x: 336, y: 271}
-  m_MaxSize: {x: 14006, y: 10021}
+  m_MinSize: {x: 332, y: 271}
+  m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 429
+  controlID: 18
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -352,14 +352,14 @@ MonoBehaviour:
     y: 0
     width: 493
     height: 947
-  m_MinSize: {x: 277, y: 71}
+  m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 24}
+  m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 24}
   - {fileID: 25}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -466,23 +466,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44140000
-    m_LastClickedID: 5188
-    m_ExpandedIDs: d8fbffff00000000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: e4fbffff0000000026140000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Camera
+      m_OriginalName: Camera
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -130862
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
@@ -518,14 +518,14 @@ MonoBehaviour:
     height: 621
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 82.7909181236847
+  lastFramingTime: 9495.820472454
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 18.008392, y: 5.065014, z: 10.3930645}
+    m_Target: {x: -21.142626, y: 1.0668595, z: 1.6001899}
     speed: 2
-    m_Value: {x: 18.008392, y: 5.065014, z: 10.3930645}
+    m_Value: {x: -21.142626, y: 1.0668595, z: 1.6001899}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.16370423, y: 0.8300436, z: -0.31699705, w: -0.42865288}
+    m_Target: {x: -0.10344875, y: 0.8299995, z: -0.16419986, w: -0.5229138}
     speed: 2
-    m_Value: {x: -0.16370408, y: 0.83004284, z: -0.31699675, w: -0.42865247}
+    m_Value: {x: -0.10344869, y: 0.829999, z: -0.16419975, w: -0.5229135}
   m_Size:
-    m_Target: 39.378613
+    m_Target: 28.882736
     speed: 2
-    m_Value: 39.378613
+    m_Value: 28.882736
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -609,7 +609,7 @@ MonoBehaviour:
       e10: 0
       e11: 0.77682054
       e12: 0
-      e13: 87.741
+      e13: 105.74106
       e20: 0
       e21: 0
       e22: 1
@@ -621,11 +621,11 @@ MonoBehaviour:
     - e00: 0.83087504
       e01: 0
       e02: 0
-      e03: -89.18166
+      e03: -19.181679
       e10: 0
       e11: 0.83087504
       e12: 0
-      e13: 68.077736
+      e13: 58.07776
       e20: 0
       e21: 0
       e22: 1
@@ -756,34 +756,34 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Mathieu\Documents\Unity\god-games
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 73}
-    m_SelectedIDs: 4c0e0000
-    m_LastClickedID: 3660
-    m_ExpandedIDs: 00000000940c0000360e00004c0e0000d010000000ca9a3b
+    scrollPos: {x: 0, y: 69}
+    m_SelectedIDs: 880e0000
+    m_LastClickedID: 3720
+    m_ExpandedIDs: 00000000880c0000d40d00002a0e0000400e0000c410000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ExampleAssets
+      m_OriginalName: ExampleAssets
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 4732
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
@@ -797,7 +797,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000940c0000360e00004c0e0000d010000000ca9a3b
+    m_ExpandedIDs: 00000000880c00002a0e0000400e0000c4100000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -828,18 +828,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 626fe8ffde270000f8270000a8220000b0d6e7fffc270000825c0000e446000042470000843e0000dc4000005c2600000a280000c8060000103f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Damager
+      m_OriginalName: Damager
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 20350
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
@@ -941,10 +941,10 @@ MonoBehaviour:
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
   currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 1
-  appManagerProgressHasUpdate: 1
-  changeTab: 3
-  activeTab: 3
+  repositoryProgressHasUpdate: 0
+  appManagerProgressHasUpdate: 0
+  changeTab: 6
+  activeTab: 6
   initProjectView:
     hasCompletedInitialCheck: 0
     isUserDataPresent: 0
@@ -957,10 +957,21 @@ MonoBehaviour:
       folders:
         keys:
         - Local branches
+        - Feat
         values:
         - path: Local branches
           label: Local branches
           level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 0
+          checkState: 0
+        - path: Feat
+          label: Feat
+          level: 1
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -997,9 +1008,19 @@ MonoBehaviour:
         isActive: 0
         treeIsCheckable: 0
         checkState: 0
-      - path: settingUpFolderAndStuff
-        label: settingUpFolderAndStuff
+      - path: Feat
+        label: Feat
         level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
+      - path: Feat/PlayerMovement
+        label: PlayerMovement
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -1007,10 +1028,20 @@ MonoBehaviour:
         isActive: 1
         treeIsCheckable: 0
         checkState: 0
-      selectedNode:
-        path: settingUpFolderAndStuff
+      - path: settingUpFolderAndStuff
         label: settingUpFolderAndStuff
         level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
+      selectedNode:
+        path: Feat/PlayerMovement
+        label: PlayerMovement
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -1111,14 +1142,14 @@ MonoBehaviour:
     disableDelete: 1
     disableCreate: 0
     lastLocalAndRemoteBranchListChangedEvent:
-      updatedTimeString: 2018-09-10T14:01:52.754+02:00
+      updatedTimeString: 2018-09-10T23:38:49.459+02:00
       cacheType: 2
     lastCurrentBranchAndRemoteChange:
-      updatedTimeString: 2018-09-10T13:34:19.772+02:00
+      updatedTimeString: 2018-09-10T22:47:27.256+02:00
       cacheType: 1
     currentBranch:
-      name: settingUpFolderAndStuff
-      tracking: origin/settingUpFolderAndStuff
+      name: Feat/PlayerMovement
+      tracking: 
     currentRemote:
       name: origin
       url: https://github.com/werayn/god-games.git
@@ -1130,6 +1161,8 @@ MonoBehaviour:
     localBranches:
     - name: dev
       tracking: origin/dev
+    - name: Feat/PlayerMovement
+      tracking: 
     - name: settingUpFolderAndStuff
       tracking: origin/settingUpFolderAndStuff
     remoteBranches:
@@ -1139,570 +1172,19 @@ MonoBehaviour:
       tracking: '[None]'
   changesView:
     currentBranchHasUpdate: 0
-    currentStatusEntriesHasUpdate: 1
-    currentLocksHasUpdate: 1
+    currentStatusEntriesHasUpdate: 0
+    currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
-    currentBranch: '[settingUpFolderAndStuff]'
+    currentBranch: '[Feat/PlayerMovement]'
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys:
-        - 00000000000000001000000000000000
-        - 7c10022491547564cb595684ff6c7b6b
-        - 8ec60467e6d77534c9d2bfe31a025163
-        - 8ffb8a5819ace7941a065a3fa9ec7b57
-        - fbfc29a62c6d8be4fbd0bb4deaa6292f
-        - 52f1ac7f908c00544a38370ad55386ad
-        - 4f704ae4b4f98ae41a0bce26658850c1
-        - ddbbb7182fa2af646b9b9bd2b4d15efb
-        - b01e14f3633ee2643ac8e869c00acb0a
-        - a5276dc3195d26f4eb69b0e88a87d4c4
-        - 1b593e03e7612ce409bd07d186ead47b
-        - 74d133cc65af94a45a1931252ce37f1a
-        - 81747ea9e8a2e0d4a86a1a6657c85f90
-        - cfb02542d8646374286fc3e47fc34bcc
-        - e54423cc1a6a84445b3aee57f10dc063
-        - 2f5e50a6d6899844a9cd918c48ccacad
-        - a225caae9cf90564184264d2f880866b
-        - 00000000000000002000000000000000
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Animators
-          label: Animators
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 1
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Animators\Animations
-          label: Animations
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Animators\Animations\PlayerIdle.anim
-          label: PlayerIdle.anim
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animators\Animations\PlayerIdle.anim
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
-            projectPath: Assets\Animators\Animations\PlayerIdle.anim
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Animators\Animations\PlayerRun.anim
-          label: PlayerRun.anim
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animators\Animations\PlayerRun.anim
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
-            projectPath: Assets\Animators\Animations\PlayerRun.anim
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Animators\Player.controller
-          label: Player.controller
-          level: 2
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Animators\Player.controller
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
-            projectPath: Assets\Animators\Player.controller
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scenes\Arena.unity
-          label: Arena.unity
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scenes\Arena.unity
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scenes\Arena.unity
-            projectPath: Assets\Scenes\Arena.unity
-            originalPath: 
-            status: 3
-            staged: 0
-        - path: Assets\Scripts
-          label: Scripts
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 1
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters
-          label: Characters
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters\Monobehaviour
-          label: Monobehaviour
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-          label: PlayerBehaviour.cs
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-            projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Scripts\Characters\StateMachineBehaviour
-          label: StateMachineBehaviour
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-          label: AirborneSMB.cs
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-            projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-          label: DashSMB.cs
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-            projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-          label: LocomotionSMB.cs
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-            projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-            originalPath: 
-            status: 1
-            staged: 0
-        - path: Assets\Scripts\SceneLinkedSMB.cs
-          label: SceneLinkedSMB.cs
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\SceneLinkedSMB.cs
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\SceneLinkedSMB.cs
-            projectPath: Assets\Scripts\SceneLinkedSMB.cs
-            originalPath: 
-            status: 3
-            staged: 0
-        - path: ProjectSettings\InputManager.asset
-          label: InputManager.asset
-          level: 1
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: ProjectSettings\InputManager.asset
-            fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.asset
-            projectPath: ProjectSettings\InputManager.asset
-            originalPath: 
-            status: 3
-            staged: 0
+        keys: []
+        values: []
       folders:
-        keys:
-        - Assets
-        - Assets\Animators
-        - Assets\Animators\Animations
-        - Assets\Scenes
-        - Assets\Scripts
-        - Assets\Scripts\Characters
-        - Assets\Scripts\Characters\Monobehaviour
-        - Assets\Scripts\Characters\StateMachineBehaviour
-        - Library
-        - Library\ScriptAssemblies
-        - ProjectSettings
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Animators
-          label: Animators
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 1
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Animators\Animations
-          label: Animations
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts
-          label: Scripts
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 1
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters
-          label: Characters
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters\Monobehaviour
-          label: Monobehaviour
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Assets\Scripts\Characters\StateMachineBehaviour
-          label: StateMachineBehaviour
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 1
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Library
-          label: Library
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: Library\ScriptAssemblies
-          label: ScriptAssemblies
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
-        - path: ProjectSettings
-          label: ProjectSettings
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            status: 0
-            staged: 0
+        keys: []
+        values: []
       checkedFileNodes:
         keys: []
         values: []
@@ -1731,929 +1213,35 @@ MonoBehaviour:
           originalPath: 
           status: 0
           staged: 0
-      - path: Assembly-CSharp.csproj
-        label: Assembly-CSharp.csproj
-        level: 0
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assembly-CSharp.csproj
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp.csproj
-          projectPath: Assembly-CSharp.csproj
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Assets
-        label: Assets
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Animators.meta
-        label: Animators.meta
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators.meta
-          projectPath: Assets\Animators.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators
-        label: Animators
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 1
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Animators\Animations.meta
-        label: Animations.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Animations.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations.meta
-          projectPath: Assets\Animators\Animations.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Animations
-        label: Animations
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Animators\Animations\PlayerIdle.anim
-        label: PlayerIdle.anim
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Animations\PlayerIdle.anim
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
-          projectPath: Assets\Animators\Animations\PlayerIdle.anim
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Animations\PlayerIdle.anim.meta
-        label: PlayerIdle.anim.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Animations\PlayerIdle.anim.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim.meta
-          projectPath: Assets\Animators\Animations\PlayerIdle.anim.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Animations\PlayerRun.anim
-        label: PlayerRun.anim
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Animations\PlayerRun.anim
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
-          projectPath: Assets\Animators\Animations\PlayerRun.anim
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Animations\PlayerRun.anim.meta
-        label: PlayerRun.anim.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Animations\PlayerRun.anim.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim.meta
-          projectPath: Assets\Animators\Animations\PlayerRun.anim.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Player.controller
-        label: Player.controller
-        level: 2
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Player.controller
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
-          projectPath: Assets\Animators\Player.controller
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Animators\Player.controller.meta
-        label: Player.controller.meta
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Animators\Player.controller.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller.meta
-          projectPath: Assets\Animators\Player.controller.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scenes
-        label: Scenes
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Scenes\Arena.unity
-        label: Arena.unity
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\Arena.unity
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scenes\Arena.unity
-          projectPath: Assets\Scenes\Arena.unity
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Assets\Scripts
-        label: Scripts
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 1
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Scripts\Characters
-        label: Characters
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Scripts\Characters\Monobehaviour
-        label: Monobehaviour
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-        label: PlayerBehaviour.cs
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-          projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-        label: PlayerBehaviour.cs.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-          projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-        label: RigidbodyCharacterV2.cs
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-          projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-          originalPath: 
-          status: 5
-          staged: 0
-      - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-        label: RigidbodyCharacterV2.cs.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-          projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-          originalPath: 
-          status: 5
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour
-        label: StateMachineBehaviour
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-        label: AirborneSMB.cs
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-        label: AirborneSMB.cs.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-        label: DashSMB.cs
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-        label: DashSMB.cs.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-        label: LocomotionSMB.cs
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-        label: LocomotionSMB.cs.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-          originalPath: 
-          status: 1
-          staged: 0
-      - path: Assets\Scripts\SceneLinkedSMB.cs
-        label: SceneLinkedSMB.cs
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 1
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\SceneLinkedSMB.cs
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\SceneLinkedSMB.cs
-          projectPath: Assets\Scripts\SceneLinkedSMB.cs
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library
-        label: Library
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Library\assetDatabase3
-        label: assetDatabase3
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\assetDatabase3
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\assetDatabase3
-          projectPath: Library\assetDatabase3
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library\CurrentLayout.dwlt
-        label: CurrentLayout.dwlt
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\CurrentLayout.dwlt
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\CurrentLayout.dwlt
-          projectPath: Library\CurrentLayout.dwlt
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library\EditorInstance.json
-        label: EditorInstance.json
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\EditorInstance.json
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorInstance.json
-          projectPath: Library\EditorInstance.json
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library\EditorUserBuildSettings.asset
-        label: EditorUserBuildSettings.asset
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\EditorUserBuildSettings.asset
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorUserBuildSettings.asset
-          projectPath: Library\EditorUserBuildSettings.asset
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library\ScriptAssemblies
-        label: ScriptAssemblies
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-        label: Assembly-CSharp.dll.mdb
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-          projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
-        label: shadercompiler-UnityShaderCompiler.exe0.log
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Library\shadercompiler-UnityShaderCompiler.exe0.log
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\shadercompiler-UnityShaderCompiler.exe0.log
-          projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: ProjectSettings
-        label: ProjectSettings
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          status: 0
-          staged: 0
-      - path: ProjectSettings\InputManager.asset
-        label: InputManager.asset
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: ProjectSettings\InputManager.asset
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.asset
-          projectPath: ProjectSettings\InputManager.asset
-          originalPath: 
-          status: 3
-          staged: 0
-      - path: ProjectSettings\InputManager.backup
-        label: InputManager.backup
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: ProjectSettings\InputManager.backup
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.backup
-          projectPath: ProjectSettings\InputManager.backup
-          originalPath: 
-          status: 1
-          staged: 0
       selectedNode:
-        path: Assets\Animators\Player.controller
-        label: Player.controller
-        level: 2
+        path: 
+        label: 
+        level: 0
         isFolder: 0
-        isContainer: 1
+        isContainer: 0
         isCollapsed: 0
-        isHidden: 1
+        isHidden: 0
         isActive: 0
-        treeIsCheckable: 1
+        treeIsCheckable: 0
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Animators\Player.controller
-          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
-          projectPath: Assets\Animators\Player.controller
+          path: 
+          fullPath: 
+          projectPath: 
           originalPath: 
-          status: 1
+          status: 0
           staged: 0
-    gitStatusEntries:
-    - path: Assembly-CSharp.csproj
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp.csproj
-      projectPath: Assembly-CSharp.csproj
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Assets\Animators.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators.meta
-      projectPath: Assets\Animators.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations.meta
-      projectPath: Assets\Animators\Animations.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerIdle.anim
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
-      projectPath: Assets\Animators\Animations\PlayerIdle.anim
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerIdle.anim.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim.meta
-      projectPath: Assets\Animators\Animations\PlayerIdle.anim.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerRun.anim
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
-      projectPath: Assets\Animators\Animations\PlayerRun.anim
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerRun.anim.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim.meta
-      projectPath: Assets\Animators\Animations\PlayerRun.anim.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Player.controller
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
-      projectPath: Assets\Animators\Player.controller
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Player.controller.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller.meta
-      projectPath: Assets\Animators\Player.controller.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scenes\Arena.unity
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scenes\Arena.unity
-      projectPath: Assets\Scenes\Arena.unity
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-      projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-      projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-      projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
-      originalPath: 
-      status: 5
-      staged: 0
-    - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-      projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
-      originalPath: 
-      status: 5
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-      projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Scripts\SceneLinkedSMB.cs
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\SceneLinkedSMB.cs
-      projectPath: Assets\Scripts\SceneLinkedSMB.cs
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\assetDatabase3
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\assetDatabase3
-      projectPath: Library\assetDatabase3
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\CurrentLayout.dwlt
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\CurrentLayout.dwlt
-      projectPath: Library\CurrentLayout.dwlt
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\EditorInstance.json
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorInstance.json
-      projectPath: Library\EditorInstance.json
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\EditorUserBuildSettings.asset
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorUserBuildSettings.asset
-      projectPath: Library\EditorUserBuildSettings.asset
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-      projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\shadercompiler-UnityShaderCompiler.exe0.log
-      projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: ProjectSettings\InputManager.asset
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.asset
-      projectPath: ProjectSettings\InputManager.asset
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: ProjectSettings\InputManager.backup
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.backup
-      projectPath: ProjectSettings\InputManager.backup
-      originalPath: 
-      status: 1
-      staged: 0
-    changedFilesText: 29 changed files
+    gitStatusEntries: []
+    changedFilesText: No changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2018-09-10T15:29:59.077+02:00
+      updatedTimeString: 2018-09-10T23:39:26.510+02:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2018-09-10T20:39:28.389+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 5
     lastLocksChangedEvent:
-      updatedTimeString: 2018-09-10T20:39:27.768+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 6
   historyView:
     currentLogHasUpdate: 0
@@ -2661,6 +1249,276 @@ MonoBehaviour:
     historyControl:
       scroll: {x: 0, y: 0}
       entries:
+      - commitID: 9dd23ef05c86ef02852fddb247a3b91a753afbdc
+        mergeA: 
+        mergeB: 
+        authorName: Mathieu Sauvau
+        authorEmail: mathieu.sauvau@gmail.com
+        commitEmail: mathieu.sauvau@gmail.com
+        commitName: Mathieu Sauvau
+        summary: Implementing Player FSM and movement
+        description: Implementing Player FSM and movement
+        timeString: 2018-09-10T23:38:47.000+02:00
+        commitTimeString: 2018-09-10T23:38:47.000+02:00
+        changes:
+        - path: Assembly-CSharp-Editor.csproj
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp-Editor.csproj
+          projectPath: Assembly-CSharp-Editor.csproj
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Assembly-CSharp.csproj
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp.csproj
+          projectPath: Assembly-CSharp.csproj
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Assets\Animators.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators.meta
+          projectPath: Assets\Animators.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Animations.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations.meta
+          projectPath: Assets\Animators\Animations.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Animations\PlayerIdle.anim
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
+          projectPath: Assets\Animators\Animations\PlayerIdle.anim
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Animations\PlayerIdle.anim.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim.meta
+          projectPath: Assets\Animators\Animations\PlayerIdle.anim.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Animations\PlayerRun.anim
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
+          projectPath: Assets\Animators\Animations\PlayerRun.anim
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Animations\PlayerRun.anim.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim.meta
+          projectPath: Assets\Animators\Animations\PlayerRun.anim.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Player.controller
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
+          projectPath: Assets\Animators\Player.controller
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Animators\Player.controller.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller.meta
+          projectPath: Assets\Animators\Player.controller.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Prefabs\Arena.prefab
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Prefabs\Arena.prefab
+          projectPath: Assets\Prefabs\Arena.prefab
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Assets\Scenes\Arena.unity
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scenes\Arena.unity
+          projectPath: Assets\Scenes\Arena.unity
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Damager.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damager.cs
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Damager.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Editor.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor.meta
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Editor.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+          projectPath: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+          projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+          projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+          originalPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
+          status: 6
+          staged: 0
+        - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+          projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+          originalPath: 
+          status: 5
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+          projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+          originalPath: 
+          status: 4
+          staged: 0
+        - path: Assets\Scripts\InputManager.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\InputManager.cs
+          projectPath: Assets\Scripts\InputManager.cs
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Assets\Scripts\SceneLinkedSMB.cs
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\SceneLinkedSMB.cs
+          projectPath: Assets\Scripts\SceneLinkedSMB.cs
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\CurrentLayout.dwlt
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\CurrentLayout.dwlt
+          projectPath: Library\CurrentLayout.dwlt
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\EditorInstance.json
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorInstance.json
+          projectPath: Library\EditorInstance.json
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\EditorUserBuildSettings.asset
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorUserBuildSettings.asset
+          projectPath: Library\EditorUserBuildSettings.asset
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\InspectorExpandedItems.asset
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\InspectorExpandedItems.asset
+          projectPath: Library\InspectorExpandedItems.asset
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+          projectPath: Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+          projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\assetDatabase3
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\assetDatabase3
+          projectPath: Library\assetDatabase3
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\shadercompiler-UnityShaderCompiler.exe0.log
+          projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: ProjectSettings\InputManager.asset
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.asset
+          projectPath: ProjectSettings\InputManager.asset
+          originalPath: 
+          status: 3
+          staged: 0
+        - path: ProjectSettings\InputManager.backup
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.backup
+          projectPath: ProjectSettings\InputManager.backup
+          originalPath: 
+          status: 4
+          staged: 0
+      - commitID: 18b5d45244455b1d03d56c50451cb612c0a764a8
+        mergeA: 
+        mergeB: 
+        authorName: Mathieu Sauvau
+        authorEmail: mathieu.sauvau@gmail.com
+        commitEmail: mathieu.sauvau@gmail.com
+        commitName: Mathieu Sauvau
+        summary: remove .dll from gitignore
+        description: remove .dll from gitignore
+        timeString: 2018-09-10T14:51:15.000+02:00
+        commitTimeString: 2018-09-10T14:51:15.000+02:00
+        changes:
+        - path: .gitignore
+          fullPath: C:\Users\Mathieu\Documents\Unity\god-games\.gitignore
+          projectPath: .gitignore
+          originalPath: 
+          status: 3
+          staged: 0
       - commitID: 628b72b2bcb3573694081af0d2789268bbc57ed1
         mergeA: 
         mergeB: 
@@ -21350,6 +20208,276 @@ MonoBehaviour:
       changes: []
     detailsScroll: {x: 0, y: 0}
     logEntries:
+    - commitID: 9dd23ef05c86ef02852fddb247a3b91a753afbdc
+      mergeA: 
+      mergeB: 
+      authorName: Mathieu Sauvau
+      authorEmail: mathieu.sauvau@gmail.com
+      commitEmail: mathieu.sauvau@gmail.com
+      commitName: Mathieu Sauvau
+      summary: Implementing Player FSM and movement
+      description: Implementing Player FSM and movement
+      timeString: 2018-09-10T23:38:47.000+02:00
+      commitTimeString: 2018-09-10T23:38:47.000+02:00
+      changes:
+      - path: Assembly-CSharp-Editor.csproj
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp-Editor.csproj
+        projectPath: Assembly-CSharp-Editor.csproj
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Assembly-CSharp.csproj
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assembly-CSharp.csproj
+        projectPath: Assembly-CSharp.csproj
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Assets\Animators.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators.meta
+        projectPath: Assets\Animators.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Animations.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations.meta
+        projectPath: Assets\Animators\Animations.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Animations\PlayerIdle.anim
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
+        projectPath: Assets\Animators\Animations\PlayerIdle.anim
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Animations\PlayerIdle.anim.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim.meta
+        projectPath: Assets\Animators\Animations\PlayerIdle.anim.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Animations\PlayerRun.anim
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
+        projectPath: Assets\Animators\Animations\PlayerRun.anim
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Animations\PlayerRun.anim.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim.meta
+        projectPath: Assets\Animators\Animations\PlayerRun.anim.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Player.controller
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
+        projectPath: Assets\Animators\Player.controller
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Animators\Player.controller.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller.meta
+        projectPath: Assets\Animators\Player.controller.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Prefabs\Arena.prefab
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Prefabs\Arena.prefab
+        projectPath: Assets\Prefabs\Arena.prefab
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Assets\Scenes\Arena.unity
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scenes\Arena.unity
+        projectPath: Assets\Scenes\Arena.unity
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Damageable.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Damageable.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Damager.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damager.cs
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Damager.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Damager.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Editor.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor.meta
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Editor.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+        projectPath: Assets\Scripts\Characters\Monobehaviour\Editor\DamagerEditor.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+        projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+        projectPath: Assets\Scripts\Characters\Monobehaviour\PlayerBehaviour.cs.meta
+        originalPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs.meta
+        status: 6
+        staged: 0
+      - path: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+        projectPath: Assets\Scripts\Characters\Monobehaviour\RigidbodyCharacterV2.cs
+        originalPath: 
+        status: 5
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\AirborneSMB.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\DashSMB.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+        projectPath: Assets\Scripts\Characters\StateMachineBehaviour\LocomotionSMB.cs.meta
+        originalPath: 
+        status: 4
+        staged: 0
+      - path: Assets\Scripts\InputManager.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\InputManager.cs
+        projectPath: Assets\Scripts\InputManager.cs
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Assets\Scripts\SceneLinkedSMB.cs
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Scripts\SceneLinkedSMB.cs
+        projectPath: Assets\Scripts\SceneLinkedSMB.cs
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\CurrentLayout.dwlt
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\CurrentLayout.dwlt
+        projectPath: Library\CurrentLayout.dwlt
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\EditorInstance.json
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorInstance.json
+        projectPath: Library\EditorInstance.json
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\EditorUserBuildSettings.asset
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorUserBuildSettings.asset
+        projectPath: Library\EditorUserBuildSettings.asset
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\InspectorExpandedItems.asset
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\InspectorExpandedItems.asset
+        projectPath: Library\InspectorExpandedItems.asset
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+        projectPath: Library\ScriptAssemblies\Assembly-CSharp-Editor.dll.mdb
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+        projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\assetDatabase3
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\assetDatabase3
+        projectPath: Library\assetDatabase3
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\shadercompiler-UnityShaderCompiler.exe0.log
+        projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: ProjectSettings\InputManager.asset
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.asset
+        projectPath: ProjectSettings\InputManager.asset
+        originalPath: 
+        status: 3
+        staged: 0
+      - path: ProjectSettings\InputManager.backup
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\ProjectSettings\InputManager.backup
+        projectPath: ProjectSettings\InputManager.backup
+        originalPath: 
+        status: 4
+        staged: 0
+    - commitID: 18b5d45244455b1d03d56c50451cb612c0a764a8
+      mergeA: 
+      mergeB: 
+      authorName: Mathieu Sauvau
+      authorEmail: mathieu.sauvau@gmail.com
+      commitEmail: mathieu.sauvau@gmail.com
+      commitName: Mathieu Sauvau
+      summary: remove .dll from gitignore
+      description: remove .dll from gitignore
+      timeString: 2018-09-10T14:51:15.000+02:00
+      commitTimeString: 2018-09-10T14:51:15.000+02:00
+      changes:
+      - path: .gitignore
+        fullPath: C:\Users\Mathieu\Documents\Unity\god-games\.gitignore
+        projectPath: .gitignore
+        originalPath: 
+        status: 3
+        staged: 0
     - commitID: 628b72b2bcb3573694081af0d2789268bbc57ed1
       mergeA: 
       mergeB: 
@@ -40060,10 +39188,10 @@ MonoBehaviour:
           status: 0
           staged: 0
     lastLogChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2018-09-10T23:39:26.820+02:00
       cacheType: 3
     lastTrackingStatusChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2018-09-10T23:39:22.629+02:00
       cacheType: 4
   settingsView:
     gitPathView:
@@ -40099,10 +39227,29 @@ MonoBehaviour:
     currentUserHasUpdate: 0
     locksControl:
       scroll: {x: 0, y: 0}
-      gitLockEntries: []
+      gitLockEntries:
+      - gitLock:
+          id: 40298
+          path: Assets/Scenes/Arena.unity
+          owner:
+            name: 3ldh
+            email: 
+          lockedAtString: 2018-09-10T21:16:22Z
+        gitFileStatus: 0
+        lockedAt: Today, 23:16
       assets:
-        keys: []
-        values: []
+        keys:
+        - ddbbb7182fa2af646b9b9bd2b4d15efb
+        values:
+        - gitLock:
+            id: 40298
+            path: Assets/Scenes/Arena.unity
+            owner:
+              name: 3ldh
+              email: 
+            lockedAtString: 2018-09-10T21:16:22Z
+          gitFileStatus: 0
+          lockedAt: Today, 23:16
       gitStatusDictionary:
         keys: []
         values: []
@@ -40115,90 +39262,24 @@ MonoBehaviour:
             email: 
           lockedAtString: 
         gitFileStatus: 0
-        lockedAt: 1 Jan 0001, 01:00
+        lockedAt: 
     lastLocksChangedEvent:
-      updatedTimeString: 2018-09-10T14:01:39.201+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 6
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2018-09-10T14:01:39.201+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 6
     lastUserChangedEvent:
-      updatedTimeString: 2018-09-10T14:01:57.962+02:00
+      updatedTimeString: 2018-09-10T23:39:02.957+02:00
       cacheType: 7
-    lockedFiles: []
-    gitStatusEntries:
-    - path: Assets\Animators.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators.meta
-      projectPath: Assets\Animators.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations.meta
-      projectPath: Assets\Animators\Animations.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerIdle.anim
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim
-      projectPath: Assets\Animators\Animations\PlayerIdle.anim
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerIdle.anim.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerIdle.anim.meta
-      projectPath: Assets\Animators\Animations\PlayerIdle.anim.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerRun.anim
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim
-      projectPath: Assets\Animators\Animations\PlayerRun.anim
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Animations\PlayerRun.anim.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Animations\PlayerRun.anim.meta
-      projectPath: Assets\Animators\Animations\PlayerRun.anim.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Player.controller
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller
-      projectPath: Assets\Animators\Player.controller
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Assets\Animators\Player.controller.meta
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Assets\Animators\Player.controller.meta
-      projectPath: Assets\Animators\Player.controller.meta
-      originalPath: 
-      status: 1
-      staged: 0
-    - path: Library\assetDatabase3
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\assetDatabase3
-      projectPath: Library\assetDatabase3
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\CurrentLayout.dwlt
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\CurrentLayout.dwlt
-      projectPath: Library\CurrentLayout.dwlt
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\EditorInstance.json
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\EditorInstance.json
-      projectPath: Library\EditorInstance.json
-      originalPath: 
-      status: 3
-      staged: 0
-    - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
-      fullPath: C:\Users\Mathieu\Documents\Unity\god-games\Library\shadercompiler-UnityShaderCompiler.exe0.log
-      projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
-      originalPath: 
-      status: 3
-      staged: 0
+    lockedFiles:
+    - id: 40298
+      path: Assets/Scenes/Arena.unity
+      owner:
+        name: 3ldh
+        email: 
+      lockedAtString: 2018-09-10T21:16:22Z
+    gitStatusEntries: []
     currentUsername: 3ldh
     unlockFileMenuContent:
       m_Text: Release Lock
@@ -40210,14 +39291,14 @@ MonoBehaviour:
       m_Tooltip: 
   hasRemote: 1
   currentRemoteName: origin
-  currentBranch: settingUpFolderAndStuff
+  currentBranch: Feat/PlayerMovement
   currentRemoteUrl: https://github.com/werayn/god-games.git
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 1
+  hasItemsToCommit: 0
   isTrackingRemoteBranch: 1
   currentBranchContent:
-    m_Text: settingUpFolderAndStuff
+    m_Text: Feat/PlayerMovement
     m_Image: {fileID: 0}
     m_Tooltip: Active branch
   currentRemoteUrlContent:
@@ -40225,13 +39306,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2018-09-10T15:29:59.077+02:00
+    updatedTimeString: 2018-09-10T23:39:26.510+02:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2018-09-10T15:30:00.540+02:00
+    updatedTimeString: 2018-09-10T23:39:56.628+02:00
     cacheType: 4
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2018-09-10T15:38:45.774+02:00
+    updatedTimeString: 2018-09-10T23:39:56.528+02:00
     cacheType: 5
   pullButtonContent:
     m_Text: Pull
