@@ -1,13 +1,16 @@
 ﻿/*
- * Audio class used to change between songs
+ *Audio class used to change between songs.
+ * By: Demis Terborg
  * 
- * Make a reference to this class, then drag and drop
+ * Make a reference to this class in your script, then drag and drop
  * the AudioManager GameObject onto the reference
  * to make use of the public methods.
- * Make sure to put your script in namespace GodsGame.
  * 
- * Demis Terborg
- *
+ * HOWTO: Add AudioClips
+ * 1. Name the AudioClip by adding an enum under 'public enum AudioTrack {}'.
+ * 2. Declare an AudioClip using the same naming scheme (line 43).
+ * 3. Add the AudioClip to the switch case in function 'AudioClip GetAudioClip(AudioTrack track) {}' (line 125).
+ * 4. Attach an audio file to the AudioClip by dragging and dropping the file in the inspector view.
  */
 
 using System.Collections;
@@ -16,6 +19,7 @@ using UnityEngine;
 
 namespace GodsGame
 {
+    // Add AudioTrack to enum here. Use logical names for readability.
     public enum AudioTrack
     {
         ThemeSong,
@@ -26,100 +30,135 @@ namespace GodsGame
     [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
+        // The time it will take to fade in/out a track.
         public float timeToFade;
+
+        // The AudioSource components attached to the AudioManager object.
         public AudioSource audioSource1, audioSource2;
 
-        private AudioClip audioClip;
+        // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
+
+        // Use same naming scheme as below
+        public AudioClip Clip_00, Clip_01, Clip_02;
+
+        // Singleton instance.
         public static AudioManager instance = null;
 
-        //Prevent multiple instances from being instantiated
-        void Awake()
+
+        // ************************ PUBLIC METHODS ************************ //
+
+        // Plays AudioClip depending on which clip has been selected.
+        // Also checks which AudioSource should be used, to prevent two AudioSources from playing simultaneously.
+        public void playAudio(AudioTrack track)
+        {
+            if (audioSource1Playing)
+            {
+                audioSource1.clip = GetAudioClip(track);
+                audioSource1.Play();
+                StartCoroutine(FadeIn(audioSource1, timeToFade));
+            }
+            else
+            {
+                audioSource2.clip = GetAudioClip(track);
+                audioSource2.Play();
+                StartCoroutine(FadeIn(audioSource2, timeToFade));
+            }
+        }
+
+        // TODO: Implement coroutine that triggers playAudio when currentAudio.volume < 0.5f //
+        // Checks which AudioSource is currently playing. Fades out the currently played audio,
+        // While fading in the chosen AudioClip.
+        public void changeAudio(AudioTrack track)
+        {
+            if (audioSource1Playing)
+            {
+                stopAudio(ref audioSource1);
+                playAudio(ref audioSource2, GetAudioClip(track));
+
+                // Sets audioSource2 as primary AudioSource
+                audioSource1Playing = false;
+            }
+            else
+            {
+                stopAudio(ref audioSource2);
+                playAudio(ref audioSource1, GetAudioClip(track));
+
+                // Sets audioSource1 as primary AudioSource
+                audioSource1Playing = true;
+            }
+        }
+
+        // Change volume depending on Currently playing AudioSource.
+        public void changeVolume(float volume)
+        {
+            if (audioSource1Playing)
+                audioSource1.volume = volume;
+            else
+                audioSource2.volume = volume;
+        }
+
+
+        // ************************ PRIVATE METHODS ************************ //
+
+        // Allows only one instance of AudioManager
+        private void Awake()
         {
             if (instance == null)
                 instance = this;
             else if (instance != this)
                 Destroy(gameObject);
 
+            // Set AudioManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
             DontDestroyOnLoad(gameObject);
         }
 
-        void Start()
+        private void Start()
         {
+            // Sets audioSource1 as primary AudioSource
             audioSource1Playing = true;
         }
 
-        void playAudio(AudioSource audioSource, AudioClip audioClip)
+        // Returns the AudioClip that corresponds to the enum value.
+        AudioClip GetAudioClip(AudioTrack track)
+        {
+            switch (track)
+            {
+                case AudioTrack.ThemeSong: return Clip_00;
+                case AudioTrack.Fight: return Clip_01;
+                case AudioTrack.PauseMenu: return Clip_02;
+                default: return null;
+            }
+        }
+
+        // TODO: add extra param to make FadeIn optional
+        private void playAudio(ref AudioSource audioSource, AudioClip audioClip)
         {
             audioSource.clip = audioClip;
             audioSource.Play();
             StartCoroutine(FadeIn(audioSource, timeToFade));
         }
-        public void playAudio(AudioTrack track)
-        {
-            if (audioSource1Playing)
-            {
-                playAudio(audioSource1, Resources.Load<AudioClip>("theme"));
-            }
-            else
-            {
-                playAudio(audioSource2, Resources.Load<AudioClip>("theme"));
-            }
-        }
 
-        void stopAudio(AudioSource audioSource)
+        // TODO: add extra param to make FadeOut optional
+        private void stopAudio(ref AudioSource audioSource)
         {
             StartCoroutine(FadeOut(audioSource, timeToFade));
         }
 
-        void pauseAudio(AudioSource audioSource)
+        // TODO: add extra param to make fadeOut optional
+        private void pauseAudio(ref AudioSource audioSource)
         {
             audioSource.Pause();
         }
 
-        void unPauseAudio(AudioSource audioSource)
+        // TODO: add extra param to make fadeIn optional
+        private void unPauseAudio(ref AudioSource audioSource)
         {
             audioSource.UnPause();
         }
 
-        public void changeAudio(AudioTrack audioTrack)
-        {
-            switch (audioTrack)
-            {
-                case AudioTrack.ThemeSong:
-                    transition(Resources.Load<AudioClip>("theme"));
-                    break;
-                case AudioTrack.Fight:
-                    transition(Resources.Load<AudioClip>("test1"));
-                    break;
-                case AudioTrack.PauseMenu:
-                    break;
-            }
-        }
-
-        //TODO: Implement coroutine that triggers playAudio when currentAudio.volume < 0.5f
-        void transition(AudioClip clip)
-        {
-            if (audioSource1Playing)
-            {
-                stopAudio(audioSource1);
-                playAudio(audioSource2, clip);
-                audioSource1Playing = false;
-            }
-            else
-            {
-                stopAudio(audioSource2);
-                playAudio(audioSource1, clip);
-                audioSource1Playing = true;
-            }
-        }
-
-        public void changeVolume(float volume)
-        {
-            audioSource1.volume = volume;
-        }
-
-        IEnumerator FadeIn(AudioSource audioSource, float timeToFade)
+        // Coroutine to fade-in the AudioSource by lowering the volume.
+        private IEnumerator FadeIn(AudioSource audioSource, float timeToFade)
         {
             Debug.Log("Start coroutine FadeIn");
 
@@ -136,7 +175,8 @@ namespace GodsGame
             audioSource.volume = startVolume;
         }
 
-        IEnumerator FadeOut(AudioSource audioSource, float timeToFade)
+        // Coroutine to fade-out the AudioSource by lowering the volume.
+        private IEnumerator FadeOut(AudioSource audioSource, float timeToFade)
         {
             Debug.Log("Start coroutine FadeOut");
 
@@ -153,20 +193,24 @@ namespace GodsGame
             audioSource.volume = startVolume;
         }
 
-        //to test the transitions
+
+        // ************************ TESTING PURPOSES ************************ //
+
+        /*
         public void test()
         {
+            playAudio(AudioTrack.Fight);
             StartCoroutine(Test1());
         }
 
-        IEnumerator Test1()
+        public IEnumerator Test1()
         {
             yield return new WaitForSeconds(6);
             changeAudio(AudioTrack.ThemeSong);
             StartCoroutine(Test2());
         }
 
-        IEnumerator Test2()
+        public IEnumerator Test2()
         {
             yield return new WaitForSeconds(6);
             changeAudio(AudioTrack.Fight);
@@ -174,10 +218,11 @@ namespace GodsGame
 
         }
 
-        IEnumerator Test3()
+        public IEnumerator Test3()
         {
             yield return new WaitForSeconds(6);
-            changeAudio(AudioTrack.ThemeSong);
+            changeAudio(AudioTrack.PauseMenu);
         }
+        */
     }
 }
