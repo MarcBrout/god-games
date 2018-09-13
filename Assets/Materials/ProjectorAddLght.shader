@@ -1,7 +1,7 @@
 ﻿// Upgrade NOTE: replaced '_Projector' with 'unity_Projector'
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Cg projector shader for adding light" {
+Shader "Projector/Addlight" {
    Properties {
       _ShadowTex ("Projected Image", 2D) = "white" {}
    }
