@@ -21,4 +21,9 @@ public static class ExtensionMethods
         trans.localRotation = Quaternion.identity;
         trans.localScale = new Vector3(1, 1, 1);
     }
+
+    public static bool Contain(this LayerMask layermask, int layer)
+    {
+        return layermask == (layermask | (1 << layer));
+    }
 }
