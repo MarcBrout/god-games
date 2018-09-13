@@ -3,13 +3,13 @@
  * By: Demis Terborg
  * 
  * HOWTO: Add AudioClips
- * 1. Name the AudioClip by adding an enum under 'public enum AudioTrack {}'.
- * 2. Declare an AudioClip using the same naming scheme (line 43).
- * 3. Add the AudioClip to the switch case in function 'AudioClip GetAudioClip(AudioTrack track) {}' (line 171).
+ * 1. Name the AudioClip by adding an enum under 'public enum AudioTrack {}' (line 25).
+ * 2. Declare an AudioClip using the same naming scheme (line 45).
+ * 3. Add the AudioClip to the switch case in function 'AudioClip GetAudioClip(AudioTrack track) {}' (line 172).
  * 4. Attach an audio file to the AudioClip by dragging and dropping the file in the inspector view.
  * 
  * HOWTO: Access public methods
- * 1. Make a public reference to this class in your script.
+ * 1. Make a public reference to AudioManager in your script.
  * 2. Drag and drop the AudioManager GameObject onto the reference in the 'Inspector view'.
  * 3. Access the member functions using the member-access operator ( . ) between the object variable name and the member name.
  * 
@@ -41,7 +41,7 @@ namespace GodsGame
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
 
-        // Use same naming scheme as below
+        // Use same naming scheme as below.
         public AudioClip Clip_00, Clip_01, Clip_02;
 
         // Singleton instance.
@@ -53,69 +53,69 @@ namespace GodsGame
         // TODO: add extra param to make FadeOut optional. Get rid of redundant code.
         // Plays AudioClip depending on which clip has been selected.
         // Also checks which AudioSource should be used, to prevent two AudioSources from playing simultaneously.
-        public void playAudio(AudioTrack track)
+        public void playAudio(AudioTrack track, bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
                 audioSource1.clip = GetAudioClip(track);
                 audioSource1.Play();
-                StartCoroutine(FadeIn(audioSource1, timeToFade));
+                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.clip = GetAudioClip(track);
                 audioSource2.Play();
-                StartCoroutine(FadeIn(audioSource2, timeToFade));
+                StartCoroutine(FadeIn(audioSource2, timeToFade, shouldFade));
             }
         }
 
         // TODO: add extra param to make FadeOut optional. Get rid of redundant code.
-        public void stopAudio()
+        public void stopAudio(bool shouldFade = true)
         {
             if (audioSource1Playing)
-            {
-                StartCoroutine(FadeOut(audioSource1, timeToFade));
-            }
+                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
             else
-            {
-                StartCoroutine(FadeOut(audioSource2, timeToFade));
-            }
-        } 
+                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
+        }
 
         // TODO: add extra param to make fadeOut optional. Get rid of redundant code.
-        public void pauseAudio()
+        public void pauseAudio(bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
                 audioSource1.Pause();
+                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.Pause();
+                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
             }
         }
 
         // TODO: add extra param to make fadeIn optional. Get rid of redundant code.
-        public void unPauseAudio()
+        public void unPauseAudio(bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
                 audioSource1.UnPause();
+                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.UnPause();
+                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
             }
         }
 
-        // TODO: Implement coroutine that triggers playAudio when currentAudio.volume < 0.5f //
-        // Checks which AudioSource is currently playing. Fades out the currently played audio,
-        // While fading in the chosen AudioClip.
-        public void changeAudio(AudioTrack track)
+        // TODO: Implement coroutine that triggers playAudio when currentAudio.volume < 0.5f
+        // Checks which AudioSource is currently playing. Fades-out the currently played audio,
+        // While fading-in the chosen AudioClip.
+        public void changeAudio(AudioTrack track, bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
-                StartCoroutine(FadeOut(audioSource1, timeToFade));
+                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
                 playAudio(ref audioSource2, GetAudioClip(track));
 
                 // Sets audioSource2 as primary AudioSource
@@ -123,7 +123,7 @@ namespace GodsGame
             }
             else
             {
-                StartCoroutine(FadeOut(audioSource2, timeToFade));
+                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
                 playAudio(ref audioSource1, GetAudioClip(track));
 
                 // Sets audioSource1 as primary AudioSource
@@ -160,15 +160,15 @@ namespace GodsGame
 
         // TODO: add extra param to make FadeIn optional
         // Used by function ChangeAudio
-        private void playAudio(ref AudioSource audioSource, AudioClip audioClip)
+        private void playAudio(ref AudioSource audioSource, AudioClip audioClip, bool shouldFade = true)
         {
             audioSource.clip = audioClip;
             audioSource.Play();
-            StartCoroutine(FadeIn(audioSource, timeToFade));
+            StartCoroutine(FadeIn(audioSource, timeToFade, shouldFade));
         }
 
         // Returns the AudioClip that corresponds to the enum value.
-        AudioClip GetAudioClip(AudioTrack track)
+        private AudioClip GetAudioClip(AudioTrack track)
         {
             switch (track)
             {
@@ -180,9 +180,16 @@ namespace GodsGame
         }
 
         // Coroutine to fade-in the AudioSource by lowering the volume.
-        private IEnumerator FadeIn(AudioSource audioSource, float timeToFade)
+        private IEnumerator FadeIn(AudioSource audioSource, float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeIn");
+
+            // Early return
+            if (!shouldFade)
+            {
+                audioSource.volume = 1.0f;
+                yield break;
+            }
 
             float startVolume = audioSource.volume;
             audioSource.volume = 0.0f;
@@ -198,9 +205,16 @@ namespace GodsGame
         }
 
         // Coroutine to fade-out the AudioSource by lowering the volume.
-        private IEnumerator FadeOut(AudioSource audioSource, float timeToFade)
+        private IEnumerator FadeOut(AudioSource audioSource, float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeOut");
+
+            // Early return
+            if (!shouldFade)
+            {
+                audioSource.Stop();
+                yield break;
+            }
 
             float startVolume = audioSource.volume;
 
@@ -215,8 +229,17 @@ namespace GodsGame
             audioSource.volume = startVolume;
         }
 
+        private IEnumerator FadeInOut(AudioSource audioSource, float timeToFade)
+        {
+            yield return null;
+        }
 
         // ************************ TESTING PURPOSES ************************ //
+
+        private void Start()
+        {
+            test();
+        }
 
         public void test()
         {
@@ -227,8 +250,9 @@ namespace GodsGame
         public IEnumerator Test1()
         {
             yield return new WaitForSeconds(6);
-            changeAudio(AudioTrack.ThemeSong);
-            StartCoroutine(Test2());
+            //changeAudio(AudioTrack.ThemeSong);
+            stopAudio(false);
+            //StartCoroutine(Test2());
         }
 
         public IEnumerator Test2()
