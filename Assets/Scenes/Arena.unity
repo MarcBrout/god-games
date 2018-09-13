@@ -546,7 +546,6 @@ GameObject:
   m_Component:
   - component: {fileID: 705635428}
   - component: {fileID: 705635429}
-  - component: {fileID: 705635430}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -606,19 +605,6 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 108629575}
---- !u!114 &705635430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705635427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0a165fcd7adba43a1e82d3e667dbb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
 --- !u!1 &724476662
 GameObject:
   m_ObjectHideFlags: 0
