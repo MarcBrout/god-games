@@ -73,14 +73,14 @@ namespace GodsGame
         /// <summary>
         /// Call this function when you use the skill to set the cooldown
         /// </summary>
-        public void StartCooldown()
+        public void InitCooldown()
         {
             CooldownEndTime = Time.time + cooldown;
             CurrentCooldownValue = 0;
         }
 
         /// <summary>
-        /// Call this function to set the currentCooldownValue compared to the global cooldown
+        /// Call this function to set the currentCooldownValue compared to the global cooldown the value is between 0 and 1
         /// </summary>
         public void SetCurrentCooldownValue()
         {
@@ -96,15 +96,15 @@ namespace GodsGame
         }
 
         /// <summary>
-        /// Basic implementation of the reload
+        /// Basic implementation of the cooldown mechanics
         /// You can use the function of the class to implement your own
         /// </summary>
         /// <returns></returns>
-        public IEnumerator Reload()
+        public IEnumerator StartCooldown()
         {
             while (!IsFullyCharged())
             {
-                StartCooldown();
+                InitCooldown();
                 while (Time.time < CooldownEndTime)
                 {
                     SetCurrentCooldownValue();
