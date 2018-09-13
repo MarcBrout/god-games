@@ -13,12 +13,6 @@ namespace GodsGame
             this.player = player;
         }
 
-        public void Init()
-        {
-            maxChargeNumber = 3;
-            currentChargeNumber = 3;
-        }
-
         public override void Execute()
         {
             base.Execute();

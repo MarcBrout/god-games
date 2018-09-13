@@ -17,7 +17,7 @@ namespace GodsGame
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             base.OnSLStateNoTransitionUpdate(animator, stateInfo, layerIndex);
-            if (Time.time >= m_MonoBehaviour.Skill.RechargeEnd)
+            if (Time.time >= m_MonoBehaviour.Skill.CooldownEndTime)
             {
                 m_MonoBehaviour.Skill.AddCharge();
                 if (!m_MonoBehaviour.Skill.IsFullyCharged())
@@ -27,7 +27,7 @@ namespace GodsGame
             }
             else
             {
-                m_MonoBehaviour.Skill.SetRechargeValue();
+                m_MonoBehaviour.Skill.SetCurrentCooldownValue();
                 m_MonoBehaviour.UpdateUI();
             }
         }

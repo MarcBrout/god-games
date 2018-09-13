@@ -39,7 +39,7 @@ namespace GodsGame
             if (Skill != null)
             {
                 chargeNumberText.text = Skill.CurrentChargeNumber.ToString();
-                cooldownOverlay.fillAmount = Skill.RechargeValue;
+                cooldownOverlay.fillAmount = Skill.CurrentCooldownValue;
             }
         }
     }
