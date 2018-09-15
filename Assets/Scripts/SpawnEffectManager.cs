@@ -2,17 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEffectManager : MonoBehaviour {
+public class SpawnEffectManager : MonoBehaviour
+{
 
     public List<GameObject> pool;
     public Transform player;
 
-	void Start () {
+    bool check = false;
+    void Start()
+    {
 
-        StartCoroutine(SpawnEffect(0));
-	}
-	
-	public IEnumerator SpawnEffect(int nb)
+        //StartCoroutine(SpawnEffect(0));
+    }
+
+    private void Update()
+    {
+        if (!pool[0].activeSelf && !check)
+        {
+            check = true;
+            StartCoroutine(ActivateIn(pool[0], 0.5f));
+        }
+    }
+
+    public IEnumerator ActivateIn(GameObject go, float s = 1f)
+    {
+        yield return new WaitForSeconds(s);
+        go.SetActive(true);
+        check = false;
+    }
+
+    public IEnumerator SpawnEffect(int nb)
     {
         while (true)
         {

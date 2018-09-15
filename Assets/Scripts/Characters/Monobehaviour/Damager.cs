@@ -20,7 +20,9 @@ namespace GodsGame
         public Collider LastHit { get { return m_LastHit; } }
 
         public int damage = 1;
-        public float activationOffestTime = 0.1f;
+        public bool enableDelayActivationOnStart = false;
+        public float activationDelay = 0.1f;
+        public bool enableDelayDeactivationOnStart = false;
         public float disableAfterSeconds = 3f;
         public bool disableDamageAfterHit = false;
         [Tooltip("If set, an invincible damageable hit will still get the onHit message (but won't loose any life)")]
@@ -32,18 +34,28 @@ namespace GodsGame
         protected Collider m_Collider;
         protected bool m_SpriteOriginallyFlipped;
         protected bool m_CanDamage = true;
-
         protected Transform m_DamagerTransform;
         protected Collider m_LastHit;
-        protected ParticleSystem m_ParticleSystem;
 
-        void Awake()
+        void Start()
+        {
+            Init();
+        }
+
+        private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
         {
             m_DamagerTransform = transform;
-            m_ParticleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
-            m_Collider = GetComponent<Collider>();
-            StartCoroutine(ActivateAfter(m_ParticleSystem.main.startDelay.constant + activationOffestTime));
-            StartCoroutine(DisableAfter(disableAfterSeconds));
+            if (!m_Collider)
+                m_Collider = GetComponent<Collider>();
+            if (enableDelayActivationOnStart)
+                StartCoroutine(ActivateAfter(activationDelay));
+            if (enableDelayDeactivationOnStart)
+                StartCoroutine(DisableAfter(disableAfterSeconds));
         }
 
         public void EnableDamage()
@@ -73,8 +85,6 @@ namespace GodsGame
             if (hittableLayers.Contain(other.gameObject.layer))
             {
                 m_LastHit = other;
-                Debug.Log("LastHit " + m_LastHit.name);
-
                 Damageable damageable = m_LastHit.GetComponent<Damageable>();
                 if (damageable)
                 {
@@ -88,11 +98,6 @@ namespace GodsGame
                     OnNonDamageableHit.Invoke(this);
                 }
             }
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-           
         }
 
         public IEnumerator ActivateAfter(float seconds)

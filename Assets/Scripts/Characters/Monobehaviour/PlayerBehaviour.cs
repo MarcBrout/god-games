@@ -112,7 +112,7 @@ namespace GodsGame
         /// </summary>
         public void Move()
         {
-            Body.MovePosition(Body.position + _Input * moveSpeed * Time.fixedDeltaTime);
+            Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
         }
 
         /// <summary>

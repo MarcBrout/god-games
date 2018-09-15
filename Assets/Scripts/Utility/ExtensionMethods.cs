@@ -26,4 +26,12 @@ public static class ExtensionMethods
     {
         return layermask == (layermask | (1 << layer));
     }
+
+    public static float LerpOverTime(float start, float end, float startTime, float lerpDuration = 1)
+    {
+        float timeSinceStart = Time.time - startTime;
+        float completePercentage = timeSinceStart / lerpDuration;
+        float res = Mathf.Lerp(start, end, completePercentage);
+        return res;
+    }
 }
