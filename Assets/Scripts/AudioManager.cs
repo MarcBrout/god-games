@@ -35,13 +35,16 @@ namespace GodsGame
         // The time it will take to fade in/out a track.
         public float timeToFade;
 
+        // The volume threshold when the next audioSource should fade in. Should be between 0.0f and 1.0f.
+        public float threshold;
+
         // The AudioSource components attached to the AudioManager object.
         public AudioSource audioSource1, audioSource2;
 
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
 
-        // Use same naming scheme as below.
+        // The AudioClip objects. Use same naming scheme as below.
         public AudioClip Clip_00, Clip_01, Clip_02;
 
         // Singleton instance.
@@ -156,6 +159,9 @@ namespace GodsGame
 
             // Sets audioSource1 as primary AudioSource
             audioSource1Playing = true;
+
+            timeToFade = 5.0f;
+            threshold = 0.5f;
         }
 
         // TODO: add extra param to make FadeIn optional
@@ -204,6 +210,35 @@ namespace GodsGame
             audioSource.volume = startVolume;
         }
 
+        // Wait until volume is below threshold before starting FadeIn
+        /*
+        private IEnumerator FadeInWithDelay(AudioSource audioSource, AudioSource audioSource2, float timeToFade, float threshold)
+        {
+            Debug.Log("Start coroutine FadeInWithDelay");
+            float time = Time.time;
+
+            while (audioSource1.volume > threshold)
+            {
+                //Exit Coroutine if it takes longer than timeToFade
+                if (Time.time - time > timeToFade + 1.0f)
+                {
+                    Debug.Log("FadeInOut: timeToFade took too long, exiting Coroutine");
+                    yield break;
+                }
+                yield return null;
+            }
+
+            Debug.Log("Start coroutine FadeInOut from FadeInWithDelay");
+            StartCoroutine(FadeIn(audioSource2, timeToFade));
+        }
+        */
+
+        private IEnumerator WaitBeforeFade()
+        {
+            yield return new WaitForSeconds(timeToFade * threshold);
+
+        }
+
         // Coroutine to fade-out the AudioSource by lowering the volume.
         private IEnumerator FadeOut(AudioSource audioSource, float timeToFade, bool shouldFade = true)
         {
@@ -229,10 +264,6 @@ namespace GodsGame
             audioSource.volume = startVolume;
         }
 
-        private IEnumerator FadeInOut(AudioSource audioSource, float timeToFade)
-        {
-            yield return null;
-        }
 
         // ************************ TESTING PURPOSES ************************ //
 
@@ -250,9 +281,8 @@ namespace GodsGame
         public IEnumerator Test1()
         {
             yield return new WaitForSeconds(6);
-            //changeAudio(AudioTrack.ThemeSong);
-            stopAudio(false);
-            //StartCoroutine(Test2());
+            changeAudio(AudioTrack.ThemeSong);
+            StartCoroutine(Test2());
         }
 
         public IEnumerator Test2()
