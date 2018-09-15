@@ -53,7 +53,6 @@ namespace GodsGame
 
         // ************************ PUBLIC METHODS ************************ //
 
-        // TODO: add extra param to make FadeOut optional. Get rid of redundant code.
         // Plays AudioClip depending on which clip has been selected.
         // Also checks which AudioSource should be used, to prevent two AudioSources from playing simultaneously.
         public void playAudio(AudioTrack track, bool shouldFade = true)
@@ -62,74 +61,70 @@ namespace GodsGame
             {
                 audioSource1.clip = GetAudioClip(track);
                 audioSource1.Play();
-                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.clip = GetAudioClip(track);
                 audioSource2.Play();
-                StartCoroutine(FadeIn(audioSource2, timeToFade, shouldFade));
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
             }
         }
 
-        // TODO: add extra param to make FadeOut optional. Get rid of redundant code.
         public void stopAudio(bool shouldFade = true)
         {
-            if (audioSource1Playing)
-                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
-            else
-                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
+                StartCoroutine(FadeOut(timeToFade, shouldFade));
         }
 
-        // TODO: add extra param to make fadeOut optional. Get rid of redundant code.
         public void pauseAudio(bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
                 audioSource1.Pause();
-                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
+                StartCoroutine(FadeOut(timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.Pause();
-                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
+                StartCoroutine(FadeOut(timeToFade, shouldFade));
             }
         }
 
-        // TODO: add extra param to make fadeIn optional. Get rid of redundant code.
         public void unPauseAudio(bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
                 audioSource1.UnPause();
-                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
             }
             else
             {
                 audioSource2.UnPause();
-                StartCoroutine(FadeIn(audioSource1, timeToFade, shouldFade));
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
             }
         }
 
-        // TODO: Implement coroutine that triggers playAudio when currentAudio.volume < 0.5f
         // Checks which AudioSource is currently playing. Fades-out the currently played audio,
         // While fading-in the chosen AudioClip.
         public void changeAudio(AudioTrack track, bool shouldFade = true)
         {
             if (audioSource1Playing)
             {
-                StartCoroutine(FadeOut(audioSource1, timeToFade, shouldFade));
-                playAudio(ref audioSource2, GetAudioClip(track));
+                StartCoroutine(FadeOut(timeToFade, shouldFade));
+
+                // Load the AudioClip in available AudioSource
+                audioSource2.clip = GetAudioClip(track);
+                StartCoroutine(WaitBeforeFadeIn(timeToFade, shouldFade));
 
                 // Sets audioSource2 as primary AudioSource
                 audioSource1Playing = false;
             }
             else
             {
-                StartCoroutine(FadeOut(audioSource2, timeToFade, shouldFade));
-                playAudio(ref audioSource1, GetAudioClip(track));
+                StartCoroutine(FadeOut(timeToFade, shouldFade));
+                audioSource1.clip = GetAudioClip(track);
+                StartCoroutine(WaitBeforeFadeIn(timeToFade, shouldFade));
 
-                // Sets audioSource1 as primary AudioSource
                 audioSource1Playing = true;
             }
         }
@@ -160,17 +155,9 @@ namespace GodsGame
             // Sets audioSource1 as primary AudioSource
             audioSource1Playing = true;
 
-            timeToFade = 5.0f;
+            // Default values
+            timeToFade = 3.0f;
             threshold = 0.5f;
-        }
-
-        // TODO: add extra param to make FadeIn optional
-        // Used by function ChangeAudio
-        private void playAudio(ref AudioSource audioSource, AudioClip audioClip, bool shouldFade = true)
-        {
-            audioSource.clip = audioClip;
-            audioSource.Play();
-            StartCoroutine(FadeIn(audioSource, timeToFade, shouldFade));
         }
 
         // Returns the AudioClip that corresponds to the enum value.
@@ -186,82 +173,118 @@ namespace GodsGame
         }
 
         // Coroutine to fade-in the AudioSource by lowering the volume.
-        private IEnumerator FadeIn(AudioSource audioSource, float timeToFade, bool shouldFade = true)
+        private IEnumerator FadeIn(float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeIn");
 
-            // Early return
-            if (!shouldFade)
+            if (audioSource1Playing)
             {
-                audioSource.volume = 1.0f;
-                yield break;
-            }
-
-            float startVolume = audioSource.volume;
-            audioSource.volume = 0.0f;
-
-            while (audioSource.volume < 1)
-            {
-                audioSource.volume += startVolume * Time.deltaTime / timeToFade;
-
-                yield return null;
-            }
-
-            audioSource.volume = startVolume;
-        }
-
-        // Wait until volume is below threshold before starting FadeIn
-        /*
-        private IEnumerator FadeInWithDelay(AudioSource audioSource, AudioSource audioSource2, float timeToFade, float threshold)
-        {
-            Debug.Log("Start coroutine FadeInWithDelay");
-            float time = Time.time;
-
-            while (audioSource1.volume > threshold)
-            {
-                //Exit Coroutine if it takes longer than timeToFade
-                if (Time.time - time > timeToFade + 1.0f)
+                // No fade added, early return
+                if (!shouldFade)
                 {
-                    Debug.Log("FadeInOut: timeToFade took too long, exiting Coroutine");
+                    audioSource1.volume = 1.0f;
                     yield break;
                 }
-                yield return null;
+
+                float startVolume = audioSource1.volume;
+                audioSource1.volume = 0.0f;
+
+                while (audioSource1.volume < 1)
+                {
+                    audioSource1.volume += startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                audioSource1.volume = startVolume;
             }
+            else
+            {
+                // No fade added, early return
+                if (!shouldFade)
+                {
+                    audioSource2.volume = 1.0f;
+                    yield break;
+                }
 
-            Debug.Log("Start coroutine FadeInOut from FadeInWithDelay");
-            StartCoroutine(FadeIn(audioSource2, timeToFade));
+                float startVolume = audioSource2.volume;
+                audioSource2.volume = 0.0f;
+
+                while (audioSource2.volume < 1)
+                {
+                    audioSource2.volume += startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                audioSource2.volume = startVolume;
+            }
         }
-        */
 
-        private IEnumerator WaitBeforeFade()
+        // Wait for volume to reach certain threshold before fading in 
+        private IEnumerator WaitBeforeFadeIn(float timeToFade, bool shouldFade)
         {
             yield return new WaitForSeconds(timeToFade * threshold);
 
+            if (audioSource1Playing)
+            {
+                audioSource1.Play();
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
+            }
+            else
+            {
+                audioSource2.Play();
+                StartCoroutine(FadeIn(timeToFade, shouldFade));
+            }
         }
 
         // Coroutine to fade-out the AudioSource by lowering the volume.
-        private IEnumerator FadeOut(AudioSource audioSource, float timeToFade, bool shouldFade = true)
+        private IEnumerator FadeOut(float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeOut");
 
-            // Early return
-            if (!shouldFade)
+            if (audioSource1Playing)
             {
-                audioSource.Stop();
-                yield break;
+                // Early return
+                if (!shouldFade)
+                {
+                    audioSource1.Stop();
+                    yield break;
+                }
+
+                float startVolume = audioSource1.volume;
+
+                while (audioSource1.volume > 0)
+                {
+                    audioSource1.volume -= startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                audioSource1.Stop();
+                audioSource1.volume = startVolume;
             }
-
-            float startVolume = audioSource.volume;
-
-            while (audioSource.volume > 0)
+            else
             {
-                audioSource.volume -= startVolume * Time.deltaTime / timeToFade;
+                // Early return
+                if (!shouldFade)
+                {
+                    audioSource2.Stop();
+                    yield break;
+                }
 
-                yield return null;
+                float startVolume = audioSource2.volume;
+
+                while (audioSource2.volume > 0)
+                {
+                    audioSource2.volume -= startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                audioSource2.Stop();
+                audioSource2.volume = startVolume;
             }
-
-            audioSource.Stop();
-            audioSource.volume = startVolume;
         }
 
 
@@ -274,20 +297,23 @@ namespace GodsGame
 
         public void test()
         {
+            Debug.Log("In function test()");
             playAudio(AudioTrack.Fight);
             StartCoroutine(Test1());
         }
 
         public IEnumerator Test1()
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(13);
+            Debug.Log("In IEnumerator Test1");
             changeAudio(AudioTrack.ThemeSong);
             StartCoroutine(Test2());
         }
 
         public IEnumerator Test2()
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(13);
+            Debug.Log("In IEnumerator Test2");
             changeAudio(AudioTrack.Fight);
             StartCoroutine(Test3());
 
@@ -295,7 +321,8 @@ namespace GodsGame
 
         public IEnumerator Test3()
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(13);
+            Debug.Log("In IEnumerator Test3");
             changeAudio(AudioTrack.PauseMenu);
         }
     }
