@@ -44,12 +44,9 @@ namespace GodsGame
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
 
-        // The AudioClip objects. Use same naming scheme as below.
+        // The AudioClip objects. 
         public AudioClip[] Music;
         public AudioClip[] Dash;
-
-        public AudioClip RandomClip;
-        
 
         // Singleton instance.
         public static AudioManager instance = null;
@@ -73,6 +70,12 @@ namespace GodsGame
                 audioSource2.Play();
                 StartCoroutine(FadeIn(timeToFade, shouldFade));
             }
+        }
+
+        public void PlayRandomAudio()
+        {
+            audioSource3.clip = Dash[Random.Range(0, Dash.Length)];
+            audioSource3.Play();
         }
 
         public void stopAudio(bool shouldFade = true)
@@ -277,7 +280,8 @@ namespace GodsGame
 
         private void Start()
         {
-            test();
+            //test();
+            PlayRandomAudio();
         }
 
         public void test()
