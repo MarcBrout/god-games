@@ -39,13 +39,17 @@ namespace GodsGame
         public float threshold;
 
         // The AudioSource components attached to the AudioManager object.
-        public AudioSource audioSource1, audioSource2;
+        public AudioSource audioSource1, audioSource2, audioSource3;
 
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
 
         // The AudioClip objects. Use same naming scheme as below.
-        public AudioClip Clip_00, Clip_01, Clip_02;
+        public AudioClip[] Music;
+        public AudioClip[] Dash;
+
+        public AudioClip RandomClip;
+        
 
         // Singleton instance.
         public static AudioManager instance = null;
@@ -76,32 +80,20 @@ namespace GodsGame
                 StartCoroutine(FadeOut(timeToFade, shouldFade));
         }
 
-        public void pauseAudio(bool shouldFade = true)
+        public void pauseAudio()
         {
             if (audioSource1Playing)
-            {
                 audioSource1.Pause();
-                StartCoroutine(FadeOut(timeToFade, shouldFade));
-            }
             else
-            {
                 audioSource2.Pause();
-                StartCoroutine(FadeOut(timeToFade, shouldFade));
-            }
         }
 
-        public void unPauseAudio(bool shouldFade = true)
+        public void unPauseAudio()
         {
             if (audioSource1Playing)
-            {
                 audioSource1.UnPause();
-                StartCoroutine(FadeIn(timeToFade, shouldFade));
-            }
             else
-            {
                 audioSource2.UnPause();
-                StartCoroutine(FadeIn(timeToFade, shouldFade));
-            }
         }
 
         // Checks which AudioSource is currently playing. Fades-out the currently played audio,
@@ -111,12 +103,9 @@ namespace GodsGame
             if (audioSource1Playing)
             {
                 StartCoroutine(FadeOut(timeToFade, shouldFade));
-
-                // Load the AudioClip in available AudioSource
                 audioSource2.clip = GetAudioClip(track);
                 StartCoroutine(WaitBeforeFadeIn(timeToFade, shouldFade));
 
-                // Sets audioSource2 as primary AudioSource
                 audioSource1Playing = false;
             }
             else
@@ -154,10 +143,6 @@ namespace GodsGame
 
             // Sets audioSource1 as primary AudioSource
             audioSource1Playing = true;
-
-            // Default values
-            timeToFade = 3.0f;
-            threshold = 0.5f;
         }
 
         // Returns the AudioClip that corresponds to the enum value.
@@ -165,9 +150,9 @@ namespace GodsGame
         {
             switch (track)
             {
-                case AudioTrack.ThemeSong: return Clip_00;
-                case AudioTrack.Fight: return Clip_01;
-                case AudioTrack.PauseMenu: return Clip_02;
+                case AudioTrack.ThemeSong: return Music[0];
+                case AudioTrack.Fight: return Music[1];
+                case AudioTrack.PauseMenu: return Music[2];
                 default: return null;
             }
         }
@@ -245,7 +230,7 @@ namespace GodsGame
 
             if (audioSource1Playing)
             {
-                // Early return
+                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource1.Stop();
@@ -266,7 +251,7 @@ namespace GodsGame
             }
             else
             {
-                // Early return
+                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource2.Stop();
@@ -304,7 +289,7 @@ namespace GodsGame
 
         public IEnumerator Test1()
         {
-            yield return new WaitForSeconds(13);
+            yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test1");
             changeAudio(AudioTrack.ThemeSong);
             StartCoroutine(Test2());
@@ -312,7 +297,7 @@ namespace GodsGame
 
         public IEnumerator Test2()
         {
-            yield return new WaitForSeconds(13);
+            yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test2");
             changeAudio(AudioTrack.Fight);
             StartCoroutine(Test3());
@@ -321,7 +306,7 @@ namespace GodsGame
 
         public IEnumerator Test3()
         {
-            yield return new WaitForSeconds(13);
+            yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test3");
             changeAudio(AudioTrack.PauseMenu);
         }
