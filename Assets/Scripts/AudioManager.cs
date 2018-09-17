@@ -3,10 +3,9 @@
  * By: Demis Terborg
  * 
  * HOWTO: Add AudioClips
- * 1. Name the AudioClip by adding an enum under 'public enum AudioTrack {}' (line 25).
- * 2. Declare an AudioClip using the same naming scheme (line 45).
- * 3. Add the AudioClip to the switch case in function 'AudioClip GetAudioClip(AudioTrack track) {}' (line 172).
- * 4. Attach an audio file to the AudioClip by dragging and dropping the file in the inspector view.
+ * 1. (optional) declare an AudioClip array, or alternatively use an existing AudioClip array
+ * 2. Attach an audio file to the AudioClip by dragging and dropping the file in the inspector view.
+ * 3. Add the AudioClip to the switch case in function 'AudioClip GetAudioClip(AudioTrack track) {}' (line 151).
  * 
  * HOWTO: Access public methods
  * 1. Make a public reference to AudioManager in your script.
@@ -38,8 +37,11 @@ namespace GodsGame
         // The volume threshold when the next audioSource should fade in. Should be between 0.0f and 1.0f.
         public float threshold;
 
-        // The AudioSource components attached to the AudioManager object.
-        public AudioSource audioSource1, audioSource2, audioSource3;
+        // The AudioSource components for switching between audio
+        public AudioSource audioSource1, audioSource2;
+
+        // AudioSource used for playing random effects
+        public AudioSource audioSource3;
 
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
@@ -133,7 +135,6 @@ namespace GodsGame
 
         // ************************ PRIVATE METHODS ************************ //
 
-        // Allows only one instance of AudioManager
         private void Awake()
         {
             if (instance == null)
@@ -141,10 +142,8 @@ namespace GodsGame
             else if (instance != this)
                 Destroy(gameObject);
 
-            // Set AudioManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
             DontDestroyOnLoad(gameObject);
 
-            // Sets audioSource1 as primary AudioSource
             audioSource1Playing = true;
         }
 
@@ -160,14 +159,12 @@ namespace GodsGame
             }
         }
 
-        // Coroutine to fade-in the AudioSource by lowering the volume.
         private IEnumerator FadeIn(float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeIn");
 
             if (audioSource1Playing)
             {
-                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource1.volume = 1.0f;
@@ -188,7 +185,6 @@ namespace GodsGame
             }
             else
             {
-                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource2.volume = 1.0f;
@@ -209,7 +205,6 @@ namespace GodsGame
             }
         }
 
-        // Wait for volume to reach certain threshold before fading in 
         private IEnumerator WaitBeforeFadeIn(float timeToFade, bool shouldFade)
         {
             yield return new WaitForSeconds(timeToFade * threshold);
@@ -226,14 +221,12 @@ namespace GodsGame
             }
         }
 
-        // Coroutine to fade-out the AudioSource by lowering the volume.
         private IEnumerator FadeOut(float timeToFade, bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeOut");
 
             if (audioSource1Playing)
             {
-                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource1.Stop();
@@ -254,7 +247,6 @@ namespace GodsGame
             }
             else
             {
-                // No fade added, early return
                 if (!shouldFade)
                 {
                     audioSource2.Stop();
@@ -281,7 +273,7 @@ namespace GodsGame
         private void Start()
         {
             //test();
-            PlayRandomAudio();
+            //PlayRandomAudio();
         }
 
         public void test()
