@@ -11,7 +11,7 @@ namespace GodsGame
         {
             base.OnSLStateEnter(animator, stateInfo, layerIndex);
             if (!m_MonoBehaviour.Skill.IsFullyCharged())
-                m_MonoBehaviour.Skill.StartCooldown();
+                m_MonoBehaviour.Skill.InitCooldown();
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -21,7 +21,7 @@ namespace GodsGame
             {
                 m_MonoBehaviour.Skill.AddCharge();
                 if (!m_MonoBehaviour.Skill.IsFullyCharged())
-                    m_MonoBehaviour.Skill.StartCooldown();
+                    m_MonoBehaviour.Skill.InitCooldown();
                 else
                     m_MonoBehaviour.TransitionToCooldownEnd();
             }
