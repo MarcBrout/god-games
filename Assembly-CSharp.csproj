@@ -68,34 +68,40 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\SceneLinkedSMB.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\Traps\PressureplateScript.cs" />
+    <Compile Include="Assets\Scripts\Traps\PressurplateColorScript.cs" />
+    <Compile Include="Assets\Scripts\Traps\PressurplateTriggerScript.cs" />
+    <Compile Include="Assets\Scripts\Traps\SpikesAnimationTriggerScript.cs" />
+    <Compile Include="Assets\Scripts\Traps\SpikeTrapScript.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapManagerScript.cs" />
     <Compile Include="Assets\Scripts\Utility\ExtensionMethods.cs" />
     <Compile Include="Assets\Scripts\Utility\InputBuffer.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
     <None Include="Assets\cMonkeys\cInput\Documentation\changelog.txt" />
     <None Include="Assets\cMonkeys\cInput\Documentation\readme (seriously).txt" />
     <Reference Include="Cinemachine">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Editor">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/com.unity.postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -296,13 +302,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="cInput">
-      <HintPath>C:/Users/Mathieu/Documents/Unity/god-games/Assets/cMonkeys/cInput/cInput.dll</HintPath>
+      <HintPath>C:/Users/timg0/OneDrive/Documents/git/god-games/Assets/cMonkeys/cInput/cInput.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Mathieu/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/timg0/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Mathieu/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/timg0/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
