@@ -21,4 +21,17 @@ public static class ExtensionMethods
         trans.localRotation = Quaternion.identity;
         trans.localScale = new Vector3(1, 1, 1);
     }
+
+    public static bool Contain(this LayerMask layermask, int layer)
+    {
+        return layermask == (layermask | (1 << layer));
+    }
+
+    public static float LerpOverTime(float start, float end, float startTime, float lerpDuration = 1)
+    {
+        float timeSinceStart = Time.time - startTime;
+        float completePercentage = timeSinceStart / lerpDuration;
+        float res = Mathf.Lerp(start, end, completePercentage);
+        return res;
+    }
 }
