@@ -1,0 +1,26 @@
+tree "Root"
+	sequence
+		AcquireNewTarget
+		fallback
+			tree("__ChargeTarget__")
+			tree("__MoveTowardTarget__")
+			tree("__AttackTarget__")
+			tree("__idle__")
+
+tree "__ChargeTarget__"
+	sequence
+		CanChargeTarget
+		ChargeTarget
+
+tree "__MoveTowardTarget__"
+	sequence
+		IsTooFarFromTarget
+		MoveTowardTarget
+
+tree "__AttackTarget__"
+	sequence
+		CanAttackTarget
+		AttackTarget
+
+tree "__idle__"
+	Idle
