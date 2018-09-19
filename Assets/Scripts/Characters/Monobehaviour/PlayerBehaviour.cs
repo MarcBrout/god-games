@@ -10,7 +10,7 @@ namespace GodsGame
     [RequireComponent(typeof(Animator))]
     public class PlayerBehaviour : MonoBehaviour
     {
-        #region Public
+        #region public Var
         public float moveSpeed = 5f;
         public float turnSpeed = 10f;
         public float jumpHeight = 2f;
@@ -28,7 +28,7 @@ namespace GodsGame
         public string dashButton = "Dash_P1";
         #endregion
 
-        #region Private
+        #region private Var
         [Space]
         private Transform _GroundChecker;
         private Vector3 _Input;
@@ -37,7 +37,7 @@ namespace GodsGame
         private Animator _Animator;
         #endregion
 
-        #region protected
+        #region protected var
         protected readonly int _HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
         protected readonly int _HashVerticalSpeedPara = Animator.StringToHash("VerticalSpeed");
         protected readonly int _HashJumpSpeedPara = Animator.StringToHash("JumpSpeed");
@@ -49,7 +49,7 @@ namespace GodsGame
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
         #endregion
 
-        #region Property
+        #region properties
         public Rigidbody Body { get; private set; }
         public Vector3 CInput { get { return _Input; } }
         public DashSkill DashSkill { get; protected set; }
