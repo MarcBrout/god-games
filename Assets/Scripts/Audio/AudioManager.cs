@@ -18,6 +18,8 @@ namespace GodsGame
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
 
+        public float timeToFade, threshold;
+
 
         // ************************ PUBLIC METHODS ************************ //
 
@@ -136,6 +138,62 @@ namespace GodsGame
                     Debug.LogWarning("Sound: " + name + " not found!");
                     return null;
             }
+        }
+
+        private IEnumerator FadeIn(float timeToFade, bool shouldFade = true)
+        {
+            Debug.Log("Start coroutine FadeIn");
+
+            if (!shouldFade)
+            {
+                sfx.source.volume = 1.0f;
+                yield break;
+            }
+
+            float startVolume = sfx.source.volume;
+            sfx.source.volume = 0.0f;
+
+            while (sfx.source.volume < 1)
+            {
+                sfx.source.volume += startVolume * Time.deltaTime / timeToFade;
+
+                yield return null;
+            }
+
+            sfx.source.volume = startVolume;
+        }
+
+        private IEnumerator WaitBeforeFadeIn(float timeToFade, bool shouldFade)
+        {
+            Debug.Log("Start coroutine WaitBeforeFadeIn");
+
+            yield return new WaitForSeconds(timeToFade * threshold);
+
+            sfx.source.Play();
+            StartCoroutine(FadeIn(timeToFade, shouldFade));
+        }
+
+        private IEnumerator FadeOut(float timeToFade, bool shouldFade = true)
+        {
+            Debug.Log("Start coroutine FadeOut");
+
+            if (!shouldFade)
+            {
+                sfx.source.Stop();
+                yield break;
+            }
+
+            float startVolume = sfx.source.volume;
+
+            while (sfx.source.volume > 0)
+            {
+                sfx.source.volume -= startVolume * Time.deltaTime / timeToFade;
+
+                yield return null;
+            }
+
+            sfx.source.Stop();
+            sfx.source.volume = startVolume;
         }
 
         void Start()
