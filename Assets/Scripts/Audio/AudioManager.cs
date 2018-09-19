@@ -35,9 +35,9 @@ namespace GodsGame
             sfx.source.Play();
         }
 
-        public void Pause(string sound)
+        public void Pause(string sound, string soundArr)
         {
-            sfx = Array.Find(animation, item => item.name == sound);
+            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
             if (sfx == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
@@ -47,9 +47,9 @@ namespace GodsGame
             sfx.source.Pause();
         }
 
-        public void UnPause(string sound)
+        public void UnPause(string sound, string soundArr)
         {
-            sfx = Array.Find(animation, item => item.name == sound);
+            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
             if (sfx == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
@@ -59,16 +59,16 @@ namespace GodsGame
             sfx.source.UnPause();
         }
 
-        public void Stop(string sound)
+        public void Stop(string sound, string soundArr)
         {
-            sfx = Array.Find(animation, item => item.name == sound);
+            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
             if (sfx == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return;
             }
 
-
+            sfx.source.Stop();
         }
 
         public void ChangeAudio(string sound)
