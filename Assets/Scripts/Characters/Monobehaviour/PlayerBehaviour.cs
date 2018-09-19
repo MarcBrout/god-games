@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using SceneLinkedSMB;
+
 namespace GodsGame
 {
     [RequireComponent(typeof(Damageable))]
     [RequireComponent(typeof(Animator))]
     public class PlayerBehaviour : MonoBehaviour
     {
+        #region Public
         public float moveSpeed = 5f;
         public float turnSpeed = 10f;
         public float jumpHeight = 2f;
@@ -23,16 +26,18 @@ namespace GodsGame
         public string rHorizontalAxis = "RHorizontal_P1";
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
+        #endregion
 
+        #region Private
         [Space]
-        public CooldownSkillUI dashSkillUI;
         private Transform _GroundChecker;
         private Vector3 _Input;
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
-        private DashSkill _DashSkill;
+        #endregion
 
+        #region protected
         protected readonly int _HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
         protected readonly int _HashVerticalSpeedPara = Animator.StringToHash("VerticalSpeed");
         protected readonly int _HashJumpSpeedPara = Animator.StringToHash("JumpSpeed");
@@ -42,17 +47,19 @@ namespace GodsGame
         protected readonly int _HashUseItemPara = Animator.StringToHash("UseItem");
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
+        #endregion
 
+        #region Property
         public Rigidbody Body { get; private set; }
         public Vector3 CInput { get { return _Input; } }
-
+        public DashSkill DashSkill { get; protected set; }
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
             set { _Animator.SetBool(_HashGroundedPara, value); }
         }
-
         public Damageable Damageable { get; private set; }
+        #endregion
 
         void Start()
         {
@@ -61,38 +68,13 @@ namespace GodsGame
             _Camera = Camera.main;
             _Animator = GetComponent<Animator>();
             Damageable = GetComponent<Damageable>();
-            _DashSkill = new DashSkill(this);
-            dashSkillUI.Skill = _DashSkill;
+            DashSkill = new DashSkill(this);
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
         public void CheckForGrounded()
         {
             IsGrounded = Physics.CheckSphere(_GroundChecker.position, groundDistance, ground);
-        }
-
-        void Update()
-        {
-            //GetInput();
-            //RotateAim();
-            //if (_input == Vector3.zero ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.NorthEstVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.forward) || _inputBuffer.IsInputBuffered(Vector3.right))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.NorthWestVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.forward) || _inputBuffer.IsInputBuffered(Vector3.left))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.SouthEstVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.back) || _inputBuffer.IsInputBuffered(Vector3.right))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.SouthWestVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.back) || _inputBuffer.IsInputBuffered(Vector3.left))))
-            //    return;
-
-            //CalculateDirection();
-            //Rotate();
-            //Jump();
-            //Dash();
-        }
-
-
-        void FixedUpdate()
-        {
-            //if (_Input == Vector3.zero) return;
-            //Move();
         }
 
         /// <summary>
@@ -138,7 +120,7 @@ namespace GodsGame
         /// </summary>
         public bool CheckForDashInput()
         {
-            return cInput.GetButtonDown(dashButton) && _DashSkill.CanUse();
+            return cInput.GetButtonDown(dashButton) && DashSkill.CanUse();
         }
 
         /// <summary>
@@ -151,7 +133,7 @@ namespace GodsGame
 
         public void Dash()
         {
-            _DashSkill.Execute();
+            DashSkill.Execute();
         }
 
         /// <summary>
