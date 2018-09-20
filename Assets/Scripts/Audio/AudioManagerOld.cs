@@ -29,13 +29,9 @@ namespace GodsGame
     }
 
     [RequireComponent(typeof(AudioSource))]
-    public class AudioManager : MonoBehaviour
+    public class AudioManagerOld : MonoBehaviour
     {
-        // The time it will take to fade in/out a track.
-        public float timeToFade;
-
-        // The volume threshold when the next audioSource should fade in. Should be between 0.0f and 1.0f.
-        public float threshold;
+        public float timeToFade, threshold;
 
         // The AudioSource components for switching between audio
         public AudioSource audioSource1, audioSource2;
@@ -46,12 +42,10 @@ namespace GodsGame
         // A variable to keep track of which AudioSource is currently playing.
         private bool audioSource1Playing;
 
-        // The AudioClip objects. 
-        public AudioClip[] Music;
-        public AudioClip[] Dash;
+        public AudioClip[] Music, Dash;
 
         // Singleton instance.
-        public static AudioManager instance = null;
+        public static AudioManagerOld instance = null;
 
 
         // ************************ PUBLIC METHODS ************************ //
@@ -82,7 +76,7 @@ namespace GodsGame
 
         public void stopAudio(bool shouldFade = true)
         {
-                StartCoroutine(FadeOut(timeToFade, shouldFade));
+            StartCoroutine(FadeOut(timeToFade, shouldFade));
         }
 
         public void pauseAudio()
@@ -272,10 +266,10 @@ namespace GodsGame
 
         private void Start()
         {
-            //test();
-            //PlayRandomAudio();
+            test();
+            PlayRandomAudio();
         }
-
+        
         public void test()
         {
             Debug.Log("In function test()");
@@ -306,5 +300,6 @@ namespace GodsGame
             Debug.Log("In IEnumerator Test3");
             changeAudio(AudioTrack.PauseMenu);
         }
+        
     }
 }
