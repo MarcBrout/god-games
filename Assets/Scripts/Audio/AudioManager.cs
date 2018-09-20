@@ -33,7 +33,7 @@ namespace GodsGame
             sfx.source.Play();
         }
 
-        public void PlayBackground(string sound, string soundArr, bool shouldFade = true)
+        public void PlayBackground(string sound, string soundArr)
         {
             if (backgroundMusic1IsPlaying)
             {
@@ -71,9 +71,24 @@ namespace GodsGame
                 backgroundMusic2.source.Stop();
         }
 
-        public void ChangeAudio(string sound)
+        public void ChangeBackGround(string sound, string soundArr)
         {
+            if (backgroundMusic1IsPlaying)
+            {
+                StartCoroutine(FadeOut());
+                backgroundMusic2 = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+                StartCoroutine(WaitBeforeFadeIn());
 
+                backgroundMusic1IsPlaying = false;
+            }
+            else
+            {
+                StartCoroutine(FadeOut());
+                backgroundMusic1 = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+                StartCoroutine(WaitBeforeFadeIn());
+
+                backgroundMusic1IsPlaying = true;
+            }
         }
 
 
@@ -140,60 +155,79 @@ namespace GodsGame
             }
         }
 
-        private IEnumerator FadeIn(float timeToFade, bool shouldFade = true)
+        private IEnumerator FadeIn(bool shouldFade = true)
         {
             Debug.Log("Start coroutine FadeIn");
 
-            if (!shouldFade)
+            if (backgroundMusic1IsPlaying)
             {
-                sfx.source.volume = 1.0f;
-                yield break;
+                float startVolume = 1.0f;
+                backgroundMusic1.source.volume = 0.0f;
+                backgroundMusic1.source.Play();
+
+                while (backgroundMusic1.source.volume < startVolume)
+                {
+                    backgroundMusic1.source.volume += startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
             }
-
-            float startVolume = sfx.source.volume;
-            sfx.source.volume = 0.0f;
-
-            while (sfx.source.volume < 1)
+            else
             {
-                sfx.source.volume += startVolume * Time.deltaTime / timeToFade;
+                float startVolume = 1.0f;
+                backgroundMusic2.source.volume = 0.0f;
+                backgroundMusic2.source.Play();
 
-                yield return null;
+                while (backgroundMusic2.source.volume < startVolume)
+                {
+                    backgroundMusic2.source.volume += startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
             }
-
-            sfx.source.volume = startVolume;
         }
 
-        private IEnumerator WaitBeforeFadeIn(float timeToFade, bool shouldFade)
+        private IEnumerator WaitBeforeFadeIn(bool shouldFade = true)
         {
             Debug.Log("Start coroutine WaitBeforeFadeIn");
 
             yield return new WaitForSeconds(timeToFade * threshold);
 
-            sfx.source.Play();
-            StartCoroutine(FadeIn(timeToFade, shouldFade));
+            StartCoroutine(FadeIn());
         }
 
-        private IEnumerator FadeOut(float timeToFade, bool shouldFade = true)
+        private IEnumerator FadeOut()
         {
             Debug.Log("Start coroutine FadeOut");
 
-            if (!shouldFade)
+            if (backgroundMusic1IsPlaying)
             {
-                sfx.source.Stop();
-                yield break;
+                float startVolume = backgroundMusic1.source.volume;
+
+                while (backgroundMusic1.source.volume > 0)
+                {
+                    backgroundMusic1.source.volume -= startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                backgroundMusic1.source.Stop();
+                backgroundMusic1.source.volume = startVolume;
             }
-
-            float startVolume = sfx.source.volume;
-
-            while (sfx.source.volume > 0)
+            else
             {
-                sfx.source.volume -= startVolume * Time.deltaTime / timeToFade;
+                float startVolume = backgroundMusic2.source.volume;
 
-                yield return null;
+                while (backgroundMusic2.source.volume > 0)
+                {
+                    backgroundMusic2.source.volume -= startVolume * Time.deltaTime / timeToFade;
+
+                    yield return null;
+                }
+
+                backgroundMusic2.source.Stop();
+                backgroundMusic2.source.volume = startVolume;
             }
-
-            sfx.source.Stop();
-            sfx.source.volume = startVolume;
         }
 
 
@@ -201,7 +235,7 @@ namespace GodsGame
 
         void Start()
         {
-            Test();
+            //Test();
         }
 
         public void Test()
@@ -215,7 +249,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test1");
-            PauseBackground();
+            ChangeBackGround("animation_cavern_view", "animation");
             StartCoroutine(Test2());
         }
 
@@ -223,7 +257,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test2");
-            UnPauseBackground();
+            ChangeBackGround("animation_corridor_walking", "animation");
             StartCoroutine(Test3());
 
         }
@@ -232,7 +266,6 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test3");
-            StopBackground();
         }
     }
 }
