@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
             cInput.SetKey("Up_P2", "Joy2 Axis 2-");
             cInput.SetKey("Down_P1", "Joy1 Axis 2+");
             cInput.SetKey("Down_P2", "Joy2 Axis 2+");
-            cInput.SetKey("Left_P1", "Joy1 Axis 1- ");
+            cInput.SetKey("Left_P1", "Joy1 Axis 1-");
             cInput.SetKey("Left_P2", "Joy2 Axis 1-");
             cInput.SetKey("Right_P1", "Joy1 Axis 1+");
             cInput.SetKey("Right_P2", "Joy2 Axis 1+");
