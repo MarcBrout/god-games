@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &246484959
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &504185635
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,111 +232,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &873877588
+--- !u!1 &665460978
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 873877590}
-  - component: {fileID: 873877589}
+  - component: {fileID: 665460980}
+  - component: {fileID: 665460979}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: SwitchScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &873877589
+--- !u!114 &665460979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 873877588}
+  m_GameObject: {fileID: 665460978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa08ac4019f12247a5fc7c6ef250d73, type: 3}
+  m_Script: {fileID: 11500000, guid: ef6b0aed83de6d14c8526f239d390d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
-  timeToFade: 3
-  threshold: 0.5
-  animation:
-  - name: animation_arena_entering
-    clip: {fileID: 8300000, guid: 8eb253d80ae830849b6be3b3495522cd, type: 3}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: animation_cavern_view
-    clip: {fileID: 8300000, guid: 35e0ddd821dd80e46a1546c3ea10f5fc, type: 3}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: animation_corridor_walking
-    clip: {fileID: 8300000, guid: 3726086529d5ff2449b366b6fb341d7b, type: 3}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  arena_ambience:
-  - name: arena_bird_01
-    clip: {fileID: 8300000, guid: b0f458b35208423409f217dfa7a86c9e, type: 3}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  arena_battle_music: []
-  arena_events: []
-  items_common: []
-  items_sword: []
-  minotaur: []
-  player_dash: []
-  player_death: []
-  player_hit: []
-  player_run: []
-  player_walk: []
-  zeus: []
---- !u!4 &873877590
+--- !u!4 &665460980
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 873877588}
+  m_GameObject: {fileID: 665460978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1870148591
 GameObject:

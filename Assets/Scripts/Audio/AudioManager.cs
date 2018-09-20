@@ -235,7 +235,7 @@ namespace GodsGame
 
         void Start()
         {
-            //Test();
+            Test();
         }
 
         public void Test()
@@ -247,7 +247,7 @@ namespace GodsGame
 
         public IEnumerator Test1()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
             Debug.Log("In IEnumerator Test1");
             ChangeBackGround("animation_cavern_view", "animation");
             StartCoroutine(Test2());
