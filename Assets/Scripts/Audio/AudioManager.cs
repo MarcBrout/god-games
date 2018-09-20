@@ -1,3 +1,5 @@
+// Audiomanager 
+
 using UnityEngine.Audio;
 using System;
 using System.Collections;
@@ -11,12 +13,12 @@ namespace GodsGame
 
         public static AudioManager instance;
 
-        public AudioMixerGroup mixerGroup;
+        public AudioMixerGroup music, effects;
 
         public float timeToFade, threshold;
 
         public Sound[] animation, arena_ambience, arena_battle_music
-            , arena_events, items_common, items_sword, minotaur, player_dash
+            , arena_events, items_common, pressure_plates, items_sword, minotaur, player_dash
             , player_death, player_hit, player_run, player_walk, zeus;
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
@@ -107,30 +109,39 @@ namespace GodsGame
             }
 
             //Initialize all the sounds with their own AudioSource
-            InitializeSoundArray(animation);
-            InitializeSoundArray(arena_ambience);
-            InitializeSoundArray(arena_battle_music);
-            InitializeSoundArray(arena_events);
-            InitializeSoundArray(items_common);
-            InitializeSoundArray(items_sword);
-            InitializeSoundArray(minotaur);
-            InitializeSoundArray(player_dash);
-            InitializeSoundArray(player_death);
-            InitializeSoundArray(player_hit);
-            InitializeSoundArray(player_run);
-            InitializeSoundArray(player_walk);
-            InitializeSoundArray(zeus);
+            InitializeSoundArray(animation, MixerGroup.Music);
+            InitializeSoundArray(arena_ambience, MixerGroup.Music);
+            InitializeSoundArray(arena_battle_music, MixerGroup.Music);
+            InitializeSoundArray(arena_events, MixerGroup.Music);
+            InitializeSoundArray(items_common, MixerGroup.Effects);
+            InitializeSoundArray(pressure_plates, MixerGroup.Effects);
+            InitializeSoundArray(items_sword, MixerGroup.Effects);
+            InitializeSoundArray(minotaur, MixerGroup.Effects);
+            InitializeSoundArray(player_dash, MixerGroup.Effects);
+            InitializeSoundArray(player_death, MixerGroup.Effects);
+            InitializeSoundArray(player_hit, MixerGroup.Effects);
+            InitializeSoundArray(player_run, MixerGroup.Effects);
+            InitializeSoundArray(player_walk, MixerGroup.Effects);
+            InitializeSoundArray(zeus, MixerGroup.Effects);
 
             backgroundMusic1IsPlaying = true;
         }
 
-        void InitializeSoundArray(Sound[] soundArray)
+        void InitializeSoundArray(Sound[] soundArray, MixerGroup group)
         {
             foreach (Sound s in soundArray)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
-                s.source.outputAudioMixerGroup = mixerGroup;
+                switch (group)
+                {
+                    case MixerGroup.Music:
+                        s.source.outputAudioMixerGroup = music;
+                        break;
+                    case MixerGroup.Effects:
+                        s.source.outputAudioMixerGroup = effects;
+                        break;
+                }
             }
         }
 
