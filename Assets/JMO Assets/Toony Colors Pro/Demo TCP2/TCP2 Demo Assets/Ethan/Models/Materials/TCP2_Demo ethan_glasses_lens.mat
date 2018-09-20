@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TCP2_Demo ethan_glasses_lens
-  m_Shader: {fileID: 4800000, guid: fdcc1f820770fb24da5893988fbe0a8d, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_OUTLINE_TEXTURED TCP2_SPEC TCP2_ZSMOOTH_ON
+  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_OUTLINE_TEXTURED TCP2_RIM TCP2_SPEC TCP2_ZSMOOTH_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -42,7 +42,7 @@ Material:
     - _RampSmooth: 0.15
     - _RampThreshold: 0.5
     - _RimMax: 1
-    - _RimMin: 0.5
+    - _RimMin: 0.61648273
     - _Shininess: 0.15
     - _SpecSmooth: 0.05
     - _SrcBlendOutline: 5
