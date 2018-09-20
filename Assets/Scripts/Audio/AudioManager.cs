@@ -8,9 +8,12 @@ namespace GodsGame
 {
     public class AudioManager : MonoBehaviour
     {
+
         public static AudioManager instance;
 
         public AudioMixerGroup mixerGroup;
+
+        public float timeToFade, threshold;
 
         public Sound[] animation, arena_ambience, arena_battle_music
             , arena_events, items_common, items_sword, minotaur, player_dash
@@ -18,57 +21,54 @@ namespace GodsGame
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
 
-        public float timeToFade, threshold;
+        private bool backgroundMusic1IsPlaying;
 
 
         // ************************ PUBLIC METHODS ************************ //
 
-        public void Play(string sound, string soundArr)
+        public void PlaySfx(string sound, string soundArr)
         {
-            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
-            if (sfx == null)
-            {
-                Debug.LogWarning("Sound: " + name + " not found!");
-                return;
-            }
+            sfx = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
 
             sfx.source.Play();
         }
 
-        public void Pause(string sound, string soundArr)
+        public void PlayBackground(string sound, string soundArr, bool shouldFade = true)
         {
-            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
-            if (sfx == null)
+            if (backgroundMusic1IsPlaying)
             {
-                Debug.LogWarning("Sound: " + name + " not found!");
-                return;
+                backgroundMusic1 = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+                backgroundMusic1.source.Play();
             }
-
-            sfx.source.Pause();
+            else
+            {
+                backgroundMusic2 = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+                backgroundMusic2.source.Play();
+            }
         }
 
-        public void UnPause(string sound, string soundArr)
+        public void PauseBackground()
         {
-            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
-            if (sfx == null)
-            {
-                Debug.LogWarning("Sound: " + name + " not found!");
-                return;
-            }
-
-            sfx.source.UnPause();
+            if (backgroundMusic1IsPlaying)
+                backgroundMusic1.source.Pause();
+            else
+                backgroundMusic2.source.Pause();
         }
 
-        public void Stop(string sound, string soundArr)
+        public void UnPauseBackground()
         {
-            sfx = Array.Find(getSoundArr(soundArr), item => item.name == sound);
-            if (sfx == null)
-            {
-                Debug.LogWarning("Sound: " + name + " not found!");
-                return;
-            }
+            if (backgroundMusic1IsPlaying)
+                backgroundMusic1.source.UnPause();
+            else
+                backgroundMusic2.source.UnPause();
+        }
 
-            sfx.source.Stop();
+        public void StopBackground()
+        {
+            if (backgroundMusic1IsPlaying)
+                backgroundMusic1.source.Stop();
+            else
+                backgroundMusic2.source.Stop();
         }
 
         public void ChangeAudio(string sound)
@@ -92,22 +92,24 @@ namespace GodsGame
             }
 
             //Initialize all the sounds with their own AudioSource
-            InitializeSounds(animation);
-            InitializeSounds(arena_ambience);
-            InitializeSounds(arena_battle_music);
-            InitializeSounds(arena_events);
-            InitializeSounds(items_common);
-            InitializeSounds(items_sword);
-            InitializeSounds(minotaur);
-            InitializeSounds(player_dash);
-            InitializeSounds(player_death);
-            InitializeSounds(player_hit);
-            InitializeSounds(player_run);
-            InitializeSounds(player_walk);
-            InitializeSounds(zeus);
+            InitializeSoundArray(animation);
+            InitializeSoundArray(arena_ambience);
+            InitializeSoundArray(arena_battle_music);
+            InitializeSoundArray(arena_events);
+            InitializeSoundArray(items_common);
+            InitializeSoundArray(items_sword);
+            InitializeSoundArray(minotaur);
+            InitializeSoundArray(player_dash);
+            InitializeSoundArray(player_death);
+            InitializeSoundArray(player_hit);
+            InitializeSoundArray(player_run);
+            InitializeSoundArray(player_walk);
+            InitializeSoundArray(zeus);
+
+            backgroundMusic1IsPlaying = true;
         }
 
-        void InitializeSounds(Sound[] soundArray)
+        void InitializeSoundArray(Sound[] soundArray)
         {
             foreach (Sound s in soundArray)
             {
@@ -117,7 +119,7 @@ namespace GodsGame
             }
         }
 
-        Sound[] getSoundArr(string soundArr)
+        Sound[] GetSoundArr(string soundArr)
         {
             switch (soundArr)
             {
@@ -134,9 +136,7 @@ namespace GodsGame
                 case ("player_run"): return player_run;
                 case ("player_walk"): return player_walk;
                 case ("zeus"): return zeus;
-                default:
-                    Debug.LogWarning("Sound: " + name + " not found!");
-                    return null;
+                default: return null;
             }
         }
 
@@ -196,15 +196,18 @@ namespace GodsGame
             sfx.source.volume = startVolume;
         }
 
+
+        // ************************ TESTING PURPOSES ************************ //
+
         void Start()
         {
-            Play("cavern_view", "animation");
-            //Play("arena3");
+            Test();
         }
 
         public void Test()
         {
             Debug.Log("In function test()");
+            PlayBackground("animation_arena_entering", "animation");
             StartCoroutine(Test1());
         }
 
@@ -212,7 +215,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test1");
-            //Play("arena2");
+            PauseBackground();
             StartCoroutine(Test2());
         }
 
@@ -220,6 +223,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test2");
+            UnPauseBackground();
             StartCoroutine(Test3());
 
         }
@@ -228,6 +232,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test3");
+            StopBackground();
         }
     }
 }
