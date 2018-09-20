@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TCP2_Demo_Robot_Dissolve
+  m_Shader: {fileID: 4800000, guid: 8bc4e62ea9d964448a2c2e539d65b77a, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_DISABLE_WRAPPED_LIGHT TCP2_RAMPTEXT TCP2_REFLECTION
+    TCP2_SPEC_TOON TCP2_TANGENT_AS_NORMALS TCP2_ZSMOOTH_ON _EMISSION
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveMap:
+        m_Texture: {fileID: 2800000, guid: 532c9e2e0905df744860e5e5c36ada26, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveRamp:
+        m_Texture: {fileID: 2800000, guid: badc79676ebe83c40af64a7df2ed6586, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 90f5c2a59e018304bb00979205857f25, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 2800000, guid: a54a836f027df3f4a8d894236589b700, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SketchTex:
+        m_Texture: {fileID: 2800000, guid: a0d03d906b6264d4c8c02b0ffd7bc8c2, type: 3}
+        m_Scale: {x: 10, y: 10}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0
+    - _DepthDistance: 0.5
+    - _DissolveGradientWidth: 0.566
+    - _DissolveValue: 0.537
+    - _DstBlendOutline: 4
+    - _DstBlendTCP2: 10
+    - _EmisPulseMin: 0
+    - _EmisPulseSpeed: 2
+    - _EnableConstSizeOutline: 0
+    - _EnableTexturedOutline: 0
+    - _EnableZSmooth: 0
+    - _FoamSmooth: 0.02
+    - _FoamSpread: 2
+    - _FoamStrength: 0.8
+    - _HSV_H: 180
+    - _HSV_S: 0
+    - _HSV_V: 0
+    - _Offset1: 0
+    - _Offset2: 0
+    - _Outline: 0.5
+    - _RampSmooth: 0.63
+    - _RampThreshold: 0.466
+    - _RimMax: 0.7
+    - _RimMin: 0.5
+    - _SSDistortion: 0.5
+    - _SSPower: 1.5
+    - _SSScale: 6
+    - _Shininess: 2
+    - _SketchHalftoneMax: 1
+    - _SketchHalftoneMin: 0
+    - _SketchSpeed: 6
+    - _SpecSmooth: 1
+    - _SrcBlendOutline: 9
+    - _SrcBlendTCP2: 5
+    - _TexLod: 5.46
+    - _UVWaveAmplitude: 0.05
+    - _UVWaveFrequency: 1
+    - _UVWaveSpeed: 1
+    - _WaveFrequency: 1
+    - _WaveHeight: 0.1
+    - _WaveSpeed: 2
+    - _ZSmooth: -0.31
+    - __dummy__: 0
+    - __outline_gui_dummy__: 0
+    m_Colors:
+    - _Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+    - _DepthColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    - _FoamSpeed: {r: 2, g: 2, b: 2, a: 2}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.072306015, g: 0.122909546, b: 0.30900002, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SColor: {r: 0.4705882, g: 0.44636676, b: 0.44636676, a: 1}
+    - _SSAmbColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SSColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SketchColor: {r: 0.5588235, g: 0.5588235, b: 0.5588235, a: 1}
+    - _SpecColor: {r: 0.125, g: 0.125, b: 0.125, a: 1}

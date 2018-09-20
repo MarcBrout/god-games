@@ -10,8 +10,10 @@ namespace GodsGame
     {
         public Image cooldownOverlay;
         public Text chargeNumberText;
+        public string targetName;
+        public string skillName;
 
-        public CooldownSkill Skill { get; set; }
+        public CooldownSkill Skill { get; protected set; }
 
         private Animator _Animator;
         private readonly int _HashStartCooldownPara = Animator.StringToHash("StartCooldown");
@@ -19,6 +21,9 @@ namespace GodsGame
    
         public void Start()
         {
+            PlayerBehaviour player = GameObject.Find(targetName).GetComponent<PlayerBehaviour>();
+            Skill = player.GetPropValue<CooldownSkill>(skillName);
+            Skill.OnExecute += TransitionToCooldownStart;
             _Animator = GetComponent<Animator>();
             SceneLinkedSMB<CooldownSkillUI>.Initialise(_Animator, this);
             UpdateUI();

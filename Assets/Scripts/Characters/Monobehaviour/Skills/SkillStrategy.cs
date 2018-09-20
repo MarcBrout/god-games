@@ -12,14 +12,22 @@ namespace GodsGame
 
     public abstract class CooldownSkill : ISkillStrategy
     {
+        #region Protected Variables
         protected float cooldown = 3f;
         protected int maxChargeNumber = 1;
         protected int currentChargeNumber = 1;
+        #endregion
 
+        #region Public Variables
+        public event Action OnExecute;
+        #endregion
+
+        #region Properties
         public float Cooldown { get { return cooldown; } }
         public int CurrentChargeNumber { get { return currentChargeNumber; } }
         public float CurrentCooldownValue { get; protected set; }
         public float CooldownEndTime { get; protected set; }
+        #endregion
 
         /// <summary>
         /// Constructor
@@ -39,6 +47,8 @@ namespace GodsGame
         /// </summary>
         public virtual void Execute()
         {
+            if (OnExecute != null)
+                OnExecute();
             currentChargeNumber -= 1;
         }
 
