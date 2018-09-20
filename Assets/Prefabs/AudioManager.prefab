@@ -1,0 +1,529 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1159674739252976}
+  m_IsPrefabAsset: 1
+--- !u!1 &1159674739252976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4848661175396238}
+  - component: {fileID: 114658336998567086}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4848661175396238
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159674739252976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114658336998567086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159674739252976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa08ac4019f12247a5fc7c6ef250d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  timeToFade: 3
+  threshold: 0.5
+  animation:
+  - name: animation_arena_entering
+    clip: {fileID: 8300000, guid: 8eb253d80ae830849b6be3b3495522cd, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: animation_cavern_view
+    clip: {fileID: 8300000, guid: 35e0ddd821dd80e46a1546c3ea10f5fc, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: animation_corridor_walking
+    clip: {fileID: 8300000, guid: 3726086529d5ff2449b366b6fb341d7b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: animation_prophete
+    clip: {fileID: 8300000, guid: d6680d65e00394645bb9331dbbea6306, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: animation_zeus_fight
+    clip: {fileID: 8300000, guid: da32a1bdb3653494792a6471218f7433, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: animation_zeus_theme
+    clip: {fileID: 8300000, guid: c9d56dda6f76e204ab89877cf1686c54, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  arena_ambience:
+  - name: arena_bird_01
+    clip: {fileID: 8300000, guid: b0f458b35208423409f217dfa7a86c9e, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_01
+    clip: {fileID: 8300000, guid: cfed081c969f3e54b80b68b848f0e38a, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_booh
+    clip: {fileID: 8300000, guid: d37a9f9f85c89414aafc95d313309cdd, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_booh_and_cheer
+    clip: {fileID: 8300000, guid: 432ba3ab7d246a049880fd3f4f2d3313, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_claps_and_cheers_01
+    clip: {fileID: 8300000, guid: f874f9a57622f9c4fa23625dfc03d2a2, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_claps_and_cheers_02
+    clip: {fileID: 8300000, guid: f279aca79c4ea454facade62809aa022, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_claps_and_cheers_03
+    clip: {fileID: 8300000, guid: b4eec9945461ce44089ab02fd8500a8e, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_laugh_01
+    clip: {fileID: 8300000, guid: 7cf8d2bd26ca04c46b49957ab65a8a18, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_laugh_02
+    clip: {fileID: 8300000, guid: 740052a460202d54098a24760ddcab3b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_laugh_03
+    clip: {fileID: 8300000, guid: 8e673e2d8cc9b1a48844b29f2a8a419b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_crowd_slow_clap
+    clip: {fileID: 8300000, guid: 3d1a25203576cf845b8f09eaf971a600, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: cell_starting
+    clip: {fileID: 8300000, guid: f115e0663f3254f4a9345075ff44ee45, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  arena_battle_music:
+  - name: arena_battle_01
+    clip: {fileID: 8300000, guid: 34398d6f86c3ab64f9f60f6a3e609f20, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_02
+    clip: {fileID: 8300000, guid: e9e7663151201714b8656ed228aa88e2, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_03
+    clip: {fileID: 8300000, guid: 2b8356103672e704485899a9c91aed68, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_04
+    clip: {fileID: 8300000, guid: 852c4d94293f81a419783b088ff77ee3, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_05
+    clip: {fileID: 8300000, guid: 943d32515d96df84a99b5fb9aee25d30, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_06
+    clip: {fileID: 8300000, guid: 0b577c89db881ee43948da119e44a8b5, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_07
+    clip: {fileID: 8300000, guid: 879b1c37bfafa674f9a51334c0a606b0, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  arena_events:
+  - name: arena_battle_lost
+    clip: {fileID: 8300000, guid: 55bc662ad7ff968418e3080442a458a8, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_battle_won
+    clip: {fileID: 8300000, guid: 82163ff771612b74c9d51cfc6b9e750d, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: arena_start_of_battle
+    clip: {fileID: 8300000, guid: 3471a7c8b5125ae45b5d414045328af3, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  items_common:
+  - name: item_drop_heavy_01
+    clip: {fileID: 8300000, guid: c920200346956254ea339e91b8b9cdaa, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: item_drop_heavy_02
+    clip: {fileID: 8300000, guid: 6b9b734a6e62f254faed14ad8c7f67ae, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  items_sword:
+  - name: sword_hit_metal_01
+    clip: {fileID: 8300000, guid: c8107051a9c2fa74fbfd5439c55fa431, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_metal_02
+    clip: {fileID: 8300000, guid: 78006bcf7ae5fbc45966ee6f93f66884, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_metal_03
+    clip: {fileID: 8300000, guid: 038d54c6288111740bf6481b162f3531, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_nothing_01
+    clip: {fileID: 8300000, guid: dca9cd2109f5b6542b9f7f85265ebef3, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_nothing_02
+    clip: {fileID: 8300000, guid: eb6206485de156a489738448638ade05, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_nothing_03
+    clip: {fileID: 8300000, guid: 3592a1f97d043014890299350950fa44, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_wood_01
+    clip: {fileID: 8300000, guid: 7731c7a260e4a394ab77df4ff5ddf98b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_wood_02
+    clip: {fileID: 8300000, guid: 067710800ab83b54b8b8423606b4af84, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: sword_hit_wood_03
+    clip: {fileID: 8300000, guid: ee9c02c5d766676468ecad6624738244, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur:
+  - name: minotaur_arrival_01
+    clip: {fileID: 8300000, guid: 662fa62b7d4ede94bab1576cfe36d2ec, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_arrival_02
+    clip: {fileID: 8300000, guid: b1f8aa8a2f789624c8dda02c76e798ff, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_arrival_03
+    clip: {fileID: 8300000, guid: 5a9db384b5d45474fa270368ab167a17, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_attack_01
+    clip: {fileID: 8300000, guid: b4d0137f980875049b3c5cf49a236731, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_before_attack
+    clip: {fileID: 8300000, guid: 2da0a23145059554b8b08966678b5a52, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_effort_01
+    clip: {fileID: 8300000, guid: 3f81ebe483ef95b479fee96110c32ba8, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_effort_02
+    clip: {fileID: 8300000, guid: 5068005f5b6a2dd4e9d8fd6378eb7174, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_effort_03
+    clip: {fileID: 8300000, guid: 4b1581c993d4f684e83effbc35544eef, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_exhausted_01
+    clip: {fileID: 8300000, guid: 1b5c01862b0d4b54fbb4728376175aaa, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_exhausted_02
+    clip: {fileID: 8300000, guid: fa4fb03e62a64334b81070090e1cae0d, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_exhausted_03
+    clip: {fileID: 8300000, guid: c797b44048c86b744bdd371d89629eb6, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_pain_01
+    clip: {fileID: 8300000, guid: c4265f9d50ee58047941b8b094360d6c, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_pain_02
+    clip: {fileID: 8300000, guid: 07eba5de4ae7a894eaeb587be444395c, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_pain_03
+    clip: {fileID: 8300000, guid: c20d992abc8249c4db5c08c2e2bc9563, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_step_01
+    clip: {fileID: 8300000, guid: f04f3e4be5fce904d950e31b764f2a19, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_step_02
+    clip: {fileID: 8300000, guid: e27e86058acafcb499c53c4d32cbdaa9, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_step_03
+    clip: {fileID: 8300000, guid: da93b984ce88d274e9204165610236ae, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  player_dash:
+  - name: hero_dash_01
+    clip: {fileID: 8300000, guid: 7d003199501e6ae46b5c81dca645ef8f, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_dash_02
+    clip: {fileID: 8300000, guid: 69ea43d135182d344aa32330cd85bd8c, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_dash_03
+    clip: {fileID: 8300000, guid: db50d11e6f583474f9a79fb8ecf8b9c9, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  player_death:
+  - name: hero_death_01
+    clip: {fileID: 8300000, guid: 4d96875accbd9f3479173f63755a93bc, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_death_02
+    clip: {fileID: 8300000, guid: c5e9afcab1c289046ad0298fce9bd4ad, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  player_hit:
+  - name: hero_hit_01
+    clip: {fileID: 8300000, guid: 09446d4d6da235245988afdf3a026791, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_hit_02
+    clip: {fileID: 8300000, guid: addca819adf28b449b1be51d3b7a70b5, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_hit_03
+    clip: {fileID: 8300000, guid: 5fb0105835ad28c4e9d08550525eabac, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_hit_04
+    clip: {fileID: 8300000, guid: b49956704d5d5ef4abf05be1b261825b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hero_hit_05
+    clip: {fileID: 8300000, guid: d0cae5d7bd79d3a4e82baf00b0a43295, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  player_run:
+  - name: hero_long_run
+    clip: {fileID: 8300000, guid: 0abcacc679a320047b0125bab4f28cda, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step01
+    clip: {fileID: 8300000, guid: a3e0fded79d52be40973cbe003d5023c, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step02
+    clip: {fileID: 8300000, guid: 99a4da35f707bd243bb4276aba46d888, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step03
+    clip: {fileID: 8300000, guid: 6c2793614250d1a45b0d6d2bb316ee64, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step04
+    clip: {fileID: 8300000, guid: bebbb2b6214287249b4811540b325699, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step05
+    clip: {fileID: 8300000, guid: 1d9866380ffe46c4b98461694cca72a1, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step06
+    clip: {fileID: 8300000, guid: 8dfaf7ba7ec00aa4481629c6cadcb748, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step07
+    clip: {fileID: 8300000, guid: 004da7bef5949134eb83346943a628e2, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step08
+    clip: {fileID: 8300000, guid: 80ed7094a335f2f48bc75cdbcaed244a, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  player_walk:
+  - name: hero_long_walk
+    clip: {fileID: 8300000, guid: 6d250fc5d6ae8db4ab0c41c97db4b130, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step01
+    clip: {fileID: 8300000, guid: 1192bbd5f52e3ee4eb91a88c239d49e3, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step02
+    clip: {fileID: 8300000, guid: 629800bd0ecd11249a4f624f03c310cd, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step03
+    clip: {fileID: 8300000, guid: 0f82f4072131a4c47a7de1e610725e3a, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step04
+    clip: {fileID: 8300000, guid: 6737e3bd76286f24886538da0bfeeb68, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step05
+    clip: {fileID: 8300000, guid: a4d03efadd4e8024691dc68f8227aa94, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step06
+    clip: {fileID: 8300000, guid: 5fd0e0b7571d5234491801dfc39e1363, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step07
+    clip: {fileID: 8300000, guid: 3b0ddc1718f392c4484a62daf83c9651, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: walk_step08
+    clip: {fileID: 8300000, guid: ed73ae861e44ea248b2f90962da967de, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  zeus:
+  - name: zeus_electric_shock_01
+    clip: {fileID: 8300000, guid: c3a0fdf906861434ca655301dddf31e6, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_electric_shock_02
+    clip: {fileID: 8300000, guid: 354bcdbe974bb6242aeceb4537e1508f, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_electric_shock_03
+    clip: {fileID: 8300000, guid: 75f18c9ff4b87f544b250431bc0450b6, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_electric_shock_04
+    clip: {fileID: 8300000, guid: 5ee29746a2b597541ac340caee6dbb22, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_laugh_01
+    clip: {fileID: 8300000, guid: 004175403e087aa43a3549ab7928cfb5, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_thunder_01
+    clip: {fileID: 8300000, guid: c0015eba4487d7e4ebcfa67257590b85, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_thunder_02
+    clip: {fileID: 8300000, guid: 6f7452c6c0ffd5c43be97b8577505c4b, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: zeus_thunder_03
+    clip: {fileID: 8300000, guid: c9e175c230d9d0145a68fe54602ec691, type: 3}
+    volume: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
