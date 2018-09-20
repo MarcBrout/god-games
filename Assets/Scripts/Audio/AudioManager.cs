@@ -18,7 +18,7 @@ namespace GodsGame
         public float timeToFade, threshold;
 
         public Sound[] animation, arena_ambience, arena_battle_music
-            , arena_events, items_common, pressure_plates, items_sword, minotaur, player_dash
+            , arena_events, items_common, items_pressure_plates, items_sword, minotaur, player_dash
             , player_death, player_hit, player_run, player_walk, zeus;
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
@@ -114,7 +114,7 @@ namespace GodsGame
             InitializeSoundArray(arena_battle_music, MixerGroup.Music);
             InitializeSoundArray(arena_events, MixerGroup.Music);
             InitializeSoundArray(items_common, MixerGroup.Effects);
-            InitializeSoundArray(pressure_plates, MixerGroup.Effects);
+            InitializeSoundArray(items_pressure_plates, MixerGroup.Effects);
             InitializeSoundArray(items_sword, MixerGroup.Effects);
             InitializeSoundArray(minotaur, MixerGroup.Effects);
             InitializeSoundArray(player_dash, MixerGroup.Effects);

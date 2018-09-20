@@ -120,6 +120,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -151,6 +156,56 @@ Prefab:
     - target: {fileID: 4848661175396238, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: mixerGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: animation.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: animation.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: animation.Array.data[0].mixerGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 66183e359cfdae24db119ece80367638, type: 3}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4608b26d75730014d8926aa9b1febcbd, type: 3}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ed4224ba7f515c848a56b08ab4896372, type: 3}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[0].name
+      value: DOOR_Locked_Metal_Door_Locked_Try_Open_stereo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[1].name
+      value: DOOR_Metal_Door_02_Close_stereo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658336998567086, guid: 17ec0c1db46f074489783a1a5b7a19a3,
+        type: 2}
+      propertyPath: items_pressure_plates.Array.data[2].name
+      value: DOOR_Metal_Hollow_Deep_Close_stereo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ec0c1db46f074489783a1a5b7a19a3, type: 2}
