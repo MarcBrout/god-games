@@ -9,10 +9,13 @@ public class PressureplateScript : MonoBehaviour {
     public bool isEnable;
     private TrapManagerScript trapManager;
     public int trapmanagerId;
+    private AudioSource[] sounds;
 
 	// Use this for initialization
 	void Start () {
         isEnable = true;
+        sounds = GetComponents<AudioSource>();
+        Debug.Log(sounds.Length);
     }
 
     public void Init(TrapManagerScript trapManager, int trapmanagerId){
@@ -25,9 +28,14 @@ public class PressureplateScript : MonoBehaviour {
         if (col.gameObject.tag == "Player" ||  col.gameObject.tag == "Boss")
         {
             if (isEnable) {
+                sounds[1].Play();
                 pressurPlateAnimator.SetBool("playerEntered", true);
                 spikeTrapScript.ActivateTrap();
                 disableTrap();
+            }
+                else
+            {
+                sounds[0].Play();
             }
         }
     }
@@ -58,6 +66,7 @@ public class PressureplateScript : MonoBehaviour {
 
     public void enableTrap()
     {
+        sounds[2].Play();
         isEnable = true;
         pressurPlateAnimator.SetBool("isEnable", true);
         spikeTrapScript.ShowEnableColor();
