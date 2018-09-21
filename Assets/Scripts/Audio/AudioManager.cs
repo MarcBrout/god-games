@@ -1,10 +1,18 @@
-// Audiomanager 
+/* AudioManager class
+ * By: Demis Terborg
+ * 
+ * Handles all the sounds in the game
+ * 
+ * Access with: FindObjectOfType<AudioManager>().Play();
+ *
+ */
 
+using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 
 namespace GodsGame
 {
@@ -33,6 +41,14 @@ namespace GodsGame
             sfx = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
 
             sfx.source.Play();
+        }
+
+
+        public void PlayRandomSfx(string soundArr)
+        {
+            Sound randomSfx = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)];
+            randomSfx.source.Play();
+            //sfx.source.Play();
         }
 
         public void PlayBackground(string sound, string soundArr)
@@ -108,7 +124,7 @@ namespace GodsGame
                 DontDestroyOnLoad(gameObject);
             }
 
-            //Initialize all the sounds with their own AudioSource
+            //Initialize all the sound arrays with their own AudioSource
             InitializeSoundArray(animation, MixerGroup.Music);
             InitializeSoundArray(arena_ambience, MixerGroup.Music);
             InitializeSoundArray(arena_battle_music, MixerGroup.Music);
@@ -154,6 +170,7 @@ namespace GodsGame
                 case ("arena_battle_music"): return arena_battle_music;
                 case ("arena_events"): return arena_events;
                 case ("items_common"): return items_common;
+                case ("items_pressure_plates"): return items_pressure_plates;
                 case ("items_sword"): return items_sword;
                 case ("minotaur"): return minotaur;
                 case ("player_dash"): return player_dash;
@@ -246,7 +263,7 @@ namespace GodsGame
 
         void Start()
         {
-            Test();
+            PlayRandomSfx("animation");
         }
 
         public void Test()
