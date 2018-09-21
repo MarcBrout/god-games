@@ -43,12 +43,25 @@ namespace GodsGame
             sfx.source.Play();
         }
 
+        // Use when audiosource is placed on object itself (for 3D audio)
+        public void PlaySfx3d(string sound, string soundArr, ref AudioSource audioSource)
+        {
+            Sound s = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+            audioSource.clip = s.source.clip;
+            audioSource.Play();
+        }
 
         public void PlayRandomSfx(string soundArr)
         {
             Sound randomSfx = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)];
             randomSfx.source.Play();
-            //sfx.source.Play();
+        }
+
+        // Use when audiosource is placed on object itself (for 3D audio)
+        public void PlayRandomSfx3d(string soundArr, ref AudioSource audioSource)
+        {
+            audioSource.clip = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)].source.clip;
+            audioSource.Play();
         }
 
         public void PlayBackground(string sound, string soundArr)
@@ -263,7 +276,7 @@ namespace GodsGame
 
         void Start()
         {
-            PlayRandomSfx("animation");
+            //PlayRandomSfx("animation");
         }
 
         public void Test()
