@@ -19,7 +19,7 @@ namespace GodsGame
     public class AudioManager : MonoBehaviour
     {
 
-        public static AudioManager instance;
+        public static AudioManager Instance;
 
         public AudioMixerGroup music, effects;
 
@@ -44,7 +44,7 @@ namespace GodsGame
         }
 
         // Use when audiosource is placed on object itself (for 3D audio)
-        public void PlaySfx3d(string sound, string soundArr, ref AudioSource audioSource)
+        public void PlaySfx3D(string sound, string soundArr, ref AudioSource audioSource)
         {
             Sound s = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
             audioSource.clip = s.source.clip;
@@ -58,7 +58,7 @@ namespace GodsGame
         }
 
         // Use when audiosource is placed on object itself (for 3D audio)
-        public void PlayRandomSfx3d(string soundArr, ref AudioSource audioSource)
+        public void PlayRandomSfx3D(string soundArr, ref AudioSource audioSource)
         {
             audioSource.clip = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)].source.clip;
             audioSource.Play();
@@ -125,15 +125,15 @@ namespace GodsGame
 
         // ************************ PRIVATE METHODS ************************ //
 
-        void Awake()
+        private void Awake()
         {
-            if (instance != null)
+            if (Instance != null)
             {
                 Destroy(gameObject);
             }
             else
             {
-                instance = this;
+                Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
 
@@ -156,7 +156,7 @@ namespace GodsGame
             backgroundMusic1IsPlaying = true;
         }
 
-        void InitializeSoundArray(Sound[] soundArray, MixerGroup group)
+        private void InitializeSoundArray(Sound[] soundArray, MixerGroup group)
         {
             foreach (Sound s in soundArray)
             {
@@ -174,7 +174,7 @@ namespace GodsGame
             }
         }
 
-        Sound[] GetSoundArr(string soundArr)
+        private Sound[] GetSoundArr(string soundArr)
         {
             switch (soundArr)
             {
@@ -274,19 +274,19 @@ namespace GodsGame
 
         // ************************ TESTING PURPOSES ************************ //
 
-        void Start()
+        private void Start()
         {
             //PlayRandomSfx("animation");
         }
 
-        public void Test()
+        private void Test()
         {
             Debug.Log("In function test()");
             PlayBackground("animation_arena_entering", "animation");
             StartCoroutine(Test1());
         }
 
-        public IEnumerator Test1()
+        private IEnumerator Test1()
         {
             yield return new WaitForSeconds(10);
             Debug.Log("In IEnumerator Test1");
@@ -294,7 +294,7 @@ namespace GodsGame
             StartCoroutine(Test2());
         }
 
-        public IEnumerator Test2()
+        private IEnumerator Test2()
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test2");
@@ -303,7 +303,7 @@ namespace GodsGame
 
         }
 
-        public IEnumerator Test3()
+        private IEnumerator Test3()
         {
             yield return new WaitForSeconds(5);
             Debug.Log("In IEnumerator Test3");
