@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrapScript : MonoBehaviour {
+public class SpikeTrapScript : MonoBehaviour, ITrapInterface {
 
     public Animator spikesAnimator;
     public GameObject border;

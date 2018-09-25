@@ -1,18 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PressureplateScript : MonoBehaviour {
 
     public Animator pressurPlateAnimator;
-    public SpikeTrapScript spikeTrapScript;
-    public bool isEnable;
+    public GameObject trapScriptGameObject;
+    private ITrapInterface trapScript;
+    private bool isEnable;
     private TrapManagerScript trapManager;
-    public int trapmanagerId;
+    private int trapmanagerId;
     private AudioSource[] sounds;
 
 	// Use this for initialization
 	void Start () {
+
+        trapScript = trapScriptGameObject.GetComponent<ITrapInterface>();
+        if (trapScript == null) {
+            throw new Exception("Missing Trapinterface on the Trap Script Gameobject");
+
+        }
+
         isEnable = true;
         sounds = GetComponents<AudioSource>();
         Debug.Log(sounds.Length);
@@ -30,7 +39,7 @@ public class PressureplateScript : MonoBehaviour {
             if (isEnable) {
                 sounds[1].Play();
                 pressurPlateAnimator.SetBool("playerEntered", true);
-                spikeTrapScript.ActivateTrap();
+                trapScript.ActivateTrap();
                 disableTrap();
             }
                 else
@@ -45,7 +54,7 @@ public class PressureplateScript : MonoBehaviour {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
         {
             pressurPlateAnimator.SetBool("playerEntered", false);
-            spikeTrapScript.DeactivateTrap();
+            trapScript.DeactivateTrap();
 
             if (trapManager == null)
             {
@@ -69,7 +78,7 @@ public class PressureplateScript : MonoBehaviour {
         sounds[2].Play();
         isEnable = true;
         pressurPlateAnimator.SetBool("isEnable", true);
-        spikeTrapScript.ShowEnableColor();
+        trapScript.ShowEnableColor();
 
     }
 }
