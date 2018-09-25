@@ -6,6 +6,7 @@ public class TrapManagerScript : MonoBehaviour {
 
     public List<PressureplateScript> pressureplates;
     private List<bool> pressureplateState = new List<bool>();
+    public float trapEnableDelayInSec;
 
     // Use this for initialization
     void Start () {
@@ -26,12 +27,12 @@ public class TrapManagerScript : MonoBehaviour {
         
         pressureplateState[id-1] = false;
         
-        if (areAllTrapsDisabled()) {
-            enableAllTrapsExpectOne(id);
+        if (AreAllTrapsDisabled()) {
+            StartCoroutine(EnableAllTraps());
         }
     }
 
-    bool areAllTrapsDisabled() {
+    bool AreAllTrapsDisabled() {
 
         foreach(bool state in pressureplateState)
         {
@@ -43,14 +44,14 @@ public class TrapManagerScript : MonoBehaviour {
         return true;
     }
 
-    void enableAllTrapsExpectOne(int id) {
+    IEnumerator EnableAllTraps() {
+
+        yield return new WaitForSeconds(trapEnableDelayInSec);
+
         for (int i = 0; i < pressureplateState.Count; i++)
         {
-            if (i != id-1)
-            {
-                pressureplateState[i] = true;
-                pressureplates[i].enableTrap();
-            }
+            pressureplateState[i] = true;
+            pressureplates[i].enableTrap();
         }
     }
 }

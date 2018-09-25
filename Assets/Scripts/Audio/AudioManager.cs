@@ -1,8 +1,18 @@
+/* AudioManager class
+ * By: Demis Terborg
+ * 
+ * Handles all the sounds in the game
+ * 
+ * Access with: FindObjectOfType<AudioManager>().Play();
+ *
+ */
+
+using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 
 namespace GodsGame
 {
@@ -11,12 +21,12 @@ namespace GodsGame
 
         public static AudioManager instance;
 
-        public AudioMixerGroup mixerGroup;
+        public AudioMixerGroup music, effects;
 
         public float timeToFade, threshold;
 
         public Sound[] animation, arena_ambience, arena_battle_music
-            , arena_events, items_common, items_sword, minotaur, player_dash
+            , arena_events, items_common, items_pressure_plates, items_sword, minotaur, player_dash
             , player_death, player_hit, player_run, player_walk, zeus;
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
@@ -31,6 +41,27 @@ namespace GodsGame
             sfx = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
 
             sfx.source.Play();
+        }
+
+        // Use when audiosource is placed on object itself (for 3D audio)
+        public void PlaySfx3d(string sound, string soundArr, ref AudioSource audioSource)
+        {
+            Sound s = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
+            audioSource.clip = s.source.clip;
+            audioSource.Play();
+        }
+
+        public void PlayRandomSfx(string soundArr)
+        {
+            Sound randomSfx = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)];
+            randomSfx.source.Play();
+        }
+
+        // Use when audiosource is placed on object itself (for 3D audio)
+        public void PlayRandomSfx3d(string soundArr, ref AudioSource audioSource)
+        {
+            audioSource.clip = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)].source.clip;
+            audioSource.Play();
         }
 
         public void PlayBackground(string sound, string soundArr)
@@ -106,31 +137,40 @@ namespace GodsGame
                 DontDestroyOnLoad(gameObject);
             }
 
-            //Initialize all the sounds with their own AudioSource
-            InitializeSoundArray(animation);
-            InitializeSoundArray(arena_ambience);
-            InitializeSoundArray(arena_battle_music);
-            InitializeSoundArray(arena_events);
-            InitializeSoundArray(items_common);
-            InitializeSoundArray(items_sword);
-            InitializeSoundArray(minotaur);
-            InitializeSoundArray(player_dash);
-            InitializeSoundArray(player_death);
-            InitializeSoundArray(player_hit);
-            InitializeSoundArray(player_run);
-            InitializeSoundArray(player_walk);
-            InitializeSoundArray(zeus);
+            //Initialize all the sound arrays with their own AudioSource
+            InitializeSoundArray(animation, MixerGroup.Music);
+            InitializeSoundArray(arena_ambience, MixerGroup.Music);
+            InitializeSoundArray(arena_battle_music, MixerGroup.Music);
+            InitializeSoundArray(arena_events, MixerGroup.Music);
+            InitializeSoundArray(items_common, MixerGroup.Effects);
+            InitializeSoundArray(items_pressure_plates, MixerGroup.Effects);
+            InitializeSoundArray(items_sword, MixerGroup.Effects);
+            InitializeSoundArray(minotaur, MixerGroup.Effects);
+            InitializeSoundArray(player_dash, MixerGroup.Effects);
+            InitializeSoundArray(player_death, MixerGroup.Effects);
+            InitializeSoundArray(player_hit, MixerGroup.Effects);
+            InitializeSoundArray(player_run, MixerGroup.Effects);
+            InitializeSoundArray(player_walk, MixerGroup.Effects);
+            InitializeSoundArray(zeus, MixerGroup.Effects);
 
             backgroundMusic1IsPlaying = true;
         }
 
-        void InitializeSoundArray(Sound[] soundArray)
+        void InitializeSoundArray(Sound[] soundArray, MixerGroup group)
         {
             foreach (Sound s in soundArray)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
-                s.source.outputAudioMixerGroup = mixerGroup;
+                switch (group)
+                {
+                    case MixerGroup.Music:
+                        s.source.outputAudioMixerGroup = music;
+                        break;
+                    case MixerGroup.Effects:
+                        s.source.outputAudioMixerGroup = effects;
+                        break;
+                }
             }
         }
 
@@ -143,6 +183,7 @@ namespace GodsGame
                 case ("arena_battle_music"): return arena_battle_music;
                 case ("arena_events"): return arena_events;
                 case ("items_common"): return items_common;
+                case ("items_pressure_plates"): return items_pressure_plates;
                 case ("items_sword"): return items_sword;
                 case ("minotaur"): return minotaur;
                 case ("player_dash"): return player_dash;
@@ -235,7 +276,7 @@ namespace GodsGame
 
         void Start()
         {
-            Test();
+            //PlayRandomSfx("animation");
         }
 
         public void Test()
