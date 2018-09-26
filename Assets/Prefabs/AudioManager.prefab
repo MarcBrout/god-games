@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4829702777286968}
   - component: {fileID: 114215531634558540}
   m_Layer: 0
-  m_Name: AudioManager 1
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,15 +181,15 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   items_pressure_plates:
-  - name: DOOR_Locked_Metal_Door_Locked_Try_Open_stereo
+  - name: PRESSURE_PLATE_INACTIVE
     clip: {fileID: 8300000, guid: 66183e359cfdae24db119ece80367638, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: DOOR_Metal_Door_02_Close_stereo
+  - name: PRESSURE_PLATE_ACTIVATED
     clip: {fileID: 8300000, guid: 4608b26d75730014d8926aa9b1febcbd, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: DOOR_Metal_Hollow_Deep_Close_stereo
+  - name: PRESSURE_PLATE_RESET
     clip: {fileID: 8300000, guid: ed4224ba7f515c848a56b08ab4896372, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}

@@ -14,7 +14,13 @@ namespace GodsGame
         private bool isEnable;
         private TrapManagerScript trapManager;
         private int trapmanagerId;
-        private AudioSource[] sounds;
+        private AudioSource audioSource;
+
+        // Sounds Names
+        private string PLATE_ARRAY = "items_pressure_plates";
+        private string PLATE_ACTIVATED = "PRESSURE_PLATE_ACTIVATED";
+        private string PLATE_RESET = "PRESSURE_PLATE_RESET";
+        private string PLATE_INACTIVE = "PRESSURE_PLATE_INACTIVE";
 
         // Use this for initialization
         void Start()
@@ -28,8 +34,7 @@ namespace GodsGame
             }
 
             isEnable = true;
-            sounds = GetComponents<AudioSource>();
-            Debug.Log(sounds.Length);
+            audioSource = GetComponent<AudioSource>();
         }
 
         public void Init(TrapManagerScript trapManager, int trapmanagerId)
@@ -44,14 +49,14 @@ namespace GodsGame
             {
                 if (isEnable)
                 {
-                    sounds[1].Play();
+                    AudioManager.Instance.PlaySfx3D(PLATE_ACTIVATED, PLATE_ARRAY, ref audioSource);
                     pressurPlateAnimator.SetBool("playerEntered", true);
                     trapScript.ActivateTrap();
                     disableTrap();
                 }
                 else
                 {
-                    sounds[0].Play();
+                    AudioManager.Instance.PlaySfx3D(PLATE_INACTIVE, PLATE_ARRAY, ref audioSource);
                 }
             }
         }
@@ -83,11 +88,11 @@ namespace GodsGame
 
         public void enableTrap()
         {
-            sounds[2].Play();
+            AudioManager.Instance.PlaySfx3D(PLATE_RESET, PLATE_ARRAY, ref audioSource);
+
             isEnable = true;
             pressurPlateAnimator.SetBool("isEnable", true);
             trapScript.ShowEnableColor();
-
         }
     }
 }
