@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITrapInterface {
+namespace GodsGame
+{
+    public interface ITrapInterface
+    {
 
-    void ActivateTrap();
-    void DeactivateTrap();
-    void ShowEnableColor();
+        void ActivateTrap();
+        void DeactivateTrap();
+        void ShowEnableColor();
+    }
 }
