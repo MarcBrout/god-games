@@ -92,24 +92,16 @@ namespace GodsGame
 
         public void TakeDamage(Damager damager, bool ignoreInvincible = false)
         {
-            Debug.Log("HIIIIIT");
-
             if ((m_Invulnerable && !ignoreInvincible) || m_CurrentHealth <= 0)
                 return;
 
-            Debug.Log("HIIIIIT2");
             //we can reach that point if the damager was one that was ignoring invincible state.
             //We still want the callback that we were hit, but not the damage to be removed from health.
             if (!m_Invulnerable)
             {
-                Debug.Log("HIIIIIT3");
-                Debug.Log(damager.damage);
                 m_CurrentHealth -= damager.damage;
                 OnHealthSet.Invoke(this);
             }
-
-            Debug.Log("HIIIIIT4");
-
 
             m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
 
