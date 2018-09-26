@@ -113,6 +113,8 @@ GameObject:
   - component: {fileID: 4746585366134400}
   - component: {fileID: 95508980303443402}
   - component: {fileID: 114291900950870536}
+  - component: {fileID: 65276031810445324}
+  - component: {fileID: 114366551945404502}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -881,6 +883,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65276031810445324
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398573845373156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.63012, y: 1, z: 7.286743}
+  m_Center: {x: 0.1642636, y: 0, z: -0.1362518}
 --- !u!65 &65319113525787910
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1036,6 +1050,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27e590ffd68fbc48a4f0268ba42f1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114366551945404502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398573845373156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  disableAfterSeconds: 3
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114868653399380474
 MonoBehaviour:
   m_ObjectHideFlags: 1

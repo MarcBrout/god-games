@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesAnimationTriggerScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void OnSpikesDownAnimaitonEnd()
+namespace GodsGame
+{
+    public class SpikesAnimationTriggerScript : MonoBehaviour
     {
-        GetComponentInParent<SpikeTrapScript>().ShowDisabledColor();
+
+        // Use this for initialization
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void OnSpikesDownAnimaitonEnd()
+        {
+            GetComponentInParent<SpikeTrapScript>().ShowDisabledColor();
+        }
     }
 }
