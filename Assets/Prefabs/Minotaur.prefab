@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4774416264992946}
   - component: {fileID: 33447724695125218}
   - component: {fileID: 23359084041471822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: noze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4893332297082746}
   - component: {fileID: 33253739992034432}
   - component: {fileID: 23395657740304820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4760088526803250}
   - component: {fileID: 33620159366673238}
   - component: {fileID: 23002596927988374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,13 +70,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4829392602573070}
-  - component: {fileID: 33483385383034072}
   - component: {fileID: 136525757735737336}
   - component: {fileID: 195839722439017702}
   - component: {fileID: 114087464100469822}
   - component: {fileID: 114740191837820852}
   - component: {fileID: 114717001326575118}
-  m_Layer: 0
+  - component: {fileID: 114481080226363590}
+  - component: {fileID: 54224634209889356}
+  m_Layer: 9
   m_Name: Minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +94,7 @@ GameObject:
   - component: {fileID: 4885496267266818}
   - component: {fileID: 33766555982925678}
   - component: {fileID: 23437050594021678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ GameObject:
   - component: {fileID: 4119989092831816}
   - component: {fileID: 33666853938793214}
   - component: {fileID: 23390859898468256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,9 +128,9 @@ GameObject:
   - component: {fileID: 4816279205321590}
   - component: {fileID: 33971818463368344}
   - component: {fileID: 23809015456460006}
-  - component: {fileID: 64690966055357812}
-  - component: {fileID: 114803658260742084}
-  m_Layer: 0
+  - component: {fileID: 65659187900665772}
+  - component: {fileID: 114325723551838362}
+  m_Layer: 9
   m_Name: axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +147,7 @@ GameObject:
   - component: {fileID: 4433262331314052}
   - component: {fileID: 33358843461807390}
   - component: {fileID: 23143198434741376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +164,7 @@ GameObject:
   - component: {fileID: 4823634399378874}
   - component: {fileID: 33082546871407422}
   - component: {fileID: 23368267405480084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4635902566867238}
   - component: {fileID: 95816946098904696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +197,7 @@ GameObject:
   - component: {fileID: 4576944055654390}
   - component: {fileID: 33373109147266014}
   - component: {fileID: 23945912504129532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +214,7 @@ GameObject:
   - component: {fileID: 4258551440398962}
   - component: {fileID: 33957476431741726}
   - component: {fileID: 23026560962699552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: horns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,14 +354,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6512256, y: 1.75, z: 5.3521543}
+  m_LocalRotation: {x: -0, y: -0.997697, z: -0, w: 0.06782858}
+  m_LocalPosition: {x: -0.14, y: 1.98, z: 3.32}
   m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
   m_Children:
   - {fileID: 4635902566867238}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -172.22101, z: 0}
 --- !u!4 &4885496267266818
 Transform:
   m_ObjectHideFlags: 1
@@ -772,13 +773,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259950691440620}
   m_Mesh: {fileID: 4300008, guid: 4c08c62645c0a8c448aca5b965c1b7fb, type: 3}
---- !u!33 &33483385383034072
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596982817000298}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33620159366673238
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -814,20 +808,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764344473370958}
   m_Mesh: {fileID: 4300016, guid: 4c08c62645c0a8c448aca5b965c1b7fb, type: 3}
---- !u!64 &64690966055357812
-MeshCollider:
+--- !u!54 &54224634209889356
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &65659187900665772
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764344473370958}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300016, guid: 4c08c62645c0a8c448aca5b965c1b7fb, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.40420708, y: 3.3009105, z: 1.574103}
+  m_Center: {x: 0.0017096844, y: -0.037272017, z: 1.648914}
 --- !u!95 &95816946098904696
 Animator:
   serializedVersion: 3
@@ -862,11 +869,53 @@ MonoBehaviour:
   autoReset: 1
   tickOn: 0
   sourceInfos:
-  - isFoldout: 0
+  - isFoldout: 1
     breakPoints: 
     breakPointStatuses: 
     collapsedLines: 
     btScript: 
+--- !u!114 &114325723551838362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764344473370958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  disableAfterSeconds: 3
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114481080226363590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa88791cb66261247919b9870e663471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114717001326575118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,8 +929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 600
   invulnerableAfterDamage: 1
-  invulnerabilityDuration: 3
+  invulnerabilityDuration: 1
   disableOnDeath: 0
+  m_CurrentHealth: 0
   centreOffset: {x: 0, y: 1}
   OnHealthSet:
     m_PersistentCalls:
@@ -890,18 +940,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDie:
@@ -930,37 +969,6 @@ MonoBehaviour:
   attackRange: 15
   targetTag: Player
   animator: {fileID: 95816946098904696}
---- !u!114 &114803658260742084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1764344473370958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
-  enableDelayActivationOnStart: 0
-  activationDelay: 0.1
-  enableDelayDeactivationOnStart: 0
-  disableAfterSeconds: 3
-  disableDamageAfterHit: 0
-  ignoreInvincibility: 0
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  OnDamageableHit:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnNonDamageableHit:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!136 &136525757735737336
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -970,10 +978,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.26813698
-  m_Height: 1.5927538
+  m_Radius: 0.29994908
+  m_Height: 0.9746921
   m_Direction: 1
-  m_Center: {x: 0, y: -0.24999988, z: -0.07083092}
+  m_Center: {x: 0.051890157, y: -0.40474355, z: 0.05556202}
 --- !u!195 &195839722439017702
 NavMeshAgent:
   m_ObjectHideFlags: 1

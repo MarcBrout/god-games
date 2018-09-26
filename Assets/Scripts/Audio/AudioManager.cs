@@ -47,7 +47,7 @@ namespace GodsGame
         public void PlaySfx3D(string sound, string soundArr, ref AudioSource audioSource)
         {
             Sound s = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
-            audioSource.clip = s.source.clip;
+            audioSource.clip = s.clip;
             audioSource.Play();
         }
 
@@ -60,7 +60,7 @@ namespace GodsGame
         // Use when audiosource is placed on object itself (for 3D audio)
         public void PlayRandomSfx3D(string soundArr, ref AudioSource audioSource)
         {
-            audioSource.clip = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)].source.clip;
+            audioSource.clip = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)].clip;
             audioSource.Play();
         }
 
@@ -160,15 +160,15 @@ namespace GodsGame
         {
             foreach (Sound s in soundArray)
             {
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
                 switch (group)
                 {
                     case MixerGroup.Music:
+                        s.source = gameObject.AddComponent<AudioSource>();
+                        s.source.clip = s.clip;
                         s.source.outputAudioMixerGroup = music;
                         break;
                     case MixerGroup.Effects:
-                        s.source.outputAudioMixerGroup = effects;
+                        //s.source.outputAudioMixerGroup = effects;
                         break;
                 }
             }
@@ -270,7 +270,7 @@ namespace GodsGame
                 backgroundMusic2.source.volume = startVolume;
             }
         }
-
+        
 
         // ************************ TESTING PURPOSES ************************ //
 
