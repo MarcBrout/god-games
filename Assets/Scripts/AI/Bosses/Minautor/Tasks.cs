@@ -12,6 +12,11 @@ namespace GodsGames
         public float attackRange;
         public string targetTag;
         private GameObject currentTarget;
+        public Animator animator;
+
+        private string isWalking = "isWalking";
+        private string charge = "charge";
+        private string attack = "attack";
 
         void Start ()
         {
@@ -19,10 +24,14 @@ namespace GodsGames
                 targets = GameObject.FindGameObjectsWithTag(targetTag);
 	    }
 
+        private void Update()
+        {
+            animator.SetBool(isWalking, !agent.isStopped);
+        }
+
         /**
          * TOOLS
          **/
- 
         [Task]
         public void AcquireNewTarget ()
         {
@@ -65,6 +74,7 @@ namespace GodsGames
         [Task]
         public void ChargeTarget()
         {
+            animator.SetTrigger(charge);
             Task.current.Succeed();
         }
 
@@ -111,6 +121,7 @@ namespace GodsGames
         [Task]
         public void AttackTarget ()
         {
+            animator.SetTrigger(attack);
             Task.current.Succeed();
         }
 
