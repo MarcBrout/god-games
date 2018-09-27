@@ -5,6 +5,8 @@ using UnityEngine;
 namespace GodsGame {
     public class Minotaur : MonoBehaviour {
 
+        public Animator animator;
+
         // Use this for initialization
         void Start() {
 
@@ -17,7 +19,8 @@ namespace GodsGame {
 
         public void onTakeDamage(Damager damager, Damageable damageable)
         {
-            Debug.Log("I GOT HIT ARG");
+            animator.SetInteger("life", damageable.CurrentHealth);
+            animator.SetTrigger("hit");
         }
     }
 }
