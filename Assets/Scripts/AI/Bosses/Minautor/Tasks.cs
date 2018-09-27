@@ -1,45 +1,75 @@
 ﻿using Panda;
+using System;
+using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
-
 
 namespace GodsGames
 {
     public class Tasks : MonoBehaviour
     {
-        public NavMeshAgent agent;
-        public GameObject[] targets;
-        public float attackRange;
-        public string targetTag;
-        private GameObject currentTarget;
-        public Animator animator;
+        public NavMeshAgent _agent;
+        public List<GameObject> _targets;
+        public float _attackRange;
+        public string _targetTag;
+        public Animator _animator;
+        private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 0, 15);
+        private DateTime _startFocusTimeOnCurrentTarget;
+        private GameObject _currentTarget;
 
-        private string isWalking = "isWalking";
-        private string charge = "charge";
-        private string attack = "attack";
+        private const string IS_WALKING = "isWalking";
+        private const string CHARGING = "charge";
+        private const string ATTACKING = "attack";
 
         void Start ()
         {
-            if (targets.Length == 0)
-                targets = GameObject.FindGameObjectsWithTag(targetTag);
+            if (_targets.Count == 0)
+                _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
 	    }
 
         private void Update()
         {
-            animator.SetBool(isWalking, !agent.isStopped);
+            _animator.SetBool(IS_WALKING, !_agent.isStopped);
         }
 
         /**
          * TOOLS
          **/
+
+        float GetDistFromCurrentTarget()
+        {
+            if (_currentTarget == null)
+                return -1;
+            return (_currentTarget.transform.position - transform.position).sqrMagnitude;
+        }
+
+        /**
+         * TARGET UTILS
+         **/
+
         [Task]
-        public void AcquireNewTarget ()
+        public bool HasToSwitchTarget ()
+        {
+            return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget;
+        }
+
+        [Task]
+        public bool HasCurrentTarget ()
+        {
+            return _currentTarget != null;
+        }
+
+        [Task]
+        public void AcquireNewTarget()
         {
             float closestDistance = Mathf.Infinity;
-            GameObject closestTarget = null;
+            GameObject closestTarget = _currentTarget;
 
-            foreach (GameObject target in targets)
+            foreach (GameObject target in _targets)
             {
+                if (_currentTarget == target)
+                    continue;
+
                 Vector3 diff = transform.position - target.transform.position;
                 float distance = diff.sqrMagnitude;
                 if (distance < closestDistance)
@@ -49,15 +79,9 @@ namespace GodsGames
                 }
             }
 
-            currentTarget = closestTarget;
+            _currentTarget = closestTarget;
+            _startFocusTimeOnCurrentTarget = DateTime.Now;
             Task.current.Succeed();
-        }
-
-        float GetDistFromCurrentTarget()
-        {
-            if (currentTarget == null)
-                return -1;
-            return (currentTarget.transform.position - transform.position).sqrMagnitude;
         }
 
         /**
@@ -74,7 +98,7 @@ namespace GodsGames
         [Task]
         public void ChargeTarget()
         {
-            animator.SetTrigger(charge);
+            _animator.SetTrigger(CHARGING);
             Task.current.Succeed();
         }
 
@@ -85,10 +109,10 @@ namespace GodsGames
         [Task]
         public bool IsTooFarFromTarget()
         {
-            bool isTooFar = currentTarget != null && GetDistFromCurrentTarget() > attackRange;
+            bool isTooFar = _currentTarget != null && GetDistFromCurrentTarget() > _attackRange;
 
             if (!isTooFar)
-                agent.isStopped = true;
+                _agent.isStopped = true;
 
             return isTooFar;
         }
@@ -96,14 +120,14 @@ namespace GodsGames
         [Task]
         public void MoveTowardTarget()
         {
-            if (currentTarget == null)
+            if (_currentTarget == null)
             {
                 Task.current.Fail();
                 return;
             }
 
-            agent.SetDestination(currentTarget.transform.position);
-            agent.isStopped = false;
+            _agent.SetDestination(_currentTarget.transform.position);
+            _agent.isStopped = false;
 
             Task.current.Succeed();
         }
@@ -115,13 +139,13 @@ namespace GodsGames
         [Task]
         public bool CanAttackTarget ()
         {
-            return GetDistFromCurrentTarget() <= attackRange;
+            return GetDistFromCurrentTarget() <= _attackRange;
         }
 
         [Task]
         public void AttackTarget ()
         {
-            animator.SetTrigger(attack);
+            _animator.SetTrigger(ATTACKING);
             Task.current.Succeed();
         }
 
@@ -132,8 +156,24 @@ namespace GodsGames
         [Task]
         public void Idle ()
         {
-            agent.isStopped = true;
+            _agent.isStopped = true;
             Task.current.Succeed();
+        }
+
+        /**
+         * GENERICS
+         **/
+
+        [Task]
+        public void Success ()
+        {
+            Task.current.Succeed();
+        }
+
+        [Task]
+        public void Failure ()
+        {
+            Task.current.Fail();
         }
     }
 }

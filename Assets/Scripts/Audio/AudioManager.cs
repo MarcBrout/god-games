@@ -48,6 +48,7 @@ namespace GodsGame
         {
             Sound s = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
             audioSource.clip = s.clip;
+            audioSource.outputAudioMixerGroup = s.mixerGroup;
             audioSource.Play();
         }
 
@@ -168,7 +169,7 @@ namespace GodsGame
                         s.source.outputAudioMixerGroup = music;
                         break;
                     case MixerGroup.Effects:
-                        //s.source.outputAudioMixerGroup = effects;
+                        s.mixerGroup = effects;
                         break;
                 }
             }
@@ -270,13 +271,13 @@ namespace GodsGame
                 backgroundMusic2.source.volume = startVolume;
             }
         }
-        
+
 
         // ************************ TESTING PURPOSES ************************ //
 
         private void Start()
         {
-            //PlayRandomSfx("animation");
+            //Test();
         }
 
         private void Test()
