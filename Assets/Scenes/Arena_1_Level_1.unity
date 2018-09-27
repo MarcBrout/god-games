@@ -785,6 +785,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 577486986}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _targetTag
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _attackRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _agent
+      value: 
+      objectReference: {fileID: 1239024254}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_IsPrefabAsset: 0
@@ -988,6 +1008,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &577486986 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95816946098904696, guid: daf5245c519171f48812ada7947a723a,
+    type: 2}
+  m_PrefabInternal: {fileID: 396923902}
 --- !u!1 &605776016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1440,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1239024254 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 195839722439017702, guid: daf5245c519171f48812ada7947a723a,
+    type: 2}
+  m_PrefabInternal: {fileID: 396923902}
 --- !u!1 &1254807902
 GameObject:
   m_ObjectHideFlags: 0
