@@ -22,7 +22,6 @@ namespace GodsGame
         public bool invulnerableAfterDamage = true;
         public float invulnerabilityDuration = 3f;
         public bool disableOnDeath = false;
-        public int m_CurrentHealth;
         [Tooltip("An offset from the obejct position used to set from where the distance to the damager is computed")]
         public Vector2 centreOffset = new Vector2(0f, 1f);
         public HealthEvent OnHealthSet;
@@ -33,7 +32,7 @@ namespace GodsGame
 
         [HideInInspector]
         //public DataSettings dataSettings;
-
+        public int m_CurrentHealth;
         protected bool m_Invulnerable;
         protected float m_InulnerabilityTimer;
         protected Vector2 m_DamageDirection;

@@ -25,9 +25,24 @@ namespace GodsGame
 
         public float timeToFade, threshold;
 
-        public Sound[] animation, arena_ambience, arena_battle_music
-            , arena_events, items_common, items_pressure_plates, items_sword, minotaur, player_dash
-            , player_death, player_hit, player_run, player_walk, zeus;
+        public Sound[]
+            animation,
+            arena_ambience,
+            arena_battle_music,
+            arena_events,
+            items_common,
+            items_pressure_plates,
+            items_sword_hit_metal,
+            items_sword_hit_nothing,
+            items_sword_hit_wood,
+            minotaur,
+            minotaur_hit,
+            player_dash,
+            player_death, 
+            player_hit, 
+            player_run, 
+            player_walk, 
+            zeus;
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
 
@@ -145,8 +160,11 @@ namespace GodsGame
             InitializeSoundArray(arena_events, MixerGroup.Music);
             InitializeSoundArray(items_common, MixerGroup.Effects);
             InitializeSoundArray(items_pressure_plates, MixerGroup.Effects);
-            InitializeSoundArray(items_sword, MixerGroup.Effects);
+            InitializeSoundArray(items_sword_hit_metal, MixerGroup.Effects);
+            InitializeSoundArray(items_sword_hit_nothing, MixerGroup.Effects);
+            InitializeSoundArray(items_sword_hit_wood, MixerGroup.Effects);
             InitializeSoundArray(minotaur, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_hit, MixerGroup.Effects);
             InitializeSoundArray(player_dash, MixerGroup.Effects);
             InitializeSoundArray(player_death, MixerGroup.Effects);
             InitializeSoundArray(player_hit, MixerGroup.Effects);
@@ -185,8 +203,11 @@ namespace GodsGame
                 case ("arena_events"): return arena_events;
                 case ("items_common"): return items_common;
                 case ("items_pressure_plates"): return items_pressure_plates;
-                case ("items_sword"): return items_sword;
+                case ("items_sword_hit_metal"): return items_sword_hit_metal;
+                case ("items_sword_hit_nothing"): return items_sword_hit_nothing;
+                case ("items_sword_hit_wood"): return items_sword_hit_wood;
                 case ("minotaur"): return minotaur;
+                case ("minotaur_hit"): return minotaur_hit;
                 case ("player_dash"): return player_dash;
                 case ("player_death"): return player_death;
                 case ("player_hit"): return player_hit;
