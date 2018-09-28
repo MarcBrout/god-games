@@ -22,7 +22,7 @@ notifications:
 
 # run to init our foldeR
 before_install:
-- brew update && brew bundle
+- brew update
 - chmod -r a+x ./travis-build/*.sh
 
 # run the script to download and install Unity editor
