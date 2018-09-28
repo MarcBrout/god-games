@@ -1,6 +1,8 @@
 #! /bin/sh
 
 project="gods-games"
+commit= $TRAVIS_COMMIT
+folder= "windows" + commit
 
 ## Run the editor unit tests and linter
 # echo "Running editor unit tests for ${UNITY_PROJECT_NAME}"
