@@ -1,6 +1,7 @@
 # use a Mac OSX image
 language: objective-c
-os: osx
+osx_image: xcode8.1
+
 # rvm version
 rvm:
 - 2.2
@@ -19,10 +20,9 @@ notifications:
     on_success: never
     on_failure: change
 
-# run to init our folder and decrypt the encrypted SSH key file so it can be used for auth in deploy_build.sh
+# run to init our foldeR
 before_install:
 - chmod -r a+x ./travis-build/*.sh
-# - openssl aes-256-cbc -k "$KEYFILE_PASS" -in "${UPLOAD_KEYPATH}.enc" -out "${UPLOAD_KEYPATH}" -d
 
 # run the script to download and install Unity editor
 install:
