@@ -32,7 +32,7 @@ install:
 script:
 - ./travis-build/build.sh
 
-#after success
+#after success deploy to our S3 solution
 deploy:
   provider: s3
   access_key_id: $ACCESS_KEY_ID
@@ -41,8 +41,3 @@ deploy:
   local-dir: Build
   upload-dir: $TRAVIS_BRANCH
   skip_cleanup: true
-
-# environment variables used in bash scripts
-env:
-  global:
-  - UNITY_PROJECT_NAME="gods-games"
