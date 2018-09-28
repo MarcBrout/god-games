@@ -11,6 +11,7 @@ namespace GodsGame
         {
             m_MonoBehaviour.Damageable.EnableInvulnerability();
             m_MonoBehaviour.GetInput();
+            Debug.Log("do dash");
             m_MonoBehaviour.Dash();
         }
 

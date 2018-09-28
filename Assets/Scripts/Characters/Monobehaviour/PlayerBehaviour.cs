@@ -133,6 +133,7 @@ namespace GodsGame
 
         public void Dash()
         {
+            Debug.Log("Palyer execute");
             DashSkill.Execute();
         }
 
