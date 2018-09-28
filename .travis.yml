@@ -20,18 +20,13 @@ notifications:
     on_success: never
     on_failure: change
 
-# run to init our foldeR
-before_install:
-- brew update
-- chmod -r a+x ./travis-build/*.sh
-
 # run the script to download and install Unity editor
 install:
-- ./travis-build/install.sh
+- sudo -E sh ./travis-build/install.sh
 
 # run the script for unit tests and builds
 script:
-- ./travis-build/build.sh
+- sudo -E sh ./travis-build/build.sh
 
 #after success deploy to our S3 solution
 deploy:
