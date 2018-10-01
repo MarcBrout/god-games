@@ -1,18 +1,13 @@
 #! /bin/sh
 
 # URL of unity
-BASE_URL=https://netstorage.unity3d.com/unity
+BASE_URL=https://netstorage.unity3d.com/unity/674aa5a67ed5/MacEditorInstaller/Unity-2018.2.10f1.pkg?_ga=2.244022213.1557949389.1538395704-358393280.1535462062
 
-# download hash
-HASH=88d00a7498cd
-
-#project verion
-VERSION=2018.2.10f1
 
 # Download Unity3D installer into the container
 download() {
   file=$1
-  url="$BASE_URL/$HASH/$package"
+  url="$BASE_URL"
 
   echo "Downloading from $url: "
   curl --retry 5 -o `basename "$package"` "$url"
