@@ -77,7 +77,7 @@ public class Character : MonoBehaviour
 
 
     /// <summary>
-    /// input based on Horizonta(q, d, <, >) and Vertical(z, s, ^, v) keys
+    /// input based on Horizontal(q, d, <, >) and Vertical(z, s, ^, v) keys
     /// </summary>
     private void GetInput()
     {
@@ -134,7 +134,7 @@ public class Character : MonoBehaviour
     }
 
     /// <summary>
-    /// Apply the gravity force to te player
+    /// Apply the gravity force to the player
     /// </summary>
     private void ApplyGravity()
     {
