@@ -62,16 +62,5 @@
                 "Take it!"
             };
         }
-
-        //Boss's speech
-        public static class BossSpeech
-        {
-            public static string[] BossDies =
-            {
-                "yo",
-                "ya",
-                "yeet"
-            };
-        }
     }
 }
