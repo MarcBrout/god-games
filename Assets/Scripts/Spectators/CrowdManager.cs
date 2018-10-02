@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace GodsGame {
-    public class CrowdManager : MonoBehaviour {
+    public class CrowdManager : MonoBehaviour
+    {
+        public static CrowdManager instance;
+
         public State CurrentState
         {
             get { return this.States[currentState]; }
         }
+
+        public Dictionary<STATES, State> States = new Dictionary<STATES, State>()
+        {
+            {STATES.IDLE, new State(90, 5, 5, 0) },
+            {STATES.CHEER, new State(10, 70, 10, 10) },
+            {STATES.BOOH, new State(10, 20, 60, 10) },
+            {STATES.OOH, new State(5, 10, 5, 80) },
+        };
 
         [HideInInspector]
         public enum STATES
@@ -20,12 +31,12 @@ namespace GodsGame {
 
         public struct State
         {
-            public float IdlePercent;
-            public float CheerPercent;
-            public float BoohPercent;
-            public float OohPercent;
+            public int IdlePercent;
+            public int CheerPercent;
+            public int BoohPercent;
+            public int OohPercent;
 
-            public State(float IdlePercent, float CheerPercent, float BoohPercent, float OohPercent)
+            public State(int IdlePercent, int CheerPercent, int BoohPercent, int OohPercent)
             {
                 this.IdlePercent = IdlePercent;
                 this.CheerPercent = CheerPercent;
@@ -36,21 +47,16 @@ namespace GodsGame {
 
         private STATES currentState = STATES.IDLE;
         private bool stateChanged = false;
-        public Dictionary<STATES, State> States = new Dictionary<STATES, State>()
-        {
-            {STATES.IDLE, new State(80f, 15f, 0f, 0f) },
-            {STATES.CHEER, new State(10f, 70f, 10f, 10f) },
-            {STATES.BOOH, new State(10f, 20f, 60f, 10f) },
-            {STATES.OOH, new State(5f, 20f, 5f, 70f) },
-        };
 
         // Use this for initialization
-        void Start() {
+        void Start()
+        {
 
         }
 
         // Update is called once per frame
-        void Update() {
+        void Update()
+        {
 
         }
 
@@ -69,6 +75,19 @@ namespace GodsGame {
                 StartCoroutine(ChangeState(State, DurationInMilliseconds));
                 this.currentState = State;
                 this.stateChanged = true;
+            }
+        }
+
+        private void Awake()
+        {
+            if (instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
     }
