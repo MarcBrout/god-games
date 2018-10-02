@@ -139,7 +139,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18375490}
-  m_LocalRotation: {x: 0.2979607, y: -0, z: -0, w: 0.95457816}
+  m_LocalRotation: {x: 0.29591697, y: -0.0136373425, z: 0.004225203, w: 0.955107}
   m_LocalPosition: {x: 0, y: 33.2, z: -48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -824,6 +824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108629575}
   - component: {fileID: 108629577}
+  - component: {fileID: 108629576}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -845,6 +846,17 @@ Transform:
   m_Father: {fileID: 705635428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108629576
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108629574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &108629577
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1575,14 +1587,14 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 705635427}
-  m_LocalRotation: {x: 0.2979607, y: -0, z: -0, w: 0.95457816}
+  m_LocalRotation: {x: 0.29591697, y: -0.0136373425, z: 0.004225203, w: 0.955107}
   m_LocalPosition: {x: 0, y: 33.2, z: -48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 108629575}
   m_Father: {fileID: 1476887847}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 48.527, y: -89.13, z: 0}
+  m_LocalEulerAnglesHint: {x: 34.92, y: 0, z: 0}
 --- !u!114 &705635429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,12 +1640,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 705635427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78995c880cf4cc440b6431fa56aac141, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a8510a306eb56046987ea9670b8507b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 2078304289}
   player2: {fileID: 1710040157}
-  zoomscale: 1
+  zoomscale: 2
+  maxrotation: 70
 --- !u!1 &724476662
 GameObject:
   m_ObjectHideFlags: 0
