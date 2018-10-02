@@ -61,7 +61,7 @@ namespace GodsGame
             for (int i = 0; i < pressureplateState.Count; i++)
             {
                 pressureplateState[i] = true;
-                pressureplates[i].enableTrap();
+                pressureplates[i].EnableTrap();
             }
         }
     }
