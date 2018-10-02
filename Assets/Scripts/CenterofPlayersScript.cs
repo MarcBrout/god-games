@@ -6,16 +6,17 @@ public class CenterofPlayersScript : MonoBehaviour {
 
     public GameObject player1;
     public GameObject player2;
-    public GameObject camera;
+    //public GameObject camera;
+    public float zoomscale = 1;
 
     Vector3 p1position;
     Vector3 p2position;
-    Vector3 cameraposition;
+    Vector3 offsetFromPlayerCenter;
 
 	// Use this for initialization
 	void Start ()
     {
-        cameraposition = camera.transform.position;
+        offsetFromPlayerCenter = transform.position - (player2.transform.position - player1.transform.position);
     }
 	
 	// Update is called once per frame
@@ -29,8 +30,8 @@ public class CenterofPlayersScript : MonoBehaviour {
 
         float maxPlayerDistance = playerDistanceX > playerDistanceZ ? playerDistanceX : playerDistanceZ;
 
-        transform.position = new Vector3(p1position.x +  (p2position.x - p1position.x) / 2, 0, p1position.z + (p2position.z - p1position.z) / 2);
+        transform.position = new Vector3((p2position.x - p1position.x) / 2, offsetFromPlayerCenter.y, (p2position.z - p1position.z) / 2 + offsetFromPlayerCenter.z);
 
-        transform.position += Vector3.Normalize(cameraposition) * maxPlayerDistance;
+        //transform.position += Vector3.Normalize(transform.position) * maxPlayerDistance * zoomscale;
     }
 }

@@ -78,7 +78,7 @@ namespace GodsGame
         }
 
         /// <summary>
-        /// input based on Horizonta(q, d, <, >) and Vertical(z, s, ^, v) keys
+        /// input based on Horizontal(q, d, <, >) and Vertical(z, s, ^, v) keys
         /// </summary>
         public void GetInput()
         {
@@ -133,6 +133,7 @@ namespace GodsGame
 
         public void Dash()
         {
+            Debug.Log("Player execute");
             DashSkill.Execute();
         }
 

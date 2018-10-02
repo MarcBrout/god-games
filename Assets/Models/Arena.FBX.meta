@@ -1395,7 +1395,12 @@ ModelImporter:
     4300508: Arena_1
     4300510: Arena_2
     4300512: TribuneOpposite
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #15'
+    second: {fileID: 2100000, guid: 9528b078c304d7344bb3c4a3e2e2cd0c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
