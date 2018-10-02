@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GodsGame {
-    public class PlayerEventReceiver : MonoBehaviour {
+namespace GodsGame
+{
+    public class PlayerEventReceiver : MonoBehaviour
+    {
         private AudioSource audio;
 
-        // Use this for initialization
-        void Start() {
+        void Start()
+        {
             audio = GetComponent<AudioSource>();
-        }
-
-        // Update is called once per frame
-        void Update() {
-
         }
 
         public void RunStep()
