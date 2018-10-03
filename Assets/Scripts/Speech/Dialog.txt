@@ -1,17 +1,93 @@
  [
    {
-       "Speech": "Task one",
-       "Action": "PLAYER_DODGEATTACK",
+       "Speech": "Faith, hope, (and) love",
+       "Action": "PLAYER_BEFOREBETRAYAL",
        "Level": "ANY"
    },
    {
-       "Speech": "Task two",
-       "Action": "PLAYER_DODGEATTACK",
+       "Speech": "Gordian Knot!",
+       "Action": "PLAYER_AFTERBETRAYAL",
        "Level": "ANY"
    },
    {
-       "Speech": "Task three",
+       "Speech": "Cretans always lie",
+       "Action": "PLAYER_AFTERBETRAYAL",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "Lord have mercy",
+       "Action": "PLAYER_AFTERBETRAYAL",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "Apple of Discord",
+       "Action": "PLAYER_AFTERBETRAYAL",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "God from the machine",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "I came, I saw, I conquered",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "Let's fight!",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "We will survive",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "The light shines on you",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   },
+   {
+       "Speech": "Be in position",
+       "Action": "PLAYER_DURINGFIGHT",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "Death is no different than life",
+       "Action": "PLAYER_DIES",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "You won't get me!",
        "Action": "PLAYER_DODGEATTACK",
        "Level": "ANY"
    }
+   {
+       "Speech": "I have found [it]",
+       "Action": "PLAYER_ITEMPICKUP",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "We have won!",
+       "Action": "PLAYER_WIN",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "Hang on brother!",
+       "Action": "PLAYER_OTHERTAKESDAMAGE",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "Nice one!",
+       "Action": "PLAYER_DAMAGEBOSS",
+       "Level": "ANY"
+   }
+   {
+       "Speech": "Take it!",
+       "Action": "PLAYER_THROWWEAPON",
+       "Level": "ANY"
+   }
+   
  ]
