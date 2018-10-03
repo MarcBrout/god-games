@@ -9,6 +9,9 @@ namespace GodsGame
         public int FrameUpdateInterval = 60;
         public int FrameStartingRange = 6;
         public Animator animator;
+        public Transform target;
+        public float RotationSpeed;
+        
 
         static private Dictionary<CrowdManager.STATES, string[]> MapStateToAnimations = new Dictionary<CrowdManager.STATES, string[]>()
         {
@@ -25,6 +28,8 @@ namespace GodsGame
         {
             StartingFrame = Random.Range(0, FrameStartingRange);
             animator.SetFloat("StartingIdleOffset", Random.Range(2f, 100f));
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+            target = objects[Random.Range(0, objects.Length)].transform;
         }
 
         CrowdManager.STATES GetMyState(CrowdManager.State state)
@@ -64,6 +69,11 @@ namespace GodsGame
                 string animation = GetAnimationOfState(MyState);
                 animator.SetTrigger(animation);
             }
+
+            Vector3 targetTransform = target.position - transform.position;
+            targetTransform.y = transform.position.y;
+            Quaternion lookRotation = Quaternion.LookRotation(targetTransform, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, RotationSpeed * Time.deltaTime); ;
         }
     }
 }
