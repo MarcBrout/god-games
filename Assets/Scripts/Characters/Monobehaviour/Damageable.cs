@@ -26,6 +26,7 @@ namespace GodsGame
         public Vector2 centreOffset = new Vector2(0f, 1f);
         public HealthEvent OnHealthSet;
         public DamageEvent OnTakeDamage;
+        public DamageEvent OnTakeDamageBt;
         public DamageEvent OnDie;
         public HealEvent OnGainHealth;
 
@@ -105,6 +106,7 @@ namespace GodsGame
             m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
 
             OnTakeDamage.Invoke(damager, this);
+            OnTakeDamageBt.Invoke(damager, this);
 
             if (m_CurrentHealth <= 0)
             {
