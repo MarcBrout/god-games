@@ -22,6 +22,10 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        p1position = player1.transform.position;
+        p2position = player2.transform.position;
+
+
         offsetFromPlayerCenter = transform.position - (player2.transform.position + player1.transform.position) / 2;
         startrotation = transform.rotation.eulerAngles;
         playerDistanceStart = Vector3.Distance(p1position, p2position);
@@ -42,6 +46,14 @@ public class CameraController : MonoBehaviour
 
         transform.position += Vector3.Normalize(transform.position) * maxPlayerDistance * zoomscale;
 
-      //  transform.rotation = maxPlayerDistance > reachmaxrotationat ? maxrotation : startrotation + (maxrotation - startrotation);
+        /*
+        float xrotation = startrotation.x + (Vector3.Distance(p1position, p2position) / reachmaxrotationat) * (maxrotation - startrotation.x);
+
+        Debug.Log(Vector3.Distance(p1position, p2position) + "           " + playerDistanceStart + "             " + (maxrotation - startrotation.x));
+
+        xrotation = xrotation > maxrotation ? maxrotation : xrotation;
+
+        transform.rotation = Quaternion.Euler(maxPlayerDistance > reachmaxrotationat ? maxrotation : xrotation ,0 ,0) ;
+        */
     }
 }
