@@ -7,19 +7,15 @@ namespace GodsGame {
 
     public class LocomotionSMB : SceneLinkedSMB<PlayerBehaviour> {
 
-        public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-        }
-
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_MonoBehaviour.GetInput();
             m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.Move();
             m_MonoBehaviour.RotateAim();
+            m_MonoBehaviour.DoStepDust();
             if (m_MonoBehaviour.CheckForDashInput())
             {
-                Debug.Log("Dash input true");
                 m_MonoBehaviour.TransitionToDash();
             }
             if (m_MonoBehaviour.CheckForJumpInput())
