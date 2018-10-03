@@ -8,8 +8,12 @@ namespace GodsGame
     public class PressureplateScript : MonoBehaviour
     {
 
-        public Animator pressurPlateAnimator;
         public GameObject trapScriptGameObject;
+        public List<GameObject> coloredTrapParts;
+        public Material enabledTrapMaterial;
+        public Material disabledTrapmaterial;
+
+        private Animator pressurPlateAnimator;
         private ITrapInterface trapScript;
         private bool isEnable;
         private TrapManagerScript trapManager;
@@ -25,6 +29,7 @@ namespace GodsGame
         // Use this for initialization
         void Start()
         {
+            pressurPlateAnimator = GetComponent<Animator>();
 
             trapScript = trapScriptGameObject.GetComponent<ITrapInterface>();
             if (trapScript == null)
@@ -34,6 +39,7 @@ namespace GodsGame
             }
 
             isEnable = true;
+            ShowEnabledColor();
             audioSource = GetComponent<AudioSource>();
         }
 
@@ -43,7 +49,7 @@ namespace GodsGame
             this.trapmanagerId = trapmanagerId;
         }
 
-        public void plateTriggerEnter(Collider col)
+        public void PlateTriggerEnter(Collider col)
         {
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
             {
@@ -52,7 +58,7 @@ namespace GodsGame
                     AudioManager.Instance.PlaySfx3D(PLATE_ACTIVATED, PLATE_ARRAY, ref audioSource);
                     pressurPlateAnimator.SetBool("playerEntered", true);
                     trapScript.ActivateTrap();
-                    disableTrap();
+                    DisableTrap();
                 }
                 else
                 {
@@ -61,7 +67,7 @@ namespace GodsGame
             }
         }
 
-        public void plateTriggerExit(Collider col)
+        public void PlateTriggerExit(Collider col)
         {
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
             {
@@ -70,12 +76,12 @@ namespace GodsGame
 
                 if (trapManager == null)
                 {
-                    enableTrap();
+                    EnableTrap();
                 }
             }
         }
 
-        void disableTrap()
+        void DisableTrap()
         {
             isEnable = false;
             pressurPlateAnimator.SetBool("isEnable", false);
@@ -86,13 +92,26 @@ namespace GodsGame
             }
         }
 
-        public void enableTrap()
+        public void EnableTrap()
         {
             AudioManager.Instance.PlaySfx3D(PLATE_RESET, PLATE_ARRAY, ref audioSource);
 
             isEnable = true;
             pressurPlateAnimator.SetBool("isEnable", true);
             trapScript.ShowEnableColor();
+        }
+
+        public void ShowDisabledColor() {
+            foreach (GameObject obj in coloredTrapParts) {
+                obj.GetComponent<Renderer>().material = disabledTrapmaterial;
+            }
+        }
+
+        public void ShowEnabledColor() {
+            foreach (GameObject obj in coloredTrapParts)
+            {
+                obj.GetComponent<Renderer>().material = enabledTrapMaterial;
+            }
         }
     }
 }

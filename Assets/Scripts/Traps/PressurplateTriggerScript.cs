@@ -22,12 +22,12 @@ namespace GodsGame
 
         void OnTriggerEnter(Collider other)
         {
-            GetComponentInParent<PressureplateScript>().plateTriggerEnter(other);
+            GetComponentInParent<PressureplateScript>().PlateTriggerEnter(other);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            GetComponentInParent<PressureplateScript>().plateTriggerExit(other);
+            GetComponentInParent<PressureplateScript>().PlateTriggerExit(other);
 
         }
     }
