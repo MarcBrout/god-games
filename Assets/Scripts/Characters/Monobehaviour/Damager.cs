@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
@@ -18,12 +18,13 @@ namespace GodsGame
 
         //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
         public Collider LastHit { get { return m_LastHit; } }
-
         public int damage = 1;
         public bool enableDelayActivationOnStart = false;
         public float activationDelay = 0.1f;
         public bool enableDelayDeactivationOnStart = false;
-        public float disableAfterSeconds = 3f;
+        public float deactivationDelay = 3f;
+        public bool damageOverTime = false;
+        public float damageOverTimeTick = 1f;
         public bool disableDamageAfterHit = false;
         [Tooltip("If set, an invincible damageable hit will still get the onHit message (but won't loose any life)")]
         public bool ignoreInvincibility = false;
@@ -36,6 +37,8 @@ namespace GodsGame
         protected bool m_CanDamage = true;
         protected Transform m_DamagerTransform;
         protected Collider m_LastHit;
+        protected float m_TriggerEnterAt;
+        protected float m_TriggerStayElapseTime;
 
         void Start()
         {
@@ -55,7 +58,7 @@ namespace GodsGame
             if (enableDelayActivationOnStart)
                 StartCoroutine(ActivateAfter(activationDelay));
             if (enableDelayDeactivationOnStart)
-                StartCoroutine(DisableAfter(disableAfterSeconds));
+                StartCoroutine(DisableAfter(deactivationDelay));
         }
 
         public void EnableDamage()
@@ -85,18 +88,30 @@ namespace GodsGame
             if (hittableLayers.Contain(other.gameObject.layer))
             {
                 m_LastHit = other;
-                Damageable damageable = m_LastHit.GetComponent<Damageable>();
-                if (damageable)
-                {
-                    OnDamageableHit.Invoke(this, damageable);
-                    damageable.TakeDamage(this, ignoreInvincibility);
-                    if (disableDamageAfterHit)
-                        DisableDamage();
-                }
-                else
-                {
-                    OnNonDamageableHit.Invoke(this);
-                }
+                ApplyDamage();
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (m_CanDamage && damageOverTime && m_TriggerEnterAt + damageOverTimeTick <= Time.time)
+                ApplyDamage();
+        }
+
+        private void ApplyDamage()
+        {
+            m_TriggerEnterAt = Time.time;
+            Damageable damageable = m_LastHit.GetComponent<Damageable>();
+            if (damageable)
+            {
+                OnDamageableHit.Invoke(this, damageable);
+                damageable.TakeDamage(this, ignoreInvincibility);
+                if (disableDamageAfterHit)
+                    DisableDamage();
+            }
+            else
+            {
+                OnNonDamageableHit.Invoke(this);
             }
         }
 
