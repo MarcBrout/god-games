@@ -242,11 +242,12 @@ GameObject:
   - component: {fileID: 54324280468518028}
   - component: {fileID: 136800874529784306}
   - component: {fileID: 95740417983149072}
+  - component: {fileID: 82483882367289996}
   - component: {fileID: 114120787754791234}
   - component: {fileID: 114943014801855442}
-  - component: {fileID: 82483882367289996}
   - component: {fileID: 114635470363070318}
   - component: {fileID: 195639403037477352}
+  - component: {fileID: 114242467885188494}
   m_Layer: 9
   m_Name: Player_1
   m_TagString: Player
@@ -400,8 +401,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975363545270338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98, y: 0.285, z: 14.43}
+  m_LocalRotation: {x: -0, y: 0.0000000074505797, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9800001, y: 0.2849996, z: 14.430004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4850513923758086}
@@ -1130,6 +1131,19 @@ MonoBehaviour:
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_CurrentHealth: 0
+--- !u!114 &114242467885188494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975363545270338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27ea2ba484b66f4cbf32f877d9cddc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1543338227380590, guid: d60fa0d9af6ef50448e72ad8101197f7, type: 2}
+  initialPoolCount: 7
 --- !u!114 &114396799120000448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1176,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d133cc65af94a45a1931252ce37f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   turnSpeed: 10
   jumpHeight: 2
   groundDistance: 0.2
@@ -1191,6 +1205,7 @@ MonoBehaviour:
   rHorizontalAxis: RHorizontal_P1
   jumpButton: Jump_P1
   dashButton: Dash_P1
+  dustEffectRepeatDelay: 0.5
 --- !u!136 &136800874529784306
 CapsuleCollider:
   m_ObjectHideFlags: 1

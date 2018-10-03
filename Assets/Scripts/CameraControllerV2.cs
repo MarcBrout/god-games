@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraControlerV2 : MonoBehaviour
+public class CameraControllerV2 : MonoBehaviour
 {
 
     public new CinemachineVirtualCamera camera;
