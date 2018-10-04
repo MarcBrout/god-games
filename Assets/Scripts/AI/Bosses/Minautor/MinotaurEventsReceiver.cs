@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VikingCrewTools.UI;
 
 namespace GodsGame
 {
@@ -24,7 +25,8 @@ namespace GodsGame
             if (axeWindCount == 5)
             {
                 VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY));
+                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY), 
+                    SpeechBubbleManager.SpeechbubbleType.ANGRY);
                 axeWindCount = 0;
             }
         
