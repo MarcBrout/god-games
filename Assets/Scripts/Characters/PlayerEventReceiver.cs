@@ -31,20 +31,21 @@ namespace GodsGame
             AudioManager.Instance.PlayRandomSfx3D("player_run", ref audio);
         }
 
-        public void Dash()
+        public void DashSound()
         {
             AudioManager.Instance.PlayRandomSfx3D("player_dash", ref audio);
         }
 
-        public void Death(Damager damager, Damageable damageable)
+        public void DeathSound(Damager damager, Damageable damageable)
         {
             CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
             AudioManager.Instance.PlayRandomSfx3D("player_death", ref audio);
             AudioManager.Instance.PlaySfx(DeathSounds[Random.Range(0, DeathSounds.Length)], "arena_ambience");
         }
 
-        public void Hit(Damager damager, Damageable damageable)
+        public void HitSound(Damager damager, Damageable damageable)
         {
+            Debug.Log("HIT");
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
             AudioManager.Instance.PlaySfx(CheerSounds[Random.Range(0, CheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref audio);

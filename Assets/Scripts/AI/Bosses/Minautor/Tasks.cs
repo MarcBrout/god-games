@@ -254,5 +254,14 @@ namespace GodsGames
         {
             ActivateBerserkMode();
         }
+
+        // TODO : remove
+        public void OnDieBoss(Damager damager, Damageable damageable)
+        {
+            _agent.speed = 0;
+            _defaultSpeed = 0;
+            _berserkSpeed = 0;
+            _chargeSpeed = 0;
+        }
     }
 }
