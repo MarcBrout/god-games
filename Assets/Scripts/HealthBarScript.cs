@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthBarScript : MonoBehaviour {
 
+    public int maxhealth = 3;
     int health = 3;
     float startTime;
     public float lerpSpeed = 100;
@@ -25,7 +26,7 @@ public class HealthBarScript : MonoBehaviour {
         startposition = transform.position;
         rt = GetComponent<RectTransform>();
         length = rt.rect.width;
-        distance = length / 3 * transform.lossyScale.x;
+        distance = length / maxhealth * transform.lossyScale.x;
     }
 	
 	// Update is called once per frame
