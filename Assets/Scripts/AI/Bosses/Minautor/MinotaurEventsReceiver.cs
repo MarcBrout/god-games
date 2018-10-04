@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VikingCrewTools.UI;
+using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 namespace GodsGame
 {
@@ -24,12 +25,12 @@ namespace GodsGame
         {
             if (axeWindCount == 5)
             {
-                VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY), 
+                SpeechBubbleManager.Instance.AddSpeechBubble
+                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY),
                     SpeechBubbleManager.SpeechbubbleType.ANGRY);
                 axeWindCount = 0;
             }
-        
+
             ++axeWindCount;
 
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref audio);

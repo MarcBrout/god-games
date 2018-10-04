@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using VikingCrewTools.UI;
+using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
+
 
 namespace GodsGame
 {
@@ -107,13 +110,14 @@ namespace GodsGame
 
             if (gameObject.CompareTag("Player"))
             {
-                VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                SpeechBubbleManager.Instance.AddSpeechBubble
                     (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
             }
             else if (gameObject.CompareTag("Minotaur"))
             {
-                VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY));
+                SpeechBubbleManager.Instance.AddSpeechBubble
+                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
+                    SpeechBubbleManager.SpeechbubbleType.ANGRY);
             }
 
             if (m_CurrentHealth <= 0)
