@@ -11,6 +11,7 @@ namespace GodsGame
     public class PlayerBehaviour : MonoBehaviour
     {
         #region public Var
+        [Header("Movement")]
         public float moveSpeed = 5f;
         public float turnSpeed = 10f;
         public float jumpHeight = 2f;
@@ -19,7 +20,7 @@ namespace GodsGame
         public LayerMask ground;
         public bool usingController = false;
 
-        [Space]
+        [Header("InputNames")]
         public string verticalAxis = "Vertical_P1";
         public string horizontalAxis = "Horizontal_P1";
         public string rVerticalAxis = "RVertical_P1";
@@ -27,16 +28,19 @@ namespace GodsGame
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
         public string throwItemButton = "ThrowItem_P1";
+
+        [Header("DustPool")]
+        public float dustEffectRepeatDelay = 0.3f;
         #endregion
 
         #region private Var
-        [Space]
         private Transform _GroundChecker;
         private Vector3 _Input;
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
         private ItemHandler _itemHandler;
+        private DustEffectPool _DustEffectPool;
         #endregion
 
         #region protected var
@@ -65,6 +69,7 @@ namespace GodsGame
 
         void Start()
         {
+            _DustEffectPool = GetComponent<DustEffectPool>();
             Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
@@ -98,6 +103,14 @@ namespace GodsGame
         public void Move()
         {
             Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
+
+        public void DoStepDust()
+        {
+            if (Mathf.Abs(_Input.x) > 0 || Mathf.Abs(_Input.z) > 0)
+                _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
+            else
+                _DustEffectPool.StopStepDust();
         }
 
         /// <summary>
@@ -136,8 +149,9 @@ namespace GodsGame
 
         public void Dash()
         {
-            Debug.Log("Player execute");
             DashSkill.Execute();
+            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
         }
 
         /// <summary>

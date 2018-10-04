@@ -114,7 +114,7 @@ namespace VikingCrewTools.UI {
         /// <param name="type"></param>
         /// <param name="timeToLive"></param>
         /// <param name="color"></param>
-        public SpeechBubbleBehaviour AddSpeechBubble(Vector3 position, string text, SpeechbubbleType type = SpeechbubbleType.NORMAL, float timeToLive = 0, Color color = default(Color))
+        public SpeechBubbleBehaviour AddSpeechBubble(Vector3 position, string text, SpeechbubbleType type = SpeechbubbleType.SERIOUS, float timeToLive = 0, Color color = default(Color))
         {
             if (timeToLive == 0) timeToLive = _defaultTimeToLive;
             if (color == default(Color)) color = _defaultColor;
@@ -134,7 +134,7 @@ namespace VikingCrewTools.UI {
         /// <param name="timeToLive">if 0 then will use default time to live</param>
         /// <param name="color">Color to tint, default will be white</param>
         /// <param name="offset">Offset from objectToFollow</param>
-        public SpeechBubbleBehaviour AddSpeechBubble(Transform objectToFollow, string text, SpeechbubbleType type = SpeechbubbleType.NORMAL, float timeToLive = 0, Color color = default(Color), Vector3 offset = new Vector3())
+        public SpeechBubbleBehaviour AddSpeechBubble(Transform objectToFollow, string text, SpeechbubbleType type = SpeechbubbleType.SERIOUS, float timeToLive = 0, Color color = default(Color), Vector3 offset = new Vector3())
         {
             if (timeToLive == 0) timeToLive = _defaultTimeToLive;
             if (color == default(Color)) color = _defaultColor;
@@ -158,7 +158,7 @@ namespace VikingCrewTools.UI {
         /// <param name="timeToLive"></param>
         /// <param name="color"></param>
         /// <param name="offset"></param>
-        public void AddDelayedSpeechBubble(float delay, Transform objectToFollow, string text, SpeechbubbleType type = SpeechbubbleType.NORMAL, float timeToLive = 0, Color color = default(Color), Vector3 offset = new Vector3())
+        public void AddDelayedSpeechBubble(float delay, Transform objectToFollow, string text, SpeechbubbleType type = SpeechbubbleType.SERIOUS, float timeToLive = 0, Color color = default(Color), Vector3 offset = new Vector3())
         {
             StartCoroutine(DelaySpeechBubble(delay, objectToFollow, text, type, timeToLive, color, offset));
         }
@@ -169,7 +169,7 @@ namespace VikingCrewTools.UI {
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        private SpeechBubbleBehaviour GetBubble(SpeechbubbleType type = SpeechbubbleType.NORMAL)
+        private SpeechBubbleBehaviour GetBubble(SpeechbubbleType type = SpeechbubbleType.SERIOUS)
         {
             SpeechBubbleBehaviour bubbleBehaviour;
             //Check to see if there is a free speechbuble of the right kind to reuse

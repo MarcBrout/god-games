@@ -49,7 +49,7 @@ namespace GodsGame
             this.trapmanagerId = trapmanagerId;
         }
 
-        public void plateTriggerEnter(Collider col)
+        public void PlateTriggerEnter(Collider col)
         {
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
             {
@@ -67,7 +67,7 @@ namespace GodsGame
             }
         }
 
-        public void plateTriggerExit(Collider col)
+        public void PlateTriggerExit(Collider col)
         {
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
             {

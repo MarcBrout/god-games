@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using VikingCrewTools.UI;
+using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
+
 
 namespace GodsGame
 {
@@ -22,13 +25,13 @@ namespace GodsGame
         public bool invulnerableAfterDamage = true;
         public float invulnerabilityDuration = 3f;
         public bool disableOnDeath = false;
-        [Tooltip("An offset from the obejct position used to set from where the distance to the damager is computed")]
+        [Tooltip("An offset from the object position used to set from where the distance to the damager is computed")]
         public Vector2 centreOffset = new Vector2(0f, 1f);
         public HealthEvent OnHealthSet;
         public DamageEvent OnTakeDamage;
+        public DamageEvent OnTakeDamageBt;
         public DamageEvent OnDie;
         public HealEvent OnGainHealth;
-
 
         [HideInInspector]
         //public DataSettings dataSettings;
@@ -37,7 +40,6 @@ namespace GodsGame
         protected float m_InulnerabilityTimer;
         protected Vector2 m_DamageDirection;
         protected bool m_ResetHealthOnSceneReload;
-
 
         public int CurrentHealth
         {
@@ -103,8 +105,20 @@ namespace GodsGame
             }
 
             m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
-
             OnTakeDamage.Invoke(damager, this);
+            OnTakeDamageBt.Invoke(damager, this);
+
+            if (gameObject.CompareTag("Player"))
+            {
+                SpeechBubbleManager.Instance.AddSpeechBubble
+                    (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
+            }
+            else if (gameObject.CompareTag("Minotaur"))
+            {
+                SpeechBubbleManager.Instance.AddSpeechBubble
+                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
+                    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+            }
 
             if (m_CurrentHealth <= 0)
             {

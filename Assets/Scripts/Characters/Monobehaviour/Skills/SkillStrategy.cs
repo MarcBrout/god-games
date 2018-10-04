@@ -47,7 +47,6 @@ namespace GodsGame
         /// </summary>
         public virtual void Execute()
         {
-            Debug.Log("base execute");
             if (OnExecute != null)
                 OnExecute();
             currentChargeNumber -= 1;
