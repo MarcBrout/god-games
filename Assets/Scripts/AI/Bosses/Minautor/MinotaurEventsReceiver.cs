@@ -1,26 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VikingCrewTools.UI;
 
-namespace GodsGame {
-    public class MinotaurEventsReceiver : MonoBehaviour {
+namespace GodsGame
+{
+    public class MinotaurEventsReceiver : MonoBehaviour
+    {
         private AudioSource audio;
+        private int axeWindCount = 0;
 
-        // Use this for initialization
-        void Start() {
+        void Start()
+        {
             audio = GetComponent<AudioSource>();
         }
 
-        // Update is called once per frame
-        void Update() {
+        void Update()
+        {
 
         }
 
         public void AxeWind()
         {
+            if (axeWindCount == 5)
+            {
+                VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY), 
+                    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+                axeWindCount = 0;
+            }
+        
+            ++axeWindCount;
+
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref audio);
         }
-        
+
         public void WalkStep()
         {
             AudioManager.Instance.PlaySfx3D("minotaur_step_01", "minotaur", ref audio);

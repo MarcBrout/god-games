@@ -846,7 +846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584bcef900582a84dbbb3251e8c5cae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonTextAsset: {fileID: 4900000, guid: 06f62d922db542847976dfe90601ecc9, type: 3}
+  jsonTextAsset: {fileID: 4900000, guid: 31d87047c7727634983e62f943b479ea, type: 3}
+  dialog: []
 --- !u!1 &196575933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1790,21 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013829348910, guid: 0052c7a2273aa0a468757492e71cdaa6,
+        type: 2}
+      propertyPath: _is2D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013829348910, guid: 0052c7a2273aa0a468757492e71cdaa6,
+        type: 2}
+      propertyPath: _defaultTimeToLive
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013829348910, guid: 0052c7a2273aa0a468757492e71cdaa6,
+        type: 2}
+      propertyPath: _sizeMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0052c7a2273aa0a468757492e71cdaa6, type: 2}
