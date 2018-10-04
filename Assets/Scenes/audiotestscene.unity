@@ -830,6 +830,23 @@ MonoBehaviour:
   enabledTrapMaterial: {fileID: 0}
   disabledTrapMaterial: {fileID: 0}
   ringParent: {fileID: 0}
+--- !u!1 &194433799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000011127492796, guid: 0052c7a2273aa0a468757492e71cdaa6,
+    type: 2}
+  m_PrefabInternal: {fileID: 690061243}
+--- !u!114 &194433800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194433799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584bcef900582a84dbbb3251e8c5cae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonTextAsset: {fileID: 4900000, guid: 06f62d922db542847976dfe90601ecc9, type: 3}
 --- !u!1 &196575933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1214,7 @@ Prefab:
       objectReference: {fileID: 1239024254}
     - target: {fileID: 1596982817000298, guid: daf5245c519171f48812ada7947a723a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}

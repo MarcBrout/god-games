@@ -12,6 +12,9 @@ namespace GodsGame
         string jsonString;
         public TextAsset jsonTextAsset;
 
+        [HideInInspector]
+        public Dialog[] dialog;
+
         [System.Serializable]
         public struct Dialog
         {
@@ -20,7 +23,7 @@ namespace GodsGame
             public string Level;
         }
 
-        void awake()
+        void Awake()
         {
             if (Instance != null)
             {
@@ -41,29 +44,24 @@ namespace GodsGame
         private void ReadData()
         {
             jsonString = jsonTextAsset.text;
-            Dialog[] speeches = JsonHelper.getJsonArray<Dialog>(jsonString);
-            foreach (Dialog a in speeches)
+            dialog = JsonHelper.getJsonArray<Dialog>(jsonString);
+        }
+
+        public class JsonHelper
+        {
+            public static T[] getJsonArray<T>(string json)
             {
-                Debug.Log(a.Speech);
-                Debug.Log(a.Action);
-                Debug.Log(a.Level);
+                string newJson = "{ \"array\": " + json + "}";
+                Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
+                return wrapper.array;
+            }
+
+            [System.Serializable]
+            private class Wrapper<T>
+            {
+                public T[] array;
             }
         }
     }
-
-    public class JsonHelper
-    {
-        public static T[] getJsonArray<T>(string json)
-        {
-            string newJson = "{ \"array\": " + json + "}";
-            Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
-            return wrapper.array;
-        }
-
-        [System.Serializable]
-        private class Wrapper<T>
-        {
-            public T[] array;
-        }
-    }
 }
+
