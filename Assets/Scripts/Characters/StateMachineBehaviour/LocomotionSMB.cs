@@ -19,11 +19,18 @@ namespace GodsGame {
             m_MonoBehaviour.RotateAim();
             if (m_MonoBehaviour.CheckForDashInput())
             {
-                Debug.Log("Dash input true");
                 m_MonoBehaviour.TransitionToDash();
             }
             if (m_MonoBehaviour.CheckForJumpInput())
                 m_MonoBehaviour.Jump();
+
+            if (m_MonoBehaviour.CheckForThrowInput())
+            {
+                Debug.Log("Throw input true");
+
+                m_MonoBehaviour.ThrowItem();
+
+            }
         }
     }
 }

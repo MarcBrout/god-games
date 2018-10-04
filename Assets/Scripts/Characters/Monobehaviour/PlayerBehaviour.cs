@@ -26,6 +26,7 @@ namespace GodsGame
         public string rHorizontalAxis = "RHorizontal_P1";
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
+        public string throwItemButton = "ThrowItem_P1";
         #endregion
 
         #region private Var
@@ -35,6 +36,7 @@ namespace GodsGame
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
+        private ItemHandler _itemHandler;
         #endregion
 
         #region protected var
@@ -69,6 +71,7 @@ namespace GodsGame
             _Animator = GetComponent<Animator>();
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
+            _itemHandler = GetComponent<ItemHandler>();
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -135,6 +138,19 @@ namespace GodsGame
         {
             Debug.Log("Player execute");
             DashSkill.Execute();
+        }
+
+        /// <summary>
+        /// Throw the item equiped item of the player
+        /// </summary>
+        ///
+        public bool CheckForThrowInput()
+        {
+            return cInput.GetButton(throwItemButton) && _itemHandler.CanThrow();
+        }
+        public void ThrowItem()
+        {
+            _itemHandler.ThrowItem();
         }
 
         /// <summary>
