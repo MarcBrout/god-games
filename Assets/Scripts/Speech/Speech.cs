@@ -3,7 +3,7 @@
  * By: Demis Terborg
  *
  * Create SpeechBubble using SpeechBubbleManager Instance:
- * VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble(transform, "Hello world!");
+ * VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble(transform, GetRandomSpeech(EnumAction a, EnumLevel l);
  */
 
 using System;
@@ -17,7 +17,20 @@ namespace GodsGame
 {
     public enum EnumAction
     {
-        PLAYER_DODGEATTACK
+        MINOTAUR_AXEWIND,
+        MINOTAUR_DIES,
+        MINOTAUR_TAKESDAMAGE,
+        PLAYER_AFTERBETRAYAL,
+        PLAYER_BEFOREBETRAYAL,
+        PLAYER_DAMAGESBOSS,
+        PLAYER_DASH,
+        PLAYER_DIES,
+        PLAYER_DURINGFIGHT,
+        PLAYER_ITEMPICKUP,
+        PLAYER_OTHERTAKESDAMAGE,
+        PLAYER_TAKESDAMAGE,
+        PLAYER_THROWWEAPON,
+        PLAYER_WIN
     }
 
     public enum EnumLevel
@@ -31,7 +44,7 @@ namespace GodsGame
     public static class Speech
     {
 
-        public static string GetRandomSpeech(EnumAction a, EnumLevel l)
+        public static string GetSpeech(EnumAction a, EnumLevel l)
         {
             List<string> speech = new List<string>();
             int i = 0;
