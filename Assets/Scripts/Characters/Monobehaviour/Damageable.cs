@@ -30,7 +30,6 @@ namespace GodsGame
         public DamageEvent OnDie;
         public HealEvent OnGainHealth;
 
-
         [HideInInspector]
         //public DataSettings dataSettings;
         public int m_CurrentHealth;
@@ -38,7 +37,6 @@ namespace GodsGame
         protected float m_InulnerabilityTimer;
         protected Vector2 m_DamageDirection;
         protected bool m_ResetHealthOnSceneReload;
-
 
         public int CurrentHealth
         {
@@ -104,7 +102,6 @@ namespace GodsGame
             }
 
             m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
-
             OnTakeDamage.Invoke(damager, this);
             OnTakeDamageBt.Invoke(damager, this);
 
