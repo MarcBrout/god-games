@@ -9,7 +9,7 @@ namespace GodsGame
     {
 
         public Transform head;
-        public float timeBetweenSpeak = 20f;
+        public float timeBetweenSpeak = 30f;
         public bool doTalkOnYourOwn = true;
         private float timeToNextSpeak;
 
@@ -28,7 +28,7 @@ namespace GodsGame
 
         public void SaySomething()
         {
-            if (transform.CompareTag("player"))
+            if (transform.CompareTag("Player"))
             {
                 string message = Speech.GetSpeech(EnumAction.PLAYER_DURINGFIGHT, EnumLevel.ANY);
                 SaySomething(message, SpeechBubbleManager.SpeechbubbleType.SERIOUS);
