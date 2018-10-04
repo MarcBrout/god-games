@@ -45,6 +45,7 @@ namespace GodsGame
 
         public void HitSound(Damager damager, Damageable damageable)
         {
+            Debug.Log("HIT");
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
             AudioManager.Instance.PlaySfx(CheerSounds[Random.Range(0, CheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref audio);
