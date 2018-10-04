@@ -24,8 +24,8 @@ public class HealthBarScript : MonoBehaviour {
         lerpend = transform.position;
         startposition = transform.position;
         rt = GetComponent<RectTransform>();
-        length = rt.rect.height;
-        distance = length / 2;
+        length = rt.rect.width;
+        distance = length / 3 * transform.lossyScale.x;
     }
 	
 	// Update is called once per frame
