@@ -61,5 +61,5 @@ done
 
 # tar and zip the build folders
 echo 'Build success ! Attempting to tar build'
-sudo tar -C "$(pwd)/Build" -czvf $winname "windows"
-sudo tar -C "$(pwd)/Build" -czvf $webname "WebGL"
+sudo tar -czvf $winname "$(pwd)/Build/windows/$project.exe" -C "$(pwd)/Build"
+sudo tar -czvf $webname "$(pwd)/Build/WebGL/$project.exe" -C "$(pwd)/Build"
