@@ -1,8 +1,7 @@
 #! /bin/sh
 
 project="gods-games"
-commit= $TRAVIS_COMMIT
-folder= "windows" + commit
+#commit= ${TRAVIS_COMMIT}
 
 ## Run the editor unit tests and linter
 # echo "Running editor unit tests for ${UNITY_PROJECT_NAME}"
@@ -23,22 +22,19 @@ folder= "windows" + commit
 #if [ $rc0 -ne 0 ]; then { echo "Failed unit tests"; exit $rc0; } fi
 
 echo "Attempting to build $project for Windows"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity 
-  -batchmode 
-  -nographics 
-  -silent-crashes 
-  -logFile $(pwd)/unity.log 
-  -projectPath $(pwd) 
-  -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" 
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -batchmode \
+  -nographics \
+  -silent-crashes \
+  -logFile $(pwd)/unity.log \
+  -projectPath $(pwd) \
+  -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
   -quit
 
-# TODO WEBGL build
-
-# Log build
-echo 'Logs from build'
+rc1=$?
+echo "Build logs (Windows)"
 cat $(pwd)/unity.log
 
 # Zip the build
 echo 'Build success ! Attempting to zip build'
-
 zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/

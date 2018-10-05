@@ -3,7 +3,6 @@
 # URL of unity
 BASE_URL=https://netstorage.unity3d.com/unity/674aa5a67ed5/MacEditorInstaller/Unity-2018.2.10f1.pkg?_ga=2.244022213.1557949389.1538395704-358393280.1535462062
 
-
 # Download Unity3D installer into the container
 download() {
   file=$1
@@ -25,5 +24,3 @@ install() {
 
 # Run installer(s)
 install "MacEditorInstaller/Unity-$VERSION.pkg"
-# install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION.pkg"
-# install "MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-$VERSION.pkg"
