@@ -1,4 +1,5 @@
 # God Games
+[![Build Status](https://travis-ci.com/werayn/god-games.svg?token=Fzyq7LkXhY4ZpTmHWpnm&branch=implementation)](https://travis-ci.com/werayn/god-games)
 
 ## Description
 
