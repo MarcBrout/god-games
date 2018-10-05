@@ -10,9 +10,9 @@ Please note we have a code of conduct, please follow it in all your interactions
 1. Respect the pull request template.
 2. Update unit tests.
 3. Increase the version numbers if is necessary.
-4. Don't forget to rebase your branch.
+4. Don't forget to work on implementation branch.
 5. Waiting a review.
-6. Updating your wrike's task.
+6. Updating your scrumwrise's task.
 
 ## Code of Conduct
 
