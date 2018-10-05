@@ -1,14 +1,34 @@
 tree "Root"
 	sequence
-		AcquireNewTarget
+		tree("__AcquireNewTargetIfNeeded__")
 		fallback
-			tree("__ChargeTarget__")
+			tree("__BerserkMode__")
 			tree("__MoveTowardTarget__")
 			tree("__AttackTarget__")
 			tree("__idle__")
 
+tree "__AcquireNewTargetIfNeeded__"
+	fallback
+		sequence
+			fallback
+				not HasCurrentTarget
+				HasToSwitchTarget
+			AcquireNewTarget
+		Success
+
+tree "__BerserkMode__"
+	fallback
+		sequence
+			IsBerserk
+			NeedToDeactivateBerserk
+			DeactivateBerserkMode
+		sequence
+			IsBerserk
+			tree("__ChargeTarget__")
+
 tree "__ChargeTarget__"
 	sequence
+		HasCurrentTarget
 		CanChargeTarget
 		ChargeTarget
 

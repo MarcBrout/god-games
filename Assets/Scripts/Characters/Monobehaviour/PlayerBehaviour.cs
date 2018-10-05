@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using SceneLinkedSMB;
+
 namespace GodsGame
 {
     [RequireComponent(typeof(Damageable))]
     [RequireComponent(typeof(Animator))]
     public class PlayerBehaviour : MonoBehaviour
     {
+        #region public Var
+        [Header("Movement")]
         public float moveSpeed = 5f;
         public float turnSpeed = 10f;
         public float jumpHeight = 2f;
@@ -16,23 +20,30 @@ namespace GodsGame
         public LayerMask ground;
         public bool usingController = false;
 
-        [Space]
+        [Header("InputNames")]
         public string verticalAxis = "Vertical_P1";
         public string horizontalAxis = "Horizontal_P1";
         public string rVerticalAxis = "RVertical_P1";
         public string rHorizontalAxis = "RHorizontal_P1";
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
+        public string throwItemButton = "ThrowItem_P1";
 
-        [Space]
-        public CooldownSkillUI dashSkillUI;
+        [Header("DustPool")]
+        public float dustEffectRepeatDelay = 0.3f;
+        #endregion
+
+        #region private Var
         private Transform _GroundChecker;
         private Vector3 _Input;
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
-        private DashSkill _DashSkill;
+        private ItemHandler _itemHandler;
+        private DustEffectPool _DustEffectPool;
+        #endregion
 
+        #region protected var
         protected readonly int _HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
         protected readonly int _HashVerticalSpeedPara = Animator.StringToHash("VerticalSpeed");
         protected readonly int _HashJumpSpeedPara = Animator.StringToHash("JumpSpeed");
@@ -42,27 +53,30 @@ namespace GodsGame
         protected readonly int _HashUseItemPara = Animator.StringToHash("UseItem");
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
+        #endregion
 
+        #region properties
         public Rigidbody Body { get; private set; }
         public Vector3 CInput { get { return _Input; } }
-
+        public DashSkill DashSkill { get; protected set; }
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
             set { _Animator.SetBool(_HashGroundedPara, value); }
         }
-
         public Damageable Damageable { get; private set; }
+        #endregion
 
         void Start()
         {
+            _DustEffectPool = GetComponent<DustEffectPool>();
             Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
             _Animator = GetComponent<Animator>();
             Damageable = GetComponent<Damageable>();
-            _DashSkill = new DashSkill(this);
-            dashSkillUI.Skill = _DashSkill;
+            DashSkill = new DashSkill(this);
+            _itemHandler = GetComponent<ItemHandler>();
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -71,32 +85,8 @@ namespace GodsGame
             IsGrounded = Physics.CheckSphere(_GroundChecker.position, groundDistance, ground);
         }
 
-        void Update()
-        {
-            //GetInput();
-            //RotateAim();
-            //if (_input == Vector3.zero ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.NorthEstVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.forward) || _inputBuffer.IsInputBuffered(Vector3.right))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.NorthWestVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.forward) || _inputBuffer.IsInputBuffered(Vector3.left))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.SouthEstVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.back) || _inputBuffer.IsInputBuffered(Vector3.right))) ||
-            //    (_inputBuffer.IsInputBuffered(ExtensionMethods.SouthWestVector3, 0.11f) && (_inputBuffer.IsInputBuffered(Vector3.back) || _inputBuffer.IsInputBuffered(Vector3.left))))
-            //    return;
-
-            //CalculateDirection();
-            //Rotate();
-            //Jump();
-            //Dash();
-        }
-
-
-        void FixedUpdate()
-        {
-            //if (_Input == Vector3.zero) return;
-            //Move();
-        }
-
         /// <summary>
-        /// input based on Horizonta(q, d, <, >) and Vertical(z, s, ^, v) keys
+        /// input based on Horizontal(q, d, <, >) and Vertical(z, s, ^, v) keys
         /// </summary>
         public void GetInput()
         {
@@ -113,6 +103,14 @@ namespace GodsGame
         public void Move()
         {
             Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
+
+        public void DoStepDust()
+        {
+            if (Mathf.Abs(_Input.x) > 0 || Mathf.Abs(_Input.z) > 0)
+                _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
+            else
+                _DustEffectPool.StopStepDust();
         }
 
         /// <summary>
@@ -138,7 +136,7 @@ namespace GodsGame
         /// </summary>
         public bool CheckForDashInput()
         {
-            return cInput.GetButtonDown(dashButton) && _DashSkill.CanUse();
+            return cInput.GetButtonDown(dashButton) && DashSkill.CanUse();
         }
 
         /// <summary>
@@ -151,7 +149,22 @@ namespace GodsGame
 
         public void Dash()
         {
-            _DashSkill.Execute();
+            DashSkill.Execute();
+            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
+        }
+
+        /// <summary>
+        /// Throw the item equiped item of the player
+        /// </summary>
+        ///
+        public bool CheckForThrowInput()
+        {
+            return cInput.GetButton(throwItemButton) && _itemHandler.CanThrow();
+        }
+        public void ThrowItem()
+        {
+            _itemHandler.ThrowItem();
         }
 
         /// <summary>

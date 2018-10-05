@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Reflection;
 using UnityEngine;
 
 public static class ExtensionMethods
@@ -13,7 +15,7 @@ public static class ExtensionMethods
     public static Vector3 NorthWestVector3 { get { return _NorthWestVector3; } }
     public static Vector3 SouthEstVector3 { get { return _SouthEstVector3; } }
     public static Vector3 SouthWestVector3 { get { return _SouthWestVector3; } }
-  
+
 
     public static void ResetTransformation(this Transform trans)
     {
@@ -33,5 +35,29 @@ public static class ExtensionMethods
         float completePercentage = timeSinceStart / lerpDuration;
         float res = Mathf.Lerp(start, end, completePercentage);
         return res;
+    }
+
+    public static object GetPropValue(this object obj, string name)
+    {
+        foreach (string part in name.Split('.'))
+        {
+            if (obj == null) { return null; }
+
+            Type type = obj.GetType();
+            PropertyInfo info = type.GetProperty(part);
+            if (info == null) { return null; }
+
+            obj = info.GetValue(obj, null);
+        }
+        return obj;
+    }
+
+    public static T GetPropValue<T>(this object obj, string name)
+    {
+        object retval = GetPropValue(obj, name);
+        if (retval == null) { return default(T); }
+
+        // throws InvalidCastException if types are incompatible
+        return (T)retval;
     }
 }

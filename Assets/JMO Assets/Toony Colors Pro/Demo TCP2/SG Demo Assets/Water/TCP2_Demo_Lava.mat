@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TCP2_Demo_Lava
+  m_Shader: {fileID: 4800000, guid: 8bc4e62ea9d964448a2c2e539d65b77a, type: 3}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 8, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
+        m_Texture: {fileID: 2800000, guid: 869319dead08c3b4a9c074af06b585f4, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 929f2fb0e4fa033409d770aa87bea9b9, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex2:
+        m_Texture: {fileID: 2800000, guid: 929f2fb0e4fa033409d770aa87bea9b9, type: 3}
+        m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0.5, y: 0.5}
+    - _Mask1:
+        m_Texture: {fileID: 2800000, guid: 532c9e2e0905df744860e5e5c36ada26, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask2:
+        m_Texture: {fileID: 2800000, guid: 929f2fb0e4fa033409d770aa87bea9b9, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DepthAlpha: 1.54
+    - _DepthDistance: 1.61
+    - _DepthMinAlpha: 0.4
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _DstBlendTCP2: 10
+    - _EmisPulseMin: 0
+    - _EmisPulseSpeed: 2
+    - _FoamSmooth: 0.296
+    - _FoamSpread: 2
+    - _FoamStrength: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalDepthInfluence: 0.142
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _RampSmooth: 0.641
+    - _RampThreshold: 0.5
+    - _ReflRoughness: 0
+    - _ReflStrength: 1
+    - _RimMax: 1
+    - _RimMin: 0
+    - _Shininess: 10
+    - _SmoothnessTextureChannel: 0
+    - _SpecSmooth: 0.05
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SrcBlendTCP2: 5
+    - _UVScrolling2X: 0.12
+    - _UVScrolling2Y: 0.2
+    - _UVScrollingX: 0.06
+    - _UVScrollingY: 0.17
+    - _UVSec: 0
+    - _UVWaveAmplitude: 0.05
+    - _UVWaveAmplitude2: 0.03
+    - _UVWaveFrequency: 0.3
+    - _UVWaveFrequency2: 0.1
+    - _UVWaveSpeed: 0.5
+    - _UVWaveSpeed2: 0.8
+    - _WaveFrequency: 4
+    - _WaveHeight: 0.05
+    - _WaveSpeed: 1
+    - _ZWrite: 1
+    - __dummy__: 0
+    m_Colors:
+    - _BumpSpeed: {r: 0.2, g: 0.2, b: -0.2, a: -0.2}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DepthColor: {r: 0.63529414, g: 0.09411766, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 0.68275857, b: 0, a: 1}
+    - _FoamColor2: {r: 1, g: 0.93103445, b: 0, a: 1}
+    - _FoamSpeed: {r: 0.5, g: 0.5, b: -0.5, a: -0.5}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaskedColor: {r: 1, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 0.6827586, b: 0, a: 1}
+    - _SColor: {r: 0.44852942, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.1297578, g: 0.14705884, b: 0.14013842, a: 1}

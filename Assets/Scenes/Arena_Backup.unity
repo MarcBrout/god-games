@@ -412,6 +412,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114676369376566596, guid: 8b8e2242fc4d9a8438773cdadfc555ec,
+        type: 2}
+      propertyPath: targetName
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114676369376566596, guid: 8b8e2242fc4d9a8438773cdadfc555ec,
+        type: 2}
+      propertyPath: skillName
+      value: DashSkill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8e2242fc4d9a8438773cdadfc555ec, type: 2}
   m_IsPrefabAsset: 0
@@ -1068,6 +1078,10 @@ Prefab:
         type: 2}
       propertyPath: OnTakeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504497922199782, guid: bae6073eb9556c24da65faebd662ca3e, type: 2}
+      propertyPath: m_Name
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae6073eb9556c24da65faebd662ca3e, type: 2}

@@ -3,6 +3,7 @@
 --- !u!13 &1
 InputManager:
   m_ObjectHideFlags: 0
+  serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
     m_Name: Horizontal
@@ -13,7 +14,7 @@ InputManager:
     altNegativeButton: a
     altPositiveButton: d
     gravity: 3
-    dead: .001
+    dead: 0.001
     sensitivity: 3
     snap: 1
     invert: 0
@@ -29,12 +30,12 @@ InputManager:
     altNegativeButton: s
     altPositiveButton: w
     gravity: 3
-    dead: .001
+    dead: 0.001
     sensitivity: 3
     snap: 1
-    invert: 0
+    invert: 1
     type: 0
-    axis: 0
+    axis: 1
     joyNum: 0
   - serializedVersion: 3
     m_Name: Fire1
@@ -45,7 +46,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: mouse 0
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -61,7 +62,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: mouse 1
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -77,7 +78,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: mouse 2
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -93,7 +94,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -110,12 +111,12 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 1
     axis: 0
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Mouse Y
     descriptiveName: 
@@ -126,12 +127,12 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 1
     axis: 1
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Mouse ScrollWheel
     descriptiveName: 
@@ -142,7 +143,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 1
@@ -158,7 +159,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 3
@@ -174,7 +175,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 3
@@ -189,7 +190,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .189999998
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -205,7 +206,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .189999998
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 1
@@ -221,7 +222,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -237,7 +238,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -253,7 +254,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -269,7 +270,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
-    dead: .001
+    dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
@@ -285,7 +286,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
-    dead: .001
+    dead: 0.001
     sensitivity: 3
     snap: 0
     invert: 0
@@ -302,7 +303,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 1
@@ -318,7 +319,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0
-    sensitivity: .1
+    sensitivity: 0.1
     snap: 0
     invert: 0
     type: 1
@@ -349,7 +350,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -365,7 +366,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -381,7 +382,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -397,7 +398,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -413,7 +414,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -429,7 +430,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -445,7 +446,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -461,7 +462,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -477,7 +478,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -493,7 +494,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -509,7 +510,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -525,7 +526,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -541,7 +542,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -557,7 +558,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -573,7 +574,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -589,7 +590,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -605,7 +606,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -621,7 +622,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -637,7 +638,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -653,7 +654,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -669,7 +670,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -685,7 +686,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -701,7 +702,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -717,7 +718,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -733,7 +734,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -749,7 +750,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -765,7 +766,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -781,7 +782,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -797,7 +798,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -813,7 +814,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -829,7 +830,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -845,7 +846,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -861,7 +862,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -877,7 +878,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -893,7 +894,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -909,7 +910,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -925,7 +926,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -941,7 +942,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -957,7 +958,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -973,7 +974,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -989,7 +990,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1005,7 +1006,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1021,7 +1022,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1037,7 +1038,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1053,7 +1054,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1069,7 +1070,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1085,7 +1086,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1101,7 +1102,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1117,7 +1118,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -1133,10 +1134,58 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: .19
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
     type: 2
     axis: 9
     joyNum: 4
+  - serializedVersion: 3
+    m_Name: Submit
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: return
+    altNegativeButton: 
+    altPositiveButton: joystick button 0
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Submit
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: enter
+    altNegativeButton: 
+    altPositiveButton: space
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Cancel
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: escape
+    altNegativeButton: 
+    altPositiveButton: joystick button 1
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
