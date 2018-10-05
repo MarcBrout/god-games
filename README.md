@@ -1,4 +1,5 @@
 # God Games
+[![Build Status](https://travis-ci.com/werayn/god-games.svg?token=Fzyq7LkXhY4ZpTmHWpnm&branch=implementation)](https://travis-ci.com/werayn/god-games)
 
 ## Description
 
@@ -13,17 +14,15 @@ Using your computer with controller or not and enter into the god's arena !!
 
 #### IDE
 
-You can choose the IDE you whant, but you need to have some packages installed with it like `list needed packages`
-Here an exemple of the needed packages with Visual Studio IDE:
+You can choose the IDE you whant, but you need to have VSCode or visual Studio IDE.
 
-- `example`
-
-#### Node / Npm
+#### Unity / C#
 
 Since it's a C#-Based project, due to unity you need to install some stuff on your computer:
 
 - macOS:
   Install [Unity](https://store.unity.com/)
+  you also need to install a special compiler with you want to test your c# out of the box.
 ---
 
 - Windows:
@@ -42,46 +41,34 @@ First you need to clone the repository:
 Do not forget to upload your SSH Key into github and having the right access.
 
 ```bash
-git clone git@github.com:MM-IT/website.git
+git@github.com:werayn/god-games.git
 ```
 
-Remember to always set your branch to the remote branch like this
+And switch to implementation branch
 
-``` bash
-git push -u origin your-branch-name
+```bash
+git checkout implementation
 ```
+Remember to always update your local repo.
 
 ### Run it
 
-When everything is installed, if you want to run it, do the following:
-
-```bash
-need command
-```
+When everything is installed, if you want to run it directly into Unity Editor
+Or install the binary file that you can find into our Amazon S3 solution
 
 ### Test it
 
-when everything is installed and run well, if you want to run every unit tests, do the following:
-
-```bash
-need command
-```
+Travis will automatically test your code. But you always need to add unit test
+and respecting our coding style.
+We can check our configuration through travis or directly into configuration files.
 
 ## Deployement
 
-When everything is installed, if you want to deploy it, do the following:
-
-```bash
-need example
-```
+When all test are good Travis build and upload the last build into the right bucket in Amazon S3
 
 ## Documentation
 
-if you want to know everything about our website just run in a NEW TERM :
-
-```bash
-need command
-```
+On the way, our team work hard to host and describe the best our games.
 
 ## Contributing
 
@@ -89,7 +76,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
-Need to be define
+Every success build is a new iteration of the version. But Master and Dev branch will stay stable.
 
 ## Authors
 

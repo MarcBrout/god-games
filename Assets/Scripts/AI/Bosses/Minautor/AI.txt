@@ -1,11 +1,13 @@
 tree "Root"
-	sequence
-		tree("__AcquireNewTargetIfNeeded__")
-		fallback
-			tree("__BerserkMode__")
-			tree("__MoveTowardTarget__")
-			tree("__AttackTarget__")
-			tree("__idle__")
+	fallback
+		IsDead
+		sequence
+			tree("__AcquireNewTargetIfNeeded__")
+			fallback
+				tree("__BerserkMode__")
+				tree("__MoveTowardTarget__")
+				tree("__AttackTarget__")
+				tree("__idle__")
 
 tree "__AcquireNewTargetIfNeeded__"
 	fallback

@@ -1,0 +1,38 @@
+# use a Mac OSX image
+language: objective-c
+osx_image: xcode9.4
+
+# rvm version
+rvm:
+- 2.2
+
+# only run builds on pushes to the master/dev/implementation branch
+branches:
+  only:
+  - master
+  - dev
+  - implementation
+
+# send email notifications when the build changes from succeeding to broken
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+# run the script to download and install Unity editor
+install:
+- sudo -E sh ./travis-build/install.sh
+
+# run the script for unit tests and builds
+script:
+- sudo -E sh ./travis-build/build.sh
+
+#after success deploy to our S3 solution
+deploy:
+  provider: s3
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key: $ACCESS_KEY
+  bucket: gods-games-master
+  local-dir: Build
+  upload-dir: $TRAVIS_BRANCH
+  skip_cleanup: true
