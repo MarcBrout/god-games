@@ -29,6 +29,9 @@ echo "Attempting to build $project for Windows"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
+  -serial $SERIAL \
+  -username "virgile.ju@gmail.com" \
+  -password $UnityPass \
   -silent-crashes \
   -logFile "$(pwd)/unity.log" \
   -projectPath "$(pwd)" \
