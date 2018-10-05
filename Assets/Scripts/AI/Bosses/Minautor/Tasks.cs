@@ -27,6 +27,7 @@ namespace GodsGames
         // STATES
         public bool _berserkMode;
         public bool _isCharging;
+        public bool _isDead = false;
 
         // DURATIONS
         private TimeSpan _berserkModeMaxDuration = new TimeSpan(0, 0, 10);
@@ -224,6 +225,15 @@ namespace GodsGames
         }
 
         /**
+         * DEATH
+         **/
+        [Task]
+        public bool IsDead()
+        {
+            return _isDead;
+        }
+
+        /**
          * IDLE
          **/
 
@@ -252,16 +262,12 @@ namespace GodsGames
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
-            ActivateBerserkMode();
+            InternalActivateBerserkMode();
         }
 
-        // TODO : remove
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
-            _agent.speed = 0;
-            _defaultSpeed = 0;
-            _berserkSpeed = 0;
-            _chargeSpeed = 0;
+            this._isDead = true;
         }
     }
 }
