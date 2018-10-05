@@ -13,7 +13,7 @@ namespace GodsGame
         public string targetName;
         public string skillName;
 
-        public CooldownSkill Skill { get; protected set; }
+        public CooldownSkill Skill { get; set; }
 
         private Animator _Animator;
         private readonly int _HashStartCooldownPara = Animator.StringToHash("StartCooldown");

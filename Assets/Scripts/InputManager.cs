@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
             cInput.SetKey("ThrowItem_P1", "E");
             cInput.SetKey("ThrowItem_P2", "Joystick1Button2");
 
+
             cInput.SetKey("LookUp_P1", "Mouse Up");
             cInput.SetKey("LookUp_P2", "Joy1 Axis 5-");
             cInput.SetKey("LookDown_P1", "Mouse Down");

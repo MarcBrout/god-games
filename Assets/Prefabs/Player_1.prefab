@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 114635470363070318}
   - component: {fileID: 195639403037477352}
   - component: {fileID: 114242467885188494}
+  - component: {fileID: 114948150697033206}
   m_Layer: 9
   m_Name: Player_1
   m_TagString: Player
@@ -342,7 +343,7 @@ Transform:
   - {fileID: 4036974936221302}
   m_Father: {fileID: 4729341113052450}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.8623295, y: 0.7798321, z: -0.1614461}
 --- !u!4 &4231521077402214
 Transform:
   m_ObjectHideFlags: 1
@@ -368,7 +369,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4729341113052450}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.95603, y: -3.1043415, z: 8.744282}
 --- !u!4 &4307167409170494
 Transform:
   m_ObjectHideFlags: 1
@@ -381,7 +382,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4729341113052450}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.31053388, y: 3.5281043, z: -21.311922}
 --- !u!4 &4367989616081442
 Transform:
   m_ObjectHideFlags: 1
@@ -458,7 +459,7 @@ Transform:
   - {fileID: 4289475253869338}
   m_Father: {fileID: 4677354769209208}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -82.0725, y: 5.79036, z: -1.4213604}
 --- !u!4 &4824134155630990
 Transform:
   m_ObjectHideFlags: 1
@@ -1126,7 +1127,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114635470363070318}
-        m_MethodName: Hit
+        m_MethodName: HitSound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1158,7 +1159,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114635470363070318}
-        m_MethodName: Death
+        m_MethodName: DeathSound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1244,13 +1245,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   usingController: 0
-  verticalAxis: Vertical_P2
-  horizontalAxis: Horizontal_P2
-  rVerticalAxis: RVertical_P2
-  rHorizontalAxis: RHorizontal_P2
-  jumpButton: Jump_P2
-  dashButton: Dash_P2
-  dustEffectRepeatDelay: 0.5
+  verticalAxis: Vertical_P1
+  horizontalAxis: Horizontal_P1
+  rVerticalAxis: RVertical_P1
+  rHorizontalAxis: RHorizontal_P1
+  jumpButton: Jump_P1
+  dashButton: Dash_P1
+  throwItemButton: ThrowItem_P1
+  dustEffectRepeatDelay: 0.3
+--- !u!114 &114948150697033206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975363545270338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c55249dde0b0524cbd823ec01fb7d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemUi: {fileID: 0}
+  itemSocket: {fileID: 1954174637887586}
 --- !u!136 &136800874529784306
 CapsuleCollider:
   m_ObjectHideFlags: 1
