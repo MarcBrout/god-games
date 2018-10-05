@@ -22,7 +22,6 @@ notifications:
 
 # run the script to download and install Unity editor
 install:
-- travis encrypt-file --pro -r werayn/god-games ./Unity_v2018.x.ulf
 - sudo -E sh ./travis-build/install.sh
 
 # run the script for unit tests and builds
