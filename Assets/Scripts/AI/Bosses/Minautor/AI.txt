@@ -1,0 +1,46 @@
+tree "Root"
+	sequence
+		tree("__AcquireNewTargetIfNeeded__")
+		fallback
+			tree("__BerserkMode__")
+			tree("__MoveTowardTarget__")
+			tree("__AttackTarget__")
+			tree("__idle__")
+
+tree "__AcquireNewTargetIfNeeded__"
+	fallback
+		sequence
+			fallback
+				not HasCurrentTarget
+				HasToSwitchTarget
+			AcquireNewTarget
+		Success
+
+tree "__BerserkMode__"
+	fallback
+		sequence
+			IsBerserk
+			NeedToDeactivateBerserk
+			DeactivateBerserkMode
+		sequence
+			IsBerserk
+			tree("__ChargeTarget__")
+
+tree "__ChargeTarget__"
+	sequence
+		HasCurrentTarget
+		CanChargeTarget
+		ChargeTarget
+
+tree "__MoveTowardTarget__"
+	sequence
+		IsTooFarFromTarget
+		MoveTowardTarget
+
+tree "__AttackTarget__"
+	sequence
+		CanAttackTarget
+		AttackTarget
+
+tree "__idle__"
+	Idle
