@@ -30,8 +30,8 @@ echo "Attempting to build $project for Windows"
   -batchmode \
   -nographics \
   -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
+  -logFile "$(pwd)/unity.log" \
+  -projectPath "$(pwd)" \
   -buildWindowsPlayer "$(pwd)/Build/windows/$project.exe" \
   -quit
 
@@ -43,10 +43,12 @@ cat $(pwd)/unity.log
 echo "Attempting to build $project for WebGL"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
+  -username "virgile.ju@gmail.com" \
+  -password $UnityPass \
   -nographics \
   -silent-crashes \
-  -logFile $(pwd)/unity.log \
-  -projectPath $(pwd) \
+  -logFile "$(pwd)/unity.log" \
+  -projectPath "$(pwd)" \
   -buildTarget WebGL\
   -quit
 
