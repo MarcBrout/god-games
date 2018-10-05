@@ -1,6 +1,9 @@
 #! /bin/sh
 
 project="gods-games"
+winname="${project}_win.tar.gz"
+webname="${project}_web.tar.gz"
+
 #commit= ${TRAVIS_COMMIT}
 
 ## Run the editor unit tests and linter
@@ -21,6 +24,7 @@ project="gods-games"
 # exit if tests failed
 #if [ $rc0 -ne 0 ]; then { echo "Failed unit tests"; exit $rc0; } fi
 
+# Build Windows
 echo "Attempting to build $project for Windows"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
@@ -35,6 +39,27 @@ rc1=$?
 echo "Build logs (Windows)"
 cat $(pwd)/unity.log
 
-# Zip the build
-echo 'Build success ! Attempting to zip build'
-zip -r $(pwd)/Build/windows.zip $(pwd)/Build/windows/
+# Build WebGL
+echo "Attempting to build $project for WebGL"
+/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+  -batchmode \
+  -nographics \
+  -silent-crashes \
+  -logFile $(pwd)/unity.log \
+  -projectPath $(pwd) \
+  -buildTarget WebGL\
+  -quit
+
+rc1=$?
+echo "Build logs (WebGL)"
+cat $(pwd)/unity.log
+
+# set file permissions so builds can run out of the box
+for infile in `find $(pwd)/Build | grep -E '\.exe$|\.dll$'`; do
+	chmod 755 $infile
+done
+
+# tar and zip the build folders
+echo 'Build success ! Attempting to tar build'
+tar -C "$(pwd)/Build" -czvf $winname "windows"
+tar -C "$(pwd)/Build" -czvf $webname "WebGL"
