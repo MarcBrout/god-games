@@ -5,14 +5,19 @@ using UnityEngine;
 
 namespace GodsGame
 {
-
     public class PauseMenu : Singleton<PauseMenu>
     {
-
+        [HideInInspector]
         public bool GamesIsPaused = false;
         public GameObject pauseMenuUI;
 
-        private readonly string menu = "MainMenuScene";
+        private readonly string m_Menu = "MainMenuScene";
+        private ChangeControlMenu m_ControlMenu;
+
+        private void Start()
+        {
+            m_ControlMenu = GameObject.FindGameObjectWithTag("ControlMenu").GetComponent<ChangeControlMenu>();
+        }
 
         private void Update()
         {
@@ -34,13 +39,14 @@ namespace GodsGame
 
         public void LoadControlMenu()
         {
-            Debug.Log("LoadControlMenu");
+            pauseMenuUI.SetActive(false);
+            m_ControlMenu.controlMenuUI.SetActive(true);
         }
 
         public void LoadMainMenu()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(menu);
+            SceneManager.LoadScene(m_Menu);
         }
 
         public void QuitGame()
