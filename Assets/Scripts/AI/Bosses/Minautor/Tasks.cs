@@ -10,6 +10,7 @@ namespace GodsGames
     public class Tasks : MonoBehaviour
     {
         // REFERENCES
+        public GameObject _lightningStrike;
         public Animator _animator;
         public Rigidbody _rigidbody;
         public NavMeshAgent _agent;
@@ -23,21 +24,25 @@ namespace GodsGames
         public float _berserkSpeed;
         public float _chargeSpeed;
         public float _defaultSpeed;
+        public float _lightningStrikeDelayBeforeDelete = 3.0f;
 
         // STATES
-        public bool _berserkMode;
-        public bool _isCharging;
+        public bool _lightningPhase = false;
+        public bool _berserkMode = false;
+        public bool _isCharging = false;
         public bool _isDead = false;
 
         // DURATIONS
         private TimeSpan _berserkModeMaxDuration = new TimeSpan(0, 0, 10);
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 15);
         private TimeSpan _chargeCooldown = new TimeSpan(0, 0, 3);
+        private TimeSpan _lightningCooldown = new TimeSpan(0, 0, 3);
 
         // DATES
         private DateTime _startFocusTimeOnCurrentTarget;
         private DateTime _berserkModeStartTime;
         private DateTime _lastChargeTime = DateTime.Now;
+        private DateTime _lastLightningStrikeTime = DateTime.Now;
 
         private const string IS_WALKING = "isWalking";
         private const string CHARGING = "charge";
@@ -109,6 +114,45 @@ namespace GodsGames
 
             _currentTarget = closestTarget;
             _startFocusTimeOnCurrentTarget = DateTime.Now;
+            Task.current.Succeed();
+        }
+
+        /**
+         * LIGHTNING PHASE
+         **/
+        [Task]
+        public bool IsLightningModeActivated()
+        {
+            return _lightningPhase;
+        }
+
+        [Task]
+        public bool CanInvokeLightningStrike()
+        {
+            return _lightningPhase && DateTime.Now - _lastLightningStrikeTime > _lightningCooldown;
+        }
+
+        [Task]
+        public void InvokeLightningStrike()
+        {
+            if (!CanInvokeLightningStrike())
+            {
+                Task.current.Fail();
+                return;
+            }
+
+            foreach (GameObject target in _targets)
+            {
+                if (target != _currentTarget)
+                {
+                    Rigidbody rb = target.GetComponent<Rigidbody>();
+                    Vector3 position = target.transform.position + rb.velocity * Time.deltaTime;
+                    Quaternion rotation = target.transform.rotation;
+                    GameObject obj = GameObject.Instantiate(_lightningStrike, position, rotation);
+                    GameObject.Destroy(obj, _lightningStrikeDelayBeforeDelete);
+                    _lastLightningStrikeTime = DateTime.Now;
+                }
+            }
             Task.current.Succeed();
         }
 
@@ -262,12 +306,15 @@ namespace GodsGames
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
+            if (!_lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
+                _lightningPhase = true;
+
             InternalActivateBerserkMode();
         }
 
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
-            this._isDead = true;
+            _isDead = true;
         }
     }
 }

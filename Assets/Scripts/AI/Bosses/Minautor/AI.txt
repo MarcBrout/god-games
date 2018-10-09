@@ -3,6 +3,7 @@ tree "Root"
 		IsDead
 		sequence
 			tree("__AcquireNewTargetIfNeeded__")
+			tree("__LightningPhase__")
 			fallback
 				tree("__BerserkMode__")
 				tree("__MoveTowardTarget__")
@@ -16,6 +17,14 @@ tree "__AcquireNewTargetIfNeeded__"
 				not HasCurrentTarget
 				HasToSwitchTarget
 			AcquireNewTarget
+		Success
+
+tree "__LightningPhase__"
+	fallback
+		sequence
+			IsLightningModeActivated
+			CanInvokeLightningStrike
+			InvokeLightningStrike
 		Success
 
 tree "__BerserkMode__"
