@@ -408,7 +408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4677354769209208}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4593286477713354
 Transform:
@@ -434,8 +434,8 @@ Transform:
   m_LocalPosition: {x: -1.98, y: 0.285, z: 14.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4548518647037518}
   - {fileID: 4850513923758086}
+  - {fileID: 4548518647037518}
   - {fileID: 4367989616081442}
   - {fileID: 4729341113052450}
   m_Father: {fileID: 0}
@@ -497,7 +497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4677354769209208}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4912120803318540
 Transform:
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6febc08610bea4fb0cf33355e01043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 3
   invulnerableAfterDamage: 1
   invulnerabilityDuration: 1
   disableOnDeath: 0
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   jumpButton: Jump_P1
   dashButton: Dash_P1
   throwItemButton: ThrowItem_P1
-  dustEffectRepeatDelay: 0.3
+  dustEffectRepeatDelay: 0.1
 --- !u!114 &114948150697033206
 MonoBehaviour:
   m_ObjectHideFlags: 1

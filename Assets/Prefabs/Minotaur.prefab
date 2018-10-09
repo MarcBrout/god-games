@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 114717001326575118}
   - component: {fileID: 114481080226363590}
   - component: {fileID: 54224634209889356}
+  - component: {fileID: 114883160581049198}
   m_Layer: 11
   m_Name: Minotaur
   m_TagString: Untagged
@@ -993,7 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
   enableDelayDeactivationOnStart: 0
@@ -1038,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6febc08610bea4fb0cf33355e01043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1200
+  startingHealth: 6
   invulnerableAfterDamage: 1
   invulnerabilityDuration: 1
   disableOnDeath: 0
@@ -1093,7 +1094,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114740191837820852}
+        m_MethodName: OnDieBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnGainHealth:
@@ -1113,18 +1125,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349d0e2b865c36b40b148cda4b29c682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightningStrike: {fileID: 1668918890356982, guid: 7c05e75fada60c24d9804f034587ab94,
+    type: 2}
   _animator: {fileID: 95816946098904696}
   _rigidbody: {fileID: 54224634209889356}
   _agent: {fileID: 195839722439017702}
   _targets: []
   _targetTag: Player
   _attackRange: 10
-  _chargeDuration: 12
+  _chargeDuration: 2
   _berserkSpeed: 8
   _chargeSpeed: 12
   _defaultSpeed: 4
+  _lightningStrikeDelayBeforeDelete: 3
+  _lightningPhase: 0
   _berserkMode: 0
   _isCharging: 0
+  _isDead: 0
+--- !u!114 &114883160581049198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  deactivationDelay: 3
+  damageOverTime: 0
+  damageOverTimeTick: 1
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!136 &136525757735737336
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1132,12 +1182,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.29994908
-  m_Height: 0.9746921
+  m_Radius: 0.5306849
+  m_Height: 1.7952349
   m_Direction: 1
-  m_Center: {x: 0.051890157, y: -0.40474355, z: 0.05556202}
+  m_Center: {x: 0.045552727, y: -0.11670161, z: 0.13101701}
 --- !u!195 &195839722439017702
 NavMeshAgent:
   m_ObjectHideFlags: 1

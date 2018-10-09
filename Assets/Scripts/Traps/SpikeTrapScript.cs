@@ -6,14 +6,12 @@ namespace GodsGame
 {
     public class SpikeTrapScript : MonoBehaviour, ITrapInterface
     {
-
         public Material enabledTrapMaterial;
         public Material disabledTrapMaterial;
         public GameObject ringParent;
         private List<GameObject> trapRings;
         private Animator _spikesAnimator;
 
-        // Use this for initialization
         void Start()
         {
             _spikesAnimator = GetComponent<Animator>();
@@ -25,22 +23,14 @@ namespace GodsGame
             ShowEnableColor();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void ActivateTrap()
         {
-            _spikesAnimator.SetBool("isActivated", true);
-
+            _spikesAnimator.SetTrigger("Activate");
         }
 
         public void DeactivateTrap()
         {
-            _spikesAnimator.SetBool("isActivated", false);
-
+            //_spikesAnimator.SetBool("isActivated", false);
         }
 
         public void ShowDisabledColor()
