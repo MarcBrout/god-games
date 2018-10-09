@@ -82,7 +82,6 @@ namespace GodsGame
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
             _PlayerAnimations = transform.Find("Player").GetComponent<Animator>();
-            Debug.Log("PLAYER ANIMATOR " + _PlayerAnimations);
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
