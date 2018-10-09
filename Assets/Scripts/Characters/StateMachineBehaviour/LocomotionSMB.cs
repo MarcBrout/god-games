@@ -14,7 +14,6 @@ namespace GodsGame {
             m_MonoBehaviour.Move();
             m_MonoBehaviour.RotateAim();
             m_MonoBehaviour.DoStepDust();
-            Debug.Log("checking for dash");
             if (m_MonoBehaviour.CheckForDashInput())
             {
                 m_MonoBehaviour.TransitionToDash();
