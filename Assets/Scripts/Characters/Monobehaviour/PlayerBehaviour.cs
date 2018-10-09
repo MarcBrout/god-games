@@ -136,6 +136,7 @@ namespace GodsGame
         /// </summary>
         public bool CheckForDashInput()
         {
+            Debug.Log("Dash detected");
             return cInput.GetButtonDown(dashButton) && DashSkill.CanUse();
         }
 
@@ -144,11 +145,13 @@ namespace GodsGame
         /// </summary>
         public void TransitionToDash()
         {
+            Debug.Log("transition to dash");
             _Animator.SetTrigger(_HashDashPara);
         }
 
         public void Dash()
         {
+            Debug.Log("Dash pressed");
             DashSkill.Execute();
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
                 (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));

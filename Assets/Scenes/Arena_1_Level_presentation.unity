@@ -1434,12 +1434,12 @@ Prefab:
     - target: {fileID: 224923373789856374, guid: 8b8e2242fc4d9a8438773cdadfc555ec,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 224923373789856374, guid: 8b8e2242fc4d9a8438773cdadfc555ec,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 224923373789856374, guid: 8b8e2242fc4d9a8438773cdadfc555ec,
         type: 2}
@@ -2607,6 +2607,54 @@ Prefab:
         type: 2}
       propertyPath: moveSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: verticalAxis
+      value: Vertical_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: horizontalAxis
+      value: Horizontal_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: rVerticalAxis
+      value: RVertical_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: rHorizontalAxis
+      value: RHorizontal_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: jumpButton
+      value: Jump_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: dashButton
+      value: Dash_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: throwItemButton
+      value: ThrowItem_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943014801855442, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: usingController
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850513923758086, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548518647037518, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
@@ -6693,6 +6741,14 @@ Prefab:
       propertyPath: moveSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4548518647037518, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850513923758086, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
   m_IsPrefabAsset: 0
@@ -10689,7 +10745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983006481}
   m_Layer: 5
-  m_Name: Player2 Heakth
+  m_Name: Player2 Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
