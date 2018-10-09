@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4648062094676080}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: pressureplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,8 @@ GameObject:
   - component: {fileID: 33864991391968898}
   - component: {fileID: 23358019359057698}
   - component: {fileID: 65753263866464780}
-  m_Layer: 1
+  - component: {fileID: 114967541710064280}
+  m_Layer: 0
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,7 @@ GameObject:
   - component: {fileID: 95649477224525024}
   - component: {fileID: 82175400707220230}
   - component: {fileID: 114190873381899160}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Pressureplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +74,8 @@ GameObject:
   - component: {fileID: 33690863472063690}
   - component: {fileID: 23654434266800340}
   - component: {fileID: 65671425834647314}
-  m_Layer: 1
+  - component: {fileID: 114155264108564276}
+  m_Layer: 0
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +93,8 @@ GameObject:
   - component: {fileID: 33225976693452574}
   - component: {fileID: 23712548884381660}
   - component: {fileID: 65342289474552334}
-  m_Layer: 1
+  - component: {fileID: 114796508254256498}
+  m_Layer: 0
   m_Name: plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +113,8 @@ GameObject:
   - component: {fileID: 23079548375182718}
   - component: {fileID: 65085313280546256}
   - component: {fileID: 114229755875692134}
-  m_Layer: 1
+  - component: {fileID: 114561767878982476}
+  m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 1217501487425758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.007, z: 19.59}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_Children:
   - {fileID: 4906575722360298}
   - {fileID: 4648062094676080}
@@ -529,6 +533,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114155264108564276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372793017369770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!114 &114190873381899160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,7 +563,7 @@ MonoBehaviour:
   coloredTrapParts:
   - {fileID: 1372793017369770}
   - {fileID: 1197727415501404}
-  enabledTrapMaterial: {fileID: 2100000, guid: 013fefaf2bc9b434eb2ad875e00029ee, type: 2}
+  enabledTrapMaterial: {fileID: 2100000, guid: 97d70b9f5cbe52749b5c12c322517d47, type: 2}
   disabledTrapmaterial: {fileID: 2100000, guid: c8dc23bc7267d244684257014e050e50,
     type: 2}
 --- !u!114 &114229755875692134
@@ -558,3 +577,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ede29f953f5a341a4939973a9a137c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114561767878982476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931998828729224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &114796508254256498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545913884431348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
+--- !u!114 &114967541710064280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197727415501404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff

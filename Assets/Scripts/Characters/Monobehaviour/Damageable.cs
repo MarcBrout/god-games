@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using VikingCrewTools.UI;
-using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 
 namespace GodsGame
@@ -107,18 +105,6 @@ namespace GodsGame
             m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
             OnTakeDamage.Invoke(damager, this);
             OnTakeDamageBt.Invoke(damager, this);
-
-            if (gameObject.CompareTag("Player"))
-            {
-                SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
-            }
-            else if (gameObject.CompareTag("Minotaur"))
-            {
-                SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
-                    SpeechBubbleManager.SpeechbubbleType.ANGRY);
-            }
 
             if (m_CurrentHealth <= 0)
             {

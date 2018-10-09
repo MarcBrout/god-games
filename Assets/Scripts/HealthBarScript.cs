@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,6 @@ public class HealthBarScript : MonoBehaviour {
         float fracJourney = distCovered / currentdistance;
 
         transform.position = Vector3.Lerp(lerpstart, lerpend, fracJourney);
-
 	}
 
     public void deprecate()
@@ -46,8 +46,8 @@ public class HealthBarScript : MonoBehaviour {
         startTime = Time.time;
 
         lerpstart = transform.position;
-        lerpend = startposition + (3-health) * new Vector3(distance, 0, 0);
+        lerpend = startposition - (3-health) * new Vector3(distance, 0, 0);
 
-        currentdistance = lerpend.x - lerpstart.x;
+        currentdistance = Math.Abs(lerpend.x - lerpstart.x);
     }
 }
