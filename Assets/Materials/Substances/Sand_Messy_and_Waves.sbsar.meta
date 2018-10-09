@@ -40,16 +40,16 @@ ScriptedImporter:
     shaderName: Standard
     outputNames: baseColor,normal,metallic,height
     texturePackingList:
-    - outputName: baseColor
-      alphaSource: baseColor
-    - outputName: normal
-      alphaSource: normal
-    - outputName: roughness
-      alphaSource: roughness
-    - outputName: metallic
-      alphaSource: smoothness
-    - outputName: height
-      alphaSource: height
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Metallic
+      alphaSource: Smoothness
+    - outputName: Height
+      alphaSource: Height
     textureParameters:
     - textureName: Sand_Messy_roughness
       wrapMode: 0
@@ -105,5 +105,5 @@ ScriptedImporter:
       textureHeight: 256
       textureFormat: 0
       bGenerateOnLoad: 0
-    material: {instanceID: 0}
+    material: {fileID: 2100000, guid: 18d2e787586183044b8986ddf1f5958d, type: 3}
     generatedTextures: []

@@ -28,6 +28,7 @@ namespace GodsGame
         public string jumpButton = "Jump_P1";
         public string dashButton = "Dash_P1";
         public string throwItemButton = "ThrowItem_P1";
+        public string useItemButton = "UseItem_P1";
 
         [Header("DustPool")]
         public float dustEffectRepeatDelay = 0.3f;
@@ -167,6 +168,18 @@ namespace GodsGame
             _itemHandler.ThrowItem();
         }
 
+        /// <summary>
+        /// Use the item equiped item of the player
+        /// </summary>
+        ///
+        public bool CheckForUseItemInput()
+        {
+            return cInput.GetButton(useItemButton) && _itemHandler.CanUse();
+        }
+
+        public void UseItem() {
+             _itemHandler.UseItem();
+        }
         /// <summary>
         /// Choose the way the layer will rotate according to controls
         /// </summary>

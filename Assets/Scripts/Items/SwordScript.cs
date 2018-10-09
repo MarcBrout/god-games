@@ -15,7 +15,7 @@ public class SwordScript : BaseItem {
 
     public override void ExecuteItem()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Sword inteaction");
     }
 
 }
