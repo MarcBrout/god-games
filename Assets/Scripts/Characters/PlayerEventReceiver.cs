@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 namespace GodsGame
 {
@@ -34,6 +35,9 @@ namespace GodsGame
         public void DashSound()
         {
             AudioManager.Instance.PlayRandomSfx3D("player_dash", ref audio);
+
+            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
         }
 
         public void DeathSound(Damager damager, Damageable damageable)
@@ -41,6 +45,9 @@ namespace GodsGame
             CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
             AudioManager.Instance.PlayRandomSfx3D("player_death", ref audio);
             AudioManager.Instance.PlaySfx(DeathSounds[Random.Range(0, DeathSounds.Length)], "arena_ambience");
+
+            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                (transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
         }
 
         public void HitSound(Damager damager, Damageable damageable)
@@ -49,6 +56,9 @@ namespace GodsGame
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
             AudioManager.Instance.PlaySfx(CheerSounds[Random.Range(0, CheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref audio);
+
+            SpeechBubbleManager.Instance.AddSpeechBubble
+                (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
         }
     }
 }

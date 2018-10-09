@@ -23,17 +23,19 @@ namespace GodsGame
 
         public void AxeWind()
         {
+            AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref audio);
+
             if (axeWindCount == 5)
             {
                 SpeechBubbleManager.Instance.AddSpeechBubble
-                    (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY),
+                (transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY),
                     SpeechBubbleManager.SpeechbubbleType.ANGRY);
                 axeWindCount = 0;
             }
-
-            ++axeWindCount;
-
-            AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref audio);
+            else
+            {
+                ++axeWindCount;
+            }
         }
 
         public void WalkStep()
@@ -44,18 +46,28 @@ namespace GodsGame
         public void Hit()
         {
             AudioManager.Instance.PlayRandomSfx3D("minotaur_hit", ref audio);
+
+            SpeechBubbleManager.Instance.AddSpeechBubble
+            (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
+                SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
 
         public void Death()
         {
             AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref audio);
+
+            //SpeechBubbleManager.Instance.AddSpeechBubble
+            //(transform, Speech.GetSpeech(EnumAction.MINOTAUR_DIES, EnumLevel.ANY),
+            //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
 
         public void Enrage()
         {
             AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur", ref audio);
+
+            //SpeechBubbleManager.Instance.AddSpeechBubble
+            //(transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
+            //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
-
-
     }
 }
