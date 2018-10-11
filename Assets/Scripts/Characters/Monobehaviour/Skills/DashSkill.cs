@@ -8,7 +8,7 @@ namespace GodsGame
     {
         public PlayerBehaviour player;
 
-        public DashSkill(PlayerBehaviour player) : base(3, 3, 3)
+        public DashSkill(PlayerBehaviour player) : base(3, 3)
         {
             this.player = player;
         }

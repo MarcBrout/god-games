@@ -31,6 +31,12 @@ namespace GodsGame
         public LayerMask hittableLayers;
         public DamagableEvent OnDamageableHit;
         public NonDamagableEvent OnNonDamageableHit;
+        public Collider Collider {
+            get
+            {
+                return m_Collider;
+            }
+        }
 
         protected Collider m_Collider;
         protected bool m_SpriteOriginallyFlipped;
@@ -40,7 +46,7 @@ namespace GodsGame
         protected float m_TriggerEnterAt;
         protected float m_TriggerStayElapseTime;
 
-        void Start()
+        void Awake()
         {
             Init();
         }
@@ -56,7 +62,10 @@ namespace GodsGame
             if (!m_Collider)
                 m_Collider = GetComponent<Collider>();
             if (enableDelayActivationOnStart)
+            {
+                m_Collider.enabled = false;
                 StartCoroutine(ActivateAfter(activationDelay));
+            }
             if (enableDelayDeactivationOnStart)
                 StartCoroutine(DisableAfter(deactivationDelay));
         }

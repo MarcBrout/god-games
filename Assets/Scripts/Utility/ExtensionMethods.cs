@@ -24,6 +24,19 @@ public static class ExtensionMethods
         trans.localScale = new Vector3(1, 1, 1);
     }
 
+    public static IEnumerator MoveOverSeconds(this Transform objectToMove, Vector3 destination, float seconds)
+    {
+        float elapsedTime = 0;
+        Vector3 startingPos = objectToMove.position;
+        while (elapsedTime < seconds)
+        {
+            objectToMove.position = Vector3.Lerp(startingPos, destination, (elapsedTime / seconds));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        objectToMove.position = destination;
+    }
+
     public static bool Contain(this LayerMask layermask, int layer)
     {
         return layermask == (layermask | (1 << layer));
