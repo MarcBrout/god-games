@@ -49,13 +49,11 @@ namespace GodsGame {
         private STATES currentState = STATES.IDLE;
         private bool stateChanged = false;
 
-        // Use this for initialization
         void Start()
         {
             crowdSpeech = GameObject.Find("Spectators").GetComponent<CrowdSpeech>();
         }
 
-        // Update is called once per frame
         void Update()
         {
 
