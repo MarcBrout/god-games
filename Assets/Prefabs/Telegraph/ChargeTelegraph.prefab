@@ -9,33 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1668918890356982}
+  m_RootGameObject: {fileID: 1604763413857590}
   m_IsPrefabAsset: 1
---- !u!1 &1043685488649770
+--- !u!1 &1203221929103354
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4462016724977508}
-  - component: {fileID: 119250455415957392}
-  m_Layer: 0
-  m_Name: ProjectorTimer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &1573906357750094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4271540309478850}
-  - component: {fileID: 119559687113947624}
+  - component: {fileID: 4503169331261200}
+  - component: {fileID: 119195108398134590}
   m_Layer: 0
   m_Name: ProjectorBase
   m_TagString: Untagged
@@ -43,17 +27,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1668918890356982
+--- !u!1 &1486113370994722
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4913716184485020}
-  - component: {fileID: 114604040417923934}
-  - component: {fileID: 65092176708264470}
-  - component: {fileID: 114751260937684308}
+  - component: {fileID: 4768300019675702}
+  m_Layer: 0
+  m_Name: targetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1604763413857590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4198570221312580}
+  - component: {fileID: 65594043890658022}
+  - component: {fileID: 114764684626482720}
   m_Layer: 0
   m_Name: ChargeTelegraph
   m_TagString: Untagged
@@ -61,90 +59,73 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4271540309478850
+--- !u!4 &4198570221312580
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573906357750094}
+  m_GameObject: {fileID: 1604763413857590}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4768300019675702}
+  - {fileID: 4503169331261200}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!4 &4503169331261200
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203221929103354}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4913716184485020}
+  m_Father: {fileID: 4198570221312580}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4462016724977508
+--- !u!4 &4768300019675702
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043685488649770}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.33, y: 9, z: 0}
-  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
+  m_GameObject: {fileID: 1486113370994722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4913716184485020}
+  m_Father: {fileID: 4198570221312580}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4913716184485020
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668918890356982}
-  m_LocalRotation: {x: -0, y: 0.6720919, z: -0, w: 0.74046785}
-  m_LocalPosition: {x: -1.97, y: -1.1314285, z: 15.91}
-  m_LocalScale: {x: 0.8000004, y: 0.57142854, z: 0.8000004}
-  m_Children:
-  - {fileID: 4462016724977508}
-  - {fileID: 4271540309478850}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -87.76401, z: 0}
---- !u!65 &65092176708264470
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65594043890658022
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668918890356982}
+  m_GameObject: {fileID: 1604763413857590}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 39.8, y: 1, z: 7.9}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114604040417923934
+  m_Size: {x: 32, y: 0.2, z: 6.3}
+  m_Center: {x: 0, y: -1.1, z: 0}
+--- !u!114 &114764684626482720
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668918890356982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d073c204483e6b48a0fe3722c71191e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectorTimer: {fileID: 119250455415957392}
-  projectorBase: {fileID: 119559687113947624}
-  particleSyst: {fileID: 0}
-  collider: {fileID: 0}
-  damager: {fileID: 0}
-  activationDelayOffset: 0.5
---- !u!114 &114751260937684308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668918890356982}
+  m_GameObject: {fileID: 1604763413857590}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  enableDelayActivationOnStart: 1
-  activationDelay: 0.5
+  damage: 1
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
   enableDelayDeactivationOnStart: 0
   deactivationDelay: 3
   damageOverTime: 0
@@ -164,30 +145,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!119 &119250455415957392
+--- !u!119 &119195108398134590
 Projector:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1043685488649770}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
-  m_FieldOfView: 23
-  m_AspectRatio: 0.74
-  m_Orthographic: 1
-  m_OrthographicSize: 10
-  m_Material: {fileID: 2100000, guid: 820699c8bcd032e479f4f983a706f110, type: 2}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 2871
---- !u!119 &119559687113947624
-Projector:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1573906357750094}
+  m_GameObject: {fileID: 1203221929103354}
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
@@ -196,7 +159,7 @@ Projector:
   m_AspectRatio: 2
   m_Orthographic: 1
   m_OrthographicSize: 10
-  m_Material: {fileID: 2100000, guid: 820699c8bcd032e479f4f983a706f110, type: 2}
+  m_Material: {fileID: 2100000, guid: cd66789bd74e6154ab94af0ff4b20434, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 2871
