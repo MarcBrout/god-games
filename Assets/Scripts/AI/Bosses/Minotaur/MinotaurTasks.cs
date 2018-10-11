@@ -266,7 +266,7 @@ namespace GodsGames
 
         [Task]
         public void PrepareCharge()
-        {
+        { 
             agent.isStopped = true;
             _endPrepareChargeTime = Time.time + prepareChargeDuration;
             chargeTelegraph.gameObject.SetActive(true);
