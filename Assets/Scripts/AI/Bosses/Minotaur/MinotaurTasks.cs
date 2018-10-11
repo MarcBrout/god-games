@@ -27,6 +27,9 @@ namespace GodsGames
         public float defaultSpeed;
         public float lightningStrikeDelayBeforeDelete = 3.0f;
 
+        [Header("LightningSkill")]
+        public float ligntningInvokeDelay = 0.5f;
+
         [Header("ChargeSkill")]
         public float prepareChargeDuration = 1f;
         public float chargeDuration = 0.7f;
@@ -59,6 +62,7 @@ namespace GodsGames
         private const string CHARGING = "charge";
         private const string ATTACKING = "attack";
 
+        private bool _isLighningInvoke = false;
         private Vector3 _chargeTelepgraphInitialPos;
         private PandaBehaviour _bt;
 
@@ -152,14 +156,29 @@ namespace GodsGames
         {
             if (!CanInvokeLightningStrike())
             {
+                if (_isLighningInvoke)
+                {
+                    _isLighningInvoke = false;
+                    CancelInvoke("InvokeLightning");
+                }
                 Task.current.Fail();
                 return;
             }
+            if (!_isLighningInvoke)
+            {
+                _isLighningInvoke = true;
+                InvokeRepeating("InvokeLightning", 0, ligntningInvokeDelay);
+            }
+            Task.current.Succeed();
+        }
 
+        public void InvokeLightning()
+        {
             foreach (GameObject target in targets)
             {
                 if (target != _currentTarget)
                 {
+                    Debug.Log(target);
                     Rigidbody rb = target.GetComponent<Rigidbody>();
                     Vector3 position = target.transform.position + rb.velocity * Time.deltaTime;
                     Quaternion rotation = target.transform.rotation;
@@ -168,7 +187,6 @@ namespace GodsGames
                     _lastLightningStrikeTime = DateTime.Now;
                 }
             }
-            Task.current.Succeed();
         }
 
         /**
@@ -357,7 +375,6 @@ namespace GodsGames
         {
             if (!lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
                 lightningPhase = true;
-
             InternalActivateBerserkMode();
         }
 
