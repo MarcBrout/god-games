@@ -2395,6 +2395,11 @@ Prefab:
       propertyPath: m_Center.z
       value: 1.7890912
       objectReference: {fileID: 0}
+    - target: {fileID: 114297307269634388, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 1398255098}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_IsPrefabAsset: 0
@@ -3855,6 +3860,11 @@ Prefab:
         type: 2}
       propertyPath: _sizeMultiplier
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013829348910, guid: 0052c7a2273aa0a468757492e71cdaa6,
+        type: 2}
+      propertyPath: _defaultColor.b
+      value: 0.8235294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0052c7a2273aa0a468757492e71cdaa6, type: 2}
@@ -7826,6 +7836,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
     type: 2}
   m_PrefabInternal: {fileID: 842381480}
+--- !u!1 &1398255098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1762845196618634, guid: daf5245c519171f48812ada7947a723a,
+    type: 2}
+  m_PrefabInternal: {fileID: 396923902}
 --- !u!4 &1407876297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
