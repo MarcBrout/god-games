@@ -28,20 +28,26 @@ tree "__LightningPhase__"
 		Success
 
 tree "__BerserkMode__"
-	fallback
-		sequence
-			IsBerserk
-			NeedToDeactivateBerserk
-			DeactivateBerserkMode
-		sequence
-			IsBerserk
-			tree("__ChargeTarget__")
-
-tree "__ChargeTarget__"
-	sequence
-		HasCurrentTarget
-		CanChargeTarget
-		ChargeTarget
+	sequence 
+		IsBerserk
+		repeat 3
+			sequence
+				fallback
+					IsPreparingCharge
+					PrepareCharge
+				fallback
+					while IsPreparingCharge
+						repeat
+							sequence
+								HasCurrentTarget
+								AimAtTarget
+					WaitDelayBetweenPreparePhaseAndCharge
+					Charge
+					WaitChargeDuration
+					Success
+				Wait 1.0
+				Success
+		DeactivateBerserkMode
 
 tree "__MoveTowardTarget__"
 	sequence

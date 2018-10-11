@@ -8,7 +8,7 @@ namespace GodsGame
     {
         public PlayerBehaviour player;
 
-        public CuttingSkill(PlayerBehaviour player) : base(2,1,1)
+        public CuttingSkill(PlayerBehaviour player) : base(2,1)
         {
             this.player = player;
         }

@@ -4,39 +4,50 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 using GodsGame;
+using System.Collections;
 
 namespace GodsGames
 {
-    public class Tasks : MonoBehaviour
+    public class MinotaurTasks : MonoBehaviour
     {
         // REFERENCES
-        public GameObject _lightningStrike;
-        public Animator _animator;
-        public Rigidbody _rigidbody;
-        public NavMeshAgent _agent;
-        public List<GameObject> _targets;
+        public GameObject lightningStrike;
+        public Damager chargeTelegraph;
+        public Animator animator;
+        public new Rigidbody rigidbody;
+        public NavMeshAgent agent;
+        public List<GameObject> targets;
         private GameObject _currentTarget;
 
         // CONFIGURATION
-        public string _targetTag;
-        public float _attackRange;
-        public float _chargeDuration;
-        public float _berserkSpeed;
-        public float _chargeSpeed;
-        public float _defaultSpeed;
-        public float _lightningStrikeDelayBeforeDelete = 3.0f;
+        public string targetTag;
+        public float attackRange;
+        public float berserkSpeed;
+        public float chargeSpeed;
+        public float defaultSpeed;
+        public float lightningStrikeDelayBeforeDelete = 3.0f;
 
+        [Header("ChargeSkill")]
+        public float prepareChargeDuration = 1f;
+        public float chargeDuration = 0.7f;
+        public float PreparePhaseChargeDelay = 0.5f;
+
+        [Header("Phase")]
         // STATES
-        public bool _lightningPhase = false;
-        public bool _berserkMode = false;
+        public bool lightningPhase = false;
+        public bool berserkMode = false;
+        public bool isDead = false;
+
+        public bool _isChargePrepared = false;
         public bool _isCharging = false;
-        public bool _isDead = false;
+
 
         // DURATIONS
         private TimeSpan _berserkModeMaxDuration = new TimeSpan(0, 0, 10);
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 15);
         private TimeSpan _chargeCooldown = new TimeSpan(0, 0, 3);
         private TimeSpan _lightningCooldown = new TimeSpan(0, 0, 3);
+        private float _endPrepareChargeTime;
 
         // DATES
         private DateTime _startFocusTimeOnCurrentTarget;
@@ -48,25 +59,30 @@ namespace GodsGames
         private const string CHARGING = "charge";
         private const string ATTACKING = "attack";
 
-        void Start ()
+        private Vector3 _chargeTelepgraphInitialPos;
+        private PandaBehaviour _bt;
+
+        void Start()
         {
-            if (_targets.Count == 0)
-                _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
-	    }
+            _bt = gameObject.GetComponent<PandaBehaviour>();
+            if (targets.Count == 0)
+                targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(targetTag));
+            _chargeTelepgraphInitialPos = chargeTelegraph.transform.localPosition;
+        }
 
         private void Update()
         {
-            _animator.SetBool(IS_WALKING, !_agent.isStopped);
+            animator.SetBool(IS_WALKING, !agent.isStopped);
         }
 
         /**
          * TOOLS
          **/
 
-        void ResetStates ()
+        void ResetStates()
         {
             _isCharging = false;
-            _berserkMode = false;
+            berserkMode = false;
         }
 
         float GetDistFromCurrentTarget()
@@ -81,13 +97,13 @@ namespace GodsGames
          **/
 
         [Task]
-        public bool HasToSwitchTarget ()
+        public bool HasToSwitchTarget()
         {
             return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget;
         }
 
         [Task]
-        public bool HasCurrentTarget ()
+        public bool HasCurrentTarget()
         {
             return _currentTarget != null;
         }
@@ -98,7 +114,7 @@ namespace GodsGames
             float closestDistance = Mathf.Infinity;
             GameObject closestTarget = _currentTarget;
 
-            foreach (GameObject target in _targets)
+            foreach (GameObject target in targets)
             {
                 if (_currentTarget == target)
                     continue;
@@ -111,7 +127,6 @@ namespace GodsGames
                     closestTarget = target;
                 }
             }
-
             _currentTarget = closestTarget;
             _startFocusTimeOnCurrentTarget = DateTime.Now;
             Task.current.Succeed();
@@ -123,13 +138,13 @@ namespace GodsGames
         [Task]
         public bool IsLightningModeActivated()
         {
-            return _lightningPhase;
+            return lightningPhase;
         }
 
         [Task]
         public bool CanInvokeLightningStrike()
         {
-            return _lightningPhase && DateTime.Now - _lastLightningStrikeTime > _lightningCooldown;
+            return lightningPhase && DateTime.Now - _lastLightningStrikeTime > _lightningCooldown;
         }
 
         [Task]
@@ -141,15 +156,15 @@ namespace GodsGames
                 return;
             }
 
-            foreach (GameObject target in _targets)
+            foreach (GameObject target in targets)
             {
                 if (target != _currentTarget)
                 {
                     Rigidbody rb = target.GetComponent<Rigidbody>();
                     Vector3 position = target.transform.position + rb.velocity * Time.deltaTime;
                     Quaternion rotation = target.transform.rotation;
-                    GameObject obj = GameObject.Instantiate(_lightningStrike, position, rotation);
-                    GameObject.Destroy(obj, _lightningStrikeDelayBeforeDelete);
+                    GameObject obj = Instantiate(lightningStrike, position, rotation);
+                    Destroy(obj, lightningStrikeDelayBeforeDelete);
                     _lastLightningStrikeTime = DateTime.Now;
                 }
             }
@@ -159,24 +174,18 @@ namespace GodsGames
         /**
          * BERSERK
          **/
-        
+
         [Task]
         public bool IsBerserk()
         {
-            return _berserkMode;
-        }
-
-        [Task]
-        public bool NeedToDeactivateBerserk()
-        {
-            return _berserkMode && (DateTime.Now - _berserkModeStartTime) > _berserkModeMaxDuration;
+            return berserkMode;
         }
 
         [Task]
         public void DeactivateBerserkMode()
         {
-            _berserkMode = false;
-            _agent.speed = _defaultSpeed;
+            berserkMode = false;
+            agent.speed = defaultSpeed;
             Task.current.Succeed();
         }
 
@@ -187,10 +196,10 @@ namespace GodsGames
             Task.current.Succeed();
         }
 
-        private void InternalActivateBerserkMode()
+        public void InternalActivateBerserkMode()
         {
-            _agent.speed = _berserkSpeed;
-            _berserkMode = true;
+            agent.speed = berserkSpeed;
+            berserkMode = true;
             _berserkModeStartTime = DateTime.Now;
         }
 
@@ -199,26 +208,66 @@ namespace GodsGames
          **/
 
         [Task]
-        public bool CanChargeTarget ()
+        public bool IsPreparingCharge()
         {
-            return _berserkMode && !_isCharging && DateTime.Now - _lastChargeTime > _chargeCooldown;
+            return  Time.time < _endPrepareChargeTime;
         }
 
         [Task]
-        public void ChargeTarget()
+        public void PrepareCharge()
         {
-            _lastChargeTime = DateTime.Now;
-            _isCharging = true;
-            _agent.speed = _chargeSpeed;
-            _animator.SetTrigger(CHARGING);
-            Invoke("StopCharging", _chargeDuration);
+            agent.isStopped = true;
+            _endPrepareChargeTime = Time.time + prepareChargeDuration;
+            chargeTelegraph.gameObject.SetActive(true);
+            _isChargePrepared = true;
             Task.current.Succeed();
         }
 
-        private void StopCharging()
+        [Task]
+        public void AimAtTarget()
         {
+            transform.LookAt(new Vector3(_currentTarget.transform.position.x, transform.position.y, _currentTarget.transform.position.z));
+            Task.current.Succeed();
+        }
+      
+        [Task]
+        public void WaitChargeDuration()
+        {
+            _bt.Wait(chargeDuration);
+        }
+
+        [Task]
+        public void WaitDelayBetweenPreparePhaseAndCharge()
+        {
+            _bt.Wait(PreparePhaseChargeDelay, false);
+        }
+
+        [Task]
+        public void Charge()
+        {
+            if (!_isCharging)
+            {
+                animator.SetTrigger(CHARGING);
+                _isCharging = true;
+                chargeTelegraph.transform.SetParent(null);
+                chargeTelegraph.Collider.enabled = true;
+                _lastChargeTime = DateTime.Now;
+                StartCoroutine(ChargeCoroutine());
+            }
+            Task.current.Succeed();
+        }
+
+        private IEnumerator ChargeCoroutine()
+        {
+            yield return StartCoroutine(transform.MoveOverSeconds(chargeTelegraph.transform.GetChild(0).position, chargeDuration));
+            chargeTelegraph.Collider.enabled = false;
+            chargeTelegraph.gameObject.SetActive(false);
+            chargeTelegraph.transform.SetParent(transform);
+            chargeTelegraph.transform.localPosition = _chargeTelepgraphInitialPos;
+            agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
+            agent.isStopped = false;
             _isCharging = false;
-            _agent.speed = _berserkMode ? _berserkSpeed : _defaultSpeed;
+            _isChargePrepared = false;
         }
 
         /**
@@ -228,10 +277,10 @@ namespace GodsGames
         [Task]
         public bool IsTooFarFromTarget()
         {
-            bool isTooFar = _currentTarget != null && GetDistFromCurrentTarget() > _attackRange;
+            bool isTooFar = _currentTarget != null && GetDistFromCurrentTarget() > attackRange;
 
             if (!isTooFar)
-                _agent.isStopped = true;
+                agent.isStopped = true;
 
             return isTooFar;
         }
@@ -245,8 +294,8 @@ namespace GodsGames
                 return;
             }
 
-            _agent.SetDestination(_currentTarget.transform.position);
-            _agent.isStopped = false;
+            agent.SetDestination(_currentTarget.transform.position);
+            agent.isStopped = false;
 
             Task.current.Succeed();
         }
@@ -256,15 +305,15 @@ namespace GodsGames
          **/
 
         [Task]
-        public bool CanAttackTarget ()
+        public bool CanAttackTarget()
         {
-            return GetDistFromCurrentTarget() <= _attackRange;
+            return GetDistFromCurrentTarget() <= attackRange && !_isChargePrepared && !_isCharging;
         }
 
         [Task]
-        public void AttackTarget ()
+        public void AttackTarget()
         {
-            _animator.SetTrigger(ATTACKING);
+            animator.SetTrigger(ATTACKING);
             Task.current.Succeed();
         }
 
@@ -274,7 +323,7 @@ namespace GodsGames
         [Task]
         public bool IsDead()
         {
-            return _isDead;
+            return isDead;
         }
 
         /**
@@ -282,9 +331,9 @@ namespace GodsGames
          **/
 
         [Task]
-        public void Idle ()
+        public void Idle()
         {
-            _agent.isStopped = true;
+            agent.isStopped = true;
             Task.current.Succeed();
         }
 
@@ -293,28 +342,28 @@ namespace GodsGames
          **/
 
         [Task]
-        public void Success ()
+        public void Success()
         {
             Task.current.Succeed();
         }
 
         [Task]
-        public void Failure ()
+        public void Failure()
         {
             Task.current.Fail();
         }
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
-            if (!_lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
-                _lightningPhase = true;
+            if (!lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
+                lightningPhase = true;
 
             InternalActivateBerserkMode();
         }
 
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
-            _isDead = true;
+            isDead = true;
         }
     }
 }
