@@ -7,15 +7,16 @@ namespace GodsGame
 {
     public class PlayerEventReceiver : MonoBehaviour
     {
-        private AudioSource audio;
-        static private string[] DeathSounds = new string[] {
+        private AudioSource _audio;
+        private Animator _animator;
+        static private string[] _deathSounds = new string[] {
             "arena_crowd_laugh_01",
             "arena_crowd_laugh_02",
             "arena_crowd_laugh_03",
             "arena_crowd_ouch_02",
         };
 
-        static private string[] CheerSounds = new string[] {
+        static private string[] _cheerSounds = new string[] {
             "arena_crowd_claps_and_cheers_01",
             "arena_crowd_claps_and_cheers_02",
             "arena_crowd_claps_and_cheers_03",
@@ -24,17 +25,18 @@ namespace GodsGame
 
         void Start()
         {
-            audio = GetComponent<AudioSource>();
+            _audio = GetComponent<AudioSource>();
+            _animator = GetComponent<Animator>();
         }
 
         public void RunStep()
         {
-            AudioManager.Instance.PlayRandomSfx3D("player_run", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("player_run", ref _audio);
         }
 
         public void DashSound()
         {
-            AudioManager.Instance.PlayRandomSfx3D("player_dash", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("player_dash", ref _audio);
 
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
                 (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
@@ -43,8 +45,9 @@ namespace GodsGame
         public void DeathSound(Damager damager, Damageable damageable)
         {
             CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
-            AudioManager.Instance.PlayRandomSfx3D("player_death", ref audio);
-            AudioManager.Instance.PlaySfx(DeathSounds[Random.Range(0, DeathSounds.Length)], "arena_ambience");
+            AudioManager.Instance.PlayRandomSfx3D("player_death", ref _audio);
+            AudioManager.Instance.PlaySfx(_deathSounds[Random.Range(0, _deathSounds.Length)], "arena_ambience");
+            _animator.SetTrigger("Died");
 
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
                 (transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
@@ -54,8 +57,8 @@ namespace GodsGame
         {
             Debug.Log("HIT");
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
-            AudioManager.Instance.PlaySfx(CheerSounds[Random.Range(0, CheerSounds.Length)], "arena_ambience");
-            AudioManager.Instance.PlayRandomSfx3D("player_hit", ref audio);
+            AudioManager.Instance.PlaySfx(_cheerSounds[Random.Range(0, _cheerSounds.Length)], "arena_ambience");
+            AudioManager.Instance.PlayRandomSfx3D("player_hit", ref _audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
                 (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
