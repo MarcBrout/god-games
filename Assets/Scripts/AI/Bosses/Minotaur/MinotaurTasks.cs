@@ -117,18 +117,33 @@ namespace GodsGames
         {
             float closestDistance = Mathf.Infinity;
             GameObject closestTarget = _currentTarget;
+            GameObject lastValidTarget = _currentTarget;
 
             foreach (GameObject target in targets)
             {
-                if (_currentTarget == target)
-                    continue;
+                int targetHealth = target.GetComponent<Damageable>().CurrentHealth;
 
-                Vector3 diff = transform.position - target.transform.position;
+                // Saving the last healthy target
+                if (targetHealth != 0)
+                    lastValidTarget = target;
+
+                if (target == _currentTarget) {
+                    continue;
+                }
+
+                GameObject targetToAim = target;
+                // Changing target to last healthy saved
+                if (targetHealth == 0)
+                {
+                    targetToAim = lastValidTarget;
+                }
+
+                Vector3 diff = transform.position - targetToAim.transform.position;
                 float distance = diff.sqrMagnitude;
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestTarget = target;
+                    closestTarget = targetToAim;
                 }
             }
             _currentTarget = closestTarget;
@@ -174,19 +189,37 @@ namespace GodsGames
 
         public void InvokeLightning()
         {
+            GameObject lastValidTarget = _currentTarget;
+            GameObject targetToAim = _currentTarget;
+
             foreach (GameObject target in targets)
             {
-                if (target != _currentTarget)
+                int targetHealth = target.GetComponent<Damageable>().CurrentHealth;
+                
+                if (targetHealth > 0)
                 {
-                    Debug.Log(target);
-                    Rigidbody rb = target.GetComponent<Rigidbody>();
-                    Vector3 position = target.transform.position + rb.velocity * Time.deltaTime;
-                    Quaternion rotation = target.transform.rotation;
-                    GameObject obj = Instantiate(lightningStrike, position, rotation);
-                    Destroy(obj, lightningStrikeDelayBeforeDelete);
-                    _lastLightningStrikeTime = DateTime.Now;
+                    lastValidTarget = target;
+                }
+
+                if (target == _currentTarget)
+                {
+                    continue;
+                }
+
+                targetToAim = target;
+
+                if (targetHealth == 0)
+                {
+                    targetToAim = lastValidTarget;
                 }
             }
+            Debug.Log(targetToAim);
+            Rigidbody rb = targetToAim.GetComponent<Rigidbody>();
+            Vector3 position = targetToAim.transform.position + rb.velocity * Time.deltaTime;
+            Quaternion rotation = targetToAim.transform.rotation;
+            GameObject obj = Instantiate(lightningStrike, position, rotation);
+            Destroy(obj, lightningStrikeDelayBeforeDelete);
+            _lastLightningStrikeTime = DateTime.Now;
         }
 
         /**

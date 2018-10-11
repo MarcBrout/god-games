@@ -14,6 +14,7 @@ namespace GodsGame {
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
+            Debug.Log("BOSS IS HIT !");
             CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
             AudioManager.Instance.PlaySfx(BoohSounds[Random.Range(0, BoohSounds.Length)], "arena_ambience");
             animator.SetInteger("life", damageable.CurrentHealth);

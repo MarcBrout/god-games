@@ -54,6 +54,7 @@ namespace GodsGame
         protected readonly int _HashUseItemPara = Animator.StringToHash("UseItem");
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
+        protected readonly int _HashDiedPara = Animator.StringToHash("Died");
         #endregion
 
         #region properties
@@ -183,6 +184,11 @@ namespace GodsGame
                 MouseAim();
             else
                 RJoystickAim();
+        }
+
+        public void Die(Damager damager, Damageable damageable)
+        {
+            _Animator.SetTrigger(_HashDiedPara);
         }
 
         /// <summary>

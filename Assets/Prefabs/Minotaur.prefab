@@ -1210,9 +1210,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: deprecate
-        m_Mode: 1
+      - m_Target: {fileID: 114481080226363590}
+        m_MethodName: OnTakeDamage
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1303,12 +1303,12 @@ MonoBehaviour:
   targets: []
   targetTag: Player
   attackRange: 10
-  berserkSpeed: 12
+  berserkSpeed: 10
   chargeSpeed: 20
-  defaultSpeed: 8
+  defaultSpeed: 6
   lightningStrikeDelayBeforeDelete: 3
   ligntningInvokeDelay: 1
-  prepareChargeDuration: 1
+  prepareChargeDuration: 2
   chargeDuration: 0.7
   PreparePhaseChargeDelay: 0.5
   lightningPhase: 0
