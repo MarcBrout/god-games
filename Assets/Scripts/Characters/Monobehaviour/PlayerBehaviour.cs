@@ -159,8 +159,6 @@ namespace GodsGame
         public void Dash()
         {
             DashSkill.Execute();
-            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
         }
 
         /// <summary>

@@ -8,6 +8,9 @@ namespace GodsGame
 {
     public class MinotaurEventsReceiver : MonoBehaviour
     {
+        //Todo: add head transform
+        public GameObject head;
+
         private AudioSource audio;
         private int axeWindCount = 0;
 
@@ -40,12 +43,12 @@ namespace GodsGame
 
         public void WalkStep()
         {
-            AudioManager.Instance.PlaySfx3D("minotaur_step_01", "minotaur", ref audio);
+            AudioManager.Instance.PlaySfx3D("minotaur_step_01", "minotaur_step", ref audio);
         }
 
         public void Hit()
         {
-            AudioManager.Instance.PlayRandomSfx3D("minotaur_hit", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("minotaur_pain", ref audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
             (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
@@ -54,20 +57,22 @@ namespace GodsGame
 
         public void Death()
         {
-            AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref audio);
+            //AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref audio);
 
-            //SpeechBubbleManager.Instance.AddSpeechBubble
-            //(transform, Speech.GetSpeech(EnumAction.MINOTAUR_DIES, EnumLevel.ANY),
-            //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+            AudioManager.Instance.PlayRandomSfx3D("minotaur_falling", ref audio);
+
+            SpeechBubbleManager.Instance.AddSpeechBubble
+            (transform, Speech.GetSpeech(EnumAction.MINOTAUR_DIES, EnumLevel.ANY),
+                SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
 
         public void Enrage()
         {
-            AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur", ref audio);
+            AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur_enrage", ref audio);
 
-            //SpeechBubbleManager.Instance.AddSpeechBubble
-            //(transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
-            //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+            SpeechBubbleManager.Instance.AddSpeechBubble
+            (transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
+                SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
     }
 }

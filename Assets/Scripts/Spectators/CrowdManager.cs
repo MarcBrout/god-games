@@ -6,6 +6,7 @@ namespace GodsGame {
     public class CrowdManager : MonoBehaviour
     {
         public static CrowdManager instance;
+        private CrowdSpeech crowdSpeech;
 
         public State CurrentState
         {
@@ -51,7 +52,7 @@ namespace GodsGame {
         // Use this for initialization
         void Start()
         {
-
+            crowdSpeech = GameObject.Find("Spectators").GetComponent<CrowdSpeech>();
         }
 
         // Update is called once per frame
@@ -73,6 +74,7 @@ namespace GodsGame {
             if (!stateChanged)
             {
                 StartCoroutine(ChangeState(State, DurationInMilliseconds));
+                crowdSpeech.CrowdSayThings(State);
                 this.currentState = State;
                 this.stateChanged = true;
             }
