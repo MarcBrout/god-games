@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using SceneLinkedSMB;
 
 namespace GodsGame
@@ -9,7 +10,7 @@ namespace GodsGame
     public class CooldownSkillUI : MonoBehaviour
     {
         public Image cooldownOverlay;
-        public Text chargeNumberText;
+        public TextMeshProUGUI chargeNumberText;
         public string targetName;
         public string skillName;
 

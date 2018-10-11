@@ -12,17 +12,7 @@ namespace GodsGame {
 
         public Animator animator;
 
-        // Use this for initialization
-        void Start() {
-
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
-
-        public void onTakeDamage(Damager damager, Damageable damageable)
+        public void OnTakeDamage(Damager damager, Damageable damageable)
         {
             CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
             AudioManager.Instance.PlaySfx(BoohSounds[Random.Range(0, BoohSounds.Length)], "arena_ambience");

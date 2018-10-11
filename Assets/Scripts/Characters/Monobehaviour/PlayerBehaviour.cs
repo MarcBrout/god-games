@@ -40,6 +40,7 @@ namespace GodsGame
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
+        private Animator _PlayerAnimations;
         private ItemHandler _itemHandler;
         private DustEffectPool _DustEffectPool;
         #endregion
@@ -63,7 +64,10 @@ namespace GodsGame
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
-            set { _Animator.SetBool(_HashGroundedPara, value); }
+            set {
+                _Animator.SetBool(_HashGroundedPara, value);
+                _PlayerAnimations.SetBool(_HashGroundedPara, value);
+            }
         }
         public Damageable Damageable { get; private set; }
         #endregion
@@ -78,6 +82,7 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
+            _PlayerAnimations = transform.Find("Player").GetComponent<Animator>();
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -95,7 +100,9 @@ namespace GodsGame
             _Input.y = 0;
             _Input.z = cInput.GetAxisRaw(verticalAxis);
             _Animator.SetFloat(_HashHorizontalSpeedPara, _Input.x);
+            _PlayerAnimations.SetFloat(_HashHorizontalSpeedPara, _Input.x);
             _Animator.SetFloat(_HashVerticalSpeedPara, _Input.z);
+            _PlayerAnimations.SetFloat(_HashVerticalSpeedPara, _Input.z);
         }
 
         /// <summary>
@@ -130,6 +137,7 @@ namespace GodsGame
         {
             Body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
             _Animator.SetFloat(_HashJumpSpeedPara, Body.velocity.y);
+            _PlayerAnimations.SetFloat(_HashJumpSpeedPara, Body.velocity.y);
         }
 
         /// <summary>
@@ -146,6 +154,7 @@ namespace GodsGame
         public void TransitionToDash()
         {
             _Animator.SetTrigger(_HashDashPara);
+            _PlayerAnimations.SetTrigger(_HashDashPara);
         }
 
         public void Dash()
