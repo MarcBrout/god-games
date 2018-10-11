@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 114717001326575118}
   - component: {fileID: 114481080226363590}
   - component: {fileID: 54224634209889356}
+  - component: {fileID: 114727151249533950}
   m_Layer: 11
   m_Name: Minotaur
   m_TagString: Untagged
@@ -446,7 +447,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
   m_LocalRotation: {x: -0, y: -0.997697, z: -0, w: 0.06782858}
-  m_LocalPosition: {x: -0.45, y: 1.98, z: 1.04}
+  m_LocalPosition: {x: -0.14, y: 1.98, z: 3.32}
   m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
   m_Children:
   - {fileID: 4694016624097536}
@@ -937,8 +938,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40420708, y: 3.3009105, z: 1.574103}
-  m_Center: {x: 0.0017096844, y: -0.037272017, z: 1.648914}
+  m_Size: {x: 0.40420708, y: 4.1967344, z: 1.8539594}
+  m_Center: {x: 0.0017580267, y: 0.0275496, z: 1.7890912}
 --- !u!82 &82980186908423364
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1150,6 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f5fe4d8cb21e243904aa6881cb3527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 1762845196618634}
 --- !u!114 &114481080226363590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1197,6 +1199,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: deprecate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnTakeDamageBt:
@@ -1206,7 +1219,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114740191837820852}
+        m_MethodName: OnDieBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnGainHealth:
@@ -1215,6 +1239,39 @@ MonoBehaviour:
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_CurrentHealth: 0
+--- !u!114 &114727151249533950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  deactivationDelay: 3
+  damageOverTime: 0
+  damageOverTimeTick: 1
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114740191837820852
 MonoBehaviour:
   m_ObjectHideFlags: 1
