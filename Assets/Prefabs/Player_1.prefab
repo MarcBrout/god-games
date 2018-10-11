@@ -113,21 +113,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1437279774475216
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4864937541123626}
-  m_Layer: 9
-  m_Name: mouth
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1460723872798476
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +301,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570998775363878}
-  - {fileID: 4864937541123626}
   - {fileID: 4131373150988554}
   - {fileID: 4668180580500896}
   m_Father: {fileID: 0}
@@ -360,7 +344,7 @@ Transform:
   m_Children:
   - {fileID: 4464437531354746}
   m_Father: {fileID: 4044620197981282}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4197004299923614
 Transform:
@@ -472,7 +456,7 @@ Transform:
   m_Children:
   - {fileID: 4552781348449342}
   m_Father: {fileID: 4044620197981282}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4802477723287156
 Transform:
@@ -485,19 +469,6 @@ Transform:
   m_LocalScale: {x: 1.0113415, y: 1.0113413, z: 0.9889224}
   m_Children: []
   m_Father: {fileID: 4552781348449342}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4864937541123626
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437279774475216}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.505, y: 1.515, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4044620197981282}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4901566787201066
@@ -1214,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2cc0f244f49274cba5bfc59d4f2618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 1541445708913192}
 --- !u!114 &114692215917933720
 MonoBehaviour:
   m_ObjectHideFlags: 1
