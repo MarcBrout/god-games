@@ -22,22 +22,25 @@ namespace GodsGame
             switch (state)
             {
                 case CrowdManager.STATES.BOOH:
-                    CrowdSayThings(EnumAction.CROWD_BOOH);
-                    break;
-                case CrowdManager.STATES.CHEER:
+                    StartCoroutine(IECrowdSayThings(EnumAction.CROWD_BOOH));
                     break;
                 case CrowdManager.STATES.OOH:
-                    CrowdSayThings(EnumAction.CROWD_OOH);
+                    StartCoroutine(IECrowdSayThings(EnumAction.CROWD_OOH));
+                    break;
+                default:
+                    Debug.Log("State not found");
                     break;
             }
         }
+
         //todo: add head transform to crowd
-        private void CrowdSayThings(EnumAction action)
+        private IEnumerator IECrowdSayThings(EnumAction action)
         {
             for (int i = 0; i < 10; ++i)
             {
                 randomObject[i] = (GameObject)((Transform)childs[Random.Range(0, childs.Length)]).gameObject;
                 SpeechBubbleManager.Instance.AddSpeechBubble(randomObject[i].transform, Speech.GetSpeech(action, EnumLevel.ANY));
+                yield return new WaitForSeconds(.15f);
             }
         }
     }
