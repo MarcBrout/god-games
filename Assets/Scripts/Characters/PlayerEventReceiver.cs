@@ -7,6 +7,8 @@ namespace GodsGame
 {
     public class PlayerEventReceiver : MonoBehaviour
     {
+        public GameObject head;
+
         private AudioSource _audio;
         private Animator _animator;
         static private string[] _deathSounds = new string[] {
@@ -39,7 +41,7 @@ namespace GodsGame
             AudioManager.Instance.PlayRandomSfx3D("player_dash", ref _audio);
 
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                (transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
+                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
         }
 
         public void DeathSound(Damager damager, Damageable damageable)
@@ -50,18 +52,17 @@ namespace GodsGame
             _animator.SetTrigger("Died");
 
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                (transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
+                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
         }
 
         public void HitSound(Damager damager, Damageable damageable)
         {
-            Debug.Log("HIT");
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
             AudioManager.Instance.PlaySfx(_cheerSounds[Random.Range(0, _cheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref _audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
-                (transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
+                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
         }
     }
 }

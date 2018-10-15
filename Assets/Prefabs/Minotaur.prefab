@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1596982817000298}
   m_IsPrefabAsset: 1
+--- !u!1 &1039380157061594
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4293779339770078}
+  m_Layer: 0
+  m_Name: targetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1259950691440620
 GameObject:
   m_ObjectHideFlags: 1
@@ -23,6 +38,22 @@ GameObject:
   - component: {fileID: 23359084041471822}
   m_Layer: 11
   m_Name: noze
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1316007579758450
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4791929945012212}
+  - component: {fileID: 119180042374905238}
+  m_Layer: 0
+  m_Name: ProjectorBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +76,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1437096614230816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4598727981715574}
+  - component: {fileID: 65944649256125822}
+  - component: {fileID: 114018578632625478}
+  m_Layer: 0
+  m_Name: ChargeTelegraph
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1514793963311602
 GameObject:
   m_ObjectHideFlags: 1
@@ -77,6 +125,7 @@ GameObject:
   - component: {fileID: 114717001326575118}
   - component: {fileID: 114481080226363590}
   - component: {fileID: 54224634209889356}
+  - component: {fileID: 114727151249533950}
   m_Layer: 11
   m_Name: Minotaur
   m_TagString: Untagged
@@ -253,6 +302,19 @@ Transform:
   m_Father: {fileID: 4119989092831816}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4293779339770078
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039380157061594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4598727981715574}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4433262331314052
 Transform:
   m_ObjectHideFlags: 1
@@ -282,6 +344,21 @@ Transform:
   m_Father: {fileID: 4635902566867238}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -85.43939, y: -149.00986, z: 156.21684}
+--- !u!4 &4598727981715574
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437096614230816}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4293779339770078}
+  - {fileID: 4791929945012212}
+  m_Father: {fileID: 4829392602573070}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4635902566867238
 Transform:
   m_ObjectHideFlags: 1
@@ -296,7 +373,7 @@ Transform:
   - {fileID: 4823634399378874}
   - {fileID: 4576944055654390}
   m_Father: {fileID: 4829392602573070}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4760088526803250
 Transform:
@@ -324,6 +401,19 @@ Transform:
   m_Father: {fileID: 4119989092831816}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4791929945012212
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316007579758450}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4598727981715574}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4816279205321590
 Transform:
   m_ObjectHideFlags: 1
@@ -360,6 +450,7 @@ Transform:
   m_LocalPosition: {x: -0.14, y: 1.98, z: 3.32}
   m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
   m_Children:
+  - {fileID: 4598727981715574}
   - {fileID: 4635902566867238}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -837,6 +928,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40420708, y: 3.3009105, z: 1.574103}
   m_Center: {x: 0.0017096844, y: -0.037272017, z: 1.648914}
+--- !u!65 &65944649256125822
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437096614230816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 32, y: 0.2, z: 6.3}
+  m_Center: {x: 0, y: -1.1, z: 0}
 --- !u!82 &82980186908423364
 AudioSource:
   m_ObjectHideFlags: 1
@@ -950,6 +1053,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114018578632625478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437096614230816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  deactivationDelay: 3
+  damageOverTime: 0
+  damageOverTimeTick: 1
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114087464100469822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1015,6 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f5fe4d8cb21e243904aa6881cb3527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 1762845196618634}
 --- !u!114 &114481080226363590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1039,8 +1176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 6
-  invulnerableAfterDamage: 1
-  invulnerabilityDuration: 1
+  invulnerableAfterDamage: 0
+  invulnerabilityDuration: 0
   disableOnDeath: 0
   centreOffset: {x: 0, y: 1}
   OnHealthSet:
@@ -1051,7 +1188,7 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114481080226363590}
+      - m_Target: {fileID: 114740191837820852}
         m_MethodName: OnTakeDamage
         m_Mode: 0
         m_Arguments:
@@ -1073,12 +1210,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnTakeDamageBt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114740191837820852}
+      - m_Target: {fileID: 114481080226363590}
         m_MethodName: OnTakeDamage
         m_Mode: 0
         m_Arguments:
@@ -1089,6 +1221,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnTakeDamageBt:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDie:
@@ -1113,6 +1250,39 @@ MonoBehaviour:
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   m_CurrentHealth: 0
+--- !u!114 &114727151249533950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  deactivationDelay: 3
+  damageOverTime: 0
+  damageOverTimeTick: 1
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114740191837820852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1124,23 +1294,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349d0e2b865c36b40b148cda4b29c682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightningStrike: {fileID: 1668918890356982, guid: 7c05e75fada60c24d9804f034587ab94,
+  lightningStrike: {fileID: 1668918890356982, guid: 7c05e75fada60c24d9804f034587ab94,
     type: 2}
-  _animator: {fileID: 95816946098904696}
-  _rigidbody: {fileID: 54224634209889356}
-  _agent: {fileID: 195839722439017702}
-  _targets: []
-  _targetTag: Player
-  _attackRange: 10
-  _chargeDuration: 2
-  _berserkSpeed: 8
-  _chargeSpeed: 12
-  _defaultSpeed: 4
-  _lightningStrikeDelayBeforeDelete: 3
-  _lightningPhase: 0
-  _berserkMode: 0
+  chargeTelegraph: {fileID: 114018578632625478}
+  animator: {fileID: 95816946098904696}
+  rigidbody: {fileID: 54224634209889356}
+  agent: {fileID: 195839722439017702}
+  targets: []
+  targetTag: Player
+  attackRange: 10
+  berserkSpeed: 10
+  chargeSpeed: 20
+  defaultSpeed: 6
+  lightningStrikeDelayBeforeDelete: 3
+  ligntningInvokeDelay: 1
+  prepareChargeDuration: 2
+  chargeDuration: 0.7
+  PreparePhaseChargeDelay: 0.5
+  lightningPhase: 0
+  berserkMode: 0
+  isDead: 0
+  _isChargePrepared: 0
   _isCharging: 0
-  _isDead: 0
+--- !u!119 &119180042374905238
+Projector:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316007579758450}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_NearClipPlane: 0.1
+  m_FarClipPlane: 100
+  m_FieldOfView: 23
+  m_AspectRatio: 2
+  m_Orthographic: 1
+  m_OrthographicSize: 10
+  m_Material: {fileID: 2100000, guid: cd66789bd74e6154ab94af0ff4b20434, type: 2}
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 2871
 --- !u!136 &136525757735737336
 CapsuleCollider:
   m_ObjectHideFlags: 1

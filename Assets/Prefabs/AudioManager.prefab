@@ -240,6 +240,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ee9c02c5d766676468ecad6624738244, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  menu: []
   minotaur:
   - name: minotaur_arrival_01
     clip: {fileID: 8300000, guid: 662fa62b7d4ede94bab1576cfe36d2ec, type: 3}
@@ -313,17 +314,99 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 38a12a8d5afface4c975d32135714c96, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  minotaur_hit:
+  minotaur_arrival:
+  - name: minotaur_arrival_01
+    clip: {fileID: 8300000, guid: 6ffaf46640435c34884899b32a798d1d, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_arrival_02
+    clip: {fileID: 8300000, guid: 2858dc739380deb469a22f14b3baeca3, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_arrival_03
+    clip: {fileID: 8300000, guid: 0d4c4ddf0b6e37e41a2dc9b9a354298c, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_attack:
+  - name: minotaur_attack_01
+    clip: {fileID: 8300000, guid: 95f2929b2ce86ce4194d125e1f2f516e, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_before_attack:
+  - name: minotaur_before_attack
+    clip: {fileID: 8300000, guid: e1f8e4692e5c24c468b316cf2df23ed7, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_charge:
+  - name: minotaur_charge_01
+    clip: {fileID: 8300000, guid: 27a62392f9509f74e86fd8718299840b, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_effort:
+  - name: minotaur_effort_01
+    clip: {fileID: 8300000, guid: 883b455c1b12ecc438cb9396d290bc1d, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_effort_02
+    clip: {fileID: 8300000, guid: f4e207e31bb18434199acdfd3784decc, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_effort_03
+    clip: {fileID: 8300000, guid: 639609376f120944ca6de2393f76bd6d, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_enrage:
+  - name: minotaur_enrage_01
+    clip: {fileID: 8300000, guid: 5699dfd30d6dbe24680dee0151ead9a6, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_exhausted:
+  - name: minotaur_exhausted_01
+    clip: {fileID: 8300000, guid: af6d075e32603e548b2f9bce2ca96ce3, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_exhausted_02
+    clip: {fileID: 8300000, guid: 4ba6a9e72b8f41f4aa37f333fb337902, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_exhausted_03
+    clip: {fileID: 8300000, guid: 0372bda47e55b4c4c9302f3b20015e97, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_falling:
+  - name: minotaur_falling_01
+    clip: {fileID: 8300000, guid: 72dd7ecce12b52c46a06b93ea92305f1, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_pain:
   - name: minotaur_pain_01
-    clip: {fileID: 8300000, guid: c4265f9d50ee58047941b8b094360d6c, type: 3}
+    clip: {fileID: 8300000, guid: fb2dbef492ff2db4a804d57dc451d829, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: minotaur_pain_02
-    clip: {fileID: 8300000, guid: 07eba5de4ae7a894eaeb587be444395c, type: 3}
+    clip: {fileID: 8300000, guid: 35d87507cd0c51f48b6f933585455c69, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: minotaur_pain_03
-    clip: {fileID: 8300000, guid: c20d992abc8249c4db5c08c2e2bc9563, type: 3}
+    clip: {fileID: 8300000, guid: 65c51cb1500f8df4aab98c9037974b9e, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_step:
+  - name: minotaur_step_01
+    clip: {fileID: 8300000, guid: 6d396d9c11a0d284bbe1391b375f0c5f, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_step_02
+    clip: {fileID: 8300000, guid: ebe1672571fb1444fb703ddfb441aad5, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: minotaur_step_03
+    clip: {fileID: 8300000, guid: 5b6fe361c99ee8b40a53fc90e957874b, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  minotaur_walk:
+  - name: minotaur_walk_01
+    clip: {fileID: 8300000, guid: cd7d8de3da67b584d8f1557c8623149a, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   player_dash:
@@ -370,6 +453,42 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   player_run:
+  - name: hero_long_run
+    clip: {fileID: 8300000, guid: 0abcacc679a320047b0125bab4f28cda, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step01
+    clip: {fileID: 8300000, guid: a3e0fded79d52be40973cbe003d5023c, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step02
+    clip: {fileID: 8300000, guid: 99a4da35f707bd243bb4276aba46d888, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step03
+    clip: {fileID: 8300000, guid: 6c2793614250d1a45b0d6d2bb316ee64, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step04
+    clip: {fileID: 8300000, guid: bebbb2b6214287249b4811540b325699, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step05
+    clip: {fileID: 8300000, guid: 1d9866380ffe46c4b98461694cca72a1, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step06
+    clip: {fileID: 8300000, guid: 8dfaf7ba7ec00aa4481629c6cadcb748, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step07
+    clip: {fileID: 8300000, guid: 004da7bef5949134eb83346943a628e2, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: step08
+    clip: {fileID: 8300000, guid: 80ed7094a335f2f48bc75cdbcaed244a, type: 3}
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
   - name: steps_low_01
     clip: {fileID: 8300000, guid: 7b67e12e811f8a946b16992c26aed1dc, type: 3}
     mixerGroup: {fileID: 0}

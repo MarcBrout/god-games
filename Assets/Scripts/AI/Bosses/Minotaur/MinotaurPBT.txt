@@ -1,0 +1,63 @@
+tree "Root"
+	fallback
+		IsDead
+		sequence
+			tree("__AcquireNewTargetIfNeeded__")
+			tree("__LightningPhase__")
+			fallback
+				tree("__BerserkMode__")
+				tree("__MoveTowardTarget__")
+				tree("__AttackTarget__")
+				tree("__idle__")
+
+tree "__AcquireNewTargetIfNeeded__"
+	fallback
+		sequence
+			fallback
+				not HasCurrentTarget
+				HasToSwitchTarget
+			AcquireNewTarget
+		Success
+
+tree "__LightningPhase__"
+	fallback
+		sequence
+			IsLightningModeActivated
+			CanInvokeLightningStrike
+			InvokeLightningStrike
+		Success
+
+tree "__BerserkMode__"
+	sequence 
+		IsBerserk
+		repeat 3
+			sequence
+				fallback
+					IsPreparingCharge
+					PrepareCharge
+				fallback
+					while IsPreparingCharge
+						repeat
+							sequence
+								HasCurrentTarget
+								AimAtTarget
+					WaitDelayBetweenPreparePhaseAndCharge
+					Charge
+					WaitChargeDuration
+					Success
+				Wait 1.0
+				Success
+		DeactivateBerserkMode
+
+tree "__MoveTowardTarget__"
+	sequence
+		IsTooFarFromTarget
+		MoveTowardTarget
+
+tree "__AttackTarget__"
+	sequence
+		CanAttackTarget
+		AttackTarget
+
+tree "__idle__"
+	Idle

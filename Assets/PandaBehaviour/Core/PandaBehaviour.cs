@@ -81,6 +81,36 @@ namespace Panda
             }
         }
 
+        /// <summary>
+        /// Run for \p duration seconds then succeed.
+        /// </summary>
+        /// <param name="message"></param>
+        [Task]
+        public void Wait(float duration, bool success = true)
+        {
+
+            var task = Task.current;
+            var info = task.item != null ? (WaitFloatInfo)task.item : (WaitFloatInfo)(task.item = new WaitFloatInfo());
+
+            if (task.isStarting)
+            {
+                info.elapsedTime = -Time.deltaTime;
+            }
+
+            info.elapsedTime += Time.deltaTime;
+
+            if (Task.isInspected)
+            {
+                float tta = Mathf.Clamp(duration - info.elapsedTime, 0.0f, float.PositiveInfinity);
+                task.debugInfo = string.Format("t-{0:0.000}", tta);
+            }
+
+            if (info.elapsedTime >= duration)
+            {
+                task.debugInfo = "t-0.000";
+                task.Complete(success);
+            }
+        }
 
         public class WaitRandomFloatInfo
         {

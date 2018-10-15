@@ -34,12 +34,11 @@ namespace GodsGame
         /// </summary>
         /// <param name="cooldown"></param>
         /// <param name="maxChargeNumber"></param>
-        /// <param name="currentChargeNumber"></param>
-        public CooldownSkill(float cooldown, int maxChargeNumber, int currentChargeNumber)
+        public CooldownSkill(float cooldown, int maxChargeNumber)
         {
             this.cooldown = cooldown;
             this.maxChargeNumber = maxChargeNumber;
-            this.currentChargeNumber = currentChargeNumber;
+            this.currentChargeNumber = maxChargeNumber;
         }
 
         /// <summary>

@@ -17,6 +17,8 @@ namespace GodsGame
 {
     public enum EnumAction
     {
+        CROWD_BOOH,
+        CROWD_OOH,
         MINOTAUR_AXEWIND,
         MINOTAUR_DIES,
         MINOTAUR_DURINGFIGHT,

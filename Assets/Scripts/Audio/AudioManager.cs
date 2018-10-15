@@ -35,14 +35,29 @@ namespace GodsGame
             items_sword_hit_metal,
             items_sword_hit_nothing,
             items_sword_hit_wood,
-            minotaur,
-            minotaur_hit,
+            menu,
+            //minotaur,
+            minotaur_arrival,
+            minotaur_attack,
+            minotaur_before_attack,
+            minotaur_charge,
+            minotaur_effort,
+            minotaur_enrage,
+            minotaur_exhausted,
+            minotaur_falling,
+            minotaur_pain,
+            minotaur_step,
+            minotaur_walk,
+            //minotaur_hit,
             player_dash,
             player_death, 
             player_hit, 
             player_run, 
             player_walk, 
-            zeus;
+            zeus,
+            zeus_electric_shock,
+            zeus_laugh,
+            zeus_thunder;
 
         private Sound backgroundMusic1, backgroundMusic2, sfx;
 
@@ -163,14 +178,30 @@ namespace GodsGame
             InitializeSoundArray(items_sword_hit_metal, MixerGroup.Effects);
             InitializeSoundArray(items_sword_hit_nothing, MixerGroup.Effects);
             InitializeSoundArray(items_sword_hit_wood, MixerGroup.Effects);
-            InitializeSoundArray(minotaur, MixerGroup.Effects);
-            InitializeSoundArray(minotaur_hit, MixerGroup.Effects);
+            InitializeSoundArray(menu, MixerGroup.Effects);
+            //InitializeSoundArray(minotaur, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_arrival, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_attack, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_before_attack, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_charge, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_effort, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_enrage, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_exhausted, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_falling, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_pain, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_step, MixerGroup.Effects);
+            InitializeSoundArray(minotaur_walk, MixerGroup.Effects);
+            //InitializeSoundArray(minotaur_hit, MixerGroup.Effects);
             InitializeSoundArray(player_dash, MixerGroup.Effects);
             InitializeSoundArray(player_death, MixerGroup.Effects);
             InitializeSoundArray(player_hit, MixerGroup.Effects);
             InitializeSoundArray(player_run, MixerGroup.Effects);
             InitializeSoundArray(player_walk, MixerGroup.Effects);
             InitializeSoundArray(zeus, MixerGroup.Effects);
+            InitializeSoundArray(zeus_electric_shock, MixerGroup.Effects);
+            InitializeSoundArray(zeus_laugh, MixerGroup.Effects);
+            InitializeSoundArray(zeus_thunder, MixerGroup.Effects);
+
 
             backgroundMusic1IsPlaying = true;
         }
@@ -206,14 +237,27 @@ namespace GodsGame
                 case ("items_sword_hit_metal"): return items_sword_hit_metal;
                 case ("items_sword_hit_nothing"): return items_sword_hit_nothing;
                 case ("items_sword_hit_wood"): return items_sword_hit_wood;
-                case ("minotaur"): return minotaur;
-                case ("minotaur_hit"): return minotaur_hit;
+                //case ("minotaur"): return minotaur;
+                case ("minotaur_arrival"): return minotaur_arrival;
+                case ("minotaur_attack"): return minotaur_attack;
+                case ("minotaur_before_attack"): return minotaur_before_attack;
+                case ("minotaur_charge"): return minotaur_charge;
+                case ("minotaur_effort"): return minotaur_effort;
+                case ("minotaur_enrage"): return minotaur_enrage;
+                case ("minotaur_exhausted"): return minotaur_exhausted;
+                case ("minotaur_falling"): return minotaur_falling;
+                case ("minotaur_pain"): return minotaur_pain;
+                case ("minotaur_step"): return minotaur_step;
+                case ("minotaur_walk"): return minotaur_walk;
                 case ("player_dash"): return player_dash;
                 case ("player_death"): return player_death;
                 case ("player_hit"): return player_hit;
                 case ("player_run"): return player_run;
                 case ("player_walk"): return player_walk;
                 case ("zeus"): return zeus;
+                case ("zeus_electric_shock"): return zeus_electric_shock;
+                case ("zeus_laugh"): return zeus_laugh;
+                case ("zeus_thunder"): return zeus_thunder;
                 default: return null;
             }
         }
