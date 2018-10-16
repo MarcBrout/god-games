@@ -36,12 +36,12 @@ namespace GodsGame
 
             public void UpdateLabel(string newLabel)
             {
-                label.text = newLabel;
+                label.text = newLabel.ToUpper();
             }
 
             public void UpdateButtonText(string newText)
             {
-                buttonText.text = newText;
+                buttonText.text = newText.ToUpper();
             }
         }
 
@@ -69,7 +69,7 @@ namespace GodsGame
                 }
                 else if (cinputName.Contains(m_Player2Input))
                 {
-                    CreateControlButton(m_ControlButtonsP1.Find(x => { return x.label.text.Contains(cinputName.Truncate(cinputName.Length - 3)); }).go, m_ControlButtonsP2, i, false);
+                    CreateControlButton(m_ControlButtonsP1.Find(x => { return x.label.text.Contains(cinputName.ToUpper().Truncate(cinputName.Length - 3)); }).go, m_ControlButtonsP2, i, false);
                 }
                 else
                 {
