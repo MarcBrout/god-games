@@ -6,10 +6,10 @@ ScriptedImporter:
     400000: Sand_Messy_and_Waves/Sand_Messy_and_Waves/Transform
     2100000: mat.Sand_Messy
     2300000: Sand_Messy_and_Waves/Sand_Messy_and_Waves/MeshRenderer
-    2800000: Sand_Messy_Base Color
-    2800002: Sand_Messy_Normal
-    2800004: Sand_Messy_Metallic
-    2800006: Sand_Messy_Height
+    2800008: Sand_Messy_baseColor
+    2800010: Sand_Messy_normal
+    2800012: Sand_Messy_metallic
+    2800014: Sand_Messy_height
     3300000: Sand_Messy_and_Waves/Sand_Messy_and_Waves/MeshFilter
     11400000: sbsar
     11400002: graph0
@@ -20,8 +20,10 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  version: 13
   mGraphInstanceData:
   - graphLabel: Sand_Messy
+    prototypeName: 
     graphDescIndex: 0
     generateAllOutputs: 0
     generateMipMaps: 1
@@ -36,7 +38,7 @@ ScriptedImporter:
       type=\"1\" value=\"0.259,0.07\" />\n  <presetinput identifier=\"Dune_Hills_Sharpness\"
       uid=\"3298980177\" type=\"0\" value=\"7.16\" />\n </sbspreset>\n"
     shaderName: Standard
-    outputNames: Base Color,Normal,Metallic,Height
+    outputNames: baseColor,normal,metallic,height
     texturePackingList:
     - outputName: baseColor
       alphaSource: baseColor
@@ -48,6 +50,27 @@ ScriptedImporter:
       alphaSource: smoothness
     - outputName: height
       alphaSource: height
+    textureParameters:
+    - textureName: Sand_Messy_roughness
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Sand_Messy_baseColor
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Sand_Messy_normal
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Sand_Messy_metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Sand_Messy_height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
     colorSpaceList:
     - outputName: baseColor
       bLinear: 0
@@ -62,27 +85,25 @@ ScriptedImporter:
     inputTextureMap: []
     targetSettingList:
     - label: Default
-      bOverride: 0
       bLockRatio: 1
       bHighQuality: 0
       textureWidth: 2048
       textureHeight: 2048
       textureFormat: 0
-      loadBehavior: 0
+      bGenerateOnLoad: 1
     - label: Standalone
-      bOverride: 0
       bLockRatio: 1
       bHighQuality: 0
       textureWidth: 256
       textureHeight: 256
       textureFormat: 0
-      loadBehavior: 0
+      bGenerateOnLoad: 0
     - label: iPhone
-      bOverride: 0
       bLockRatio: 1
       bHighQuality: 0
       textureWidth: 256
       textureHeight: 256
       textureFormat: 0
-      loadBehavior: 0
-    material: {fileID: 2100000, guid: 18d2e787586183044b8986ddf1f5958d, type: 3}
+      bGenerateOnLoad: 0
+    material: {instanceID: 0}
+    generatedTextures: []

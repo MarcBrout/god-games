@@ -21,13 +21,14 @@ namespace GodsGame {
             if (m_MonoBehaviour.CheckForJumpInput())
                 m_MonoBehaviour.Jump();
 
-            if (m_MonoBehaviour.CheckForThrowInput())
-            {
-                Debug.Log("Throw input true");
-
+            if (m_MonoBehaviour.CheckForThrowInput()) {
                 m_MonoBehaviour.ThrowItem();
-
             }
+
+            if (m_MonoBehaviour.CheckForUseItemInput())
+                m_MonoBehaviour.UseItem();
+
+            
         }
     }
 }

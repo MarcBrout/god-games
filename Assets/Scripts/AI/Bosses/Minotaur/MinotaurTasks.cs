@@ -414,6 +414,9 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             isDead = true;
+            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            GameObject transitionCamera = GameObject.Find("TransitionCamera");
+            transitionCamera.GetComponent<TransitionCameraScript>().StartTransition(mainCamera, transform);
         }
     }
 }
