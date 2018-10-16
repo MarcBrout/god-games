@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 23451928525182642}
   - component: {fileID: 95257479268973042}
   - component: {fileID: 136251287039417570}
+  - component: {fileID: 114335149781894342}
+  - component: {fileID: 114665372385449992}
   m_Layer: 0
   m_Name: Column
   m_TagString: Untagged
@@ -37,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431070503734674}
   m_LocalRotation: {x: 1.7347235e-18, y: 0.000000007450581, z: 2.3283064e-10, w: 1}
-  m_LocalPosition: {x: 19.6, y: -0.08, z: 0.33}
-  m_LocalScale: {x: 0.9383317, y: 1.6904117, z: 0.86727417}
+  m_LocalPosition: {x: 0.036638, y: 0, z: 0.014286}
+  m_LocalScale: {x: 0.9758654, y: 1.758028, z: 0.9019656}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 1431070503734674}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d4f3b74b6c77f2842a77a02cac4a27bd, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba2e3c6b5a3f3954490bb64fb0cba05a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -103,6 +105,60 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114335149781894342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431070503734674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e04979042d804c45a8d9cbca1bb990a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreTriggers: 0
+  ignoreDuration: 0
+  isEnabled: 1
+  autoCallActivateExit: 0
+  autoCallDelay: 0
+  OnActivateEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114665372385449992}
+        m_MethodName: OnActivate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GodsGame.Activable+ActivateEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnActivateEnterDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Activable+ActivateEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnActivateExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Activable+ActivateEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114665372385449992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431070503734674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcd38e385e0a25469c2db3d75e4af6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 95257479268973042}
 --- !u!136 &136251287039417570
 CapsuleCollider:
   m_ObjectHideFlags: 1
