@@ -10,12 +10,14 @@ namespace GodsGame
     {
         public GameObject head;
 
-        private AudioSource audio;
+        private AudioSource _audio;
+        private Damager _axe;
         private int axeWindCount = 0;
 
         void Start()
         {
-            audio = GetComponent<AudioSource>();
+            _audio = GetComponent<AudioSource>();
+            _axe = GetComponentInChildren<Damager>();
         }
 
         void Update()
@@ -25,7 +27,7 @@ namespace GodsGame
 
         public void AxeWind()
         {
-            AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
 
             if (axeWindCount == 5)
             {
@@ -42,12 +44,12 @@ namespace GodsGame
 
         public void WalkStep()
         {
-            AudioManager.Instance.PlaySfx3D("minotaur_step_01", "minotaur_step", ref audio);
+            AudioManager.Instance.PlaySfx3D("minotaur_step_01", "minotaur_step", ref _audio);
         }
 
         public void Hit()
         {
-            AudioManager.Instance.PlayRandomSfx3D("minotaur_pain", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("minotaur_pain", ref _audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
             (head.transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
@@ -58,7 +60,7 @@ namespace GodsGame
         {
             //AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref audio);
 
-            AudioManager.Instance.PlayRandomSfx3D("minotaur_falling", ref audio);
+            AudioManager.Instance.PlayRandomSfx3D("minotaur_falling", ref _audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
             (head.transform, Speech.GetSpeech(EnumAction.MINOTAUR_DIES, EnumLevel.ANY),
@@ -67,12 +69,22 @@ namespace GodsGame
 
         public void Enrage()
         {
-            AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur_enrage", ref audio);
+            AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur_enrage", ref _audio);
 
             //todo: add enumAction MINOTAUR_ENRAGE
             //SpeechBubbleManager.Instance.AddSpeechBubble
             //(head.transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
             //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+        }
+
+        public void DeactivateAxe()
+        {
+            _axe.DisableDamage();
+        }
+
+        public void ActivateAxe()
+        {
+            _axe.EnableDamage();
         }
     }
 }

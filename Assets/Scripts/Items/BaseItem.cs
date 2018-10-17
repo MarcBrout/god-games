@@ -8,30 +8,36 @@ public abstract class BaseItem : MonoBehaviour {
     public Vector3 pickUpPosition;
     public Vector3 pickUpRotations;
     public bool isThrowable = true;
-    public CooldownSkill skill;
-
 
     public float throwForce;
     public float cooldownDuration;
 
     private float _nextReadyTime;
+    private Rigidbody _rb;
+
+    public void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
 
     public void PickUpItem(GameObject itemSocket) {
-        GetComponent<Rigidbody>().isKinematic = true;
+        _rb.isKinematic = true;
+        _rb.detectCollisions = false;
 
-        transform.parent = itemSocket.transform;
+        transform.SetParent(itemSocket.transform);
         transform.localPosition = pickUpPosition;
         transform.localEulerAngles = pickUpRotations;
     }
 
     public void DropItem() {
-        GetComponent<Rigidbody>().isKinematic = false;
-        transform.parent = null;
+        _rb.isKinematic = false;
+        _rb.detectCollisions = true;
+        transform.SetParent(null);
     }
 
     public void ThrowItem(Transform direction) {
         DropItem();
-        GetComponent<Rigidbody>().AddForce(direction.forward * throwForce);
+        _rb.AddForce(direction.forward * throwForce);
     }
 
     public void UseItem() {

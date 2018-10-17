@@ -31,9 +31,8 @@ namespace GodsGame
         public DamageEvent OnDie;
         public HealEvent OnGainHealth;
 
-        [HideInInspector]
         //public DataSettings dataSettings;
-        public int m_CurrentHealth;
+        protected int m_CurrentHealth;
         protected bool m_Invulnerable;
         protected float m_InulnerabilityTimer;
         protected Vector2 m_DamageDirection;

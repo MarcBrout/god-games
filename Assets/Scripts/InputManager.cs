@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
             cInput.SetKey("Dash_P2", "Joystick1Button1");
             cInput.SetKey("ThrowItem_P1", "E");
             cInput.SetKey("ThrowItem_P2", "Joystick1Button2");
+            cInput.SetKey("UseItem_P1", "Mouse0");
+            cInput.SetKey("UseItem_P2", "Joystick1Button3");
 
             cInput.SetKey("LookUp_P1", "Mouse Up");
             cInput.SetKey("LookUp_P2", "Joy1 Axis 5-");
@@ -55,6 +57,8 @@ public class InputManager : MonoBehaviour
             cInput.SetKey("Dash_P2", "Joystick2Button1");
             cInput.SetKey("ThrowItem_P1", "Joystick1Button2");
             cInput.SetKey("ThrowItem_P2", "Joystick1Button2");
+            cInput.SetKey("UseItem_P1", "Joystick1Button3");
+            cInput.SetKey("UseItem_P2", "Joystick1Button3");
 
             cInput.SetKey("LookUp_P1", "Joy1 Axis 5-");
             cInput.SetKey("LookUp_P2", "Joy2 Axis 5-");

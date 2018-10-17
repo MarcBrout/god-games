@@ -10,11 +10,6 @@ public class ItemHandler: MonoBehaviour {
     public GameObject itemSocket;
     private bool _isEquiped = false;
     private BaseItem _equippedItem;
-    private CooldownSkillUI _cooldownSkillUI;
-
-    public void Start() {
-        _cooldownSkillUI = itemUi.GetComponent<CooldownSkillUI>();
-    }
 
     public ItemHandler(GameObject itemSocket) {
         this.itemSocket = itemSocket;
@@ -29,11 +24,13 @@ public class ItemHandler: MonoBehaviour {
             _equippedItem.PickUpItem(itemSocket);
 
             _isEquiped = true;
-            itemUi.GetComponent<Image>().sprite = _equippedItem.GetComponent<Image>().sprite;
-            itemUi.SetActive(true);
-            _cooldownSkillUI.Skill = _equippedItem.GetComponent<BaseItem>().skill;
-            _cooldownSkillUI.UpdateUI();
 
+
+            if (itemUi != null)
+            {
+                itemUi.GetComponent<Image>().sprite = _equippedItem.GetComponent<Image>().sprite;
+                itemUi.SetActive(true);
+            }
         }
     }
 
@@ -44,15 +41,20 @@ public class ItemHandler: MonoBehaviour {
     public void ThrowItem() {
         _equippedItem.ThrowItem(transform);
         _isEquiped = false;
-        itemUi.SetActive(false);
+
+        if (itemUi != null) {
+            itemUi.SetActive(false);
+        }
+    }
+
+    public bool CanUse() {
+        return _isEquiped;
     }
 
     public void UseItem() {
 
         if (_equippedItem.ItemReady()) {
             _equippedItem.UseItem();
-            _cooldownSkillUI.TransitionToCooldownStart();
-
         }
     }
 }
