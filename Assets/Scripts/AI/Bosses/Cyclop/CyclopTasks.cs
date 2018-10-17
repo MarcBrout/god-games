@@ -12,9 +12,8 @@ namespace GodsGames
         [Header("General configuration")]
         public GameObject _throwableObject;
         public string _targetTag;
-        public Rigidbody _rigidbody;
         public List<GameObject> _targets;
-        public GameObject _currentTarget;
+        private GameObject _currentTarget;
 
         [Header("Basic attack")]
         public float _basicAttackGravity;
@@ -109,6 +108,7 @@ namespace GodsGames
                     closestTarget = targetToAim;
                 }
             }
+
             _currentTarget = closestTarget;
             _startFocusTimeOnCurrentTarget = DateTime.Now;
             Task.current.Succeed();
@@ -121,7 +121,7 @@ namespace GodsGames
         [Task]
         public bool CanUseBasicAttack()
         {
-            return _basicAttackLastUse != null && DateTime.Now - _basicAttackLastUse > _basicAttackCooldown;
+            return _currentTarget != null && _basicAttackLastUse != null && DateTime.Now - _basicAttackLastUse > _basicAttackCooldown;
         }
 
         [Task]
@@ -134,7 +134,8 @@ namespace GodsGames
 
         private IEnumerator BasicAttackCoroutine()
         {
-            GameObject thrownItem = GameObject.Instantiate(_throwableObject, transform.position, new Quaternion());
+            Vector3 offset = new Vector3(0, transform.localScale.y, 0);
+            GameObject thrownItem = GameObject.Instantiate(_throwableObject, transform.position + offset, new Quaternion());
 
             float targetDistance = Vector3.Distance(thrownItem.transform.position, _currentTarget.transform.position);
             float velocity = targetDistance / (Mathf.Sin(2 * _basicAttackAngle * Mathf.Deg2Rad) / _basicAttackGravity);
