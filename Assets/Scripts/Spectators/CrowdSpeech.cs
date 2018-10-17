@@ -5,7 +5,7 @@ using VikingCrewTools.UI;
 
 namespace GodsGame
 {
-    //attack script to "spectators" object
+    //attach script to "spectators" object
     public class CrowdSpeech : MonoBehaviour
     {
         private GameObject[] randomObject;

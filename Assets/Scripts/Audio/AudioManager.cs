@@ -21,7 +21,8 @@ namespace GodsGame
 
         public static AudioManager Instance;
 
-        public AudioMixerGroup music, effects;
+        public AudioMixer masterMixer;
+        public AudioMixerGroup masterGroup, musicGroup, sfxGroup;
 
         public float timeToFade, threshold;
 
@@ -36,7 +37,6 @@ namespace GodsGame
             items_sword_hit_nothing,
             items_sword_hit_wood,
             menu,
-            //minotaur,
             minotaur_arrival,
             minotaur_attack,
             minotaur_before_attack,
@@ -48,7 +48,6 @@ namespace GodsGame
             minotaur_pain,
             minotaur_step,
             minotaur_walk,
-            //minotaur_hit,
             player_dash,
             player_death, 
             player_hit, 
@@ -69,7 +68,7 @@ namespace GodsGame
         public void PlaySfx(string sound, string soundArr)
         {
             sfx = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
-
+            sfx.source.outputAudioMixerGroup = sfxGroup;
             sfx.source.Play();
         }
 
@@ -84,8 +83,9 @@ namespace GodsGame
 
         public void PlayRandomSfx(string soundArr)
         {
-            Sound randomSfx = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)];
-            randomSfx.source.Play();
+            sfx = GetSoundArr(soundArr)[UnityEngine.Random.Range(0, GetSoundArr(soundArr).Length)];
+            sfx.source.outputAudioMixerGroup = sfxGroup;
+            sfx.source.Play();
         }
 
         // Use when audiosource is placed on object itself (for 3D audio)
@@ -179,7 +179,6 @@ namespace GodsGame
             InitializeSoundArray(items_sword_hit_nothing, MixerGroup.Effects);
             InitializeSoundArray(items_sword_hit_wood, MixerGroup.Effects);
             InitializeSoundArray(menu, MixerGroup.Effects);
-            //InitializeSoundArray(minotaur, MixerGroup.Effects);
             InitializeSoundArray(minotaur_arrival, MixerGroup.Effects);
             InitializeSoundArray(minotaur_attack, MixerGroup.Effects);
             InitializeSoundArray(minotaur_before_attack, MixerGroup.Effects);
@@ -191,7 +190,6 @@ namespace GodsGame
             InitializeSoundArray(minotaur_pain, MixerGroup.Effects);
             InitializeSoundArray(minotaur_step, MixerGroup.Effects);
             InitializeSoundArray(minotaur_walk, MixerGroup.Effects);
-            //InitializeSoundArray(minotaur_hit, MixerGroup.Effects);
             InitializeSoundArray(player_dash, MixerGroup.Effects);
             InitializeSoundArray(player_death, MixerGroup.Effects);
             InitializeSoundArray(player_hit, MixerGroup.Effects);
@@ -202,6 +200,7 @@ namespace GodsGame
             InitializeSoundArray(zeus_laugh, MixerGroup.Effects);
             InitializeSoundArray(zeus_thunder, MixerGroup.Effects);
 
+            //sfx.source.outputAudioMixerGroup = sfxGroup;
 
             backgroundMusic1IsPlaying = true;
         }
@@ -215,10 +214,10 @@ namespace GodsGame
                     case MixerGroup.Music:
                         s.source = gameObject.AddComponent<AudioSource>();
                         s.source.clip = s.clip;
-                        s.source.outputAudioMixerGroup = music;
+                        s.source.outputAudioMixerGroup = musicGroup;
                         break;
                     case MixerGroup.Effects:
-                        s.mixerGroup = effects;
+                        s.mixerGroup = sfxGroup;
                         break;
                 }
             }
@@ -237,7 +236,6 @@ namespace GodsGame
                 case ("items_sword_hit_metal"): return items_sword_hit_metal;
                 case ("items_sword_hit_nothing"): return items_sword_hit_nothing;
                 case ("items_sword_hit_wood"): return items_sword_hit_wood;
-                //case ("minotaur"): return minotaur;
                 case ("minotaur_arrival"): return minotaur_arrival;
                 case ("minotaur_attack"): return minotaur_attack;
                 case ("minotaur_before_attack"): return minotaur_before_attack;
@@ -347,23 +345,25 @@ namespace GodsGame
 
         private void Test()
         {
-            Debug.Log("In function test()");
-            PlayBackground("animation_arena_entering", "animation");
+            Debug.Log("playBackground");
+            //PlayBackground("animation_arena_entering", "animation");
+            PlaySfx("animation_arena_entering", "animation");
             StartCoroutine(Test1());
         }
 
         private IEnumerator Test1()
         {
-            yield return new WaitForSeconds(10);
-            Debug.Log("In IEnumerator Test1");
-            ChangeBackGround("animation_cavern_view", "animation");
-            StartCoroutine(Test2());
+            yield return new WaitForSeconds(6);
+            Debug.Log("ChangeBackGround1");
+            //ChangeBackGround("animation_cavern_view", "animation");
+            //masterMixer.SetFloat("musicVol", -80f);
+            //StartCoroutine(Test2());
         }
 
         private IEnumerator Test2()
         {
-            yield return new WaitForSeconds(5);
-            Debug.Log("In IEnumerator Test2");
+            yield return new WaitForSeconds(6);
+            Debug.Log("ChangeBackGround2");
             ChangeBackGround("animation_corridor_walking", "animation");
             StartCoroutine(Test3());
 
