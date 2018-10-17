@@ -516,7 +516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -666,25 +666,40 @@ Prefab:
       propertyPath: invulnerableAfterDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54551094142972322, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: useItemButton
+      value: UseItem_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: groundDistance
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_Height
-      value: 1.8176064
+      value: 1.9197447
       objectReference: {fileID: 0}
     - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_Center.y
-      value: 0.5675998
+      value: 0.9098724
       objectReference: {fileID: 0}
     - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_Radius
-      value: 0.58581924
+      value: 0.5343498
       objectReference: {fileID: 0}
     - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
-      propertyPath: m_Center.x
-      value: -0.00512743
+      propertyPath: m_Center.z
+      value: 0.060418606
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
@@ -2574,7 +2589,83 @@ Prefab:
       propertyPath: OnTakeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1083562256}
-    m_RemovedComponents: []
+    - target: {fileID: 65944649256125822, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 2.9095223
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -0.029979993
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.09055927
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.84752804
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 3.3130324
+      objectReference: {fileID: 0}
+    - target: {fileID: 136525757735737336, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.36854416
+      objectReference: {fileID: 0}
+    - target: {fileID: 136525757735737336, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Height
+      value: 1.604342
+      objectReference: {fileID: 0}
+    - target: {fileID: 136525757735737336, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.04555273
+      objectReference: {fileID: 0}
+    - target: {fileID: 136525757735737336, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.031123733
+      objectReference: {fileID: 0}
+    - target: {fileID: 136525757735737336, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.2121484
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113839532656346, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: disableDamageAfterHit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65659187900665772, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.9284817
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727151249533950, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727151249533950, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114727151249533950, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &397004755
@@ -3982,7 +4073,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4013,6 +4104,31 @@ Prefab:
       propertyPath: OnTakeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 888684255}
+    - target: {fileID: 114780348900313158, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: invulnerableAfterDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Height
+      value: 1.6670935
+      objectReference: {fileID: 0}
+    - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.7835468
+      objectReference: {fileID: 0}
+    - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.48848033
+      objectReference: {fileID: 0}
+    - target: {fileID: 136973214555881300, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.008818865
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
   m_IsPrefabAsset: 0

@@ -12,10 +12,12 @@ namespace GodsGame
 
         private AudioSource _audio;
         private int axeWindCount = 0;
+        private Collider _axeCollider;
 
         void Start()
         {
             _audio = GetComponent<AudioSource>();
+            _axeCollider = GetComponentInChildren<Collider>();
         }
 
         void Update()
@@ -79,6 +81,16 @@ namespace GodsGame
             //SpeechBubbleManager.Instance.AddSpeechBubble
             //(head.transform, Speech.GetSpeech(EnumAction.MINOTAUR_TAKESDAMAGE, EnumLevel.ANY),
             //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
+        }
+
+        public void ActivateAxe()
+        {
+            _axeCollider.enabled = true;
+        }
+
+        public void DeactivateAxe()
+        {
+            _axeCollider.enabled = false;
         }
     }
 }
