@@ -37,7 +37,7 @@ public abstract class BaseItem : MonoBehaviour {
 
     public void ThrowItem(Transform direction) {
         DropItem();
-        _rb.AddForce(direction.forward * throwForce);
+        _rb.AddForce(direction.forward * throwForce + direction.up * throwForce);
     }
 
     public void UseItem() {
