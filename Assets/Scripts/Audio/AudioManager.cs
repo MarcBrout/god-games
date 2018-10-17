@@ -340,7 +340,7 @@ namespace GodsGame
 
         private void Start()
         {
-            Test();
+            //Test();
         }
 
         private void Test()
