@@ -11,6 +11,10 @@ namespace GodsGame
 
         private AudioSource _audio;
         private Animator _animator;
+
+        private int dashCount = 0;
+        private int hitCount = 0;
+
         static private string[] _deathSounds = new string[] {
             "arena_crowd_laugh_01",
             "arena_crowd_laugh_02",
@@ -40,8 +44,14 @@ namespace GodsGame
         {
             AudioManager.Instance.PlayRandomSfx3D("player_dash", ref _audio);
 
-            VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
+            if (dashCount >= 3)
+            {
+                VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
+                    (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
+                dashCount = 0;
+            }
+            else
+                ++dashCount;
         }
 
         public void DeathSound(Damager damager, Damageable damageable)
@@ -57,12 +67,19 @@ namespace GodsGame
 
         public void HitSound(Damager damager, Damageable damageable)
         {
+            Debug.Log("event_player_hit");
             //CrowdManager.instance.SetState(CrowdManager.STATES.CHEER, 1000);
             AudioManager.Instance.PlaySfx(_cheerSounds[Random.Range(0, _cheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref _audio);
 
-            SpeechBubbleManager.Instance.AddSpeechBubble
-                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
+            if (hitCount >= 3)
+            {
+                SpeechBubbleManager.Instance.AddSpeechBubble
+                    (head.transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
+                hitCount = 0;
+            }
+            else
+                ++hitCount;
         }
     }
 }
