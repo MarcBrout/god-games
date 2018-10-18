@@ -10,7 +10,7 @@ namespace GodsGames
     public class CyclopTasks : MonoBehaviour
     {
         [Header("General configuration")]
-        public GameObject _throwableObject;
+        public GameObject[] _throwableObjects;
         public string _targetTag;
         public List<GameObject> _targets;
         private GameObject _currentTarget;
@@ -18,7 +18,8 @@ namespace GodsGames
         [Header("Basic attack")]
         public float _basicAttackGravity;
         public float _basicAttackAngle;
-        public float _basicAttackTimeBeforeDestroy;
+        public float _attackDuration;
+        public float _lifetime;
         private TimeSpan _basicAttackCooldown = new TimeSpan(0, 0, 1);
         private DateTime _basicAttackLastUse;
 
@@ -64,7 +65,8 @@ namespace GodsGames
         [Task]
         public bool HasToSwitchTarget()
         {
-            return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget;
+            bool hasInvalidTarget = HasCurrentTarget() && _currentTarget.GetComponent<Damageable>().CurrentHealth <= 0;
+            return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget || hasInvalidTarget;
         }
 
         [Task]
@@ -100,6 +102,11 @@ namespace GodsGames
                     targetToAim = lastValidTarget;
                 }
 
+                if (targetToAim == null)
+                {
+                    continue;
+                }
+
                 Vector3 diff = transform.position - targetToAim.transform.position;
                 float distance = diff.sqrMagnitude;
                 if (distance < closestDistance)
@@ -109,7 +116,7 @@ namespace GodsGames
                 }
             }
 
-            _currentTarget = closestTarget;
+            _currentTarget = closestTarget && closestTarget.GetComponent<Damageable>().CurrentHealth > 0 ? closestTarget : null;
             _startFocusTimeOnCurrentTarget = DateTime.Now;
             Task.current.Succeed();
         }
@@ -135,7 +142,7 @@ namespace GodsGames
         private IEnumerator BasicAttackCoroutine()
         {
             Vector3 offset = new Vector3(0, transform.localScale.y, 0);
-            GameObject thrownItem = GameObject.Instantiate(_throwableObject, transform.position + offset, new Quaternion());
+            GameObject thrownItem = GameObject.Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], transform.position + offset, new Quaternion());
 
             float targetDistance = Vector3.Distance(thrownItem.transform.position, _currentTarget.transform.position);
             float velocity = targetDistance / (Mathf.Sin(2 * _basicAttackAngle * Mathf.Deg2Rad) / _basicAttackGravity);
@@ -151,7 +158,14 @@ namespace GodsGames
                 yield return null;
             }
 
-            GameObject.Destroy(thrownItem, _basicAttackTimeBeforeDestroy);
+            StartCoroutine(DeactivateBoulderDamage(_attackDuration, thrownItem.GetComponent<Damager>()));
+            GameObject.Destroy(thrownItem, _lifetime);
+        }
+
+        private IEnumerator DeactivateBoulderDamage(float seconds, Damager damager)
+        {
+            yield return new WaitForSeconds(seconds);
+            damager.DisableDamage();
         }
 
         /**
@@ -192,6 +206,7 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             _isDead = true;
+            PlayerPrefs.SetInt("lvl2", (int)Time.timeSinceLevelLoad);
         }
     }
 }
