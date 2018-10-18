@@ -1,0 +1,26 @@
+tree "Root"
+	fallback
+		IsDead
+		sequence
+			tree("__AcquireNewTargetIfNeeded__")
+			fallback
+				tree("__BasicAttack__")
+				tree("__idle__")
+
+tree "__AcquireNewTargetIfNeeded__"
+	fallback
+		sequence
+			fallback
+				not HasCurrentTarget
+				HasToSwitchTarget
+			AcquireNewTarget
+		Success
+
+tree "__BasicAttack__"
+	sequence
+		HasCurrentTarget
+		CanUseBasicAttack
+		UseBasicAttack
+
+tree "__idle__"
+	Idle

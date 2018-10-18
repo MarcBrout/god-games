@@ -11,13 +11,13 @@ namespace GodsGame
         public GameObject head;
 
         private AudioSource _audio;
-        private Damager _axe;
         private int axeWindCount = 0;
+        private Collider _axeCollider;
 
         void Start()
         {
             _audio = GetComponent<AudioSource>();
-            _axe = GetComponentInChildren<Damager>();
+            _axeCollider = GetComponentInChildren<Collider>();
         }
 
         void Update()
@@ -27,9 +27,11 @@ namespace GodsGame
 
         public void AxeWind()
         {
+            Debug.Log("minotaur_event_axewind");
+
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
 
-            if (axeWindCount == 5)
+            if (axeWindCount >= 5)
             {
                 SpeechBubbleManager.Instance.AddSpeechBubble
                 (head.transform, Speech.GetSpeech(EnumAction.MINOTAUR_AXEWIND, EnumLevel.ANY),
@@ -37,9 +39,7 @@ namespace GodsGame
                 axeWindCount = 0;
             }
             else
-            {
                 ++axeWindCount;
-            }
         }
 
         public void WalkStep()
@@ -49,6 +49,8 @@ namespace GodsGame
 
         public void Hit()
         {
+            Debug.Log("minotaur_event_hit");
+
             AudioManager.Instance.PlayRandomSfx3D("minotaur_pain", ref _audio);
 
             SpeechBubbleManager.Instance.AddSpeechBubble
@@ -58,7 +60,9 @@ namespace GodsGame
 
         public void Death()
         {
-            //AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref audio);
+            Debug.Log("minotaur_event_death");
+
+            //AudioManager.Instance.PlaySfx3D("minotaur_falling_01", "minotaur", ref _audio);
 
             AudioManager.Instance.PlayRandomSfx3D("minotaur_falling", ref _audio);
 
@@ -69,6 +73,8 @@ namespace GodsGame
 
         public void Enrage()
         {
+            Debug.Log("minotaur_event_enrage");
+
             AudioManager.Instance.PlaySfx3D("minotaur_enrage_01", "minotaur_enrage", ref _audio);
 
             //todo: add enumAction MINOTAUR_ENRAGE
@@ -77,14 +83,14 @@ namespace GodsGame
             //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
 
-        public void DeactivateAxe()
-        {
-            _axe.DisableDamage();
-        }
-
         public void ActivateAxe()
         {
-            _axe.EnableDamage();
+            _axeCollider.enabled = true;
+        }
+
+        public void DeactivateAxe()
+        {
+            _axeCollider.enabled = false;
         }
     }
 }

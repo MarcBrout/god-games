@@ -20,6 +20,7 @@ namespace GodsGame
 
         public AudioClip clip;
 
+        [HideInInspector]
         public AudioMixerGroup mixerGroup;
 
         [HideInInspector]

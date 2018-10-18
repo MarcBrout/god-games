@@ -51,8 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa08ac4019f12247a5fc7c6ef250d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 243997189417904838, guid: 3acc12aec15c66847813b04056eab813, type: 2}
-  effects: {fileID: 243821324052180702, guid: 3acc12aec15c66847813b04056eab813, type: 2}
+  masterMixer: {fileID: 24100000, guid: 3acc12aec15c66847813b04056eab813, type: 2}
+  masterGroup: {fileID: 24300002, guid: 3acc12aec15c66847813b04056eab813, type: 2}
+  musicGroup: {fileID: 243997189417904838, guid: 3acc12aec15c66847813b04056eab813,
+    type: 2}
+  sfxGroup: {fileID: 243821324052180702, guid: 3acc12aec15c66847813b04056eab813, type: 2}
   timeToFade: 3
   threshold: 0.5
   animation:
@@ -241,79 +244,6 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   menu: []
-  minotaur:
-  - name: minotaur_arrival_01
-    clip: {fileID: 8300000, guid: 662fa62b7d4ede94bab1576cfe36d2ec, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_arrival_02
-    clip: {fileID: 8300000, guid: b1f8aa8a2f789624c8dda02c76e798ff, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_arrival_03
-    clip: {fileID: 8300000, guid: 5a9db384b5d45474fa270368ab167a17, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_attack_01
-    clip: {fileID: 8300000, guid: b4d0137f980875049b3c5cf49a236731, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_before_attack
-    clip: {fileID: 8300000, guid: 2da0a23145059554b8b08966678b5a52, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_effort_01
-    clip: {fileID: 8300000, guid: 3f81ebe483ef95b479fee96110c32ba8, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_effort_02
-    clip: {fileID: 8300000, guid: 5068005f5b6a2dd4e9d8fd6378eb7174, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_effort_03
-    clip: {fileID: 8300000, guid: 4b1581c993d4f684e83effbc35544eef, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_exhausted_01
-    clip: {fileID: 8300000, guid: 1b5c01862b0d4b54fbb4728376175aaa, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_exhausted_02
-    clip: {fileID: 8300000, guid: fa4fb03e62a64334b81070090e1cae0d, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_exhausted_03
-    clip: {fileID: 8300000, guid: c797b44048c86b744bdd371d89629eb6, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_step_01
-    clip: {fileID: 8300000, guid: f04f3e4be5fce904d950e31b764f2a19, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_step_02
-    clip: {fileID: 8300000, guid: e27e86058acafcb499c53c4d32cbdaa9, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_step_03
-    clip: {fileID: 8300000, guid: da93b984ce88d274e9204165610236ae, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_charge_01
-    clip: {fileID: 8300000, guid: ae6d29fed7e25324ba0d37e0ee5e10f0, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_walk_01
-    clip: {fileID: 8300000, guid: 99ea4b625c90f7243a550ee1dd5fd6e9, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_falling_01
-    clip: {fileID: 8300000, guid: d74b8eae4d783ad44891bff11c9a6d40, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: minotaur_enrage_01
-    clip: {fileID: 8300000, guid: 38a12a8d5afface4c975d32135714c96, type: 3}
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
   minotaur_arrival:
   - name: minotaur_arrival_01
     clip: {fileID: 8300000, guid: 6ffaf46640435c34884899b32a798d1d, type: 3}
@@ -591,3 +521,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c9e175c230d9d0145a68fe54602ec691, type: 3}
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  zeus_electric_shock: []
+  zeus_laugh: []
+  zeus_thunder: []
