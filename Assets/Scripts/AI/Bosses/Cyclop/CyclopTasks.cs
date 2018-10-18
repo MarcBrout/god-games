@@ -10,7 +10,7 @@ namespace GodsGames
     public class CyclopTasks : MonoBehaviour
     {
         [Header("General configuration")]
-        public GameObject _throwableObject;
+        public GameObject[] _throwableObjects;
         public string _targetTag;
         public List<GameObject> _targets;
         private GameObject _currentTarget;
@@ -18,7 +18,8 @@ namespace GodsGames
         [Header("Basic attack")]
         public float _basicAttackGravity;
         public float _basicAttackAngle;
-        public float _basicAttackTimeBeforeDestroy;
+        public float _attackDuration;
+        public float _lifetime;
         private TimeSpan _basicAttackCooldown = new TimeSpan(0, 0, 1);
         private DateTime _basicAttackLastUse;
 
@@ -141,7 +142,7 @@ namespace GodsGames
         private IEnumerator BasicAttackCoroutine()
         {
             Vector3 offset = new Vector3(0, transform.localScale.y, 0);
-            GameObject thrownItem = GameObject.Instantiate(_throwableObject, transform.position + offset, new Quaternion());
+            GameObject thrownItem = GameObject.Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], transform.position + offset, new Quaternion());
 
             float targetDistance = Vector3.Distance(thrownItem.transform.position, _currentTarget.transform.position);
             float velocity = targetDistance / (Mathf.Sin(2 * _basicAttackAngle * Mathf.Deg2Rad) / _basicAttackGravity);
@@ -157,7 +158,14 @@ namespace GodsGames
                 yield return null;
             }
 
-            GameObject.Destroy(thrownItem, _basicAttackTimeBeforeDestroy);
+            StartCoroutine(DeactivateBoulderDamage(_attackDuration, thrownItem.GetComponent<Damager>()));
+            GameObject.Destroy(thrownItem, _lifetime);
+        }
+
+        private IEnumerator DeactivateBoulderDamage(float seconds, Damager damager)
+        {
+            yield return new WaitForSeconds(seconds);
+            damager.DisableDamage();
         }
 
         /**
