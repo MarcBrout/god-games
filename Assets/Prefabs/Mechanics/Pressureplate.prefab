@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228080816537828}
   - component: {fileID: 95980348958187816}
+  - component: {fileID: 114033231848525650}
   m_Layer: 0
   m_Name: Pressureplate
   m_TagString: Untagged
@@ -125,8 +126,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257335401356918}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.51, y: -0.03699997, z: 19.42}
+  m_LocalRotation: {x: -0, y: 0.3555404, z: -0, w: 0.9346609}
+  m_LocalPosition: {x: 7.51, y: -0.05, z: 19.42}
   m_LocalScale: {x: 2.5, y: 2, z: 2.5}
   m_Children:
   - {fileID: 4560465096178408}
@@ -134,7 +135,7 @@ Transform:
   - {fileID: 4902747414518586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 41.653004, z: 0}
 --- !u!4 &4560465096178408
 Transform:
   m_ObjectHideFlags: 1
@@ -489,6 +490,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114033231848525650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257335401356918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065c7d59c01d62419e8ab83a670cbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114263799680103518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,11 +570,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
-  disableAfterEnter: 0
+  disableAfterEnter: 1
   disabledEnterDuration: 3
   disableAfterExit: 0
   disabledExitDuration: 3
   activables:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
