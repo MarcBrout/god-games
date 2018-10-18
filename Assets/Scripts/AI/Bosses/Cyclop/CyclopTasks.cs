@@ -64,7 +64,8 @@ namespace GodsGames
         [Task]
         public bool HasToSwitchTarget()
         {
-            return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget;
+            bool hasInvalidTarget = HasCurrentTarget() && _currentTarget.GetComponent<Damageable>().CurrentHealth <= 0;
+            return DateTime.Now - _startFocusTimeOnCurrentTarget > _maxFocusTimeOnTarget || hasInvalidTarget;
         }
 
         [Task]
@@ -100,6 +101,11 @@ namespace GodsGames
                     targetToAim = lastValidTarget;
                 }
 
+                if (targetToAim == null)
+                {
+                    continue;
+                }
+
                 Vector3 diff = transform.position - targetToAim.transform.position;
                 float distance = diff.sqrMagnitude;
                 if (distance < closestDistance)
@@ -109,7 +115,7 @@ namespace GodsGames
                 }
             }
 
-            _currentTarget = closestTarget;
+            _currentTarget = closestTarget && closestTarget.GetComponent<Damageable>().CurrentHealth > 0 ? closestTarget : null;
             _startFocusTimeOnCurrentTarget = DateTime.Now;
             Task.current.Succeed();
         }
