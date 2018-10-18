@@ -206,6 +206,7 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             _isDead = true;
+            PlayerPrefs.SetInt("lvl2", (int)Time.timeSinceLevelLoad);
         }
     }
 }
