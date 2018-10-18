@@ -11,18 +11,18 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1739693995549972}
   m_IsPrefabAsset: 1
---- !u!1 &1430914764629318
+--- !u!1 &1498705965629918
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4746182931722550}
-  - component: {fileID: 33448318252630732}
-  - component: {fileID: 23304306491285468}
+  - component: {fileID: 4230508017746068}
+  - component: {fileID: 33297014839987252}
+  - component: {fileID: 23349307776160988}
   m_Layer: 0
-  m_Name: rock
+  m_Name: GeoSphere006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 33664204501184578}
   - component: {fileID: 135911324532715478}
   - component: {fileID: 114913305080655874}
-  - component: {fileID: 135742373718881780}
   m_Layer: 0
   m_Name: ThrowableRock_08
   m_TagString: Untagged
@@ -47,15 +46,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4746182931722550
+--- !u!4 &4230508017746068
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430914764629318}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_GameObject: {fileID: 1498705965629918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.014511426, y: 0.014511441, z: 0.014511441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4903359596029990}
   m_RootOrder: 0
@@ -67,19 +66,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1739693995549972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.980932, y: 0.52, z: 9.657284}
+  m_LocalPosition: {x: 8.980932, y: 2.783, z: 9.657284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4746182931722550}
+  - {fileID: 4230508017746068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23304306491285468
+--- !u!23 &23349307776160988
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430914764629318}
+  m_GameObject: {fileID: 1498705965629918}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  - {fileID: 2100000, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,13 +108,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33448318252630732
+--- !u!33 &33297014839987252
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430914764629318}
-  m_Mesh: {fileID: 4300014, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  m_GameObject: {fileID: 1498705965629918}
+  m_Mesh: {fileID: 4300006, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
 --- !u!33 &33664204501184578
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -134,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 0
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -156,7 +156,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!135 &135742373718881780
+--- !u!135 &135911324532715478
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,17 +166,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.47991323
-  m_Center: {x: 0.0022301674, y: 0, z: 0}
---- !u!135 &135911324532715478
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1739693995549972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.58294725
+  m_Radius: 0.75
   m_Center: {x: -0.008497238, y: 0, z: 0}

@@ -11,18 +11,18 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1819332970991996}
   m_IsPrefabAsset: 1
---- !u!1 &1165995677640164
+--- !u!1 &1348335592455224
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4412935118766494}
-  - component: {fileID: 33440209326234794}
-  - component: {fileID: 23689014551294714}
+  - component: {fileID: 4373951352441188}
+  - component: {fileID: 33904443193397070}
+  - component: {fileID: 23701527922919316}
   m_Layer: 0
-  m_Name: rock
+  m_Name: GeoSphere003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 33397848733787140}
   - component: {fileID: 135066393280388068}
   - component: {fileID: 114078762615113290}
-  - component: {fileID: 135414751708724204}
   m_Layer: 0
   m_Name: ThrowableRock_06
   m_TagString: Untagged
@@ -57,29 +56,29 @@ Transform:
   m_LocalPosition: {x: 7.13, y: 0.52, z: 11.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4412935118766494}
+  - {fileID: 4373951352441188}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4412935118766494
+--- !u!4 &4373951352441188
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165995677640164}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_GameObject: {fileID: 1348335592455224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.014511426, y: 0.014511441, z: 0.014511441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4040845408155834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23689014551294714
+--- !u!23 &23701527922919316
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165995677640164}
+  m_GameObject: {fileID: 1348335592455224}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  - {fileID: 2100000, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,13 +115,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819332970991996}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33440209326234794
+--- !u!33 &33904443193397070
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165995677640164}
-  m_Mesh: {fileID: 4300008, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  m_GameObject: {fileID: 1348335592455224}
+  m_Mesh: {fileID: 4300002, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
 --- !u!114 &114078762615113290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 0
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -163,20 +163,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819332970991996}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.67874384
   m_Center: {x: -0.029346466, y: 0, z: 0}
---- !u!135 &135414751708724204
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819332970991996}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5471294
-  m_Center: {x: -0.028613329, y: 0, z: 0}

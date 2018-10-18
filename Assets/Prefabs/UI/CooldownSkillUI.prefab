@@ -157,11 +157,11 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
+  m_fontSize: 10
   m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 10
   m_fontSizeMax: 24
   m_fontStyle: 1
   m_textAlignment: 260
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownOverlay: {fileID: 114022700787069902}
   chargeNumberText: {fileID: 114253824990807820}
-  targetName: Player_1
+  targetName: Player_2
   skillName: DashSkill
 --- !u!114 &114752332496091250
 MonoBehaviour:
@@ -313,33 +313,33 @@ RectTransform:
   m_GameObject: {fileID: 1367946417830644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2314644, y: 2.2314644, z: 2.2314644}
   m_Children: []
   m_Father: {fileID: 224923373789856374}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10, y: 9.49}
-  m_SizeDelta: {x: 20, y: 18.99}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
+  m_Pivot: {x: 1, y: 0}
 --- !u!224 &224923373789856374
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312356266859406}
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78145474, y: 0.78145474, z: 0.78145474}
   m_Children:
   - {fileID: 224836109489402910}
   - {fileID: 224883955570761844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -10, y: -20}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 87.2, y: 54.5}
+  m_SizeDelta: {x: 51, y: 49}
   m_Pivot: {x: 0, y: 0}
