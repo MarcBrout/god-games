@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33476950766510468}
   - component: {fileID: 135584979341825390}
   - component: {fileID: 114276389853304192}
-  - component: {fileID: 135110314179970328}
   m_Layer: 0
   m_Name: ThrowableRock_04
   m_TagString: Untagged
@@ -30,23 +29,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1281748892673760
+--- !u!1 &1974273518941556
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4725177056589354}
-  - component: {fileID: 33731683733127496}
-  - component: {fileID: 23579997780965522}
+  - component: {fileID: 4483897997070840}
+  - component: {fileID: 33953147045144058}
+  - component: {fileID: 23309448271859258}
   m_Layer: 0
-  m_Name: rock
+  m_Name: BoulderMama004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4483897997070840
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974273518941556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4607518583124568}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4607518583124568
 Transform:
   m_ObjectHideFlags: 1
@@ -54,32 +66,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142258018413406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.08, y: 0.52, z: 11.46}
+  m_LocalPosition: {x: 8.08, y: 2.62, z: 11.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4725177056589354}
+  - {fileID: 4483897997070840}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4725177056589354
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281748892673760}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.014511426, y: 0.014511441, z: 0.014511441}
-  m_Children: []
-  m_Father: {fileID: 4607518583124568}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23579997780965522
+--- !u!23 &23309448271859258
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281748892673760}
+  m_GameObject: {fileID: 1974273518941556}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  - {fileID: 2100000, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,13 +115,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142258018413406}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33731683733127496
+--- !u!33 &33953147045144058
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281748892673760}
-  m_Mesh: {fileID: 4300022, guid: 780908215084e1b41866197941b06c6a, type: 3}
+  m_GameObject: {fileID: 1974273518941556}
+  m_Mesh: {fileID: 4300020, guid: 30e61aa89b6756049a0b87d1506e5f98, type: 3}
 --- !u!114 &114276389853304192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 0
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -156,7 +156,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!135 &135110314179970328
+--- !u!135 &135584979341825390
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,17 +166,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4910071
-  m_Center: {x: -0.021953821, y: 0, z: 0}
---- !u!135 &135584979341825390
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142258018413406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.58294725
+  m_Radius: 0.64
   m_Center: {x: -0.008497238, y: 0, z: 0}
