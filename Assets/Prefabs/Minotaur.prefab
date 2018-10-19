@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 114717001326575118}
   - component: {fileID: 114481080226363590}
   - component: {fileID: 54224634209889356}
-  - component: {fileID: 114727151249533950}
+  - component: {fileID: 95561563184674926}
   m_Layer: 11
   m_Name: Minotaur
   m_TagString: Untagged
@@ -446,8 +446,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
-  m_LocalRotation: {x: -0, y: -0.997697, z: -0, w: 0.06782858}
-  m_LocalPosition: {x: -0.14, y: 1.98, z: 3.32}
+  m_LocalRotation: {x: 0, y: -0.72052705, z: 0, w: 0.6934268}
+  m_LocalPosition: {x: 24.060099, y: 1.76, z: -0.45124593}
   m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
   m_Children:
   - {fileID: 4598727981715574}
@@ -926,8 +926,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40420708, y: 3.3009105, z: 1.574103}
-  m_Center: {x: 0.0017096844, y: -0.037272017, z: 1.648914}
+  m_Size: {x: 1.9284817, y: 2.9095223, z: 3.3130324}
+  m_Center: {x: -0.029979993, y: 0.09055927, z: 0.84752804}
 --- !u!65 &65944649256125822
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1035,6 +1035,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95561563184674926
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596982817000298}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95816946098904696
 Animator:
   serializedVersion: 3
@@ -1064,6 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 1
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -1118,6 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 1
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -1249,40 +1269,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  m_CurrentHealth: 0
---- !u!114 &114727151249533950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596982817000298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  enableDelayActivationOnStart: 0
-  activationDelay: 0.1
-  enableDelayDeactivationOnStart: 0
-  deactivationDelay: 3
-  damageOverTime: 0
-  damageOverTimeTick: 1
-  disableDamageAfterHit: 0
-  ignoreInvincibility: 0
-  hittableLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  OnDamageableHit:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnNonDamageableHit:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114740191837820852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1305,7 +1291,7 @@ MonoBehaviour:
   attackRange: 10
   berserkSpeed: 10
   chargeSpeed: 20
-  defaultSpeed: 6
+  defaultSpeed: 8
   lightningStrikeDelayBeforeDelete: 3
   ligntningInvokeDelay: 1
   prepareChargeDuration: 2
@@ -1343,10 +1329,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5306849
-  m_Height: 1.7952349
+  m_Radius: 0.36854416
+  m_Height: 1.604342
   m_Direction: 1
-  m_Center: {x: 0.045552727, y: -0.11670161, z: 0.13101701}
+  m_Center: {x: 0.04555273, y: -0.2121484, z: -0.031123733}
 --- !u!195 &195839722439017702
 NavMeshAgent:
   m_ObjectHideFlags: 1
