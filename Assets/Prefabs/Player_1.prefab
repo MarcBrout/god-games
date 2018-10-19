@@ -311,8 +311,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.12, z: 14.1}
+  m_LocalRotation: {x: 0, y: -0.8489671, z: -0, w: 0.5284457}
+  m_LocalPosition: {x: -13.959585, y: 0, z: 4.039255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570998775363878}
@@ -1202,7 +1202,8 @@ MonoBehaviour:
   jumpButton: Jump_P1
   dashButton: Dash_P1
   throwItemButton: ThrowItem_P1
-  dustEffectRepeatDelay: 0.3
+  useItemButton: UseItem_P1
+  dustEffectRepeatDelay: 0.1
 --- !u!114 &114568648264099316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1239,7 +1240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  invulnerableAfterDamage: 1
+  invulnerableAfterDamage: 0
   invulnerabilityDuration: 1
   disableOnDeath: 0
   centreOffset: {x: 0, y: 1}
@@ -1334,10 +1335,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.3
+  m_Radius: 0.48848033
+  m_Height: 1.6670935
   m_Direction: 1
-  m_Center: {x: 0, y: 0.6, z: 0}
+  m_Center: {x: 0.008818865, y: 0.7835468, z: 0}
 --- !u!195 &195961092474380108
 NavMeshAgent:
   m_ObjectHideFlags: 1

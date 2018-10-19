@@ -12,6 +12,7 @@ namespace GodsGames
     public class MinotaurTasks : MonoBehaviour
     {
         // REFERENCES
+        public ScoreManager ScoreManager;
         public GameObject lightningStrike;
         public Damager chargeTelegraph;
         public Animator animator;
@@ -416,6 +417,7 @@ namespace GodsGames
         {
             isDead = true;
             PlayerPrefs.SetInt("lvl1", (int)Time.timeSinceLevelLoad);
+            ScoreManager.AddScore(1, Time.timeSinceLevelLoad);
             StartCoroutine(LoadLevelCompleteScene());
 
         }
