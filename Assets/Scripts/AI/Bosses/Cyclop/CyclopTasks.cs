@@ -9,6 +9,7 @@ namespace GodsGames
 {
     public class CyclopTasks : MonoBehaviour
     {
+        public ScoreManager ScoreManager;
         [Header("General configuration")]
         public GameObject[] _throwableObjects;
         public string _targetTag;
@@ -206,7 +207,7 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             _isDead = true;
-            PlayerPrefs.SetInt("lvl2", (int)Time.timeSinceLevelLoad);
+            ScoreManager.AddScore(2, Time.timeSinceLevelLoad);
         }
     }
 }
