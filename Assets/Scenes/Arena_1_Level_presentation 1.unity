@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18388456, g: 0.22885162, b: 0.3020626, a: 1}
+  m_IndirectSpecularColor: {r: 0.18388428, g: 0.22885092, b: 0.30206186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2579,6 +2579,11 @@ Prefab:
       propertyPath: OnTakeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1083562256}
+    - target: {fileID: 114717001326575118, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: startingHealth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_IsPrefabAsset: 0
@@ -8552,6 +8557,10 @@ Prefab:
     - target: {fileID: 4047077036362636, guid: 76d8984de5982c0419435d2f8a1bace9, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552558803387958, guid: 76d8984de5982c0419435d2f8a1bace9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d8984de5982c0419435d2f8a1bace9, type: 2}

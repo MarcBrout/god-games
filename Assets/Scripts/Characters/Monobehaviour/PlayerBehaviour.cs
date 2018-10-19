@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using SceneLinkedSMB;
+using UnityEngine.SceneManagement;
 
 namespace GodsGame
 {
@@ -202,7 +203,15 @@ namespace GodsGame
         public void Die(Damager damager, Damageable damageable)
         {
             _Animator.SetTrigger(_HashDiedPara);
+            StartCoroutine(LoadGameOverScene());
         }
+
+        IEnumerator LoadGameOverScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("GameOver");
+        }
+
 
         /// <summary>
         /// Rotate player with mouse

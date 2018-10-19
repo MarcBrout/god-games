@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine;
 using GodsGame;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace GodsGames
 {
@@ -415,10 +416,18 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             isDead = true;
+            PlayerPrefs.SetInt("lvl1", (int)Time.timeSinceLevelLoad);
             ScoreManager.AddScore(1, Time.timeSinceLevelLoad);
-            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
-            GameObject transitionCamera = GameObject.Find("TransitionCamera");
-            transitionCamera.GetComponent<TransitionCameraScript>().StartTransition(mainCamera, transform);
+            StartCoroutine(LoadLevelCompleteScene());
+
         }
+
+        IEnumerator LoadLevelCompleteScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("LevelComplete");
+        }
+
+
     }
 }

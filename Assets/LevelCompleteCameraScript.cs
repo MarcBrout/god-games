@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class TransitionCameraScript : MonoBehaviour {
 
@@ -30,5 +32,9 @@ public class TransitionCameraScript : MonoBehaviour {
          Mathf.LerpAngle(transform.rotation.eulerAngles.z, _targetViewTransform.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed));
 
         transform.eulerAngles = currentAngle;
+
+        if (transform.position == _targetViewTransform.position) {
+            SceneManager.LoadScene("CompleteLevel");
+        }
     }
 }
