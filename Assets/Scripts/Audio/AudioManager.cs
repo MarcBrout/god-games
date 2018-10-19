@@ -236,6 +236,7 @@ namespace GodsGame
                 case ("items_sword_hit_metal"): return items_sword_hit_metal;
                 case ("items_sword_hit_nothing"): return items_sword_hit_nothing;
                 case ("items_sword_hit_wood"): return items_sword_hit_wood;
+                case ("menu"): return menu;
                 case ("minotaur_arrival"): return minotaur_arrival;
                 case ("minotaur_attack"): return minotaur_attack;
                 case ("minotaur_before_attack"): return minotaur_before_attack;
