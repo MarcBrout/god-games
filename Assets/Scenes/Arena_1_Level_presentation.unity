@@ -2227,7 +2227,28 @@ Prefab:
       propertyPath: m_Speed
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114087464100469822, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: sourceInfos.Array.data[0].isFoldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114717001326575118, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: startingHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: ScoreManager
+      value: 
+      objectReference: {fileID: 1301764988}
+    - target: {fileID: 82980186908423364, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.306
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 95561563184674926, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &397004755
@@ -6490,6 +6511,22 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 08e22c80c3725c643953111f2957359a, type: 3}
+--- !u!1 &1301764987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1596982817000298, guid: daf5245c519171f48812ada7947a723a,
+    type: 2}
+  m_PrefabInternal: {fileID: 396923902}
+--- !u!114 &1301764988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301764987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02af174a2941e1d47aafb4a6fa97bd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1302347229
 Prefab:
   m_ObjectHideFlags: 0
