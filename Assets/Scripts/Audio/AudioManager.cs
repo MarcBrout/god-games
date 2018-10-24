@@ -68,7 +68,6 @@ namespace GodsGame
         public void PlaySfx(string sound, string soundArr)
         {
             sfx = Array.Find(GetSoundArr(soundArr), item => item.name == sound);
-            sfx.source.outputAudioMixerGroup = sfxGroup;
             sfx.source.Play();
         }
 
@@ -200,8 +199,6 @@ namespace GodsGame
             InitializeSoundArray(zeus_laugh, MixerGroup.Effects);
             InitializeSoundArray(zeus_thunder, MixerGroup.Effects);
 
-            //sfx.source.outputAudioMixerGroup = sfxGroup;
-
             backgroundMusic1IsPlaying = true;
         }
 
@@ -217,6 +214,9 @@ namespace GodsGame
                         s.source.outputAudioMixerGroup = musicGroup;
                         break;
                     case MixerGroup.Effects:
+                        s.source = gameObject.AddComponent<AudioSource>();
+                        s.source.clip = s.clip;
+                        s.source.outputAudioMixerGroup = sfxGroup;
                         s.mixerGroup = sfxGroup;
                         break;
                 }
@@ -348,7 +348,7 @@ namespace GodsGame
         {
             Debug.Log("playBackground");
             //PlayBackground("animation_arena_entering", "animation");
-            PlaySfx("animation_arena_entering", "animation");
+            PlaySfx("button_click", "menu");
             StartCoroutine(Test1());
         }
 
@@ -357,7 +357,7 @@ namespace GodsGame
             yield return new WaitForSeconds(6);
             Debug.Log("ChangeBackGround1");
             //ChangeBackGround("animation_cavern_view", "animation");
-            //masterMixer.SetFloat("musicVol", -80f);
+            PlaySfx("button_click", "menu");
             //StartCoroutine(Test2());
         }
 
