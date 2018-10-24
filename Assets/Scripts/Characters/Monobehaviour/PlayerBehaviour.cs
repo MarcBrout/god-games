@@ -187,7 +187,10 @@ namespace GodsGame
         }
 
         public void UseItem() {
-             _itemHandler.UseItem();
+            if (_itemHandler.UseItem()) {
+                _PlayerAnimations.SetTrigger(_HashUseItemPara);
+                _PlayerAnimations.SetTrigger(_itemHandler.Item.TriggerName);
+            }
         }
         /// <summary>
         /// Choose the way the layer will rotate according to controls
