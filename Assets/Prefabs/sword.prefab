@@ -33,6 +33,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1751883331994912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4356913706544520}
+  - component: {fileID: 65620128133903990}
+  - component: {fileID: 114758450041515950}
+  m_Layer: 0
+  m_Name: damager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4356913706544520
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751883331994912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224837526055111450}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23023204356781498
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -82,7 +112,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1154242124695462}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -100,8 +130,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07118472, y: 0.037480768, z: 0.7732946}
-  m_Center: {x: 0, y: 0, z: 0.0000003874302}
+  m_Size: {x: 0.07118472, y: 0.037480768, z: 0.24864978}
+  m_Center: {x: 0, y: 0, z: -0.26232204}
+--- !u!65 &65620128133903990
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751883331994912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13498497, y: 0.087690115, z: 0.592474}
+  m_Center: {x: 0.01607132, y: -0.000981804, z: 0.27438164}
 --- !u!114 &114106118425322924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,10 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4bd1aa49f4c2c4899aebd170481e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpPosition: {x: 0.131, y: -0.305, z: -0.448}
-  pickUpRotations: {x: 73.42101, y: 0, z: 0}
+  pickUpPosition: {x: -0.005, y: -0.27, z: -0.011}
+  pickUpRotations: {x: 95, y: 90, z: 0}
   isThrowable: 1
-  throwForce: 700
+  throwForce: 1400
   cooldownDuration: 0
 --- !u!114 &114568076045945704
 MonoBehaviour:
@@ -145,6 +187,40 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114758450041515950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751883331994912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 1
+  damage: 1
+  enableDelayActivationOnStart: 0
+  activationDelay: 0.1
+  enableDelayDeactivationOnStart: 0
+  deactivationDelay: 3
+  damageOverTime: 0
+  damageOverTimeTick: 1
+  disableDamageAfterHit: 0
+  ignoreInvincibility: 0
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 8192
+  OnDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+DamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNonDamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GodsGame.Damager+NonDamagableEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!222 &222965417274506662
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -158,15 +234,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1154242124695462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.72}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4356913706544520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.403, y: 0.614}
+  m_AnchoredPosition: {x: 8.714, y: 0.06}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
