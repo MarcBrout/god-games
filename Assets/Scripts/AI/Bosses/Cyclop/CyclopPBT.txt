@@ -4,6 +4,8 @@ tree "Root"
 		sequence
 			tree("__AcquireNewTargetIfNeeded__")
 			fallback
+				tree("__RainOfRocks__")
+				tree("__EvolvedAttack__")
 				tree("__BasicAttack__")
 				tree("__idle__")
 
@@ -21,6 +23,19 @@ tree "__BasicAttack__"
 		HasCurrentTarget
 		CanUseBasicAttack
 		UseBasicAttack
+
+tree "__EvolvedAttack__"
+	sequence
+		HasCurrentTarget
+		IsEvolvedAttackAvailable
+		UseEvolvedAttack
+
+tree "__RainOfRocks__"
+	sequence
+		IsRainOfRocksAvailable
+		ActivateRainOfRocks
+		WaitForRainOfRocksDuration
+		DeactivateRainOfRocks
 
 tree "__idle__"
 	Idle

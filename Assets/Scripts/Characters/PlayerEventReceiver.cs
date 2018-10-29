@@ -81,5 +81,10 @@ namespace GodsGame
             else
                 ++hitCount;
         }
+
+        public void AttackSound()
+        {
+            AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
+        }
     }
 }

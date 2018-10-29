@@ -32,7 +32,6 @@ namespace GodsGame
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
         }
 

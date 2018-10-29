@@ -8,6 +8,7 @@ public class ItemHandler: MonoBehaviour {
 
     public GameObject itemUi;
     public GameObject itemSocket;
+    public BaseItem Item { get { return _equippedItem; } }
     private bool _isEquiped = false;
     private BaseItem _equippedItem;
 
@@ -51,10 +52,11 @@ public class ItemHandler: MonoBehaviour {
         return _isEquiped;
     }
 
-    public void UseItem() {
+    public bool UseItem() {
 
         if (_equippedItem.ItemReady()) {
-            _equippedItem.UseItem();
+            return _equippedItem.UseItem(); 
         }
+        return false;
     }
 }
