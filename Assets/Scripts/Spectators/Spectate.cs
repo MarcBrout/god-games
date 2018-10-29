@@ -29,7 +29,8 @@ namespace GodsGame
             StartingFrame = Random.Range(0, FrameStartingRange);
             animator.SetFloat("StartingIdleOffset", Random.Range(2f, 100f));
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-            target = objects[Random.Range(0, objects.Length)].transform;
+            if (objects.Length > 0)
+                target = objects[Random.Range(0, objects.Length)].transform;
         }
 
         CrowdManager.STATES GetMyState(CrowdManager.State state)
@@ -63,17 +64,20 @@ namespace GodsGame
 
         void Update()
         {
-            if (Time.frameCount % (FrameUpdateInterval + StartingFrame) == 0)
+            if (Time.frameCount % (FrameUpdateInterval + StartingFrame) == 0 && CrowdManager.instance)
             {
                 CrowdManager.STATES MyState = GetMyState(CrowdManager.instance.CurrentState);
                 string animation = GetAnimationOfState(MyState);
                 animator.SetTrigger(animation);
             }
 
-            Vector3 targetTransform = target.position - transform.position;
-            targetTransform.y = transform.position.y;
-            Quaternion lookRotation = Quaternion.LookRotation(targetTransform, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, RotationSpeed * Time.deltaTime); ;
+            if (target)
+            {
+                Vector3 targetTransform = target.position - transform.position;
+                targetTransform.y = transform.position.y;
+                Quaternion lookRotation = Quaternion.LookRotation(targetTransform, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, RotationSpeed * Time.deltaTime);
+            }
         }
     }
 }
