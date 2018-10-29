@@ -600,7 +600,7 @@ Prefab:
     - target: {fileID: 195961092474380108, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_Speed
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 195961092474380108, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
@@ -3480,6 +3480,11 @@ Prefab:
       propertyPath: OnTakeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 926573401}
+    - target: {fileID: 195961092474380108, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
+        type: 2}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
   m_IsPrefabAsset: 0
