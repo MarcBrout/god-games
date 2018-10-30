@@ -11,7 +11,7 @@ namespace GodsGame
         public bool GamesIsPaused = false;
         public GameObject pauseMenuUI;
 
-        private readonly string m_Menu = "MainMenuScene";
+        private readonly string m_Menu = "MainMenuArena";
         private ChangeControlMenu m_ControlMenu;
 
         private void Start()
