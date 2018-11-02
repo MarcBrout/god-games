@@ -24,3 +24,14 @@ install() {
 
 # Run installer(s)
 install "MacEditorInstaller/Unity-$VERSION.pkg"
+
+#downloadButler() {
+ # url="https://broth.itch.ovh/butler/darwin-amd64"
+
+  #echo "Downloading from $url: "
+  #curl --retry 5 -o "$url"
+#if [ $? -ne 0 ]; then { echo "Download failed"; exit $?; } fi
+#}
+
+#install "~/butler-darwin-amd.pkg"
+#export PATH="$PATH:~/Library/Application Support/itch/apps/butler"
