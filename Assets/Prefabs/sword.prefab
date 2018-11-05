@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 65620128133903990}
   - component: {fileID: 114758450041515950}
   - component: {fileID: 54606812583261972}
+  - component: {fileID: 114687346290822942}
   m_Layer: 0
   m_Name: damager
   m_TagString: Untagged
@@ -203,6 +204,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114687346290822942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751883331994912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5830cf856dcb1c248851cff83c525def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damager: {fileID: 0}
 --- !u!114 &114758450041515950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: 1
+  m_CanDamage: 0
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
