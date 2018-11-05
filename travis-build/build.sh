@@ -68,3 +68,7 @@ done
 echo 'Build success ! Attempting to tar build'
 sudo tar -czvf $winname "$(pwd)/Build/windows/$project.exe" -C "$(pwd)/Build"
 sudo tar -czvf $webname "$(pwd)/Build/WebGL/$project.exe" -C "$(pwd)/Build"
+
+# Update Itch.io solution
+# butler login
+# butler push godsGames_web.tar.gz https://nico-plattner.itch.io/gods-games:win-linux-mac-stable
