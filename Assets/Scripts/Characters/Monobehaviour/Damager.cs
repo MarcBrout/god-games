@@ -19,6 +19,7 @@ namespace GodsGame
         //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
         public Collider LastHit { get { return m_LastHit; } }
         public bool trigger = true;
+        public bool m_CanDamage = true;
         public int damage = 1;
         public bool enableDelayActivationOnStart = false;
         public float activationDelay = 0.1f;
@@ -41,7 +42,6 @@ namespace GodsGame
 
         protected Collider m_Collider;
         protected bool m_SpriteOriginallyFlipped;
-        protected bool m_CanDamage = true;
         protected Transform m_DamagerTransform;
         protected Collider m_LastHit;
         protected float m_TriggerEnterAt;
@@ -93,7 +93,6 @@ namespace GodsGame
 
         public void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("HELLO7");
             if (!m_CanDamage)
                 return;
             if (!trigger && hittableLayers.Contain(collision.gameObject.layer))
@@ -105,23 +104,18 @@ namespace GodsGame
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("HELLO");
             if (!m_CanDamage)
                 return;
-            Debug.Log("HELLO2");
             if (trigger && hittableLayers.Contain(other.gameObject.layer))
             {
-                Debug.Log("HELLO3");
                 m_LastHit = other;
                 ApplyDamage();
             }
-            Debug.Log("HELLO6");
 
         }
 
         private void OnTriggerStay(Collider other)
         {
-            Debug.Log("HELLO5");
             if (trigger && m_CanDamage && damageOverTime && m_TriggerEnterAt + damageOverTimeTick <= Time.time)
                 ApplyDamage();
         }
