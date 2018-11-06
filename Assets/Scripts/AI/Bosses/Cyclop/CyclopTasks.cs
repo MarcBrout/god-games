@@ -16,7 +16,9 @@ namespace GodsGames
         public string _targetTag;
         public List<GameObject> _targets;
         private GameObject _currentTarget;
-
+        public Animator _animator;
+        public GameObject[] _ropes;
+ 
         [Header("Basic attack")]
         public float _basicAttackGravity;
         public float _basicAttackAngle;
@@ -53,10 +55,12 @@ namespace GodsGames
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 6);
         private DateTime _startFocusTimeOnCurrentTarget;
         private PandaBehaviour _bt;
+        private AudioSource _audioSource;
 
         void Start()
         {
             _bt = gameObject.GetComponent<PandaBehaviour>();
+            _audioSource = GetComponent<AudioSource>();
             if (_targets.Count == 0)
                 _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
         }
@@ -190,6 +194,8 @@ namespace GodsGames
         [Task]
         public void UseBasicAttack()
         {
+            _animator.SetTrigger("LaunchRock");
+            _animator.SetBool("RightHand", UnityEngine.Random.Range(0, 2) == 1);
             transform.LookAt(_currentTarget.transform);
             StartCoroutine(ThrowItemCoroutine(_currentTarget.transform.position, _basicAttackAngle, _basicAttackGravity, _basicAttackDuration, _basicAttackLifetime));
             _basicAttackLastUse = DateTime.Now;
