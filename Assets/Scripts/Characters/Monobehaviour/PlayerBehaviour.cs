@@ -213,6 +213,7 @@ namespace GodsGame
         IEnumerator LoadGameOverScene()
         {
             yield return new WaitForSeconds(1.5f);
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }
 
