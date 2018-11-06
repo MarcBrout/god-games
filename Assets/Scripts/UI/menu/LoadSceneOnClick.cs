@@ -9,4 +9,10 @@ public class LoadSceneOnClick : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
     }
+
+    public void LoadPreviousScene()
+    {
+        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+        SceneManager.LoadScene(sceneName);
+    }
 }
