@@ -24,6 +24,11 @@ namespace GodsGame
             if (_speed == 0)
             {
                 AudioManager.Instance.PlayRandomSfx3D("minotaur_step", ref _audioSource);
+                Damager damager = GetComponent<Damager>();
+                if (damager)
+                {
+                    damager.DisableDamage();
+                }
                 enabled = false;
             }
         }
