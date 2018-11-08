@@ -8,6 +8,7 @@ namespace GodsGame
     public class PlayerEventReceiver : MonoBehaviour
     {
         public GameObject head;
+        public CrowdManager crowdManager;
 
         private AudioSource _audio;
         private Animator _animator;
@@ -56,7 +57,7 @@ namespace GodsGame
 
         public void DeathSound(Damager damager, Damageable damageable)
         {
-            CrowdManager.instance.SetState(CrowdManager.STATES.OOH, 1000);
+            crowdManager.SetState(CrowdManager.STATES.OOH, 1000);
             AudioManager.Instance.PlayRandomSfx3D("player_death", ref _audio);
             AudioManager.Instance.PlaySfx(_deathSounds[Random.Range(0, _deathSounds.Length)], "arena_ambience");
             _animator.SetTrigger("Died");

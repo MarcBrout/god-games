@@ -11,6 +11,7 @@ namespace GodsGame
         public Animator animator;
         public Transform target;
         public float RotationSpeed;
+        public CrowdManager crowdManager;
         
 
         static private Dictionary<CrowdManager.STATES, string[]> MapStateToAnimations = new Dictionary<CrowdManager.STATES, string[]>()
@@ -64,9 +65,9 @@ namespace GodsGame
 
         void Update()
         {
-            if (Time.frameCount % (FrameUpdateInterval + StartingFrame) == 0 && CrowdManager.instance)
+            if (Time.frameCount % (FrameUpdateInterval + StartingFrame) == 0 && crowdManager)
             {
-                CrowdManager.STATES MyState = GetMyState(CrowdManager.instance.CurrentState);
+                CrowdManager.STATES MyState = GetMyState(crowdManager.CurrentState);
                 string animation = GetAnimationOfState(MyState);
                 animator.SetTrigger(animation);
             }
