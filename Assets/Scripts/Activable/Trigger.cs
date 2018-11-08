@@ -60,11 +60,14 @@ namespace GodsGame
 
                 foreach (Activable activable in activables)
                 {
-                    TriggerEnterEvent.Invoke(activable, this);
-                    if (isEnabled)
+                    if (activable)
                     {
-                        activable.EnterActivate(this);
-                        triggered = true;
+                        TriggerEnterEvent.Invoke(activable, this);
+                        if (isEnabled)
+                        {
+                            activable.EnterActivate(this);
+                            triggered = true;
+                        }
                     }
                 }
                 if (triggered && disableAfterEnter) {
@@ -81,10 +84,13 @@ namespace GodsGame
 
                 foreach (Activable activable in activables)
                 {
-                    TriggerExitEvent.Invoke(activable, this);
-                    if (isEnabled)
+                    if (activable)
                     {
-                        activable.ExitActivate(this);
+                        TriggerExitEvent.Invoke(activable, this);
+                        if (isEnabled)
+                        {
+                            activable.ExitActivate(this);
+                        }
                     }
                 }
                 if (triggered && disableAfterExit)

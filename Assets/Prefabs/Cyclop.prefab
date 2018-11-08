@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 33876700370996008}
   - component: {fileID: 23801211914789406}
   - component: {fileID: 95651558759608438}
+  - component: {fileID: 82157847706108152}
+  - component: {fileID: 114662285926199612}
   m_Layer: 0
   m_Name: Cyclop
   m_TagString: Untagged
@@ -127,6 +129,7 @@ GameObject:
   - component: {fileID: 114018913210070872}
   - component: {fileID: 114237271741683694}
   - component: {fileID: 54644817347559624}
+  - component: {fileID: 82682546628554212}
   m_Layer: 11
   m_Name: Cyclop
   m_TagString: Cyclop
@@ -217,9 +220,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758067265982672}
-  m_LocalRotation: {x: -0, y: -0.997697, z: -0, w: 0.06782858}
-  m_LocalPosition: {x: -0, y: 1, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
+  m_LocalRotation: {x: -0, y: -0.9449143, z: -0, w: -0.32731804}
+  m_LocalPosition: {x: -0.005, y: 0.049, z: 0.0029}
+  m_LocalScale: {x: 0.11491975, y: 0.8475364, z: 0.09458897}
   m_Children:
   - {fileID: 4329152420001304}
   m_Father: {fileID: 0}
@@ -233,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 1752728221823332}
   m_LocalRotation: {x: 0.6958219, y: 0.12582517, z: 0.12582517, w: -0.6958219}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.32722032, y: 0.39845648, z: 0.028590046}
+  m_LocalScale: {x: 0.40333426, y: 0.4038478, z: 0.03007954}
   m_Children:
   - {fileID: 4615782013974396}
   - {fileID: 4539692812171264}
@@ -712,11 +715,201 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!82 &82157847706108152
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752728221823332}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.402
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &82682546628554212
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758067265982672}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95651558759608438
 Animator:
   serializedVersion: 3
@@ -746,9 +939,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245f8db43a512aa40937931234b02c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwableObjects: []
+  ScoreManager: {fileID: 0}
+  _throwableObjects:
+  - {fileID: 1647722632740386, guid: 9d930cc2d7715054aa2cfb7d6ced110d, type: 2}
+  - {fileID: 1852381954761858, guid: a37857fcf93f10c4891ef4191458f7be, type: 2}
+  - {fileID: 1067461744138900, guid: 6ce992d11cca5e240872e3e8b0a3ecac, type: 2}
+  - {fileID: 1142258018413406, guid: 1780909d7b0f09543819206f2ec59ed4, type: 2}
+  - {fileID: 1261039211643878, guid: 3c7a7878865da95478a831fac2f327e0, type: 2}
+  - {fileID: 1819332970991996, guid: 7d13b00e78480b5488a2b0e025a2867b, type: 2}
+  - {fileID: 1698730211051746, guid: edeaced484ce4bb46b0d62e798b445e2, type: 2}
+  - {fileID: 1739693995549972, guid: 1e3b28d6d0a918d46898cede7097f799, type: 2}
   _targetTag: Player
   _targets: []
+  _animator: {fileID: 95651558759608438}
+  _ropes:
+  - {fileID: 0}
+  - {fileID: 0}
+  _lastAmountOfRopes: 0
+  _attackLevel: 1
+  _attackEvolveCoeff: 1.2
   _basicAttackGravity: 16
   _basicAttackAngle: 80
   _basicAttackDuration: 0.1
@@ -760,6 +969,7 @@ MonoBehaviour:
   _rorMass: 10
   _rorSpawnImpulsion: -15
   _rorRockLifetime: 5
+  _evolvedAttackMinimumLevelToActivate: 1.2
   _evolvedAttackRockCount: 3
   _evolvedAttackGravity: 16
   _evolvedAttackAngle: 80
@@ -785,6 +995,7 @@ MonoBehaviour:
   invulnerableAfterDamage: 0
   invulnerabilityDuration: 0
   disableOnDeath: 0
+  disableAfterMilliseconds: 1000
   centreOffset: {x: 0, y: 1}
   OnHealthSet:
     m_PersistentCalls:
@@ -811,6 +1022,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114662285926199612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752728221823332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2751903f6ccea9498a4964574dbb2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114896214781815528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -841,7 +1063,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.25
+  m_Height: 0.07
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}

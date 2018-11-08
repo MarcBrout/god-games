@@ -123,7 +123,9 @@ namespace GodsGame
         private void ApplyDamage()
         {
             m_TriggerEnterAt = Time.time;
-            Damageable damageable = m_LastHit.GetComponent<Damageable>();
+            Damageable damageable = null;
+            if (m_LastHit)
+                 damageable = m_LastHit.GetComponent<Damageable>();
             if (damageable)
             {
                 OnDamageableHit.Invoke(this, damageable);

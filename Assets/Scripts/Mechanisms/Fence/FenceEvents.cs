@@ -7,7 +7,7 @@ namespace GodsGame
     public class FenceEvents : MonoBehaviour
     {
         public Animator _animator;
-        public AudioSource _audioSource;
+        private AudioSource _audioSource;
 
         private string _upParam = "GoUp";
         private string _downParam = "GoDown";
@@ -26,7 +26,8 @@ namespace GodsGame
         public void OnDeactivate(Activable activable, Trigger trigger)
         {
             _animator.SetTrigger(_upParam);
-            AudioManager.Instance.PlaySfx3D("PRESSURE_PLATE_RESET", "items_pressure_plates", ref _audioSource);
+            if (_audioSource)
+                AudioManager.Instance.PlaySfx3D("PRESSURE_PLATE_RESET", "items_pressure_plates", ref _audioSource);
         }
     }
 }
