@@ -17,8 +17,13 @@ namespace GodsGames
         public List<GameObject> _targets;
         private GameObject _currentTarget;
         public Animator _animator;
-        public GameObject[] _ropes;
- 
+        public List<GameObject> _ropes;
+        public int _lastAmountOfRopes;
+
+        [Header("Global attack")]
+        public float _attackLevel = 1f;
+        public float _attackEvolveCoeff = 1.2f;
+
         [Header("Basic attack")]
         public float _basicAttackGravity;
         public float _basicAttackAngle;
@@ -37,6 +42,7 @@ namespace GodsGames
         public float _rorRockLifetime;
 
         [Header("Evolved attack")]
+        public float _evolvedAttackMinimumLevelToActivate;
         public float _evolvedAttackRockCount;
         public float _evolvedAttackGravity;
         public float _evolvedAttackAngle;
@@ -61,6 +67,7 @@ namespace GodsGames
         {
             _bt = gameObject.GetComponent<PandaBehaviour>();
             _audioSource = GetComponent<AudioSource>();
+            _lastAmountOfRopes = GetActiveRopesCount();
             if (_targets.Count == 0)
                 _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
         }
@@ -116,6 +123,40 @@ namespace GodsGames
         {
             yield return new WaitForSeconds(seconds);
             damager.DisableDamage();
+        }
+
+        /**
+         * ROPES UTILS
+         **/
+
+        private int GetActiveRopesCount()
+        {
+            int ropesAmount = 0;
+            foreach (var rope in _ropes)
+            {
+                if (rope.activeSelf)
+                    ropesAmount++;
+            }
+
+            return ropesAmount;
+        }
+
+        [Task]
+        public bool DoesARopeHasBeenCutted()
+        {
+            int currentRopesAmount = GetActiveRopesCount();
+            bool cutted = currentRopesAmount < _lastAmountOfRopes;
+            _lastAmountOfRopes = currentRopesAmount;
+            return cutted;
+        }
+
+        [Task]
+        public void ImproveBasicAttackLevel()
+        {
+            _attackLevel *= _attackEvolveCoeff;
+            if (_attackLevel >= _evolvedAttackMinimumLevelToActivate)
+                _evolvedAttackActivated = true;
+            Task.current.Succeed();
         }
 
         /**
@@ -248,6 +289,13 @@ namespace GodsGames
         }
 
         [Task]
+        public void ActivateRainOfRocksState()
+        {
+            _rainOfRocksAvailable = true;
+            Task.current.Succeed();
+        }
+
+        [Task]
         public void ActivateRainOfRocks()
         {
             if (!IsRainOfRocksAvailable())
@@ -272,6 +320,7 @@ namespace GodsGames
         {
             CancelInvoke("SpawnRock");
             _isUsingRainOfRocks = false;
+            _rainOfRocksAvailable = false;
             Task.current.Succeed();
         }
 
@@ -281,7 +330,7 @@ namespace GodsGames
             Vector3 initialPosition = new Vector3(xz.x, _rorSpawnHeight, xz.y);
             GameObject item = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], initialPosition, new Quaternion());
             item.AddComponent<Rigidbody>();
-            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion, 0), ForceMode.Impulse);
+            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion * _attackLevel, 0), ForceMode.Impulse);
             Destroy(item, _rorRockLifetime);
         }
 

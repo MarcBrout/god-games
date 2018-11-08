@@ -3,6 +3,7 @@ tree "Root"
 		IsDead
 		sequence
 			tree("__AcquireNewTargetIfNeeded__")
+			tree("__ImproveCyclopAttacksIfNeeded__")
 			fallback
 				tree("__RainOfRocks__")
 				tree("__EvolvedAttack__")
@@ -16,6 +17,13 @@ tree "__AcquireNewTargetIfNeeded__"
 				not HasCurrentTarget
 				HasToSwitchTarget
 			AcquireNewTarget
+		Success
+tree "__ImproveCyclopAttacksIfNeeded__"
+	fallback
+		sequence
+			DoesARopeHasBeenCutted
+			ActivateRainOfRocksState
+			ImproveBasicAttackLevel
 		Success
 
 tree "__BasicAttack__"

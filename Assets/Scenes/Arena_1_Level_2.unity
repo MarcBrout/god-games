@@ -19545,6 +19545,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c7a4a769e5de05e4688feb9825496c7c, type: 2}
+    - target: {fileID: 1257335401356918, guid: b1085bbdd867a824f93688af32a54bad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1085bbdd867a824f93688af32a54bad, type: 2}
   m_IsPrefabAsset: 0
@@ -20763,7 +20767,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: dc8db7b25da1cde43a1fa329feab17a2, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: dc8db7b25da1cde43a1fa329feab17a2, type: 3}
       propertyPath: m_RootOrder
@@ -23024,6 +23028,11 @@ Prefab:
       propertyPath: _ropes.Array.data[3]
       value: 
       objectReference: {fileID: 1801947715}
+    - target: {fileID: 114018913210070872, guid: 7ed0741c628868542ada8e29d6527637,
+        type: 2}
+      propertyPath: _evolvedAttackMinimumLevelToActivate
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ed0741c628868542ada8e29d6527637, type: 2}
   m_IsPrefabAsset: 0
@@ -23387,6 +23396,10 @@ Prefab:
     - target: {fileID: 1433497695578762, guid: 99dc6cd61dd62dd499aeaeb7db9b021b, type: 2}
       propertyPath: m_Name
       value: Electric_Shield_South
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433497695578762, guid: 99dc6cd61dd62dd499aeaeb7db9b021b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99dc6cd61dd62dd499aeaeb7db9b021b, type: 2}
