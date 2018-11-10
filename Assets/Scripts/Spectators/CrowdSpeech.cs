@@ -13,9 +13,8 @@ namespace GodsGame
 
         void Start()
         {
-            DontDestroyOnLoad(this);
             randomObject = new GameObject[10];
-            childs = (Transform[]) gameObject.GetComponentsInChildren<Transform>();
+            childs = gameObject.GetComponentsInChildren<Transform>();
         }
 
         public void CrowdSayThings(CrowdManager.STATES state)
@@ -39,7 +38,7 @@ namespace GodsGame
         {
             for (int i = 0; i < 10; ++i)
             {
-                randomObject[i] = (GameObject)((Transform)childs[Random.Range(0, childs.Length)]).gameObject;
+                randomObject[i] = childs[Random.Range(0, childs.Length)].gameObject;
                 SpeechBubbleManager.Instance.AddSpeechBubble(randomObject[i].transform, Speech.GetSpeech(action, EnumLevel.ANY));
                 yield return new WaitForSeconds(.15f);
             }

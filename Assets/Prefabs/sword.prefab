@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114106118425322924}
   - component: {fileID: 222965417274506662}
   - component: {fileID: 114568076045945704}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: sword
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5830cf856dcb1c248851cff83c525def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damager: {fileID: 0}
+  _damager: {fileID: 114758450041515950}
 --- !u!114 &114758450041515950
 MonoBehaviour:
   m_ObjectHideFlags: 1

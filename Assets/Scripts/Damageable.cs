@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 
 namespace GodsGame
@@ -23,6 +24,7 @@ namespace GodsGame
         public bool invulnerableAfterDamage = true;
         public float invulnerabilityDuration = 3f;
         public bool disableOnDeath = false;
+        public float disableAfterMilliseconds = 1000f;
         [Tooltip("An offset from the object position used to set from where the distance to the damager is computed")]
         public Vector2 centreOffset = new Vector2(0f, 1f);
         public HealthEvent OnHealthSet;
@@ -110,7 +112,9 @@ namespace GodsGame
                 OnDie.Invoke(damager, this);
                 m_ResetHealthOnSceneReload = true;
                 EnableInvulnerability();
-                if (disableOnDeath) gameObject.SetActive(false);
+                if (disableOnDeath) {
+                    StartCoroutine(DisableAfterSeconds(disableAfterMilliseconds));
+                }
             }
         }
 
@@ -131,6 +135,12 @@ namespace GodsGame
             m_CurrentHealth = amount;
 
             OnHealthSet.Invoke(this);
+        }
+
+        public IEnumerator DisableAfterSeconds(float milliseconds)
+        {
+            yield return new WaitForSeconds(milliseconds / 1000f);
+            gameObject.SetActive(false);
         }
 
         //public DataSettings GetDataSettings()

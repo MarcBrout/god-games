@@ -211,12 +211,14 @@ namespace GodsGame
         public void Die(Damager damager, Damageable damageable)
         {
             _Animator.SetTrigger(_HashDiedPara);
+            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
             StartCoroutine(LoadGameOverScene());
         }
 
         IEnumerator LoadGameOverScene()
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1.5f);
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }
 

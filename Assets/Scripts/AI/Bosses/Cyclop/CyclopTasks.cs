@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GodsGame;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 namespace GodsGames
 {
@@ -16,6 +17,13 @@ namespace GodsGames
         public string _targetTag;
         public List<GameObject> _targets;
         private GameObject _currentTarget;
+        public Animator _animator;
+        public List<GameObject> _ropes;
+        public int _lastAmountOfRopes;
+
+        [Header("Global attack")]
+        public float _attackLevel = 1f;
+        public float _attackEvolveCoeff = 1.2f;
 
         [Header("Basic attack")]
         public float _basicAttackGravity;
@@ -35,6 +43,7 @@ namespace GodsGames
         public float _rorRockLifetime;
 
         [Header("Evolved attack")]
+        public float _evolvedAttackMinimumLevelToActivate;
         public float _evolvedAttackRockCount;
         public float _evolvedAttackGravity;
         public float _evolvedAttackAngle;
@@ -53,17 +62,30 @@ namespace GodsGames
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 6);
         private DateTime _startFocusTimeOnCurrentTarget;
         private PandaBehaviour _bt;
+        private AudioSource _audioSource;
+        private Collider[] _towerColliders;
+        private Rigidbody[] _towerBodies;
 
         void Start()
         {
             _bt = gameObject.GetComponent<PandaBehaviour>();
+            _audioSource = GetComponent<AudioSource>();
+            _lastAmountOfRopes = GetActiveRopesCount();
+            _towerColliders = transform.root.GetComponentsInChildren<Collider>();
+            _towerBodies = transform.root.GetComponentsInChildren<Rigidbody>();
             if (_targets.Count == 0)
                 _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
+            foreach (Collider collider in _towerColliders)
+            {
+                collider.enabled = false;
+            }
         }
 
         private void Update()
         {
-
+            if (_currentTarget)
+                transform.LookAt(_currentTarget.transform);
+        
         }
 
         /**
@@ -112,6 +134,40 @@ namespace GodsGames
         {
             yield return new WaitForSeconds(seconds);
             damager.DisableDamage();
+        }
+
+        /**
+         * ROPES UTILS
+         **/
+
+        private int GetActiveRopesCount()
+        {
+            int ropesAmount = 0;
+            foreach (var rope in _ropes)
+            {
+                if (rope.activeSelf)
+                    ropesAmount++;
+            }
+
+            return ropesAmount;
+        }
+
+        [Task]
+        public bool DoesARopeHasBeenCutted()
+        {
+            int currentRopesAmount = GetActiveRopesCount();
+            bool cutted = currentRopesAmount < _lastAmountOfRopes;
+            _lastAmountOfRopes = currentRopesAmount;
+            return cutted;
+        }
+
+        [Task]
+        public void ImproveBasicAttackLevel()
+        {
+            _attackLevel *= _attackEvolveCoeff;
+            if (_attackLevel >= _evolvedAttackMinimumLevelToActivate)
+                _evolvedAttackActivated = true;
+            Task.current.Succeed();
         }
 
         /**
@@ -190,7 +246,8 @@ namespace GodsGames
         [Task]
         public void UseBasicAttack()
         {
-            transform.LookAt(_currentTarget.transform);
+            _animator.SetTrigger("LaunchRock");
+            _animator.SetBool("RightHand", UnityEngine.Random.Range(0, 2) == 1);
             StartCoroutine(ThrowItemCoroutine(_currentTarget.transform.position, _basicAttackAngle, _basicAttackGravity, _basicAttackDuration, _basicAttackLifetime));
             _basicAttackLastUse = DateTime.Now;
             Task.current.Succeed();
@@ -242,6 +299,13 @@ namespace GodsGames
         }
 
         [Task]
+        public void ActivateRainOfRocksState()
+        {
+            _rainOfRocksAvailable = true;
+            Task.current.Succeed();
+        }
+
+        [Task]
         public void ActivateRainOfRocks()
         {
             if (!IsRainOfRocksAvailable())
@@ -266,6 +330,7 @@ namespace GodsGames
         {
             CancelInvoke("SpawnRock");
             _isUsingRainOfRocks = false;
+            _rainOfRocksAvailable = false;
             Task.current.Succeed();
         }
 
@@ -275,7 +340,7 @@ namespace GodsGames
             Vector3 initialPosition = new Vector3(xz.x, _rorSpawnHeight, xz.y);
             GameObject item = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], initialPosition, new Quaternion());
             item.AddComponent<Rigidbody>();
-            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion, 0), ForceMode.Impulse);
+            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion * _attackLevel, 0), ForceMode.Impulse);
             Destroy(item, _rorRockLifetime);
         }
 
@@ -314,10 +379,29 @@ namespace GodsGames
             Task.current.Fail();
         }
 
-        public void OnDieBoss(Damager damager, Damageable damageable)
+        public void OnDieBoss()
         {
             _isDead = true;
-            ScoreManager.AddScore(2, Time.timeSinceLevelLoad);
+                _animator.SetTrigger("isDead");
+                _currentTarget = null;
+                foreach (Collider collider in _towerColliders)
+                {
+                    collider.enabled = true;
+                }
+                foreach (Rigidbody rigidbody in _towerBodies)
+                {
+                    rigidbody.constraints = RigidbodyConstraints.None;
+                }
+            _audioSource.Play();
+            StartCoroutine(LoadLevelCompleteScene());
+            if (ScoreManager)
+                ScoreManager.AddScore(2, Time.timeSinceLevelLoad);
+        }
+
+        IEnumerator LoadLevelCompleteScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("LevelComplete");
         }
     }
 }

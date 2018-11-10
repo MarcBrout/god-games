@@ -31,6 +31,7 @@ namespace GodsGame
             arena_ambience,
             arena_battle_music,
             arena_events,
+            cyclop_throw,
             items_common,
             items_pressure_plates,
             items_sword_hit_metal,
@@ -172,6 +173,7 @@ namespace GodsGame
             InitializeSoundArray(arena_ambience, MixerGroup.Music);
             InitializeSoundArray(arena_battle_music, MixerGroup.Music);
             InitializeSoundArray(arena_events, MixerGroup.Music);
+            InitializeSoundArray(cyclop_throw, MixerGroup.Effects);
             InitializeSoundArray(items_common, MixerGroup.Effects);
             InitializeSoundArray(items_pressure_plates, MixerGroup.Effects);
             InitializeSoundArray(items_sword_hit_metal, MixerGroup.Effects);
@@ -231,6 +233,7 @@ namespace GodsGame
                 case ("arena_ambience"): return arena_ambience;
                 case ("arena_battle_music"): return arena_battle_music;
                 case ("arena_events"): return arena_events;
+                case ("cyclop_throw"): return cyclop_throw;
                 case ("items_common"): return items_common;
                 case ("items_pressure_plates"): return items_pressure_plates;
                 case ("items_sword_hit_metal"): return items_sword_hit_metal;

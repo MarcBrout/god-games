@@ -51,7 +51,6 @@ namespace GodsGame {
 
         void Start()
         {
-            crowdSpeech = GameObject.Find("Spectators").GetComponent<CrowdSpeech>();
         }
 
         void Update()
@@ -80,15 +79,12 @@ namespace GodsGame {
 
         private void Awake()
         {
-            if (instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
+            if (instance == null)
             {
                 instance = this;
                 DontDestroyOnLoad(gameObject);
             }
+            crowdSpeech = GameObject.Find("Spectators").GetComponent<CrowdSpeech>();
         }
     }
 }
