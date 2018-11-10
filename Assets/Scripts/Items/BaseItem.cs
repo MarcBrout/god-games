@@ -11,13 +11,17 @@ public abstract class BaseItem : MonoBehaviour {
 
     public float throwForce;
     public float cooldownDuration;
+    public string TriggerName { get { return _triggerName; } }
 
     private float _nextReadyTime;
     private Rigidbody _rb;
 
+    protected string _triggerName;
+
     public void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _triggerName = GetTriggerName();
     }
 
     public void PickUpItem(GameObject itemSocket) {
@@ -40,16 +44,19 @@ public abstract class BaseItem : MonoBehaviour {
         _rb.AddForce(direction.forward * throwForce + direction.up * throwForce);
     }
 
-    public void UseItem() {
+    public bool UseItem() {
 
         if (Time.time > _nextReadyTime)
         {
             ExecuteItem();
             _nextReadyTime = Time.time + cooldownDuration;
+            return true;
         }
+        return false;
     }
 
     public abstract void ExecuteItem();
+    protected abstract string GetTriggerName();
 
     public float GetCooldown() {
 

@@ -12,12 +12,14 @@ namespace GodsGame
         public Collider collider;
         public Damager damager;
         public float activationDelayOffset = 0.1f;
+        private AudioSource _audioSource;
 
         float _StartTime;
 
         void Start()
         {
             Init();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -41,6 +43,7 @@ namespace GodsGame
                 projectorTimer.orthographicSize = ExtensionMethods.LerpOverTime(0, projectorBase.orthographicSize, _StartTime, damager.activationDelay);
                 yield return new WaitForEndOfFrame();
             }
+            AudioManager.Instance.PlayRandomSfx3D("zeus_electric_shock", ref _audioSource);
             projectorTimer.orthographicSize = projectorBase.orthographicSize;
         }
     }

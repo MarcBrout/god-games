@@ -5,12 +5,14 @@ using UnityEngine.AI;
 using UnityEngine;
 using GodsGame;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace GodsGames
 {
     public class MinotaurTasks : MonoBehaviour
     {
         // REFERENCES
+        public ScoreManager ScoreManager;
         public GameObject lightningStrike;
         public Damager chargeTelegraph;
         public Animator animator;
@@ -415,9 +417,17 @@ namespace GodsGames
         {
             isDead = true;
             PlayerPrefs.SetInt("lvl1", (int)Time.timeSinceLevelLoad);
-            GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
-            GameObject transitionCamera = GameObject.Find("TransitionCamera");
-            transitionCamera.GetComponent<TransitionCameraScript>().StartTransition(mainCamera, transform);
+            ScoreManager.AddScore(1, Time.timeSinceLevelLoad);
+            StartCoroutine(LoadLevelCompleteScene());
+
         }
+
+        IEnumerator LoadLevelCompleteScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("LevelComplete");
+        }
+
+
     }
 }

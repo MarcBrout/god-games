@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class SwordScript : BaseItem {
 
-
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -18,4 +16,8 @@ public class SwordScript : BaseItem {
         Debug.Log("Sword inteaction");
     }
 
+    protected override string GetTriggerName()
+    {
+        return "UseSword";
+    }
 }

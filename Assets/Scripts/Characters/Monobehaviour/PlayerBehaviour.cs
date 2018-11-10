@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using SceneLinkedSMB;
+using UnityEngine.SceneManagement;
 
 namespace GodsGame
 {
@@ -111,6 +112,11 @@ namespace GodsGame
         /// </summary>
         public void Move()
         {
+        }
+
+
+        private void FixedUpdate()
+        {
             Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
         }
 
@@ -186,7 +192,10 @@ namespace GodsGame
         }
 
         public void UseItem() {
-             _itemHandler.UseItem();
+            if (_itemHandler.UseItem()) {
+                _PlayerAnimations.SetTrigger(_HashUseItemPara);
+                _PlayerAnimations.SetTrigger(_itemHandler.Item.TriggerName);
+            }
         }
         /// <summary>
         /// Choose the way the layer will rotate according to controls
@@ -202,7 +211,15 @@ namespace GodsGame
         public void Die(Damager damager, Damageable damageable)
         {
             _Animator.SetTrigger(_HashDiedPara);
+            StartCoroutine(LoadGameOverScene());
         }
+
+        IEnumerator LoadGameOverScene()
+        {
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene("GameOver");
+        }
+
 
         /// <summary>
         /// Rotate player with mouse

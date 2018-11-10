@@ -13,6 +13,7 @@ namespace GodsGame
 
         void Start()
         {
+            DontDestroyOnLoad(this);
             randomObject = new GameObject[10];
             childs = (Transform[]) gameObject.GetComponentsInChildren<Transform>();
         }

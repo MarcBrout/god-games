@@ -746,14 +746,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245f8db43a512aa40937931234b02c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwableObject: {fileID: 1647722632740386, guid: 9d930cc2d7715054aa2cfb7d6ced110d,
-    type: 2}
+  _throwableObjects: []
   _targetTag: Player
   _targets: []
-  _basicAttackGravity: 9.8
-  _basicAttackAngle: 70
-  _basicAttackTimeBeforeDestroy: 5
+  _basicAttackGravity: 16
+  _basicAttackAngle: 80
+  _basicAttackDuration: 0.1
+  _basicAttackLifetime: 5
+  _rorRocksCount: 120
+  _rorTimeBetweenRocks: 0.1
+  _rorSpawnRadius: 24
+  _rorSpawnHeight: 30
+  _rorMass: 10
+  _rorSpawnImpulsion: -15
+  _rorRockLifetime: 5
+  _evolvedAttackRockCount: 3
+  _evolvedAttackGravity: 16
+  _evolvedAttackAngle: 80
+  _evolvedAttackDuration: 0.1
+  _evolvedAttackLifetime: 5
+  _evolvedAttackTimeBetweenRock: 0.15
   _isDead: 0
+  _evolvedAttackActivated: 0
+  _rainOfRocksAvailable: 0
+  _isUsingRainOfRocks: 0
 --- !u!114 &114237271741683694
 MonoBehaviour:
   m_ObjectHideFlags: 1

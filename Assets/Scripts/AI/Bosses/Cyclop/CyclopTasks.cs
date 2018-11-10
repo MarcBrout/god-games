@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GodsGame;
+using UnityEngine.AI;
 
 namespace GodsGames
 {
     public class CyclopTasks : MonoBehaviour
     {
+        public ScoreManager ScoreManager;
         [Header("General configuration")]
         public GameObject[] _throwableObjects;
         public string _targetTag;
@@ -18,13 +20,35 @@ namespace GodsGames
         [Header("Basic attack")]
         public float _basicAttackGravity;
         public float _basicAttackAngle;
-        public float _attackDuration;
-        public float _lifetime;
+        public float _basicAttackDuration;
+        public float _basicAttackLifetime;
         private TimeSpan _basicAttackCooldown = new TimeSpan(0, 0, 1);
         private DateTime _basicAttackLastUse;
 
+        [Header("Rain of rocks")]
+        public int _rorRocksCount;
+        public float _rorTimeBetweenRocks;
+        public float _rorSpawnRadius;
+        public float _rorSpawnHeight;
+        public float _rorMass;
+        public float _rorSpawnImpulsion;
+        public float _rorRockLifetime;
+
+        [Header("Evolved attack")]
+        public float _evolvedAttackRockCount;
+        public float _evolvedAttackGravity;
+        public float _evolvedAttackAngle;
+        public float _evolvedAttackDuration;
+        public float _evolvedAttackLifetime;
+        public float _evolvedAttackTimeBetweenRock;
+        private TimeSpan _evolvedAttackCooldown = new TimeSpan(0, 0, 1);
+        private DateTime _evolvedAttackLastUse;
+
         [Header("States")]
         public bool _isDead = false;
+        public bool _evolvedAttackActivated = false;
+        public bool _rainOfRocksAvailable = false;
+        public bool _isUsingRainOfRocks = false;
 
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 6);
         private DateTime _startFocusTimeOnCurrentTarget;
@@ -49,6 +73,9 @@ namespace GodsGames
         void ResetStates()
         {
             _isDead = false;
+            _rainOfRocksAvailable = false;
+            _isUsingRainOfRocks = false;
+            _evolvedAttackActivated = false;
         }
 
         float GetDistFromCurrentTarget()
@@ -56,6 +83,35 @@ namespace GodsGames
             if (_currentTarget == null)
                 return -1;
             return (_currentTarget.transform.position - transform.position).sqrMagnitude;
+        }
+
+        private IEnumerator ThrowItemCoroutine(Vector3 targetPosition, float angle, float gravity, float duration, float lifetime)
+        {
+            Vector3 offset = new Vector3(0, transform.localScale.y, 0);
+            GameObject thrownItem = GameObject.Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], transform.position + offset, new Quaternion());
+
+            float targetDistance = Vector3.Distance(thrownItem.transform.position, targetPosition);
+            float velocity = targetDistance / (Mathf.Sin(2 * angle * Mathf.Deg2Rad) / gravity);
+            float vx = Mathf.Sqrt(velocity) * Mathf.Cos(angle * Mathf.Deg2Rad);
+            float vy = Mathf.Sqrt(velocity) * Mathf.Sin(angle * Mathf.Deg2Rad);
+            float flightDuration = targetDistance / vx;
+
+            thrownItem.transform.LookAt(targetPosition);
+
+            for (float elapsedTime = 0; elapsedTime < flightDuration; elapsedTime += Time.deltaTime)
+            {
+                thrownItem.transform.Translate(0, (vy - (gravity * elapsedTime)) * Time.deltaTime, vx * Time.deltaTime);
+                yield return null;
+            }
+
+            StartCoroutine(DeactivateDamage(duration, thrownItem.GetComponent<Damager>()));
+            Destroy(thrownItem, lifetime);
+        }
+
+        private IEnumerator DeactivateDamage(float seconds, Damager damager)
+        {
+            yield return new WaitForSeconds(seconds);
+            damager.DisableDamage();
         }
 
         /**
@@ -134,38 +190,93 @@ namespace GodsGames
         [Task]
         public void UseBasicAttack()
         {
-            StartCoroutine("BasicAttackCoroutine");
+            transform.LookAt(_currentTarget.transform);
+            StartCoroutine(ThrowItemCoroutine(_currentTarget.transform.position, _basicAttackAngle, _basicAttackGravity, _basicAttackDuration, _basicAttackLifetime));
             _basicAttackLastUse = DateTime.Now;
             Task.current.Succeed();
         }
 
-        private IEnumerator BasicAttackCoroutine()
+        /**
+         * EVOLVED ATTACK
+         **/
+
+        [Task]
+        public bool IsEvolvedAttackAvailable()
         {
-            Vector3 offset = new Vector3(0, transform.localScale.y, 0);
-            GameObject thrownItem = GameObject.Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], transform.position + offset, new Quaternion());
-
-            float targetDistance = Vector3.Distance(thrownItem.transform.position, _currentTarget.transform.position);
-            float velocity = targetDistance / (Mathf.Sin(2 * _basicAttackAngle * Mathf.Deg2Rad) / _basicAttackGravity);
-            float vx = Mathf.Sqrt(velocity) * Mathf.Cos(_basicAttackAngle * Mathf.Deg2Rad);
-            float vy = Mathf.Sqrt(velocity) * Mathf.Sin(_basicAttackAngle * Mathf.Deg2Rad);
-            float flightDuration = targetDistance / vx;
-
-            thrownItem.transform.LookAt(_currentTarget.transform);
-
-            for (float elapsedTime = 0; elapsedTime < flightDuration; elapsedTime += Time.deltaTime)
-            {
-                thrownItem.transform.Translate(0, (vy - (_basicAttackGravity * elapsedTime)) * Time.deltaTime, vx * Time.deltaTime);
-                yield return null;
-            }
-
-            StartCoroutine(DeactivateBoulderDamage(_attackDuration, thrownItem.GetComponent<Damager>()));
-            GameObject.Destroy(thrownItem, _lifetime);
+            return _evolvedAttackActivated && DateTime.Now - _evolvedAttackLastUse > _evolvedAttackCooldown;
         }
 
-        private IEnumerator DeactivateBoulderDamage(float seconds, Damager damager)
+        [Task]
+        public void UseEvolvedAttack()
         {
-            yield return new WaitForSeconds(seconds);
-            damager.DisableDamage();
+            transform.LookAt(_currentTarget.transform);
+            StartCoroutine(EvolvedAttackCoroutine());
+            _evolvedAttackLastUse = DateTime.Now;
+            Task.current.Succeed();
+        }
+
+        private IEnumerator EvolvedAttackCoroutine()
+        {
+            for (int i = 0; i < _evolvedAttackRockCount; ++i)
+            {
+                NavMeshAgent agent = _currentTarget.GetComponent<NavMeshAgent>();
+                float speed = agent.speed;
+                int coefX = UnityEngine.Random.Range(-i, i + 1);
+                int coefZ = UnityEngine.Random.Range(-i, i + 1);
+
+                Vector3 targetPosition = _currentTarget.transform.position + new Vector3(coefX, 0, coefZ) * speed;
+
+                StartCoroutine(ThrowItemCoroutine(targetPosition, _evolvedAttackAngle, _evolvedAttackGravity, _evolvedAttackDuration, _evolvedAttackLifetime));
+                yield return new WaitForSeconds(_evolvedAttackTimeBetweenRock);
+            }
+        }
+
+        /**
+         * RAIN OF ROCKS MECHANICS
+         **/
+
+        [Task]
+        public bool IsRainOfRocksAvailable()
+        {
+            return _rainOfRocksAvailable && !_isUsingRainOfRocks;
+        }
+
+        [Task]
+        public void ActivateRainOfRocks()
+        {
+            if (!IsRainOfRocksAvailable())
+            {
+                Task.current.Fail();
+                return;
+            }
+
+            _isUsingRainOfRocks = true;
+            InvokeRepeating("SpawnRock", 0, _rorTimeBetweenRocks);
+            Task.current.Succeed();
+        }
+
+        [Task]
+        public void WaitForRainOfRocksDuration()
+        {
+            _bt.Wait(_rorRocksCount * _rorTimeBetweenRocks);
+        }
+
+        [Task]
+        public void DeactivateRainOfRocks()
+        {
+            CancelInvoke("SpawnRock");
+            _isUsingRainOfRocks = false;
+            Task.current.Succeed();
+        }
+
+        private void SpawnRock()
+        {
+            Vector2 xz = UnityEngine.Random.insideUnitCircle * _rorSpawnRadius;
+            Vector3 initialPosition = new Vector3(xz.x, _rorSpawnHeight, xz.y);
+            GameObject item = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], initialPosition, new Quaternion());
+            item.AddComponent<Rigidbody>();
+            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion, 0), ForceMode.Impulse);
+            Destroy(item, _rorRockLifetime);
         }
 
         /**
@@ -206,7 +317,7 @@ namespace GodsGames
         public void OnDieBoss(Damager damager, Damageable damageable)
         {
             _isDead = true;
-            PlayerPrefs.SetInt("lvl2", (int)Time.timeSinceLevelLoad);
+            ScoreManager.AddScore(2, Time.timeSinceLevelLoad);
         }
     }
 }
