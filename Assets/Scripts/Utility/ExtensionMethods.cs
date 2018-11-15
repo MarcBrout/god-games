@@ -73,6 +73,36 @@ public static class ExtensionMethods
         // throws InvalidCastException if types are incompatible
         return (T)retval;
     }
+
+    public static bool ApproximatelyByValue(this Vector3 me, Vector3 other, float allowedDifference)
+    {
+        var dx = me.x - other.x;
+        if (Mathf.Abs(dx) > allowedDifference)
+            return false;
+
+        var dy = me.y - other.y;
+        if (Mathf.Abs(dy) > allowedDifference)
+            return false;
+
+        var dz = me.z - other.z;
+
+        return Mathf.Abs(dz) >= allowedDifference;
+    }
+
+    public static bool ApproximatelyByPercentage(this Vector3 me, Vector3 other, float percentage)
+    {
+        var dx = me.x - other.x;
+        if (Mathf.Abs(dx) > me.x * percentage)
+            return false;
+
+        var dy = me.y - other.y;
+        if (Mathf.Abs(dy) > me.y * percentage)
+            return false;
+
+        var dz = me.z - other.z;
+
+        return Mathf.Abs(dz) >= me.z * percentage;
+    }
 }
 
 public static class StringExt

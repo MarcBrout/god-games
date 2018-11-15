@@ -9,10 +9,10 @@ namespace GodsGame {
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_MonoBehaviour.GetInput();
             m_MonoBehaviour.CheckForGrounded();
-            m_MonoBehaviour.Move();
+            m_MonoBehaviour.GetInput();
             m_MonoBehaviour.RotateAim();
+            m_MonoBehaviour.TransformInputRelativelyToMouse();
             m_MonoBehaviour.DoStepDust();
             if (m_MonoBehaviour.CheckForDashInput())
             {

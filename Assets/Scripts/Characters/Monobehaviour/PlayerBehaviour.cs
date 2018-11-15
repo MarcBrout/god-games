@@ -66,7 +66,8 @@ namespace GodsGame
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
-            set {
+            set
+            {
                 _Animator.SetBool(_HashGroundedPara, value);
                 _PlayerAnimations.SetBool(_HashGroundedPara, value);
             }
@@ -84,7 +85,8 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
-            _PlayerAnimations = transform.Find("Player").GetComponent<Animator>();
+            _PlayerAnimations = transform.Find("PlayerCharacter").GetComponent<Animator>();
+            Debug.Log(_PlayerAnimations);
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -101,19 +103,28 @@ namespace GodsGame
             _Input.x = cInput.GetAxisRaw(horizontalAxis);
             _Input.y = 0;
             _Input.z = cInput.GetAxisRaw(verticalAxis);
-            _Animator.SetFloat(_HashHorizontalSpeedPara, _Input.x);
-            _PlayerAnimations.SetFloat(_HashHorizontalSpeedPara, _Input.x);
-            _Animator.SetFloat(_HashVerticalSpeedPara, _Input.z);
-            _PlayerAnimations.SetFloat(_HashVerticalSpeedPara, _Input.z);
         }
 
         /// <summary>
-        /// Move the player along its forward axis
+        /// Transform the player input so the correct animation is played relative to the player rotation
         /// </summary>
-        public void Move()
+        public void TransformInputRelativelyToMouse()
         {
-        }
+            Vector3 mousePos = _Camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 localPos = transform.InverseTransformPoint(mousePos).normalized;
+            localPos.y = 0;
+            // Get the angle we should rotate the input. This angle is equal to zero wen the player is facing top
+            float refAngle = Vector3.SignedAngle(Vector3.back, localPos, Vector3.up);
+            //Multiply the input vector by the refAngle 
+            Vector3 newInput = Quaternion.Euler(0, refAngle, 0) * _Input;
+            //Debug.Log("Input " + _Input + " = " + localPos + " angle " + Vector3.Angle(_Input, localPos) + " refAngle " + refAngle);
+            //Debug.Log("New input " + newInput);
+            _Animator.SetFloat(_HashHorizontalSpeedPara, newInput.x);
+            _PlayerAnimations.SetFloat(_HashHorizontalSpeedPara, newInput.x);
+            _Animator.SetFloat(_HashVerticalSpeedPara, newInput.z);
+            _PlayerAnimations.SetFloat(_HashVerticalSpeedPara, newInput.z);
 
+        }
 
         private void FixedUpdate()
         {
@@ -191,8 +202,10 @@ namespace GodsGame
             return cInput.GetButton(useItemButton) && _itemHandler.CanUse();
         }
 
-        public void UseItem() {
-            if (_itemHandler.UseItem()) {
+        public void UseItem()
+        {
+            if (_itemHandler.UseItem())
+            {
                 _PlayerAnimations.SetTrigger(_HashUseItemPara);
                 _PlayerAnimations.SetTrigger(_itemHandler.Item.TriggerName);
             }
@@ -234,11 +247,12 @@ namespace GodsGame
 
             if (groundPlane.Raycast(cameraRay, out rayLength))
             {
-                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-                Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+                Vector3 lookAtPoint = cameraRay.GetPoint(rayLength);
+                Debug.DrawLine(cameraRay.origin, lookAtPoint, Color.blue);
 
-                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+                transform.LookAt(new Vector3(lookAtPoint.x, transform.position.y, lookAtPoint.z));
             }
+
         }
 
         /// <summary>
@@ -246,10 +260,10 @@ namespace GodsGame
         /// </summary>
         private void RJoystickAim()
         {
-            Vector3 playerDirection = Vector3.right * cInput.GetAxisRaw(rHorizontalAxis) + Vector3.forward * cInput.GetAxisRaw(rVerticalAxis);
-            if (playerDirection.sqrMagnitude > 0f)
+            Vector3 direction = Vector3.right * cInput.GetAxisRaw(rHorizontalAxis) + Vector3.forward * cInput.GetAxisRaw(rVerticalAxis);
+            if (direction.sqrMagnitude > 0f)
             {
-                transform.rotation = Quaternion.LookRotation(playerDirection);
+                transform.rotation = Quaternion.LookRotation(direction);
             }
         }
     }
