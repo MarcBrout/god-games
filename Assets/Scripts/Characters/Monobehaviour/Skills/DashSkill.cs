@@ -16,9 +16,10 @@ namespace GodsGame
         public override void Execute()
         {
             base.Execute();
-            Vector3 dashVelocity = Vector3.Scale(player.CInput.normalized, player.dashDistance *
-               new Vector3((Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime)));
-            player.Body.AddForce(dashVelocity, ForceMode.VelocityChange);
+            //Vector3 dashVelocity = Vector3.Scale(player.CInput.normalized, player.dashDistance *
+            //   new Vector3((Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime)));
+            //player.Body.AddForce(dashVelocity, ForceMode.VelocityChange);
+            player.SetMoveVector(player.CInput.normalized * player.dashSpeed);
         }
 
     }

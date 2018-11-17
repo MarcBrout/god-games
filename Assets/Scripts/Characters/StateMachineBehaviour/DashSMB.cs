@@ -11,6 +11,7 @@ namespace GodsGame
         {
             m_MonoBehaviour.Damageable.EnableInvulnerability();
             m_MonoBehaviour.GetInput();
+            m_MonoBehaviour.RotateAim(m_MonoBehaviour.CInput);
             m_MonoBehaviour.Dash();
         }
 

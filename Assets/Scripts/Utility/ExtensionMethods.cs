@@ -112,4 +112,12 @@ public static class StringExt
         if (string.IsNullOrEmpty(value)) { return value; }
         return value.Substring(0, Math.Min(value.Length, maxLength));
     }
+
+    public static TEnum ToEnum<TEnum>(this string strEnumValue, TEnum defaultValue)
+    {
+        if (!Enum.IsDefined(typeof(TEnum), strEnumValue))
+            return defaultValue;
+
+        return (TEnum)Enum.Parse(typeof(TEnum), strEnumValue);
+    }
 }

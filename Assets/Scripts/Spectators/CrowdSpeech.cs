@@ -16,7 +16,7 @@ namespace GodsGame
             randomObject = new GameObject[10];
             childs = gameObject.GetComponentsInChildren<Transform>();
         }
-
+        
         public void CrowdSayThings(CrowdManager.STATES state)
         {
             switch (state)
