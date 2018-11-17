@@ -41,6 +41,7 @@ namespace GodsGame
         #region private Var
         private Transform _GroundChecker;
         private Vector3 _Input;
+        private Vector3 _CurrentDirection;
         private Vector3 m_MoveVector;
         private Camera _Camera;
         private Quaternion _TargetRotation;
@@ -80,6 +81,7 @@ namespace GodsGame
         {
             _DustEffectPool = GetComponent<DustEffectPool>();
             _CharacterController = GetComponent<CharacterController>();
+            _CurrentDirection = new Vector3(0, 0, 0);
             Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
@@ -184,7 +186,11 @@ namespace GodsGame
         {
             TransformInputRelativelyToMouse();
             _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
-            Body.transform.LookAt(new Vector3(_Input.normalized.x * 180, _Input.normalized.y, _Input.normalized.z * 180));
+            if (_Input.normalized != _CurrentDirection && CheckForIdle() == false)
+            {
+                _CurrentDirection = _Input.normalized;
+                transform.LookAt(new Vector3(_CurrentDirection.x * 180, _CurrentDirection.y, _CurrentDirection.z * 180));
+            }
         }
 
         public void DoStepDust()
@@ -267,13 +273,13 @@ namespace GodsGame
         /// <summary>
         /// Choose the way the layer will rotate according to controls
         /// </summary>
-      /*  public void RotateAim()
+        public void RotateAim()
         {
             if (!usingController)
                 MouseAim();
             else
                 RJoystickAim();
-        }*/
+        }
 
         /// <summary>
         /// Rotate the player in the choosen direction

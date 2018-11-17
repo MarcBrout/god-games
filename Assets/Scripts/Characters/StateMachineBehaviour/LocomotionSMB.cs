@@ -11,7 +11,6 @@ namespace GodsGame {
         {
             m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.GetInput();
-            m_MonoBehaviour.TransformInputRelativelyToMouse();
             m_MonoBehaviour.GroundedHorizontalMovement(true);
             m_MonoBehaviour.DoStepDust();
             if (m_MonoBehaviour.CheckForIdle())
