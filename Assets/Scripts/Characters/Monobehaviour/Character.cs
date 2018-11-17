@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public float jumpHeight = 2f;
     public float gravity = -9.81f;
     public float groundDistance = 0.2f;
-    public float dashDistance = 5f;
+    public float dashSpeed = 5f;
     public LayerMask ground;
     public Vector3 drag;
 
@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
     private void Dash()
     {
         if (Input.GetButtonDown("Dash"))
-            _velocity += Vector3.Scale(transform.forward, dashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * drag.x + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * drag.z + 1)) / -Time.deltaTime)));
+            _velocity += Vector3.Scale(transform.forward, dashSpeed * new Vector3((Mathf.Log(1f / (Time.deltaTime * drag.x + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * drag.z + 1)) / -Time.deltaTime)));
     }
 
     /// <summary>

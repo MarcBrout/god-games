@@ -9,15 +9,18 @@ namespace GodsGame
 {
     [RequireComponent(typeof(Damageable))]
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(CharacterController))]
     public class PlayerBehaviour : MonoBehaviour
     {
         #region public Var
         [Header("Movement")]
         public float moveSpeed = 5f;
         public float turnSpeed = 10f;
+        public float groundAcceleration = 100f;
+        public float groundDeceleration = 100f;
         public float jumpHeight = 2f;
         public float groundDistance = 0.2f;
-        public float dashDistance = 5f;
+        public float dashSpeed = 5f;
         public LayerMask ground;
         public bool usingController = false;
 
@@ -38,12 +41,13 @@ namespace GodsGame
         #region private Var
         private Transform _GroundChecker;
         private Vector3 _Input;
+        private Vector3 m_MoveVector;
         private Camera _Camera;
         private Quaternion _TargetRotation;
         private Animator _Animator;
-        private Animator _PlayerAnimations;
         private ItemHandler _itemHandler;
         private DustEffectPool _DustEffectPool;
+        private CharacterController _CharacterController;
         #endregion
 
         #region protected var
@@ -53,6 +57,7 @@ namespace GodsGame
         protected readonly int _HashGroundedPara = Animator.StringToHash("Grounded");
         protected readonly int _HashHurtPara = Animator.StringToHash("Hurt");
         protected readonly int _HashDashPara = Animator.StringToHash("Dash");
+        protected readonly int _HashIdlePara = Animator.StringToHash("Idle");
         protected readonly int _HashUseItemPara = Animator.StringToHash("UseItem");
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
@@ -66,11 +71,7 @@ namespace GodsGame
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
-            set
-            {
-                _Animator.SetBool(_HashGroundedPara, value);
-                _PlayerAnimations.SetBool(_HashGroundedPara, value);
-            }
+            set { _Animator.SetBool(_HashGroundedPara, value); }
         }
         public Damageable Damageable { get; private set; }
         #endregion
@@ -78,6 +79,7 @@ namespace GodsGame
         void Start()
         {
             _DustEffectPool = GetComponent<DustEffectPool>();
+            _CharacterController = GetComponent<CharacterController>();
             Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
@@ -85,14 +87,29 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
-            _PlayerAnimations = transform.Find("PlayerCharacter").GetComponent<Animator>();
-            Debug.Log(_PlayerAnimations);
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
+        /// <summary>
+        /// Check if the player is on the ground
+        /// </summary>
         public void CheckForGrounded()
         {
             IsGrounded = Physics.CheckSphere(_GroundChecker.position, groundDistance, ground);
+        }
+
+        /// <summary>
+        /// Check if the player is idle
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckForIdle()
+        {
+            return _Input.x == 0 && _Input.z == 0;
+        }
+
+        public void GoToIdleState()
+        {
+            _Animator.SetTrigger(_HashIdlePara);
         }
 
         /// <summary>
@@ -105,10 +122,52 @@ namespace GodsGame
             _Input.z = cInput.GetAxisRaw(verticalAxis);
         }
 
+        public void GroundedHorizontalMovement(bool useInput, float speedScale = 1f)
+        {
+            Vector3 input = _Input.normalized;
+            float desiredSpeedH = useInput ? input.x * moveSpeed * speedScale : 0f;
+            float desiredSpeedV = useInput ? input.z * moveSpeed * speedScale : 0f;
+            float accelerationH = useInput && input.z != 0 ? groundAcceleration : groundDeceleration;
+            float accelerationV = useInput && input.z != 0 ? groundAcceleration : groundDeceleration;
+            m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeedH, accelerationH * Time.deltaTime);
+            m_MoveVector.z = Mathf.MoveTowards(m_MoveVector.z, desiredSpeedV, accelerationV * Time.deltaTime);
+        }
+
+        // Public functions - called mostly by StateMachineBehaviours in the character's Animator Controller but also by Events.
+        public void SetMoveVector(Vector3 newMoveVector)
+        {
+            m_MoveVector = newMoveVector;
+        }
+
+        public void SetHorizontalMovement(float newHorizontalMovement)
+        {
+            m_MoveVector.x = newHorizontalMovement;
+        }
+
+        public void SetVerticalMovement(float newVerticalMovement)
+        {
+            m_MoveVector.z = newVerticalMovement;
+        }
+
+        public void IncrementMovement(Vector3 additionalMovement)
+        {
+            m_MoveVector += additionalMovement;
+        }
+
+        public void IncrementHorizontalMovement(float additionalHorizontalMovement)
+        {
+            m_MoveVector.x += additionalHorizontalMovement;
+        }
+
+        public void IncrementVerticalMovement(float additionalVerticalMovement)
+        {
+            m_MoveVector.z += additionalVerticalMovement;
+        }
+
         /// <summary>
         /// Transform the player input so the correct animation is played relative to the player rotation
         /// </summary>
-        public void TransformInputRelativelyToMouse()
+        private void TransformInputRelativelyToMouse()
         {
             Vector3 mousePos = _Camera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 localPos = transform.InverseTransformPoint(mousePos).normalized;
@@ -117,18 +176,14 @@ namespace GodsGame
             float refAngle = Vector3.SignedAngle(Vector3.back, localPos, Vector3.up);
             //Multiply the input vector by the refAngle 
             Vector3 newInput = Quaternion.Euler(0, refAngle, 0) * _Input;
-            //Debug.Log("Input " + _Input + " = " + localPos + " angle " + Vector3.Angle(_Input, localPos) + " refAngle " + refAngle);
-            //Debug.Log("New input " + newInput);
             _Animator.SetFloat(_HashHorizontalSpeedPara, newInput.x);
-            _PlayerAnimations.SetFloat(_HashHorizontalSpeedPara, newInput.x);
             _Animator.SetFloat(_HashVerticalSpeedPara, newInput.z);
-            _PlayerAnimations.SetFloat(_HashVerticalSpeedPara, newInput.z);
-
         }
 
         private void FixedUpdate()
         {
-            Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
+            TransformInputRelativelyToMouse();
+            _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
             Body.transform.LookAt(new Vector3(_Input.normalized.x * 180, _Input.normalized.y, _Input.normalized.z * 180));
         }
 
@@ -156,7 +211,6 @@ namespace GodsGame
         {
             Body.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
             _Animator.SetFloat(_HashJumpSpeedPara, Body.velocity.y);
-            _PlayerAnimations.SetFloat(_HashJumpSpeedPara, Body.velocity.y);
         }
 
         /// <summary>
@@ -173,7 +227,6 @@ namespace GodsGame
         public void TransitionToDash()
         {
             _Animator.SetTrigger(_HashDashPara);
-            _PlayerAnimations.SetTrigger(_HashDashPara);
         }
 
         public void Dash()
@@ -207,8 +260,8 @@ namespace GodsGame
         {
             if (_itemHandler.UseItem())
             {
-                _PlayerAnimations.SetTrigger(_HashUseItemPara);
-                _PlayerAnimations.SetTrigger(_itemHandler.Item.TriggerName);
+                _Animator.SetTrigger(_HashUseItemPara);
+                _Animator.SetTrigger(_itemHandler.Item.TriggerName);
             }
         }
         /// <summary>
@@ -221,6 +274,15 @@ namespace GodsGame
             else
                 RJoystickAim();
         }*/
+
+        /// <summary>
+        /// Rotate the player in the choosen direction
+        /// </summary>
+        /// <param name="aimDirection"></param>
+        public void RotateAim(Vector3 aimDirection)
+        {
+            transform.rotation = Quaternion.LookRotation(aimDirection);
+        }
 
         public void Die(Damager damager, Damageable damageable)
         {
@@ -235,7 +297,6 @@ namespace GodsGame
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }
-
 
         /// <summary>
         /// Rotate player with mouse
@@ -253,7 +314,6 @@ namespace GodsGame
 
                 transform.LookAt(new Vector3(lookAtPoint.x, transform.position.y, lookAtPoint.z));
             }
-
         }
 
         /// <summary>

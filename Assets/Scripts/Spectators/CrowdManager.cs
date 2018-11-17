@@ -49,15 +49,6 @@ namespace GodsGame {
         private STATES currentState = STATES.IDLE;
         private bool stateChanged = false;
 
-        void Start()
-        {
-        }
-
-        void Update()
-        {
-
-        }
-
         private IEnumerator ChangeState(STATES State, long DurationInMilliseconds)
         {
             yield return new WaitForSecondsRealtime(DurationInMilliseconds / 1000f);
