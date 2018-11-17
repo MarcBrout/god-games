@@ -11,7 +11,7 @@ namespace GodsGame {
         {
             m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.GetInput();
-            m_MonoBehaviour.RotateAim();
+           // m_MonoBehaviour.RotateAim();
             m_MonoBehaviour.TransformInputRelativelyToMouse();
             m_MonoBehaviour.DoStepDust();
             if (m_MonoBehaviour.CheckForDashInput())

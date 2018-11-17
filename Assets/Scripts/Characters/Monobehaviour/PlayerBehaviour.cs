@@ -129,6 +129,7 @@ namespace GodsGame
         private void FixedUpdate()
         {
             Body.MovePosition(Body.position + _Input.normalized * moveSpeed * Time.fixedDeltaTime);
+            Body.transform.LookAt(new Vector3(_Input.normalized.x * 180, _Input.normalized.y, _Input.normalized.z * 180));
         }
 
         public void DoStepDust()
@@ -213,13 +214,13 @@ namespace GodsGame
         /// <summary>
         /// Choose the way the layer will rotate according to controls
         /// </summary>
-        public void RotateAim()
+      /*  public void RotateAim()
         {
             if (!usingController)
                 MouseAim();
             else
                 RJoystickAim();
-        }
+        }*/
 
         public void Die(Damager damager, Damageable damageable)
         {
