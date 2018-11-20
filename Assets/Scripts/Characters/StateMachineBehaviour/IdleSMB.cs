@@ -12,7 +12,7 @@ namespace GodsGame {
             m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.GetInput();
             m_MonoBehaviour.GroundedHorizontalMovement(true);
-            m_MonoBehaviour.RotateAim();
+           // m_MonoBehaviour.RotateAim();
             if (m_MonoBehaviour.CheckForJumpInput())
                 m_MonoBehaviour.Jump();
             if (m_MonoBehaviour.CheckForThrowInput())

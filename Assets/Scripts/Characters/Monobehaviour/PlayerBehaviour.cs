@@ -38,6 +38,7 @@ namespace GodsGame
         #region private Var
         private Transform _GroundChecker;
         private Vector3 _Input;
+        private Vector3 _CurrentDirection;
         private Vector3 m_MoveVector;
         private Camera _Camera;
         private Quaternion _TargetRotation;
@@ -82,6 +83,7 @@ namespace GodsGame
             CapsuleCollider = GetComponent<CapsuleCollider>();
             _DustEffectPool = GetComponent<DustEffectPool>();
             _CharacterController = GetComponent<CharacterController>();
+            _CurrentDirection = new Vector3(0, 0, 0);
             Body = GetComponent<Rigidbody>();
             _GroundChecker = transform.GetChild(0);
             _Camera = Camera.main;
@@ -190,6 +192,11 @@ namespace GodsGame
         {
             TransformInputRelativelyToMouse();
             _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
+            if (_Input.normalized != _CurrentDirection && CheckForIdle() == false)
+            {
+                _CurrentDirection = _Input.normalized;
+                transform.LookAt(new Vector3(_CurrentDirection.x * 180, _CurrentDirection.y, _CurrentDirection.z * 180));
+            }
         }
 
         public void DoStepDust()
