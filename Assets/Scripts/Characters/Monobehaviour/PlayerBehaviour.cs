@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using SceneLinkedSMB;
-using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 namespace GodsGame
 {
@@ -62,9 +59,12 @@ namespace GodsGame
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
         protected readonly int _HashDiedPara = Animator.StringToHash("Died");
+        protected readonly int _HashHitPara = Animator.StringToHash("Hit");
         #endregion
 
         #region properties
+        public NavMeshAgent NavMeshAgent { get; private set; }
+        public CapsuleCollider CapsuleCollider { get; private set; }
         public Rigidbody Body { get; private set; }
         public Vector3 CInput { get { return _Input; } }
         public DashSkill DashSkill { get; protected set; }
@@ -76,8 +76,10 @@ namespace GodsGame
         public Damageable Damageable { get; private set; }
         #endregion
 
-        void Start()
+        private void Awake()
         {
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            CapsuleCollider = GetComponent<CapsuleCollider>();
             _DustEffectPool = GetComponent<DustEffectPool>();
             _CharacterController = GetComponent<CharacterController>();
             Body = GetComponent<Rigidbody>();
@@ -87,6 +89,10 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
+        }
+
+        private void Start()
+        {
             SceneLinkedSMB<PlayerBehaviour>.Initialise(_Animator, this);
         }
 
@@ -241,6 +247,7 @@ namespace GodsGame
         {
             return cInput.GetButton(throwItemButton) && _itemHandler.CanThrow();
         }
+
         public void ThrowItem()
         {
             _itemHandler.ThrowItem();
@@ -283,18 +290,15 @@ namespace GodsGame
             transform.rotation = Quaternion.LookRotation(aimDirection);
         }
 
+        public void GetHit(Damager damager, Damageable damageable)
+        {
+            if (damageable.CurrentHealth > 0)
+                _Animator.SetTrigger(_HashHitPara);
+        }
+
         public void Die(Damager damager, Damageable damageable)
         {
             _Animator.SetTrigger(_HashDiedPara);
-            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
-            StartCoroutine(LoadGameOverScene());
-        }
-
-        IEnumerator LoadGameOverScene()
-        {
-            yield return new WaitForSeconds(1.5f);
-            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene("GameOver");
         }
 
         /// <summary>
