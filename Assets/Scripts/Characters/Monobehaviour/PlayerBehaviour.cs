@@ -201,10 +201,10 @@ namespace GodsGame
 
         public void DoStepDust()
         {
-            if (Mathf.Abs(_Input.x) > 0 || Mathf.Abs(_Input.z) > 0)
-                _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
-            else
+            if (CheckForIdle())
                 _DustEffectPool.StopStepDust();
+            else
+                _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
         }
 
         /// <summary>

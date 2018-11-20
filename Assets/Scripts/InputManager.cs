@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         //TODO REMOVE THIS
-        cInput.Clear();
+        //cInput.Clear();
         //----------------
 
         int joystickPluggedNumber = Input.GetJoystickNames().Length;
