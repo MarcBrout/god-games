@@ -15,6 +15,13 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
     public bool OnlyDeactivate;
     public event Action OnDestroy;
 
+    private ParticleSystem m_ParticleSystem;
+
+    private void Start()
+    {
+        m_ParticleSystem = GetComponent<ParticleSystem>();
+    }
+
     void OnEnable()
     {
         StartCoroutine("CheckIfAlive");
@@ -25,7 +32,7 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            if (!this.GetComponent<ParticleSystem>().IsAlive(true))
+            if (!m_ParticleSystem.IsAlive(true))
             {
                 if (OnlyDeactivate)
                 {

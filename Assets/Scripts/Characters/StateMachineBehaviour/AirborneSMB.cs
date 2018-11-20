@@ -9,11 +9,8 @@ namespace GodsGame
     {
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (m_MonoBehaviour)
-            {
                 m_MonoBehaviour.GetInput();
                 m_MonoBehaviour.CheckForGrounded();
-            }
         }
     }
 }
