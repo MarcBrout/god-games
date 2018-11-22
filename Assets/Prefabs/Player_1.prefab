@@ -835,7 +835,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.269, y: 0.327, z: 4.039255}
+  m_LocalPosition: {x: -2.4, y: 1.414, z: -41.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570998775363878}
@@ -1522,7 +1522,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1646,7 +1646,7 @@ Animator:
     animation clip 'JogForwardDiagonal'\n\tFrom animation clip 'Running'\n\tFrom animation
     clip 'JogForwardDiagonal'\n\tFrom animation clip 'LeftStrafe'\n\tFrom animation
     clip 'JogBackwardDiagonal'\n\tFrom animation clip 'JogBackward'\n\tFrom animation
-    clip 'JogBackwardDiagonal'\n\tFrom animation clip 'IdleOffensive'\n\tand more
+    clip 'JogBackwardDiagonal'\n\tFrom animation clip 'IdleWithWeapon'\n\tand more
     ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1669,13 +1669,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c55249dde0b0524cbd823ec01fb7d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemUi: {fileID: 0}
-  itemSocket: {fileID: 0}
+  goItemUi: {fileID: 0}
+  itemSocket: {fileID: 1322316569588220}
 --- !u!114 &114393889906079902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1709,6 +1709,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   usingController: 0
+  useEightDirectionMovement: 0
   verticalAxis: Vertical_P1
   horizontalAxis: Horizontal_P1
   rVerticalAxis: RVertical_P1
@@ -1749,7 +1750,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e6febc08610bea4fb0cf33355e01043, type: 3}
   m_Name: 
@@ -2134,8 +2135,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: -0.37555516, z: 0.046277523}
-    m_Extent: {x: 0.2355164, y: 0.2817404, z: 0.15022871}
+    m_Center: {x: -0.00000023841858, y: -0.37555528, z: 0.046276093}
+    m_Extent: {x: 0.2355164, y: 0.28174034, z: 0.1502268}
   m_DirtyAABB: 0
 --- !u!183 &183230427105291840
 Cloth:
