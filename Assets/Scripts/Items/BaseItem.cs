@@ -1,72 +1,82 @@
-﻿using GodsGame;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class BaseItem : MonoBehaviour {
-
-    public Vector3 pickUpPosition;
-    public Vector3 pickUpRotations;
-    public bool isThrowable = true;
-
-    public float throwForce;
-    public float cooldownDuration;
-    public string TriggerName { get { return _triggerName; } }
-
-    private float _nextReadyTime;
-    private Rigidbody _rb;
-
-    protected string _triggerName;
-
-    public void Start()
+namespace GodsGame
+{
+    [RequireComponent(typeof(Rigidbody))]
+    public abstract class BaseItem : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody>();
-        _triggerName = GetTriggerName();
-    }
+        #region Public Var
+        public Vector3 pickUpPosition;
+        public Vector3 pickUpRotations;
+        public Sprite spriteUI;
+        public CooldownSkill<PlayerBehaviour> skill;
+        #endregion
 
-    public void PickUpItem(GameObject itemSocket) {
-        _rb.isKinematic = true;
-        _rb.detectCollisions = false;
+        #region Private Var
+        #endregion
 
-        transform.SetParent(itemSocket.transform);
-        transform.localPosition = pickUpPosition;
-        transform.localEulerAngles = pickUpRotations;
-    }
+        #region Protected Var
+        protected Rigidbody m_Rigidbody;
+        [SerializeField]
+        protected bool m_IsThrowable = true;
+        protected Collider m_Collider;
+        #endregion
 
-    public void DropItem() {
-        _rb.isKinematic = false;
-        _rb.detectCollisions = true;
-        transform.SetParent(null);
-    }
+        #region Properties
+        public int TriggerAnimatorHash { get; protected set; }
+        public bool IsThrowable { get { return m_IsThrowable; } }
+        #endregion
 
-    public void ThrowItem(Transform direction) {
-        DropItem();
-        _rb.AddForce(direction.forward * throwForce + direction.up * throwForce);
-    }
+        #region Event
+        public UnityEvent OnPickUp;
+        public UnityEvent OnDrop;
+        public UnityEvent OnThrow;
+        #endregion
 
-    public bool UseItem() {
-
-        if (Time.time > _nextReadyTime)
+        private void Start()
         {
-            ExecuteItem();
-            _nextReadyTime = Time.time + cooldownDuration;
-            return true;
+            m_Rigidbody = GetComponent<Rigidbody>();
+            m_Collider = GetComponent<Collider>();
+            CreateSkill();
         }
-        return false;
-    }
 
-    public abstract void ExecuteItem();
-    protected abstract string GetTriggerName();
+        public void PickUpItem(PlayerBehaviour user, GameObject itemSocket)
+        {
+            m_Collider.isTrigger = true;
+            m_Rigidbody.isKinematic = true;
+            m_Rigidbody.detectCollisions = false;
+            transform.SetParent(itemSocket.transform);
+            transform.localPosition = pickUpPosition;
+            transform.localEulerAngles = pickUpRotations;
+            if (skill != null)
+                skill.AssignUser(user);
+            OnPickUp.Invoke();
+        }
 
-    public float GetCooldown() {
+        public void DropItem()
+        {
+            m_Collider.isTrigger = false;
+            m_Rigidbody.isKinematic = false;
+            this.DelayAction(0.1f, () => { m_Rigidbody.detectCollisions = true; });
+            transform.SetParent(null);
+            OnDrop.Invoke();
+        }
 
-        if (_nextReadyTime == 0)
-            return 0;
+        public void ThrowItem(Transform direction, float force)
+        {
+            DropItem();
+            transform.rotation = direction.rotation;
+            m_Rigidbody.AddForce(direction.forward * force + direction.up * force, ForceMode.Impulse);
+            m_Rigidbody.AddRelativeTorque(Vector3.left * force, ForceMode.Impulse);
+            OnThrow.Invoke();
+        }
 
-        return _nextReadyTime - Time.time;
-    }
+        public virtual void UseItem(bool startCooldown = true)
+        {
+            skill.Execute(startCooldown);
+        }
 
-    public bool ItemReady(){
-        return GetCooldown() <= 0;
+        public abstract void CreateSkill();
     }
 }

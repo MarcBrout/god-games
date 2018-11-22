@@ -16,11 +16,8 @@ using System.Collections.Generic;
 
 namespace GodsGame
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : Singleton<AudioManager>
     {
-
-        public static AudioManager Instance;
-
         public AudioMixer masterMixer;
         public AudioMixerGroup masterGroup, musicGroup, sfxGroup;
 
@@ -156,18 +153,8 @@ namespace GodsGame
 
         // ************************ PRIVATE METHODS ************************ //
 
-        private void Awake()
+        protected override void OnAwake()
         {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-
             //Initialize all the sound arrays with their own AudioSource
             InitializeSoundArray(animation, MixerGroup.Music);
             InitializeSoundArray(arena_ambience, MixerGroup.Music);

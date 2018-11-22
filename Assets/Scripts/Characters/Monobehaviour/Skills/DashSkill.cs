@@ -4,22 +4,19 @@ using UnityEngine;
 
 namespace GodsGame
 {
-    public class DashSkill : CooldownSkill
+    public class DashSkill : CooldownSkill<PlayerBehaviour>
     {
-        public PlayerBehaviour player;
-
-        public DashSkill(PlayerBehaviour player) : base(3, 3)
+        public DashSkill(PlayerBehaviour player) : base(player, 3, 3)
         {
-            this.player = player;
         }
 
-        public override void Execute()
+        public override void Execute(bool startCooldown = true)
         {
-            base.Execute();
+            base.Execute(startCooldown);
             //Vector3 dashVelocity = Vector3.Scale(player.CInput.normalized, player.dashDistance *
             //   new Vector3((Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime)));
             //player.Body.AddForce(dashVelocity, ForceMode.VelocityChange);
-            player.SetMoveVector(player.CInput.normalized * player.dashSpeed);
+            m_MonoBehaviour.SetMoveVector(m_MonoBehaviour.CInput.normalized * m_MonoBehaviour.dashSpeed);
         }
 
     }

@@ -24,6 +24,18 @@ public static class ExtensionMethods
         trans.localScale = new Vector3(1, 1, 1);
     }
 
+    public static void DelayAction(this MonoBehaviour monoBehaviour, float delay, Action action)
+    {
+        monoBehaviour.StartCoroutine(DelayEnumerator(delay, action));
+    }
+
+    private static IEnumerator DelayEnumerator(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+        if (action != null)
+            action();
+    }
+
     public static IEnumerator MoveOverSeconds(this Transform objectToMove, Vector3 destination, float seconds)
     {
         float elapsedTime = 0;

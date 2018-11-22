@@ -33,38 +33,40 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         if (instance == null)
         {
             instance = this as T;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
             DestroySelf();
+
+        OnAwake();
     }
 
-//    protected void OnValidate()
-//    {
-//        if (GetType() != typeof(T))
-//        {
-//            Debug.LogError("Singleton<" + typeof(T) + "> has a wrong Type Parameter. " +
-//                "Try Singleton<" + GetType() + "> instead.");
-//#if UNITY_EDITOR
-//            UnityEditor.EditorApplication.delayCall -= DestroySelf;
-//            UnityEditor.EditorApplication.delayCall += DestroySelf;
-//#endif
-//        }
+    //    protected void OnValidate()
+    //    {
+    //        if (GetType() != typeof(T))
+    //        {
+    //            Debug.LogError("Singleton<" + typeof(T) + "> has a wrong Type Parameter. " +
+    //                "Try Singleton<" + GetType() + "> instead.");
+    //#if UNITY_EDITOR
+    //            UnityEditor.EditorApplication.delayCall -= DestroySelf;
+    //            UnityEditor.EditorApplication.delayCall += DestroySelf;
+    //#endif
+    //        }
 
-//        if (instance == null)
-//            instance = this as T;
-//        else if (instance != this)
-//        {
-//            //is a prefab
-//            if (PrefabUtility.GetCorrespondingObjectFromSource(gameObject) == null && PrefabUtility.GetPrefabObject(gameObject) != null)
-//                return;
-//            Debug.LogError("Singleton<" + GetType() + "> already has an instance on scene. Component will be destroyed.");
-//#if UNITY_EDITOR
-//            UnityEditor.EditorApplication.delayCall -= DestroySelf;
-//            UnityEditor.EditorApplication.delayCall += DestroySelf;
-//#endif
-//        }
-//    }
+    //        if (instance == null)
+    //            instance = this as T;
+    //        else if (instance != this)
+    //        {
+    //            //is a prefab
+    //            if (PrefabUtility.GetCorrespondingObjectFromSource(gameObject) == null && PrefabUtility.GetPrefabObject(gameObject) != null)
+    //                return;
+    //            Debug.LogError("Singleton<" + GetType() + "> already has an instance on scene. Component will be destroyed.");
+    //#if UNITY_EDITOR
+    //            UnityEditor.EditorApplication.delayCall -= DestroySelf;
+    //            UnityEditor.EditorApplication.delayCall += DestroySelf;
+    //#endif
+    //        }
+    //    }
 
     private void DestroySelf()
     {
@@ -74,6 +76,8 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
             DestroyImmediate(this);
     }
     #endregion
+
+    protected virtual void OnAwake() { }
 
     protected static T instance;
 }

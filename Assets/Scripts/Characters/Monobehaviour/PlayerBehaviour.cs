@@ -20,6 +20,7 @@ namespace GodsGame
         public float dashSpeed = 5f;
         public LayerMask ground;
         public bool usingController = false;
+        public bool useEightDirectionMovement = false;
 
         [Header("InputNames")]
         public string verticalAxis = "Vertical_P1";
@@ -68,13 +69,13 @@ namespace GodsGame
         public CapsuleCollider CapsuleCollider { get; private set; }
         public Rigidbody Body { get; private set; }
         public Vector3 CInput { get { return _Input; } }
-        public DashSkill DashSkill { get; protected set; }
+        public Damageable Damageable { get; private set; }
         public bool IsGrounded
         {
             get { return _Animator.GetBool(_HashGroundedPara); }
             set { _Animator.SetBool(_HashGroundedPara, value); }
         }
-        public Damageable Damageable { get; private set; }
+        public DashSkill DashSkill { get; protected set; }
         #endregion
 
         private void Awake()
@@ -190,13 +191,19 @@ namespace GodsGame
 
         private void FixedUpdate()
         {
-            TransformInputRelativelyToMouse();
-            _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
-            if (_Input.normalized != _CurrentDirection && CheckForIdle() == false)
+            if (useEightDirectionMovement)
+                TransformInputRelativelyToMouse();
+            else
+            {
+                _Animator.SetFloat(_HashHorizontalSpeedPara, _Input.x);
+                _Animator.SetFloat(_HashVerticalSpeedPara, _Input.z);
+            }
+            if (!useEightDirectionMovement && _Input.normalized != _CurrentDirection && CheckForIdle() == false)
             {
                 _CurrentDirection = _Input.normalized;
                 transform.LookAt(new Vector3(_CurrentDirection.x * 180, _CurrentDirection.y, _CurrentDirection.z * 180));
             }
+            _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
         }
 
         public void DoStepDust()
@@ -266,26 +273,27 @@ namespace GodsGame
         ///
         public bool CheckForUseItemInput()
         {
-            return cInput.GetButton(useItemButton) && _itemHandler.CanUse();
+            return cInput.GetButton(useItemButton) && _itemHandler.CanUseItem();
         }
 
         public void UseItem()
         {
-            if (_itemHandler.UseItem())
-            {
-                _Animator.SetTrigger(_HashUseItemPara);
-                _Animator.SetTrigger(_itemHandler.Item.TriggerName);
-            }
+            //_Animator.SetTrigger(_HashUseItemPara);
+            _Animator.SetTrigger(_itemHandler.Item.TriggerAnimatorHash);
+            _itemHandler.UseItem();
         }
         /// <summary>
         /// Choose the way the layer will rotate according to controls
         /// </summary>
         public void RotateAim()
         {
-            if (!usingController)
-                MouseAim();
-            else
-                RJoystickAim();
+            if (useEightDirectionMovement)
+            {
+                if (!usingController)
+                    MouseAim();
+                else
+                    RJoystickAim();
+            }
         }
 
         /// <summary>

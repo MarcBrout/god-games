@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using SceneLinkedSMB;
 
 namespace GodsGame {
@@ -21,6 +19,7 @@ namespace GodsGame {
         {
             m_MonoBehaviour.CheckForGrounded();
             m_MonoBehaviour.GetInput();
+            m_MonoBehaviour.RotateAim();
             m_MonoBehaviour.GroundedHorizontalMovement(true);
             m_MonoBehaviour.DoStepDust();
             if (m_MonoBehaviour.CheckForIdle())

@@ -12,12 +12,12 @@ namespace GodsGame {
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void onDamage(Damager damager, Damageable damageable)
+        public void OnDamage(Damager damager, Damageable damageable)
         {
             AudioManager.Instance.PlaySfx3D("hit_on_rope", "items_common", ref _audioSource);
         }
 
-        public void onDie(Damager damager, Damageable damageable)
+        public void OnDie(Damager damager, Damageable damageable)
         {
             AudioManager.Instance.PlaySfx3D("rope_break", "items_common", ref _audioSource);
         }
