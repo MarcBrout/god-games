@@ -282,7 +282,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18375490}
-  m_LocalRotation: {x: 0.025960054, y: 0.7044701, z: -0.025801858, w: 0.7087893}
+  m_LocalRotation: {x: 0.025960054, y: 0.7044701, z: -0.025801858, w: 0.2928302}
   m_LocalPosition: {x: 22.5842, y: 2.33, z: -0.16272473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1257,7 +1257,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 125612689}
-  m_LocalRotation: {x: 0.3631727, y: -0.6107665, z: 0.3710272, w: 0.59783673}
+  m_LocalRotation: {x: 0.11452212, y: 0.75933254, z: -0.13907762, w: 0.62526494}
   m_LocalPosition: {x: 24.93471, y: 4.11267, z: -1.0123975}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1498,7 +1498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Zeus : Don''t dare bother me.. FIGHT !!'
+  m_Text: 
 --- !u!222 &200436983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2879,27 +2879,27 @@ Prefab:
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.y
-      value: -0.37555504
+      value: -0.37555528
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.x
-      value: 0
+      value: 0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.z
-      value: 0.046277583
+      value: 0.046277642
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.19495198
+      value: 0.2413664
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.47100127
+      value: 0.32693028
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2908,12 +2908,12 @@ Prefab:
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.44767648
+      value: 0.27845186
       objectReference: {fileID: 0}
     - target: {fileID: 95962241650054918, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
@@ -3387,9 +3387,9 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 1, y: 0, z: 10.352931}
+  - position: {x: 1.8887863, y: 0, z: 14.432403}
     roll: 0
-  - position: {x: -13.414686, y: 0.30106735, z: 5.8516035}
+  - position: {x: -18.108603, y: 0.30106735, z: 6.771411}
     roll: 0
 --- !u!4 &487121019
 Transform:
@@ -3599,7 +3599,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526982299}
-  m_LocalRotation: {x: 0.022517122, y: 0.9774774, z: -0.14670111, w: 0.15003282}
+  m_LocalRotation: {x: 0.035861015, y: 0.94840646, z: -0.116145186, w: 0.2928302}
   m_LocalPosition: {x: -2.6716943, y: -2.670268, z: 3.2472754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3738,27 +3738,27 @@ Prefab:
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.y
-      value: -0.37555552
+      value: -0.37555528
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.x
-      value: -0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Center.z
-      value: 0.046277612
+      value: 0.046277523
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.15351568
+      value: 0.2413664
       objectReference: {fileID: 0}
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.5058355
+      value: 0.32693028
       objectReference: {fileID: 0}
     - target: {fileID: 4044620197981282, guid: c9fa4cf847c1f8045a08e5c1bf51daa4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3767,7 +3767,7 @@ Prefab:
     - target: {fileID: 137719599735341124, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.5027123
+      value: 0.27845186
       objectReference: {fileID: 0}
     - target: {fileID: 95962241650054918, guid: c9fa4cf847c1f8045a08e5c1bf51daa4,
         type: 2}
@@ -5666,7 +5666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 487121018}
-  m_PathPosition: 1
+  m_PathPosition: 0.969348
   m_PositionUnits: 0
   m_PathOffset: {x: 4.41, y: 0.33, z: 0.05}
   m_XDamping: 0
