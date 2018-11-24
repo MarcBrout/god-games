@@ -26,7 +26,6 @@ namespace GodsGame
         {
             if (col.gameObject.tag.Equals("Player"))
             {
-                Debug.Log("Toto");
                 AudioManager.Instance.PlaySfx3D(PLATE_ACTIVATED, PLATE_ARRAY, ref _audioSource);
                 Trigger.AddTriggerCount();
             }
