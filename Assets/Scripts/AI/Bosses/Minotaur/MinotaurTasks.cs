@@ -9,71 +9,101 @@ using UnityEngine.SceneManagement;
 
 namespace GodsGames
 {
+    [Serializable]
+    public class MinotaurPhase
+    {
+        [Header("General configuration")]
+        public float speed;
+        [Header("Durations")]
+        public double maxFocusTimeOnTarget;
+        public double berserkModeMaxDuration;
+        public double lightningCooldown;
+        public double shockWaveCooldown;
+    }
+
     public class MinotaurTasks : MonoBehaviour
     {
-        // REFERENCES
-        public ScoreManager ScoreManager;
-        public GameObject lightningStrike;
-        public Damager chargeTelegraph;
-        public Animator animator;
-        public new Rigidbody rigidbody;
-        public NavMeshAgent agent;
-        public List<GameObject> targets;
+        // Private members
         private GameObject _currentTarget;
 
-        // CONFIGURATION
-        public string targetTag;
-        public float attackRange;
-        public float berserkSpeed;
-        public float chargeSpeed;
-        public float defaultSpeed;
-        public float lightningStrikeDelayBeforeDelete = 3.0f;
-
-        [Header("LightningSkill")]
-        public float ligntningInvokeDelay = 0.5f;
-
-        [Header("ChargeSkill")]
-        public float prepareChargeDuration = 1f;
-        public float chargeDuration = 0.7f;
-        public float PreparePhaseChargeDelay = 0.5f;
-
-        [Header("Phase")]
-        // STATES
-        public bool lightningPhase = false;
-        public bool berserkMode = false;
-        public bool isDead = false;
-
-        public bool _isChargePrepared = false;
-        public bool _isCharging = false;
-
-
         // DURATIONS
-        private TimeSpan _berserkModeMaxDuration = new TimeSpan(0, 0, 10);
-        private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 15);
-        private TimeSpan _chargeCooldown = new TimeSpan(0, 0, 3);
-        private TimeSpan _lightningCooldown = new TimeSpan(0, 0, 3);
-        private float _endPrepareChargeTime;
+        private TimeSpan _berserkModeMaxDuration;
+        private TimeSpan _maxFocusTimeOnTarget;
+        //private TimeSpan _chargeCooldown;
+        private TimeSpan _lightningCooldown;
+        private TimeSpan _shockWaveCooldown;
 
         // DATES
         private DateTime _startFocusTimeOnCurrentTarget;
         private DateTime _berserkModeStartTime;
-        private DateTime _lastChargeTime = DateTime.Now;
+        //private DateTime _lastChargeTime = DateTime.Now;
+        private DateTime _lastShockWaveTime = DateTime.Now;
         private DateTime _lastLightningStrikeTime = DateTime.Now;
+        private float _endPrepareShockWaveTime;
 
         private const string IS_WALKING = "isWalking";
         private const string CHARGING = "charge";
         private const string ATTACKING = "attack";
 
         private bool _isLighningInvoke = false;
-        private Vector3 _chargeTelepgraphInitialPos;
         private PandaBehaviour _bt;
+
+
+        [Header("External references")]
+        public ScoreManager ScoreManager;
+        public GameObject lightningStrike;
+        public Animator animator;
+        public new Rigidbody rigidbody;
+        public NavMeshAgent agent;
+        public List<GameObject> targets;
+        public List<GameObject> _throwableObjects;
+
+        [Header("General configuration")]
+        public string targetTag;
+        public float attackRange;
+        public float berserkSpeed;
+        public float defaultSpeed;
+        public float lightningStrikeDelayBeforeDelete = 3.0f;
+
+        [Header("Phases")]
+        public MinotaurPhase[] _phasesList;
+        public int _startPhase;
+        public int _endPhase;
+        public int _phasesStep;
+        public int _currentPhase;
+
+        [Header("LightningSkill")]
+        public float _ligntningInvokeDelay = 0.5f;
+
+        [Header("ShockWaveSkill")]
+        public float _prepareShockWaveDuration;
+        public float _shockWaveDuration;
+        public float preparePhaseShockWaveDelay;
+
+        //[header("chargeskill")]
+        //public float preparechargeduration = 1f;
+        //public float chargeduration = 0.7f;
+        //public float preparephasechargedelay = 0.5f;
+
+        [Header("States")]
+        public bool lightningPhase;
+        public bool berserkMode;
+        public bool isDead;
+
+        public bool _isShockWavePrepared;
+        //public bool _isChargePrepared = false;
+        public bool _isUsingShockWave;
+        //public bool _isCharging = false;
 
         void Start()
         {
+            ResetStates();
             _bt = gameObject.GetComponent<PandaBehaviour>();
             if (targets.Count == 0)
                 targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(targetTag));
-            _chargeTelepgraphInitialPos = chargeTelegraph.transform.localPosition;
+
+            _currentPhase = _startPhase;
+            ActivatePhase();
         }
 
         private void Update()
@@ -87,8 +117,14 @@ namespace GodsGames
 
         void ResetStates()
         {
-            _isCharging = false;
+            lightningPhase = false;
             berserkMode = false;
+            isDead = false;
+
+            _isShockWavePrepared = false;
+            //public bool _isChargePrepared = false;
+            _isUsingShockWave = false;
+            //public bool _isCharging = false;
         }
 
         float GetDistFromCurrentTarget()
@@ -96,6 +132,35 @@ namespace GodsGames
             if (_currentTarget == null)
                 return -1;
             return (_currentTarget.transform.position - transform.position).sqrMagnitude;
+        }
+
+        void UpdateGameDurations(MinotaurPhase phase)
+        {
+            _berserkModeMaxDuration = TimeSpan.FromSeconds(phase.berserkModeMaxDuration);
+            _maxFocusTimeOnTarget = TimeSpan.FromSeconds(phase.maxFocusTimeOnTarget);
+            _lightningCooldown = TimeSpan.FromSeconds(phase.lightningCooldown);
+            _shockWaveCooldown = TimeSpan.FromSeconds(phase.shockWaveCooldown);
+        }
+
+        void UpdateGameConfiguration(MinotaurPhase phase)
+        {
+            defaultSpeed = phase.speed;
+        }
+
+        void ActivatePhase()
+        {
+            MinotaurPhase phase = _phasesList[_currentPhase];
+
+            UpdateGameDurations(phase);
+            UpdateGameConfiguration(phase);
+        }
+
+        void GoToNextPhase()
+        {
+            _currentPhase += _phasesStep;
+            if (_currentPhase >= _phasesList.Length || _currentPhase > _endPhase)
+                _currentPhase = _endPhase > _phasesList.Length - 1 ? _phasesList.Length - 1 : _endPhase;
+            ActivatePhase();
         }
 
         /**
@@ -184,7 +249,7 @@ namespace GodsGames
             if (!_isLighningInvoke)
             {
                 _isLighningInvoke = true;
-                InvokeRepeating("InvokeLightning", 0, ligntningInvokeDelay);
+                InvokeRepeating("InvokeLightning", 0, _ligntningInvokeDelay);
             }
             Task.current.Succeed();
         }
@@ -215,7 +280,6 @@ namespace GodsGames
                     targetToAim = lastValidTarget;
                 }
             }
-            Debug.Log(targetToAim);
             Rigidbody rb = targetToAim.GetComponent<Rigidbody>();
             Vector3 position = targetToAim.transform.position + rb.velocity * Time.deltaTime;
             Quaternion rotation = targetToAim.transform.rotation;
@@ -257,22 +321,21 @@ namespace GodsGames
         }
 
         /**
-         * CHARGE
+         * SHOCK WAVE
          **/
 
         [Task]
-        public bool IsPreparingCharge()
+        public bool IsPreparingShockWave()
         {
-            return  Time.time < _endPrepareChargeTime;
+            return  Time.time < _endPrepareShockWaveTime;
         }
 
         [Task]
-        public void PrepareCharge()
+        public void PrepareShockWave()
         { 
             agent.isStopped = true;
-            _endPrepareChargeTime = Time.time + prepareChargeDuration;
-            chargeTelegraph.gameObject.SetActive(true);
-            _isChargePrepared = true;
+            _endPrepareShockWaveTime = Time.time + _prepareShockWaveDuration;
+            _isShockWavePrepared = true;
             Task.current.Succeed();
         }
 
@@ -284,43 +347,54 @@ namespace GodsGames
         }
       
         [Task]
-        public void WaitChargeDuration()
+        public void WaitShockWaveDuration()
         {
-            _bt.Wait(chargeDuration);
+            _bt.Wait(_shockWaveDuration);
         }
 
         [Task]
-        public void WaitDelayBetweenPreparePhaseAndCharge()
+        public void WaitDelayBetweenPreparePhaseAndShockWave()
         {
-            _bt.Wait(PreparePhaseChargeDelay, false);
+            _bt.Wait(preparePhaseShockWaveDelay, false);
         }
 
         [Task]
-        public void Charge()
+        public void ShockWave()
         {
-            if (!_isCharging)
+            if (!_isUsingShockWave)
             {
-                animator.SetTrigger(CHARGING);
-                _isCharging = true;
-                chargeTelegraph.transform.SetParent(null);
-                chargeTelegraph.Collider.enabled = true;
-                _lastChargeTime = DateTime.Now;
-                StartCoroutine(ChargeCoroutine());
+                animator.SetTrigger(CHARGING); // TODO: SHOCKWAVE
+                _isUsingShockWave = true;
+                _lastShockWaveTime = DateTime.Now;
+                StartCoroutine(ShockWaveCoroutine());
             }
             Task.current.Succeed();
         }
 
-        private IEnumerator ChargeCoroutine()
+        private IEnumerator ShockWaveCoroutine()
         {
-            yield return StartCoroutine(transform.MoveOverSeconds(chargeTelegraph.transform.GetChild(0).position, chargeDuration));
-            chargeTelegraph.Collider.enabled = false;
-            chargeTelegraph.gameObject.SetActive(false);
-            chargeTelegraph.transform.SetParent(transform);
-            chargeTelegraph.transform.localPosition = _chargeTelepgraphInitialPos;
+            Vector3 heading = _currentTarget.transform.position - transform.position;
+            float distance = heading.magnitude;
+            Vector3 basePosition = transform.position;
+            Vector3 direction = heading / distance;
+            basePosition.y = 0;
+            direction.y = 0;
+
+            float i = 0;
+            while (i < distance)
+            {
+                Vector3 initialPosition = basePosition + direction * i;
+                initialPosition.y = 0;
+                GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
+                Destroy(boulder, 0.5f);
+                yield return new WaitForSeconds(0.01f);
+                i += 1;
+            }
             agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
             agent.isStopped = false;
-            _isCharging = false;
-            _isChargePrepared = false;
+            _isUsingShockWave = false;
+            _isShockWavePrepared = false;
+            yield return new WaitForSeconds(1);
         }
 
         /**
@@ -360,7 +434,7 @@ namespace GodsGames
         [Task]
         public bool CanAttackTarget()
         {
-            return GetDistFromCurrentTarget() <= attackRange && !_isChargePrepared && !_isCharging;
+            return GetDistFromCurrentTarget() <= attackRange && !_isShockWavePrepared && !_isUsingShockWave;
         }
 
         [Task]
@@ -408,6 +482,7 @@ namespace GodsGames
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
+            GoToNextPhase();
             if (!lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
                 lightningPhase = true;
             InternalActivateBerserkMode();
@@ -419,7 +494,6 @@ namespace GodsGames
             PlayerPrefs.SetInt("lvl1", (int)Time.timeSinceLevelLoad);
             ScoreManager.AddScore(1, Time.timeSinceLevelLoad);
             StartCoroutine(LoadLevelCompleteScene());
-
         }
 
         IEnumerator LoadLevelCompleteScene()
@@ -427,7 +501,5 @@ namespace GodsGames
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene("LevelComplete");
         }
-
-
     }
 }
