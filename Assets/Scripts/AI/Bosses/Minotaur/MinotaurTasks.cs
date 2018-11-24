@@ -376,7 +376,7 @@ namespace GodsGames
                 initialPosition.y = 0;
                 GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
                 Destroy(boulder, 0.5f);
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.1f);
                 i += 1;
             }
             agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
