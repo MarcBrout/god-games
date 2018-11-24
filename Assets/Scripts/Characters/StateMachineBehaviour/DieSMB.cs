@@ -18,12 +18,14 @@ namespace GodsGame
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             //bullet time
+            m_MonoBehaviour.PlayerDeath();
+            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
+            m_MonoBehaviour.StartCoroutine(LoadGameOverScene());
         }
 
         public override void OnSLStatePreExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
-            m_MonoBehaviour.StartCoroutine(LoadGameOverScene());
+
         }
    
         IEnumerator LoadGameOverScene()
