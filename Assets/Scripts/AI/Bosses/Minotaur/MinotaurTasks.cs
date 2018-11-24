@@ -29,14 +29,12 @@ namespace GodsGames
         // DURATIONS
         private TimeSpan _berserkModeMaxDuration;
         private TimeSpan _maxFocusTimeOnTarget;
-        //private TimeSpan _chargeCooldown;
         private TimeSpan _lightningCooldown;
         private TimeSpan _shockWaveCooldown;
 
         // DATES
         private DateTime _startFocusTimeOnCurrentTarget;
         private DateTime _berserkModeStartTime;
-        //private DateTime _lastChargeTime = DateTime.Now;
         private DateTime _lastShockWaveTime = DateTime.Now;
         private DateTime _lastLightningStrikeTime = DateTime.Now;
         private float _endPrepareShockWaveTime;
@@ -80,20 +78,13 @@ namespace GodsGames
         public float _shockWaveDuration;
         public float preparePhaseShockWaveDelay;
 
-        //[header("chargeskill")]
-        //public float preparechargeduration = 1f;
-        //public float chargeduration = 0.7f;
-        //public float preparephasechargedelay = 0.5f;
-
         [Header("States")]
         public bool lightningPhase;
         public bool berserkMode;
         public bool isDead;
 
         public bool _isShockWavePrepared;
-        //public bool _isChargePrepared = false;
         public bool _isUsingShockWave;
-        //public bool _isCharging = false;
 
         void Start()
         {
@@ -122,9 +113,7 @@ namespace GodsGames
             isDead = false;
 
             _isShockWavePrepared = false;
-            //public bool _isChargePrepared = false;
             _isUsingShockWave = false;
-            //public bool _isCharging = false;
         }
 
         float GetDistFromCurrentTarget()
