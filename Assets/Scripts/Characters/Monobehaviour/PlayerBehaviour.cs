@@ -47,6 +47,8 @@ namespace GodsGame
         private ItemHandler _itemHandler;
         private DustEffectPool _DustEffectPool;
         private CharacterController _CharacterController;
+        private ParticleSystem _HitBlood;
+        private GameObject _DeathEffect;
         #endregion
 
         #region protected var
@@ -92,6 +94,8 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = new DashSkill(this);
             _itemHandler = GetComponent<ItemHandler>();
+            _HitBlood = transform.Find("CFX_Hit_Blood").GetComponent<ParticleSystem>();
+            _DeathEffect = transform.Find("CFX_Death_Blood").gameObject;
         }
 
         private void Start()
@@ -140,6 +144,16 @@ namespace GodsGame
             float accelerationV = useInput && input.z != 0 ? groundAcceleration : groundDeceleration;
             m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeedH, accelerationH * Time.deltaTime);
             m_MoveVector.z = Mathf.MoveTowards(m_MoveVector.z, desiredSpeedV, accelerationV * Time.deltaTime);
+        }
+
+        public void PlayerHit()
+        {
+            _HitBlood.Play();
+        }
+
+        public void PlayerDeath()
+        {
+            _DeathEffect.SetActive(true);
         }
 
         // Public functions - called mostly by StateMachineBehaviours in the character's Animator Controller but also by Events.
