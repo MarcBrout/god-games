@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1804416962919472
 GameObject:
   m_ObjectHideFlags: 1
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   autoReset: 1
   tickOn: 0
   sourceInfos:
-  - isFoldout: 1
+  - isFoldout: 0
     breakPoints: 
     breakPointStatuses: 
     collapsedLines: 
@@ -1153,6 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1762845196618634}
+  _AxeSlash: {fileID: 0}
 --- !u!114 &114481080226363590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1264,26 +1265,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningStrike: {fileID: 1668918890356982, guid: 7c05e75fada60c24d9804f034587ab94,
     type: 2}
-  chargeTelegraph: {fileID: 114018578632625478}
   animator: {fileID: 95816946098904696}
   rigidbody: {fileID: 54224634209889356}
   agent: {fileID: 195839722439017702}
   targets: []
+  _throwableObjects: []
   targetTag: Player
   attackRange: 15
   berserkSpeed: 10
-  chargeSpeed: 20
   defaultSpeed: 8
   lightningStrikeDelayBeforeDelete: 3
-  ligntningInvokeDelay: 1
-  prepareChargeDuration: 2
-  chargeDuration: 0.7
-  PreparePhaseChargeDelay: 0.5
+  _phasesList: []
+  _startPhase: 0
+  _endPhase: 0
+  _phasesStep: 0
+  _currentPhase: 0
+  _ligntningInvokeDelay: 0.5
+  _prepareShockWaveDuration: 0
+  _shockWaveDuration: 0
+  preparePhaseShockWaveDelay: 0
   lightningPhase: 0
   berserkMode: 0
   isDead: 0
-  _isChargePrepared: 0
-  _isCharging: 0
+  _isShockWavePrepared: 0
+  _isUsingShockWave: 0
 --- !u!119 &119180042374905238
 Projector:
   m_ObjectHideFlags: 1

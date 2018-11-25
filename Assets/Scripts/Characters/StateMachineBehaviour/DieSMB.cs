@@ -19,6 +19,9 @@ namespace GodsGame
         {
             GameManager.Instance.StatsManager.AddDeathCountFor(animator.name);
             //bullet time
+            m_MonoBehaviour.PlayerDeath();
+            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
+            m_MonoBehaviour.StartCoroutine(LoadGameOverScene());
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -28,8 +31,7 @@ namespace GodsGame
 
         public override void OnSLStatePreExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            AudioManager.Instance.PlaySfx("arena_battle_lost", "arena_events");
-            m_MonoBehaviour.StartCoroutine(LoadGameOverScene());
+
         }
    
         IEnumerator LoadGameOverScene()

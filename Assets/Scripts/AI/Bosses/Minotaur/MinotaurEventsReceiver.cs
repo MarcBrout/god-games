@@ -6,10 +6,12 @@ namespace GodsGame
     public class MinotaurEventsReceiver : MonoBehaviour
     {
         public GameObject head;
+        public ParticleSystem _AxeSlash;
 
         private AudioSource _audio;
         private int axeWindCount = 0;
         private Collider _axeCollider;
+       
 
         void Start()
         {
@@ -20,6 +22,11 @@ namespace GodsGame
         public void AxeWind()
         {
             //Debug.Log("minotaur_event_axewind");
+
+            if (_AxeSlash)
+            {
+                _AxeSlash.Play();
+            }
 
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
 

@@ -11,6 +11,7 @@ namespace GodsGame
             m_MonoBehaviour.Damageable.EnableInvulnerability(true);
             GameManager.Instance.StatsManager.AddHitCountFor(animator.name);
             Debug.Log("INVU");
+            m_MonoBehaviour.PlayerHit();
         }
 
         public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

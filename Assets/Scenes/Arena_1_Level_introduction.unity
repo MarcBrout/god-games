@@ -357,7 +357,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 29.64891
+  field of view: 13.21577
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -1653,6 +1653,16 @@ Prefab:
       propertyPath: activables.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4228080816537828, guid: b1085bbdd867a824f93688af32a54bad, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.73
@@ -1710,6 +1720,58 @@ Prefab:
         type: 2}
       propertyPath: disableAfterEnter
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 108584470}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: fac07442d0a11644cbf1ea2fcddd45d5,
+        type: 3}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: fac07442d0a11644cbf1ea2fcddd45d5,
+        type: 3}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637371867354346, guid: b1085bbdd867a824f93688af32a54bad,
+        type: 2}
+      propertyPath: TriggerExitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114033231848525650, guid: b1085bbdd867a824f93688af32a54bad, type: 2}
@@ -1778,6 +1840,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4228080816537828, guid: b1085bbdd867a824f93688af32a54bad,
     type: 2}
   m_PrefabInternal: {fileID: 108584464}
+--- !u!114 &108584470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114516681648869564, guid: b1085bbdd867a824f93688af32a54bad,
+    type: 2}
+  m_PrefabInternal: {fileID: 108584464}
+  m_Script: {fileID: 11500000, guid: 5ee2d17d32335bc428a136ab04cc03a2, type: 3}
 --- !u!1 &108629574
 GameObject:
   m_ObjectHideFlags: 3
@@ -4837,7 +4905,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 29.64891
+    FieldOfView: 13.21577
     OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -7035,6 +7103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8446272b00e8bc44bb2edf8a09940e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberTrigger: 2
 --- !u!1001 &1125213666
 Prefab:
   m_ObjectHideFlags: 0
