@@ -74,7 +74,7 @@ namespace GodsGame
 
         public virtual void UseItem(bool startCooldown = true)
         {
-            skill.Execute(startCooldown);
+            skill.StartExecute(startCooldown);
         }
 
         public abstract void CreateSkill();

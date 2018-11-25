@@ -11,17 +11,19 @@ namespace GodsGame
             m_MonoBehaviour.Damageable.EnableInvulnerability(true);
             m_MonoBehaviour.GetInput();
             m_MonoBehaviour.RotateAim(m_MonoBehaviour.CInput);
-            m_MonoBehaviour.Dash();
+            m_MonoBehaviour.DashSkill.StartExecute();
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_MonoBehaviour.CheckForGrounded();
+            m_MonoBehaviour.DashSkill.UpdateExecute();
         }
 
         public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_MonoBehaviour.Damageable.DisableInvulnerability();
+            m_MonoBehaviour.DashSkill.EndExecute();
         }
     }
 }

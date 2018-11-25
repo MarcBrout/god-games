@@ -5,10 +5,12 @@ namespace GodsGame
 {
     public interface ISkillStrategy
     {
-        void Execute(bool startCooldown);
+        void StartExecute(bool startCooldown);
+        void UpdateExecute();
+        void EndExecute();
     }
 
-    public abstract class CooldownSkill<TMonoBehaviour> : ISkillStrategy 
+    public abstract class CooldownSkill<TMonoBehaviour> : MonoBehaviour, ISkillStrategy
         where TMonoBehaviour : MonoBehaviour
     {
         #region Protected Variables
@@ -16,22 +18,25 @@ namespace GodsGame
         #endregion
 
         #region Public Variables
+        [SerializeField]
+        [Tooltip("Cooldown of the abillity in seconds")]
+        private float m_Cooldown;
+        [SerializeField]
+        [Tooltip("Number of charged of the abillity")]
+        private int m_MaxChargeNumber;
         public event Action OnExecute;
         #endregion
 
         #region Properties
         public CooldownSystem CooldownSystem { get; protected set; }
+        public float Cooldown { get { return m_Cooldown; } protected set { m_Cooldown = value; } }
+        public int MaxChargeNumber { get { return m_MaxChargeNumber; } protected set { m_MaxChargeNumber = value; } }
         #endregion
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="cooldown"></param>
-        /// <param name="maxChargeNumber"></param>
-        public CooldownSkill(TMonoBehaviour monoBehaviour, float cooldown = 3, int maxChargeNumber = 1)
+        private void Start()
         {
-            CooldownSystem = new CooldownSystem(cooldown, maxChargeNumber);
-            m_MonoBehaviour = monoBehaviour;
+            m_MonoBehaviour = GetComponent<TMonoBehaviour>();
+            CooldownSystem = new CooldownSystem(m_Cooldown, m_MaxChargeNumber);
         }
 
         public void AssignUser(TMonoBehaviour monoBehaviour)
@@ -52,14 +57,17 @@ namespace GodsGame
         /// <summary>
         /// Implement the skill in this function
         /// </summary>
-        public virtual void Execute(bool startCooldown = true)
+        public virtual void StartExecute(bool startCooldown = true)
         {
             if (OnExecute != null)
                 OnExecute();
             CooldownSystem.RemoveCharge();
             if (startCooldown && !CooldownSystem.IsOnCooldown() && m_MonoBehaviour != null)
-               m_MonoBehaviour.StartCoroutine(CooldownSystem.StartCooldown());
+                m_MonoBehaviour.StartCoroutine(CooldownSystem.StartCooldown());
         }
+
+        public virtual void UpdateExecute() { }
+        public virtual void EndExecute() { }
 
         /// <summary>
         /// The skill need to have at least one charge to be able to use it

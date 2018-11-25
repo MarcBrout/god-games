@@ -6,18 +6,26 @@ namespace GodsGame
 {
     public class DashSkill : CooldownSkill<PlayerBehaviour>
     {
-        public DashSkill(PlayerBehaviour player) : base(player, 3, 3)
+        public float dashSpeed = 5f;
+        [Tooltip("The time in seconds at which max speed is reached.")]
+        public float maxSpeedReachIn = 1f;
+        public AnimationCurve curve;
+
+        private float m_Duration;
+
+        public override void StartExecute(bool startCooldown = true)
         {
+            base.StartExecute(startCooldown);
+            m_Duration = 0;
+             //Add start dash effect
         }
 
-        public override void Execute(bool startCooldown = true)
+        public override void UpdateExecute()
         {
-            base.Execute(startCooldown);
-            //Vector3 dashVelocity = Vector3.Scale(player.CInput.normalized, player.dashDistance *
-            //   new Vector3((Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * player.Body.drag + 1)) / -Time.deltaTime)));
-            //player.Body.AddForce(dashVelocity, ForceMode.VelocityChange);
-            m_MonoBehaviour.SetMoveVector(m_MonoBehaviour.CInput.normalized * m_MonoBehaviour.dashSpeed);
+            m_Duration += Time.deltaTime;
+            Debug.Log(m_MonoBehaviour.CInput.normalized * dashSpeed * curve.Evaluate(m_Duration / maxSpeedReachIn));
+            m_MonoBehaviour.SetMoveVector(m_MonoBehaviour.CInput.normalized * dashSpeed * curve.Evaluate(m_Duration / maxSpeedReachIn));
         }
-
+       
     }
 }

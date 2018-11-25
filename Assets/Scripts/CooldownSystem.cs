@@ -7,6 +7,7 @@ namespace GodsGame
     public class CooldownSystem
     {
         #region Public Variables
+        //used in CooldownSkillUI
         public event Action OnRemoveCharge;
         #endregion
 

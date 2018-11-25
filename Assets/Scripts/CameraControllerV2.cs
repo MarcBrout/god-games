@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using Cinemachine;
 
@@ -8,7 +6,9 @@ public class CameraControllerV2 : MonoBehaviour
 {
 
     public new CinemachineVirtualCamera camera;
-    public List<Transform> targets;
+    public bool findTarget = true;
+    public string targetTag = "Player";
+    public GameObject[] targets;
     public Vector3 offset;
     public float smoothTime = 0.3f;
 
@@ -19,9 +19,14 @@ public class CameraControllerV2 : MonoBehaviour
     private Vector3 velocity;
     private Bounds bounds;
 
+    private void Start()
+    {
+        targets = GameObject.FindGameObjectsWithTag(targetTag);
+    }
+
     private void LateUpdate()
     {
-        if (targets.Count <= 0)
+        if (targets.Length <= 0)
             throw new Exception("There is no targets");
         Move();
         Zoom();
@@ -48,17 +53,17 @@ public class CameraControllerV2 : MonoBehaviour
 
     Vector3 GetCenterPoint()
     {
-        if (targets.Count == 1)
-            return targets[0].position;
+        if (targets.Length == 1)
+            return targets[0].transform.position;
         return bounds.center;
     }
 
     Bounds GetBounds()
     {
-        Bounds bounds = new Bounds(targets[0].position, Vector3.zero);
-        for (int i = 0; i < targets.Count; ++i)
+        Bounds bounds = new Bounds(targets[0].transform.position, Vector3.zero);
+        for (int i = 0; i < targets.Length; ++i)
         {
-            bounds.Encapsulate(targets[i].position);
+            bounds.Encapsulate(targets[i].transform.position);
         }
         return bounds;
     }

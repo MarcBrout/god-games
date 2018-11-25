@@ -8,9 +8,9 @@ namespace GodsGame
         {
         }
 
-        public override void Execute(bool startCooldown)
+        public override void StartExecute(bool startCooldown)
         {
-            base.Execute(startCooldown);
+            base.StartExecute(startCooldown);
             Debug.Log("Sword Slash Effect : WOW");
         }
     }

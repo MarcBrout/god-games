@@ -17,7 +17,6 @@ namespace GodsGame
         public float groundDeceleration = 100f;
         public float jumpHeight = 2f;
         public float groundDistance = 0.2f;
-        public float dashSpeed = 5f;
         public LayerMask ground;
         public bool usingController = false;
         public bool useEightDirectionMovement = false;
@@ -92,10 +91,10 @@ namespace GodsGame
             _Camera = Camera.main;
             _Animator = GetComponent<Animator>();
             Damageable = GetComponent<Damageable>();
-            DashSkill = new DashSkill(this);
+            DashSkill = GetComponent<DashSkill>();
             _itemHandler = GetComponent<ItemHandler>();
-            _HitBlood = transform.Find("CFX_Hit_Blood").GetComponent<ParticleSystem>();
-            _DeathEffect = transform.Find("CFX_Death_Blood").gameObject;
+            //_HitBlood = transform.Find("CFX_Hit_Blood").GetComponent<ParticleSystem>();
+            //_DeathEffect = transform.Find("CFX_Death_Blood").gameObject;
         }
 
         private void Start()
@@ -140,7 +139,7 @@ namespace GodsGame
             Vector3 input = _Input.normalized;
             float desiredSpeedH = useInput ? input.x * moveSpeed * speedScale : 0f;
             float desiredSpeedV = useInput ? input.z * moveSpeed * speedScale : 0f;
-            float accelerationH = useInput && input.z != 0 ? groundAcceleration : groundDeceleration;
+            float accelerationH = useInput && input.x != 0 ? groundAcceleration : groundDeceleration;
             float accelerationV = useInput && input.z != 0 ? groundAcceleration : groundDeceleration;
             m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeedH, accelerationH * Time.deltaTime);
             m_MoveVector.z = Mathf.MoveTowards(m_MoveVector.z, desiredSpeedV, accelerationV * Time.deltaTime);
@@ -220,13 +219,16 @@ namespace GodsGame
             _CharacterController.Move(m_MoveVector * Time.fixedDeltaTime);
         }
 
-        public void DoStepDust()
+        public void StartStepDust()
         {
-            if (CheckForIdle())
-                _DustEffectPool.StopStepDust();
-            else
-                _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
+            _DustEffectPool.StartStepDust(dustEffectRepeatDelay);
         }
+
+        public void StopStepDust()
+        {
+            _DustEffectPool.StopStepDust();
+        }
+
 
         /// <summary>
         /// Check for jump input 
@@ -260,11 +262,6 @@ namespace GodsGame
         public void TransitionToDash()
         {
             _Animator.SetTrigger(_HashDashPara);
-        }
-
-        public void Dash()
-        {
-            DashSkill.Execute();
         }
 
         /// <summary>

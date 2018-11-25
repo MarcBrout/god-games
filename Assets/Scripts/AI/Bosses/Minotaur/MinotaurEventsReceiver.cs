@@ -84,12 +84,12 @@ namespace GodsGame
 
         public void ActivateAxe()
         {
-            //_axeCollider.enabled = true;
+            _axeCollider.enabled = true;
         }
 
         public void DeactivateAxe()
         {
-            //_axeCollider.enabled = false;
+            _axeCollider.enabled = false;
         }
     }
 }
