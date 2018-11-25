@@ -3,6 +3,9 @@ using UnityEditor;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
+    //set this to false in the OnAwakeEarly function if you want to destroy the object on load
+    protected bool dontDestroyOnLoad = true;
+
     #region  Properties
     /// <summary>
     /// Returns the instance of this singleton.
@@ -27,18 +30,18 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     #region Methods
     protected void Awake()
     {
+        OnAwakeEarly();
         if (GetType() != typeof(T))
             DestroySelf();
 
         if (instance == null)
         {
             instance = this as T;
-            if (transform.parent == null)
+            if (transform.parent == null && dontDestroyOnLoad)
                 DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
             DestroySelf();
-
         OnAwake();
     }
 
@@ -78,6 +81,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     }
     #endregion
 
+    protected virtual void OnAwakeEarly() { }
     protected virtual void OnAwake() { }
 
     protected static T instance;

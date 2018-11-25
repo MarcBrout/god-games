@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace GodsGame
@@ -9,6 +8,8 @@ namespace GodsGame
         public Material enabledTrapMaterial;
         public Material disabledTrapMaterial;
         public GameObject ringParent;
+        public new Collider collider;
+
         private List<GameObject> trapRings;
         private Animator _spikesAnimator;
 
@@ -28,9 +29,14 @@ namespace GodsGame
             _spikesAnimator.SetTrigger("Activate");
         }
 
-        public void DeactivateTrap()
+        public void EnableCollider()
         {
-            //_spikesAnimator.SetBool("isActivated", false);
+            collider.enabled = true;
+        }
+
+        public void DisableCollider()
+        {
+            collider.enabled = false;
         }
 
         public void ShowDisabledColor()

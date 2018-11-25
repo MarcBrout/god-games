@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,18 +25,12 @@ namespace GodsGame
         private string PLATE_RESET = "PRESSURE_PLATE_RESET";
         private string PLATE_INACTIVE = "PRESSURE_PLATE_INACTIVE";
 
-        // Use this for initialization
         void Start()
         {
             pressurPlateAnimator = GetComponent<Animator>();
-
             trapScript = trapScriptGameObject.GetComponent<ITrapInterface>();
             if (trapScript == null)
-            {
                 throw new Exception("Missing Trapinterface on the Trap Script Gameobject");
-
-            }
-
             isEnable = true;
             ShowEnabledColor();
             audioSource = GetComponent<AudioSource>();
@@ -72,12 +65,8 @@ namespace GodsGame
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "Boss")
             {
                 pressurPlateAnimator.SetBool("playerEntered", false);
-                trapScript.DeactivateTrap();
-
                 if (trapManager == null)
-                {
                     EnableTrap();
-                }
             }
         }
 
@@ -85,11 +74,8 @@ namespace GodsGame
         {
             isEnable = false;
             pressurPlateAnimator.SetBool("isEnable", false);
-
             if (trapManager != null)
-            {
                 trapManager.disableTrap(trapmanagerId);
-            }
         }
 
         public void EnableTrap()
@@ -101,13 +87,16 @@ namespace GodsGame
             trapScript.ShowEnableColor();
         }
 
-        public void ShowDisabledColor() {
-            foreach (GameObject obj in coloredTrapParts) {
+        public void ShowDisabledColor()
+        {
+            foreach (GameObject obj in coloredTrapParts)
+            {
                 obj.GetComponent<Renderer>().material = disabledTrapmaterial;
             }
         }
 
-        public void ShowEnabledColor() {
+        public void ShowEnabledColor()
+        {
             foreach (GameObject obj in coloredTrapParts)
             {
                 obj.GetComponent<Renderer>().material = enabledTrapMaterial;

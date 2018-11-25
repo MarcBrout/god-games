@@ -7,25 +7,25 @@ namespace GodsGame
 {
     public class SpectatorManagerSMB : SceneLinkedSMB<SpectatorBehaviour>
     {
-        private Dictionary<SpectatorBehaviour.STATES, int> m_states = new Dictionary<SpectatorBehaviour.STATES, int>();
         private float m_OffsetStart;
-        
+        private Dictionary<SpectatorBehaviour.STATES, int> m_AnimationsPerState = new Dictionary<SpectatorBehaviour.STATES, int>();
+
         public override void OnStart(Animator animator)
         {
+            m_OffsetStart = Random.Range(0f, 100f);
             AnimatorController ac = animator.runtimeAnimatorController as AnimatorController;
             AnimatorStateMachine sm = ac.layers[0].stateMachine;
             ChildAnimatorStateMachine[] subStateMachines = sm.stateMachines;
             for (int i = 0; i < subStateMachines.Length; ++i)
             {
                 AnimatorStateMachine subStateMachine = subStateMachines[i].stateMachine;
-                m_states.Add(subStateMachine.name.ToEnum(SpectatorBehaviour.STATES.NULL), subStateMachine.states.Length);
+                m_AnimationsPerState.Add(subStateMachine.name.ToEnum(SpectatorBehaviour.STATES.NULL), subStateMachine.states.Length);
             }
-            m_OffsetStart = Random.Range(0f, 100f);
         }
 
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-                GoToNextState();
+            GoToNextState();
         }
 
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -39,7 +39,7 @@ namespace GodsGame
         private void GoToNextState()
         {
             SpectatorBehaviour.STATES nextState = m_MonoBehaviour.ChooseNextState();
-            int animIndex = Random.Range(0, m_states[nextState]);
+            int animIndex = Random.Range(0, m_AnimationsPerState[nextState]);
             m_MonoBehaviour.TransitionToNextState(nextState, animIndex);
         }
     }

@@ -17,7 +17,13 @@ namespace GodsGame
 
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            GameManager.Instance.StatsManager.AddDeathCountFor(animator.name);
             //bullet time
+        }
+
+        public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            m_MonoBehaviour.GroundedHorizontalMovement(false);
         }
 
         public override void OnSLStatePreExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

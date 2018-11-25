@@ -7,6 +7,7 @@ namespace GodsGame
     {
         public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            GameManager.Instance.StatsManager.AddDodgeCountFor(animator.name);
             m_MonoBehaviour.Damageable.EnableInvulnerability(true);
             m_MonoBehaviour.GetInput();
             m_MonoBehaviour.RotateAim(m_MonoBehaviour.CInput);

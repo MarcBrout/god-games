@@ -282,6 +282,7 @@ namespace GodsGame
             _Animator.SetTrigger(_itemHandler.Item.TriggerAnimatorHash);
             _itemHandler.UseItem();
         }
+
         /// <summary>
         /// Choose the way the layer will rotate according to controls
         /// </summary>

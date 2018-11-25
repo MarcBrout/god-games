@@ -119,14 +119,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4829392602573070}
   - component: {fileID: 136525757735737336}
+  - component: {fileID: 54224634209889356}
   - component: {fileID: 195839722439017702}
   - component: {fileID: 114087464100469822}
   - component: {fileID: 114740191837820852}
   - component: {fileID: 114717001326575118}
   - component: {fileID: 114481080226363590}
-  - component: {fileID: 54224634209889356}
   m_Layer: 11
-  m_Name: Minotaur_copy
+  m_Name: Minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1804416962919472
 GameObject:
   m_ObjectHideFlags: 1
@@ -287,7 +287,7 @@ Transform:
   - {fileID: 4774416264992946}
   m_Father: {fileID: 4433262331314052}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -2.85585, y: -5.7863526, z: 0.3005954}
+  m_LocalEulerAnglesHint: {x: -6.8977904, y: 3.2987862, z: -0.42980698}
 --- !u!4 &4258551440398962
 Transform:
   m_ObjectHideFlags: 1
@@ -328,7 +328,7 @@ Transform:
   - {fileID: 4119989092831816}
   m_Father: {fileID: 4635902566867238}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -86.1716, y: 42.72719, z: -42.79556}
+  m_LocalEulerAnglesHint: {x: -85.77279, y: 72.021385, z: -72.001366}
 --- !u!4 &4576944055654390
 Transform:
   m_ObjectHideFlags: 1
@@ -342,7 +342,7 @@ Transform:
   - {fileID: 4816279205321590}
   m_Father: {fileID: 4635902566867238}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -85.43939, y: -149.00986, z: 156.21684}
+  m_LocalEulerAnglesHint: {x: 14.181276, y: -0.16297817, z: -127.78204}
 --- !u!4 &4598727981715574
 Transform:
   m_ObjectHideFlags: 1
@@ -425,7 +425,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4576944055654390}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 8.64552, y: 11.222449, z: -125.420494}
+  m_LocalEulerAnglesHint: {x: 10.149268, y: 12.03973, z: -122.806175}
 --- !u!4 &4823634399378874
 Transform:
   m_ObjectHideFlags: 1
@@ -438,15 +438,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4635902566867238}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -72.90709, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -48.960743, y: 53.334694, z: -146.12456}
 --- !u!4 &4829392602573070
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
-  m_LocalRotation: {x: -0, y: -0.997697, z: -0, w: 0.06782858}
-  m_LocalPosition: {x: -0.45, y: 1.98, z: 1.04}
+  m_LocalRotation: {x: 0, y: -0.72052705, z: 0, w: 0.6934268}
+  m_LocalPosition: {x: 24.060099, y: 1.76, z: -0.45124593}
   m_LocalScale: {x: 1.25, y: 1.75, z: 1.25}
   m_Children:
   - {fileID: 4598727981715574}
@@ -907,13 +907,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 300
+  m_Drag: 3
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &65659187900665772
 BoxCollider:
@@ -923,10 +923,10 @@ BoxCollider:
   m_GameObject: {fileID: 1764344473370958}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.40420708, y: 3.3009105, z: 1.574103}
-  m_Center: {x: 0.0017096844, y: -0.037272017, z: 1.648914}
+  m_Size: {x: 2.5, y: 3.5, z: 4}
+  m_Center: {x: -0.029979993, y: 0.09055927, z: 1.05}
 --- !u!65 &65944649256125822
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -950,7 +950,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.306
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 1
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -1117,6 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9994057cfede04aa2ff6e65327345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger: 1
   damage: 1
   enableDelayActivationOnStart: 0
   activationDelay: 0.1
@@ -1178,7 +1180,8 @@ MonoBehaviour:
   invulnerableAfterDamage: 0
   invulnerabilityDuration: 0
   disableOnDeath: 0
-  centreOffset: {x: 0, y: 1}
+  disableAfterMilliseconds: 1000
+  centerOffset: {x: 0, y: 0}
   OnHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -1209,6 +1212,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114481080226363590}
+        m_MethodName: OnTakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnTakeDamageBt:
@@ -1218,7 +1232,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114740191837820852}
+        m_MethodName: OnDieBoss
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: GodsGame.Damageable+DamageEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnGainHealth:
@@ -1226,7 +1251,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GodsGame.Damageable+HealEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  m_CurrentHealth: 0
 --- !u!114 &114740191837820852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1246,13 +1270,13 @@ MonoBehaviour:
   agent: {fileID: 195839722439017702}
   targets: []
   targetTag: Player
-  attackRange: 10
-  berserkSpeed: 12
+  attackRange: 15
+  berserkSpeed: 10
   chargeSpeed: 20
   defaultSpeed: 8
   lightningStrikeDelayBeforeDelete: 3
   ligntningInvokeDelay: 1
-  prepareChargeDuration: 1
+  prepareChargeDuration: 2
   chargeDuration: 0.7
   PreparePhaseChargeDelay: 0.5
   lightningPhase: 0
@@ -1285,12 +1309,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596982817000298}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5306849
-  m_Height: 1.7952349
+  m_Radius: 0.36854416
+  m_Height: 1.604342
   m_Direction: 1
-  m_Center: {x: 0.045552727, y: -0.11670161, z: 0.13101701}
+  m_Center: {x: 0.04555273, y: -0.2121484, z: -0.031123733}
 --- !u!195 &195839722439017702
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -1300,12 +1324,12 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 8
   m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 300
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2

@@ -1,5 +1,4 @@
 ﻿using SceneLinkedSMB;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -77,8 +76,8 @@ namespace GodsGame
             int cheer = idle + state.CheerPercent;
             int disaproval = cheer + state.Disaproval;
             int playerHitten = disaproval + state.PlayerHitten;
-
             int me = Random.Range(0, 100);
+
             if (me >= idle && me < cheer)
                 return STATES.CHEER;
             else if (me >= cheer && me < disaproval)
@@ -88,7 +87,7 @@ namespace GodsGame
             return STATES.IDLE;
         }
 
-        public void TransitionToNextState(STATES state, int animIndex)
+        public void TransitionToNextState(STATES state, int animIndex = 0)
         {
             switch (state)
             {
@@ -106,7 +105,7 @@ namespace GodsGame
                     break;
             }
         }
-           
+
         public void GotToIdle(int animIndex = 0)
         {
             m_Animator.SetTrigger(m_HashIdlePara);

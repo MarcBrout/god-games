@@ -379,8 +379,10 @@ GameObject:
   - component: {fileID: 195961092474380108}
   - component: {fileID: 114883435673255656}
   - component: {fileID: 114317740641803532}
+  - component: {fileID: 114241613367412050}
+  - component: {fileID: 82330778388977268}
   m_Layer: 9
-  m_Name: Player_1_adv
+  m_Name: Player_backup
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,8 +624,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4054181752936886}
-  - component: {fileID: 82887772000940272}
-  - component: {fileID: 114780231869986636}
   m_Layer: 9
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -1522,20 +1522,20 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!82 &82887772000940272
+--- !u!82 &82330778388977268
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1739619757538760}
+  m_GameObject: {fileID: 1460723872798476}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1663,19 +1663,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &114241613367412050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460723872798476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2cc0f244f49274cba5bfc59d4f2618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 1352302651424074}
 --- !u!114 &114317740641803532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c55249dde0b0524cbd823ec01fb7d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemUi: {fileID: 0}
-  itemSocket: {fileID: 0}
+  goItemUi: {fileID: 0}
+  itemSocket: {fileID: 1322316569588220}
 --- !u!114 &114393889906079902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1709,6 +1721,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   usingController: 0
+  useEightDirectionMovement: 0
   verticalAxis: Vertical_P1
   horizontalAxis: Horizontal_P1
   rVerticalAxis: RVertical_P1
@@ -1730,26 +1743,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 1
---- !u!114 &114780231869986636
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1739619757538760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2cc0f244f49274cba5bfc59d4f2618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1352302651424074}
-  crowdManager: {fileID: 0}
 --- !u!114 &114780348900313158
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e6febc08610bea4fb0cf33355e01043, type: 3}
   m_Name: 
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114241613367412050}
         m_MethodName: HitSound
         m_Mode: 0
         m_Arguments:
@@ -1778,7 +1778,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 0}
         m_MethodName: deprecate
         m_Mode: 1
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114241613367412050}
         m_MethodName: DeathSound
         m_Mode: 0
         m_Arguments:
@@ -1821,7 +1821,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 114538881039525506}
         m_MethodName: Die
         m_Mode: 0
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1543338227380590, guid: d60fa0d9af6ef50448e72ad8101197f7, type: 2}
-  initialPoolCount: 7
+  initialPoolCount: 20
 --- !u!136 &136056726719484300
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1860,7 +1860,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680208506982300}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.13
   m_Height: 0.55
@@ -1873,7 +1873,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1255125942712606}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.13
   m_Height: 0.55
@@ -1886,7 +1886,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441380186458452}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.16
   m_Height: 0.4

@@ -52,18 +52,18 @@ namespace GodsGame
             DisableInvulnerability();
         }
 
-        void Update()
-        {
-            if (m_Invulnerable)
-            {
-                m_InulnerabilityTimer -= Time.deltaTime;
+        //void Update()
+        //{
+        //    if (m_Invulnerable)
+        //    {
+        //        m_InulnerabilityTimer -= Time.deltaTime;
 
-                if (m_InulnerabilityTimer <= 0f)
-                {
-                    m_Invulnerable = false;
-                }
-            }
-        }
+        //        if (m_InulnerabilityTimer <= 0f)
+        //        {
+        //            m_Invulnerable = false;
+        //        }
+        //    }
+        //}
 
         public void EnableInvulnerability(bool ignoreTimer = false)
         {
@@ -84,6 +84,7 @@ namespace GodsGame
 
         public void TakeDamage(Damager damager, bool ignoreInvincible = false)
         {
+            Debug.Log("Take damage incicible " + m_Invulnerable + " ignore " + ignoreInvincible + " currentHeath " + m_CurrentHealth);
             if ((m_Invulnerable && !ignoreInvincible) || m_CurrentHealth <= 0)
                 return;
 
@@ -95,7 +96,7 @@ namespace GodsGame
                 OnHealthSet.Invoke(this);
             }
 
-            m_DamageDirection = transform.position + (Vector3)centerOffset - damager.transform.position;
+            //m_DamageDirection = transform.position + (Vector3)centerOffset - damager.transform.position;
             OnTakeDamage.Invoke(damager, this);
             OnTakeDamageBt.Invoke(damager, this);
 
@@ -113,19 +114,15 @@ namespace GodsGame
         public void GainHealth(int amount)
         {
             m_CurrentHealth += amount;
-
             if (m_CurrentHealth > startingHealth)
                 m_CurrentHealth = startingHealth;
-
             OnHealthSet.Invoke(this);
-
             OnGainHealth.Invoke(amount, this);
         }
 
         public void SetHealth(int amount)
         {
             m_CurrentHealth = amount;
-
             OnHealthSet.Invoke(this);
         }
 
