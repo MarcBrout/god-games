@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using VikingCrewTools.UI;
+﻿using UnityEngine;
 using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 namespace GodsGame
@@ -9,10 +6,12 @@ namespace GodsGame
     public class MinotaurEventsReceiver : MonoBehaviour
     {
         public GameObject head;
+        public ParticleSystem _AxeSlash;
 
         private AudioSource _audio;
         private int axeWindCount = 0;
         private Collider _axeCollider;
+       
 
         void Start()
         {
@@ -20,14 +19,14 @@ namespace GodsGame
             _axeCollider = GetComponentInChildren<Collider>();
         }
 
-        void Update()
-        {
-
-        }
-
         public void AxeWind()
         {
-            Debug.Log("minotaur_event_axewind");
+            //Debug.Log("minotaur_event_axewind");
+
+            if (_AxeSlash)
+            {
+                _AxeSlash.Play();
+            }
 
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
 
@@ -85,12 +84,12 @@ namespace GodsGame
 
         public void ActivateAxe()
         {
-            _axeCollider.enabled = true;
+            //_axeCollider.enabled = true;
         }
 
         public void DeactivateAxe()
         {
-            _axeCollider.enabled = false;
+            //_axeCollider.enabled = false;
         }
     }
 }

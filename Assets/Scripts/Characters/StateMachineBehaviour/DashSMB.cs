@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using SceneLinkedSMB;
 
 namespace GodsGame
@@ -9,8 +7,10 @@ namespace GodsGame
     {
         public override void OnSLStatePostEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_MonoBehaviour.Damageable.EnableInvulnerability();
+            GameManager.Instance.StatsManager.AddDodgeCountFor(animator.name);
+            m_MonoBehaviour.Damageable.EnableInvulnerability(true);
             m_MonoBehaviour.GetInput();
+            m_MonoBehaviour.RotateAim(m_MonoBehaviour.CInput);
             m_MonoBehaviour.Dash();
         }
 

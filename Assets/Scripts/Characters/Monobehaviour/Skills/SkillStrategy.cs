@@ -1,21 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 namespace GodsGame
 {
     public interface ISkillStrategy
     {
-        void Execute();
+        void Execute(bool startCooldown);
     }
 
-    public abstract class CooldownSkill : ISkillStrategy
+    public abstract class CooldownSkill<TMonoBehaviour> : ISkillStrategy 
+        where TMonoBehaviour : MonoBehaviour
     {
         #region Protected Variables
-        protected float cooldown = 3f;
-        protected int maxChargeNumber = 1;
-        protected int currentChargeNumber = 1;
+        protected TMonoBehaviour m_MonoBehaviour;
         #endregion
 
         #region Public Variables
@@ -23,10 +20,7 @@ namespace GodsGame
         #endregion
 
         #region Properties
-        public float Cooldown { get { return cooldown; } }
-        public int CurrentChargeNumber { get { return currentChargeNumber; } }
-        public float CurrentCooldownValue { get; protected set; }
-        public float CooldownEndTime { get; protected set; }
+        public CooldownSystem CooldownSystem { get; protected set; }
         #endregion
 
         /// <summary>
@@ -34,21 +28,37 @@ namespace GodsGame
         /// </summary>
         /// <param name="cooldown"></param>
         /// <param name="maxChargeNumber"></param>
-        public CooldownSkill(float cooldown, int maxChargeNumber)
+        public CooldownSkill(TMonoBehaviour monoBehaviour, float cooldown = 3, int maxChargeNumber = 1)
         {
-            this.cooldown = cooldown;
-            this.maxChargeNumber = maxChargeNumber;
-            this.currentChargeNumber = maxChargeNumber;
+            CooldownSystem = new CooldownSystem(cooldown, maxChargeNumber);
+            m_MonoBehaviour = monoBehaviour;
+        }
+
+        public void AssignUser(TMonoBehaviour monoBehaviour)
+        {
+            m_MonoBehaviour = monoBehaviour;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="cooldown"></param>
+        /// <param name="maxChargeNumber"></param>
+        public CooldownSkill(float cooldown = 3, int maxChargeNumber = 1)
+        {
+            CooldownSystem = new CooldownSystem(cooldown, maxChargeNumber);
         }
 
         /// <summary>
         /// Implement the skill in this function
         /// </summary>
-        public virtual void Execute()
+        public virtual void Execute(bool startCooldown = true)
         {
             if (OnExecute != null)
                 OnExecute();
-            currentChargeNumber -= 1;
+            CooldownSystem.RemoveCharge();
+            if (startCooldown && !CooldownSystem.IsOnCooldown() && m_MonoBehaviour != null)
+               m_MonoBehaviour.StartCoroutine(CooldownSystem.StartCooldown());
         }
 
         /// <summary>
@@ -57,72 +67,7 @@ namespace GodsGame
         /// <returns></returns>
         public virtual bool CanUse()
         {
-            return currentChargeNumber > 0;
-        }
-
-        /// <summary>
-        /// Check if the skill charge are full
-        /// </summary>
-        /// <returns></returns>
-        public bool IsFullyCharged()
-        {
-            return currentChargeNumber >= maxChargeNumber;
-        }
-
-        /// <summary>
-        /// Increment the skill charge by one
-        /// </summary>
-        public void AddCharge()
-        {
-            currentChargeNumber += 1;
-            if (currentChargeNumber > maxChargeNumber)
-                currentChargeNumber = maxChargeNumber;
-        }
-
-        /// <summary>
-        /// Call this function when you use the skill to set the cooldown
-        /// </summary>
-        public void InitCooldown()
-        {
-            CooldownEndTime = Time.time + cooldown;
-            CurrentCooldownValue = 0;
-        }
-
-        /// <summary>
-        /// Call this function to set the currentCooldownValue compared to the global cooldown the value is between 0 and 1
-        /// </summary>
-        public void SetCurrentCooldownValue()
-        {
-            CurrentCooldownValue = 1 - ((CooldownEndTime - Time.time) / cooldown);
-        }
-
-        /// <summary>
-        /// Reset the cooldownValue
-        /// </summary>
-        public void EndCooldown()
-        {
-            CurrentCooldownValue = 0;
-        }
-
-        /// <summary>
-        /// Basic implementation of the cooldown mechanics
-        /// You can use the function of the class to implement your own
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator StartCooldown()
-        {
-            while (!IsFullyCharged())
-            {
-                InitCooldown();
-                while (Time.time < CooldownEndTime)
-                {
-                    SetCurrentCooldownValue();
-                    yield return new WaitForEndOfFrame();
-                }
-                AddCharge();
-                yield return null;
-            }
-            EndCooldown();
+            return CooldownSystem.HasCharge();
         }
     }
 }

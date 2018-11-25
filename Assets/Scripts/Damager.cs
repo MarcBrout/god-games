@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.Events;
 
 namespace GodsGame
@@ -19,7 +18,6 @@ namespace GodsGame
         //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
         public Collider LastHit { get { return m_LastHit; } }
         public bool trigger = true;
-        public bool m_CanDamage = true;
         public int damage = 1;
         public bool enableDelayActivationOnStart = false;
         public float activationDelay = 0.1f;
@@ -33,7 +31,8 @@ namespace GodsGame
         public LayerMask hittableLayers;
         public DamagableEvent OnDamageableHit;
         public NonDamagableEvent OnNonDamageableHit;
-        public Collider Collider {
+        public Collider Collider
+        {
             get
             {
                 return m_Collider;
@@ -46,6 +45,7 @@ namespace GodsGame
         protected Collider m_LastHit;
         protected float m_TriggerEnterAt;
         protected float m_TriggerStayElapseTime;
+        protected bool m_CanDamage = true;
 
         void Awake()
         {
@@ -65,10 +65,10 @@ namespace GodsGame
             if (enableDelayActivationOnStart)
             {
                 m_Collider.enabled = false;
-                StartCoroutine(ActivateAfter(activationDelay));
+                this.DelayAction(activationDelay, () => { m_Collider.enabled = true; });
             }
             if (enableDelayDeactivationOnStart)
-                StartCoroutine(DisableAfter(deactivationDelay));
+                this.DelayAction(deactivationDelay, DisableObject);
         }
 
         public void EnableDamage()
@@ -104,6 +104,8 @@ namespace GodsGame
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Trigger " + other.name);
+
             if (!m_CanDamage)
                 return;
             if (trigger && hittableLayers.Contain(other.gameObject.layer))
@@ -111,13 +113,14 @@ namespace GodsGame
                 m_LastHit = other;
                 ApplyDamage();
             }
-
         }
 
         private void OnTriggerStay(Collider other)
         {
             if (trigger && m_CanDamage && damageOverTime && m_TriggerEnterAt + damageOverTimeTick <= Time.time)
+            {
                 ApplyDamage();
+            }
         }
 
         private void ApplyDamage()
@@ -125,7 +128,7 @@ namespace GodsGame
             m_TriggerEnterAt = Time.time;
             Damageable damageable = null;
             if (m_LastHit)
-                 damageable = m_LastHit.GetComponent<Damageable>();
+                damageable = m_LastHit.GetComponent<Damageable>();
             if (damageable)
             {
                 OnDamageableHit.Invoke(this, damageable);
@@ -137,18 +140,6 @@ namespace GodsGame
             {
                 OnNonDamageableHit.Invoke(this);
             }
-        }
-
-        public IEnumerator ActivateAfter(float seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-            m_Collider.enabled = true;
-        }
-
-        public IEnumerator DisableAfter(float seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-            DisableObject();
         }
     }
 }

@@ -7,18 +7,15 @@
  */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using Random = System.Random;
 
 namespace GodsGame
 {
     public enum EnumAction
     {
-        CROWD_BOOH,
-        CROWD_OOH,
+        CROWD_DISAPROVAL,
+        CROWD_PLAYER_HITTEN,
         MINOTAUR_AXEWIND,
         MINOTAUR_DIES,
         MINOTAUR_DURINGFIGHT,
@@ -46,7 +43,6 @@ namespace GodsGame
 
     public static class Speech
     {
-
         public static string GetSpeech(EnumAction a, EnumLevel l)
         {
             List<string> speech = new List<string>();

@@ -33,17 +33,17 @@ tree "__BerserkMode__"
 		repeat 3
 			sequence
 				fallback
-					IsPreparingCharge
-					PrepareCharge
+					IsPreparingShockWave
+					PrepareShockWave
 				fallback
-					while IsPreparingCharge
+					while IsPreparingShockWave
 						repeat
 							sequence
 								HasCurrentTarget
 								AimAtTarget
-					WaitDelayBetweenPreparePhaseAndCharge
-					Charge
-					WaitChargeDuration
+					WaitDelayBetweenPreparePhaseAndShockWave
+					ShockWave
+					WaitShockWaveDuration
 					Success
 				Wait 1.0
 				Success

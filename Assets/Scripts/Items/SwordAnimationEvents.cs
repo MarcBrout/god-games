@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GodsGame
 {
-
     public class SwordAnimationEvents : MonoBehaviour
     {
-        public Damager _damager;
+        public Damager damager;
 
         public void ActivateSword()
         {
-            _damager.EnableDamage();
+            damager.EnableDamage();
         }
 
         public void DeactivateSword()
         {
-            _damager.DisableDamage();
+            damager.DisableDamage();
         }
 
     }

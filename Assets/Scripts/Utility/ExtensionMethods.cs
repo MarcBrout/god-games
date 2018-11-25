@@ -24,6 +24,26 @@ public static class ExtensionMethods
         trans.localScale = new Vector3(1, 1, 1);
     }
 
+    public static List<Transform> GetChildren(this Transform transform)
+    {
+        List<Transform> children = new List<Transform>();
+        for (int i = 0; i < transform.childCount; ++i)
+            children.Add(transform.GetChild(i));
+        return children;
+    }
+
+    public static void DelayAction(this MonoBehaviour monoBehaviour, float delay, Action action)
+    {
+        monoBehaviour.StartCoroutine(DelayEnumerator(delay, action));
+    }
+
+    private static IEnumerator DelayEnumerator(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+        if (action != null)
+            action();
+    }
+
     public static IEnumerator MoveOverSeconds(this Transform objectToMove, Vector3 destination, float seconds)
     {
         float elapsedTime = 0;
@@ -69,9 +89,38 @@ public static class ExtensionMethods
     {
         object retval = GetPropValue(obj, name);
         if (retval == null) { return default(T); }
-
         // throws InvalidCastException if types are incompatible
         return (T)retval;
+    }
+
+    public static bool ApproximatelyByValue(this Vector3 me, Vector3 other, float allowedDifference)
+    {
+        var dx = me.x - other.x;
+        if (Mathf.Abs(dx) > allowedDifference)
+            return false;
+
+        var dy = me.y - other.y;
+        if (Mathf.Abs(dy) > allowedDifference)
+            return false;
+
+        var dz = me.z - other.z;
+
+        return Mathf.Abs(dz) >= allowedDifference;
+    }
+
+    public static bool ApproximatelyByPercentage(this Vector3 me, Vector3 other, float percentage)
+    {
+        var dx = me.x - other.x;
+        if (Mathf.Abs(dx) > me.x * percentage)
+            return false;
+
+        var dy = me.y - other.y;
+        if (Mathf.Abs(dy) > me.y * percentage)
+            return false;
+
+        var dz = me.z - other.z;
+
+        return Mathf.Abs(dz) >= me.z * percentage;
     }
 }
 
@@ -81,5 +130,22 @@ public static class StringExt
     {
         if (string.IsNullOrEmpty(value)) { return value; }
         return value.Substring(0, Math.Min(value.Length, maxLength));
+    }
+
+    public static TEnum ToEnum<TEnum>(this string strEnumValue, TEnum defaultValue)
+    {
+        if (!Enum.IsDefined(typeof(TEnum), strEnumValue))
+            return defaultValue;
+
+        return (TEnum)Enum.Parse(typeof(TEnum), strEnumValue);
+    }
+}
+
+public static class List
+{
+    public static void AddIfNotNull<T>(this List<T> list, T item) where T : class
+    {
+        if (item != null)
+            list.Add(item);
     }
 }

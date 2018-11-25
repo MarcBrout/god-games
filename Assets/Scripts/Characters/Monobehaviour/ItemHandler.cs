@@ -1,62 +1,81 @@
-﻿using GodsGame;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemHandler: MonoBehaviour {
-
-    public GameObject itemUi;
-    public GameObject itemSocket;
-    public BaseItem Item { get { return _equippedItem; } }
-    private bool _isEquiped = false;
-    private BaseItem _equippedItem;
-
-    public ItemHandler(GameObject itemSocket) {
-        this.itemSocket = itemSocket;
-
-    }
-
-    public void OnCollisionEnter(Collision col)
+namespace GodsGame
+{
+    [RequireComponent(typeof(PlayerBehaviour))]
+    public class ItemHandler : MonoBehaviour
     {
-        if (col.transform.tag == "Item" && !_isEquiped) {
+        #region Public Var
+        public GameObject goItemUi;
+        public GameObject itemSocket;
+        #endregion
 
-            _equippedItem = col.transform.GetComponent<BaseItem>();
-            _equippedItem.PickUpItem(itemSocket);
+        #region Private Var
+        private Image m_ItemUIImage;
+        private CooldownSkillUI m_CooldownSkillUI;
+        private PlayerBehaviour player;
+        #endregion
 
-            _isEquiped = true;
+        #region Properties
+        public BaseItem Item { get; private set; }
+        #endregion
 
+        public ItemHandler(GameObject itemSocket)
+        {
+            this.itemSocket = itemSocket;
+        }
 
-            if (itemUi != null)
+        private void Start()
+        {
+            player = GetComponent<PlayerBehaviour>();
+            if (goItemUi != null)
             {
-                itemUi.GetComponent<Image>().sprite = _equippedItem.GetComponent<Image>().sprite;
-                itemUi.SetActive(true);
+                m_ItemUIImage = goItemUi.GetComponent<Image>();
+                m_CooldownSkillUI = goItemUi.GetComponent<CooldownSkillUI>();
             }
         }
-    }
 
-    public bool CanThrow() {
-        return _isEquiped && _equippedItem.isThrowable; ;
-    }
-
-    public void ThrowItem() {
-        _equippedItem.ThrowItem(transform);
-        _isEquiped = false;
-
-        if (itemUi != null) {
-            itemUi.SetActive(false);
+        public void OnCollisionEnter(Collision col)
+        {
+            if (col.transform.tag == "Item" && !IsItemEquiped())
+            {
+                Item = col.transform.GetComponent<BaseItem>();
+                Item.PickUpItem(player, itemSocket);
+                if (m_ItemUIImage)
+                    m_ItemUIImage.sprite = Item.spriteUI;
+                if (m_CooldownSkillUI)
+                    m_CooldownSkillUI.CooldownSystem = Item.skill.CooldownSystem;
+            }
         }
-    }
 
-    public bool CanUse() {
-        return _isEquiped;
-    }
-
-    public bool UseItem() {
-
-        if (_equippedItem.ItemReady()) {
-            return _equippedItem.UseItem(); 
+        public bool CanThrow()
+        {
+            return IsItemEquiped() && Item.IsThrowable;
         }
-        return false;
+
+        public void ThrowItem()
+        {
+            Item.ThrowItem(transform, 30);
+            Item = null;
+            if (m_ItemUIImage)
+                m_ItemUIImage.sprite = null;
+        }
+
+        public bool IsItemEquiped()
+        {
+            return Item;
+        }
+
+        public bool CanUseItem()
+        {
+            return IsItemEquiped() && Item.skill.CanUse();
+        }
+
+        public void UseItem()
+        {
+            Item.UseItem();
+        }
     }
 }
+

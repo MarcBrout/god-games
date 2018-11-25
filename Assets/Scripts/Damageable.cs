@@ -3,10 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
-
 namespace GodsGame
 {
-    public class Damageable : MonoBehaviour/*, IDataPersister*/
+    public class Damageable : MonoBehaviour
     {
         [Serializable]
         public class HealthEvent : UnityEvent<Damageable>
@@ -24,9 +23,10 @@ namespace GodsGame
         public bool invulnerableAfterDamage = true;
         public float invulnerabilityDuration = 3f;
         public bool disableOnDeath = false;
+        [Tooltip("Disable delay after death")]
         public float disableAfterMilliseconds = 1000f;
         [Tooltip("An offset from the object position used to set from where the distance to the damager is computed")]
-        public Vector2 centreOffset = new Vector2(0f, 1f);
+        public Vector2 centerOffset = new Vector2(0f, 0f);
         public HealthEvent OnHealthSet;
         public DamageEvent OnTakeDamage;
         public DamageEvent OnTakeDamageBt;
@@ -47,31 +47,23 @@ namespace GodsGame
 
         void OnEnable()
         {
-            //PersistentDataManager.RegisterPersister(this);
             m_CurrentHealth = startingHealth;
-
             OnHealthSet.Invoke(this);
-
             DisableInvulnerability();
         }
 
-        void OnDisable()
-        {
-            //PersistentDataManager.UnregisterPersister(this);
-        }
+        //void Update()
+        //{
+        //    if (m_Invulnerable)
+        //    {
+        //        m_InulnerabilityTimer -= Time.deltaTime;
 
-        void Update()
-        {
-            if (m_Invulnerable)
-            {
-                m_InulnerabilityTimer -= Time.deltaTime;
-
-                if (m_InulnerabilityTimer <= 0f)
-                {
-                    m_Invulnerable = false;
-                }
-            }
-        }
+        //        if (m_InulnerabilityTimer <= 0f)
+        //        {
+        //            m_Invulnerable = false;
+        //        }
+        //    }
+        //}
 
         public void EnableInvulnerability(bool ignoreTimer = false)
         {
@@ -92,6 +84,7 @@ namespace GodsGame
 
         public void TakeDamage(Damager damager, bool ignoreInvincible = false)
         {
+            Debug.Log("Take damage incicible " + m_Invulnerable + " ignore " + ignoreInvincible + " currentHeath " + m_CurrentHealth);
             if ((m_Invulnerable && !ignoreInvincible) || m_CurrentHealth <= 0)
                 return;
 
@@ -103,7 +96,7 @@ namespace GodsGame
                 OnHealthSet.Invoke(this);
             }
 
-            m_DamageDirection = transform.position + (Vector3)centreOffset - damager.transform.position;
+            //m_DamageDirection = transform.position + (Vector3)centerOffset - damager.transform.position;
             OnTakeDamage.Invoke(damager, this);
             OnTakeDamageBt.Invoke(damager, this);
 
@@ -121,19 +114,15 @@ namespace GodsGame
         public void GainHealth(int amount)
         {
             m_CurrentHealth += amount;
-
             if (m_CurrentHealth > startingHealth)
                 m_CurrentHealth = startingHealth;
-
             OnHealthSet.Invoke(this);
-
             OnGainHealth.Invoke(amount, this);
         }
 
         public void SetHealth(int amount)
         {
             m_CurrentHealth = amount;
-
             OnHealthSet.Invoke(this);
         }
 
@@ -142,30 +131,5 @@ namespace GodsGame
             yield return new WaitForSeconds(milliseconds / 1000f);
             gameObject.SetActive(false);
         }
-
-        //public DataSettings GetDataSettings()
-        //{
-        //    return dataSettings;
-        //}
-
-        //public void SetDataSettings(string dataTag, DataSettings.PersistenceType persistenceType)
-        //{
-        //    dataSettings.dataTag = dataTag;
-        //    dataSettings.persistenceType = persistenceType;
-        //}
-
-        //public Data SaveData()
-        //{
-        //    return new Data<int, bool>(CurrentHealth, m_ResetHealthOnSceneReload);
-        //}
-
-        //public void LoadData(Data data)
-        //{
-        //    Data<int, bool> healthData = (Data<int, bool>)data;
-        //    m_CurrentHealth = healthData.value1 ? startingHealth : healthData.value0;
-        //    OnHealthSet.Invoke(this);
-        //}
-
-
     }
 }

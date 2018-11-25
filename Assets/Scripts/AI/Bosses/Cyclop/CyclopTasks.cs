@@ -11,7 +11,6 @@ namespace GodsGames
 {
     public class CyclopTasks : MonoBehaviour
     {
-        public ScoreManager ScoreManager;
         [Header("General configuration")]
         public GameObject[] _throwableObjects;
         public string _targetTag;
@@ -394,8 +393,6 @@ namespace GodsGames
                 }
             _audioSource.Play();
             StartCoroutine(LoadLevelCompleteScene());
-            if (ScoreManager)
-                ScoreManager.AddScore(2, Time.timeSinceLevelLoad);
         }
 
         IEnumerator LoadLevelCompleteScene()
