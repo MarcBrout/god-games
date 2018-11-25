@@ -15,7 +15,7 @@ public class LaunchAnimationOnTrigger : MonoBehaviour {
         if (_triggerCount >= NumberTrigger)
         {
             _triggerCount = 0;
-            SceneManager.LoadScene(4, LoadSceneMode.Additive);
+            SceneManager.LoadScene(4, LoadSceneMode.Single);
         }
     }
 
