@@ -8311,7 +8311,12 @@ Prefab:
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4829392602573070, guid: daf5245c519171f48812ada7947a723a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -8356,12 +8361,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
-      propertyPath: _phasesList.Array.data[0].speed
-      value: 5
+      propertyPath: _endPhase
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
-      propertyPath: _phasesList.Array.data[1].speed
+      propertyPath: _phasesStep
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[0].speed
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
@@ -8372,7 +8382,12 @@ Prefab:
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.data[0].berserkModeMaxDuration
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[0].lightningCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
@@ -8381,33 +8396,141 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
-      propertyPath: _phasesList.Array.data[0].lightningCooldown
-      value: 4
+      propertyPath: _phasesList.Array.data[1].speed
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.data[1].maxFocusTimeOnTarget
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.data[1].berserkModeMaxDuration
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.data[1].lightningCooldown
-      value: 2
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
       propertyPath: _phasesList.Array.data[1].shockWaveCooldown
-      value: 2
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
         type: 2}
-      propertyPath: _endPhase
-      value: 2
+      propertyPath: _phasesList.Array.data[2].speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[2].maxFocusTimeOnTarget
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[2].berserkModeMaxDuration
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[2].lightningCooldown
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _phasesList.Array.data[2].shockWaveCooldown
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _prepareShockWaveDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _shockWaveDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: preparePhaseShockWaveDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1647722632740386, guid: 9d930cc2d7715054aa2cfb7d6ced110d,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1852381954761858, guid: a37857fcf93f10c4891ef4191458f7be,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1067461744138900, guid: 6ce992d11cca5e240872e3e8b0a3ecac,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1142258018413406, guid: 1780909d7b0f09543819206f2ec59ed4,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1261039211643878, guid: 3c7a7878865da95478a831fac2f327e0,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1819332970991996, guid: 7d13b00e78480b5488a2b0e025a2867b,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 1698730211051746, guid: edeaced484ce4bb46b0d62e798b445e2,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _throwableObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 1739693995549972, guid: 1e3b28d6d0a918d46898cede7097f799,
+        type: 2}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _shockWaveRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _preparePhaseShockWaveDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _shockWaveDelayBetweenTwoRocks
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _shockWaveRockLifeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740191837820852, guid: daf5245c519171f48812ada7947a723a,
+        type: 2}
+      propertyPath: _shockWaveRockMaxHeight
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5245c519171f48812ada7947a723a, type: 2}
