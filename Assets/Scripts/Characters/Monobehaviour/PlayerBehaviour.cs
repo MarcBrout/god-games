@@ -93,8 +93,8 @@ namespace GodsGame
             Damageable = GetComponent<Damageable>();
             DashSkill = GetComponent<DashSkill>();
             _itemHandler = GetComponent<ItemHandler>();
-            //_HitBlood = transform.Find("CFX_Hit_Blood").GetComponent<ParticleSystem>();
-            //_DeathEffect = transform.Find("CFX_Death_Blood").gameObject;
+            _HitBlood = transform.Find("CFX_Hit_Blood").GetComponent<ParticleSystem>();
+            _DeathEffect = transform.Find("CFX_Death_Blood").gameObject;
         }
 
         private void Start()
