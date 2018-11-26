@@ -73,10 +73,15 @@ namespace GodsGames
         public float _ligntningInvokeDelay = 0.5f;
 
         [Header("ShockWaveSkill")]
+        public float _shockWaveRange;
         public float _prepareShockWaveDuration;
         public float _shockWaveDuration;
-        public float preparePhaseShockWaveDelay;
-
+        public float _preparePhaseShockWaveDelay;
+        public float _shockWaveDelayBetweenTwoRocks;
+        public float _shockWaveRockLifeTime;
+        public float _shockWaveRockMinHeight;
+        public float _shockWaveRockMaxHeight;
+   
         [Header("States")]
         public bool lightningPhase;
         public bool berserkMode;
@@ -343,7 +348,7 @@ namespace GodsGames
         [Task]
         public void WaitDelayBetweenPreparePhaseAndShockWave()
         {
-            _bt.Wait(preparePhaseShockWaveDelay, false);
+            _bt.Wait(_preparePhaseShockWaveDelay, false);
         }
 
         [Task]
@@ -362,20 +367,20 @@ namespace GodsGames
         private IEnumerator ShockWaveCoroutine()
         {
             Vector3 heading = _currentTarget.transform.position - transform.position;
-            float distance = heading.magnitude;
             Vector3 basePosition = transform.position;
-            Vector3 direction = heading / distance;
+            Vector3 direction = heading / heading.magnitude;
+            float range = Mathf.Max(_shockWaveRange, heading.magnitude);
             basePosition.y = 0;
             direction.y = 0;
 
             float i = 0;
-            while (i < distance)
+            while (i < range)
             {
                 Vector3 initialPosition = basePosition + direction * i;
-                initialPosition.y = 0;
+                initialPosition.y = UnityEngine.Random.Range(_shockWaveRockMinHeight, _shockWaveRockMaxHeight);
                 GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
-                Destroy(boulder, 0.5f);
-                yield return new WaitForSeconds(0.1f);
+                Destroy(boulder, _shockWaveRockLifeTime);
+                yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
                 i += 1;
             }
             agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
