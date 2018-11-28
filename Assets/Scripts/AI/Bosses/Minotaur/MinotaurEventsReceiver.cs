@@ -8,10 +8,12 @@ namespace GodsGame
         public GameObject head;
         public ParticleSystem _AxeSlash;
 
-        private AudioSource _audio;
-        private int axeWindCount = 0;
-        private Collider _axeCollider;
-       
+        AudioSource _audio;
+        int axeWindCount = 0;
+        Collider _axeCollider;
+
+        // VISUAL EFFECTS
+        ParticleSystem _SlashEffect;
 
         void Start()
         {
@@ -21,8 +23,6 @@ namespace GodsGame
 
         public void AxeWind()
         {
-            //Debug.Log("minotaur_event_axewind");
-
             if (_AxeSlash)
             {
                 _AxeSlash.Play();
