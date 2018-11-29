@@ -46,6 +46,8 @@ namespace GodsGames
         private bool _isLighningInvoke = false;
         private PandaBehaviour _bt;
 
+        // SHOKWAVE
+        private int _SWIndex = 0;
 
         [Header("External references")]
         public GameObject lightningStrike;
@@ -73,6 +75,8 @@ namespace GodsGames
         public float _ligntningInvokeDelay = 0.5f;
 
         [Header("ShockWaveSkill")]
+        public GameObject[] _ShockWaves;
+
         public float _shockWaveRange;
         public float _prepareShockWaveDuration;
         public float _shockWaveDuration;
@@ -359,7 +363,8 @@ namespace GodsGames
                 animator.SetTrigger(CHARGING); // TODO: SHOCKWAVE
                 _isUsingShockWave = true;
                 _lastShockWaveTime = DateTime.Now;
-                StartCoroutine(ShockWaveCoroutine());
+                _ShockWaves[_SWIndex % 2].SetActive(true);
+                _ShockWaves[(_SWIndex + 1) % 2].SetActive(false);
             }
             Task.current.Succeed();
         }
