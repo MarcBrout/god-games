@@ -104,8 +104,6 @@ namespace GodsGame
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger " + other.name);
-
             if (!m_CanDamage)
                 return;
             if (trigger && hittableLayers.Contain(other.gameObject.layer))

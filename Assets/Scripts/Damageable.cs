@@ -84,7 +84,7 @@ namespace GodsGame
 
         public void TakeDamage(Damager damager, bool ignoreInvincible = false)
         {
-            Debug.Log("Take damage incicible " + m_Invulnerable + " ignore " + ignoreInvincible + " currentHeath " + m_CurrentHealth);
+            //Debug.Log("Take damage incicible " + m_Invulnerable + " ignore " + ignoreInvincible + " currentHeath " + m_CurrentHealth);
             if ((m_Invulnerable && !ignoreInvincible) || m_CurrentHealth <= 0)
                 return;
 
