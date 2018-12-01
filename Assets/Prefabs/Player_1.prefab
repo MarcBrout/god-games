@@ -1375,7 +1375,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726663514349068}
-  m_LocalRotation: {x: 0.000011875729, y: 0.0015870039, z: -0.010040566, w: 0.9999483}
+  m_LocalRotation: {x: 0.00001187573, y: 0.0015870039, z: -0.010040567, w: 0.9999483}
   m_LocalPosition: {x: 0.0007336366, y: 0.042515423, z: -1.1368684e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1726,20 +1726,12 @@ Animator:
   m_GameObject: {fileID: 1460723872798476}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d8f5b61d7261ab24982071cf9cc923c7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 34025fe540a265a4e8f9fcf43def1103, type: 2}
+  m_Controller: {fileID: 9100000, guid: 40f5938e25e0f274eb705aecce2e3359, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed by
-    Humanoid clips.\n\tTransform 'PlayerCharacter'\n\tTransform 'PlayerCharacter'\n\tTransform
-    'PlayerCharacter'\n\tFrom animation clip 'Roll'\n\tFrom animation clip 'LeftStrafe'\n\tFrom
-    animation clip 'JogForwardDiagonal'\n\tFrom animation clip 'Running'\n\tFrom animation
-    clip 'JogForwardDiagonal'\n\tFrom animation clip 'LeftStrafe'\n\tFrom animation
-    clip 'JogBackwardDiagonal'\n\tFrom animation clip 'JogBackward'\n\tFrom animation
-    clip 'JogBackwardDiagonal'\n\tFrom animation clip 'IdleOffensive'\n\tand more
-    ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
