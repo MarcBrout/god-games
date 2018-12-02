@@ -339,7 +339,10 @@ namespace GodsGames
         [Task]
         public void AimAtTarget()
         {
-            transform.LookAt(new Vector3(_currentTarget.transform.position.x, transform.position.y, _currentTarget.transform.position.z));
+            if (!_isUsingShockWave)
+            {
+                transform.LookAt(new Vector3(_currentTarget.transform.position.x, transform.position.y, _currentTarget.transform.position.z));
+            }
             Task.current.Succeed();
         }
       
@@ -363,36 +366,37 @@ namespace GodsGames
                 animator.SetTrigger(CHARGING); // TODO: SHOCKWAVE
                 _isUsingShockWave = true;
                 _lastShockWaveTime = DateTime.Now;
-                _ShockWaves[_SWIndex % 2].SetActive(true);
-                _ShockWaves[(_SWIndex + 1) % 2].SetActive(false);
+                StartCoroutine(ShockWaveCoroutine());
             }
             Task.current.Succeed();
         }
 
         private IEnumerator ShockWaveCoroutine()
         {
-            Vector3 heading = _currentTarget.transform.position - transform.position;
-            Vector3 basePosition = transform.position;
-            Vector3 direction = heading / heading.magnitude;
-            float range = Mathf.Max(_shockWaveRange, heading.magnitude);
-            basePosition.y = 0;
-            direction.y = 0;
+            //Vector3 heading = _currentTarget.transform.position - transform.position;
+            //Vector3 basePosition = transform.position;
+            //Vector3 direction = heading / heading.magnitude;
+            //float range = Mathf.Max(_shockWaveRange, heading.magnitude);
+            //basePosition.y = 0;
+            //direction.y = 0;
 
-            float i = 0;
-            while (i < range)
-            {
-                Vector3 initialPosition = basePosition + direction * i;
-                initialPosition.y = UnityEngine.Random.Range(_shockWaveRockMinHeight, _shockWaveRockMaxHeight);
-                GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
-                Destroy(boulder, _shockWaveRockLifeTime);
-                yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
-                i += 1;
-            }
+            //float i = 0;
+            //while (i < range)
+            //{
+            //    Vector3 initialPosition = basePosition + direction * i;
+            //    initialPosition.y = UnityEngine.Random.Range(_shockWaveRockMinHeight, _shockWaveRockMaxHeight);
+            //    GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
+            //    Destroy(boulder, _shockWaveRockLifeTime);
+            //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
+            //    i += 1;
+            //}
+            _ShockWaves[_SWIndex % 2].SetActive(true);
+            _ShockWaves[(++_SWIndex) % 2].SetActive(false);
+            yield return new WaitForSeconds(1);
             agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
             agent.isStopped = false;
             _isUsingShockWave = false;
             _isShockWavePrepared = false;
-            yield return new WaitForSeconds(1);
         }
 
         /**
