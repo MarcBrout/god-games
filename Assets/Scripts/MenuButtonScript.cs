@@ -6,12 +6,6 @@ namespace GodsGame
 {
     public class MenuButtonScript : MonoBehaviour
     {
-        AudioSource a;
-
-        private void Start()
-        {
-            AudioSource a = GetComponent<AudioSource>();
-        }
 
         public void PlayerHoverSound()
         {
