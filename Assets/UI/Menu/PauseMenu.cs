@@ -24,7 +24,14 @@ namespace GodsGame
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (GamesIsPaused)
-                    Resume();
+                    if (m_ControlMenu.ControlMenuIsActive())
+                    {
+                        m_ControlMenu.GoBack();
+                    }
+                    else
+                    {
+                        Resume();
+                    }
                 else
                     Pause();
             }
