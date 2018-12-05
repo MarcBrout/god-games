@@ -390,6 +390,8 @@ namespace GodsGames
             //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
             //    i += 1;
             //}
+            _ShockWaves[_SWIndex % 2].transform.position = transform.position;
+            _ShockWaves[_SWIndex % 2].transform.rotation = transform.rotation;
             _ShockWaves[_SWIndex % 2].SetActive(true);
             _ShockWaves[(++_SWIndex) % 2].SetActive(false);
             yield return new WaitForSeconds(1);
