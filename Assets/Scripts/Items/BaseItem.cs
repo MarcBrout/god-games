@@ -10,6 +10,7 @@ namespace GodsGame
         public Vector3 pickUpPosition;
         public Vector3 pickUpRotations;
         public Sprite spriteUI;
+        public GameObject pickUpOrb;
         public CooldownSkill<PlayerBehaviour> skill;
         #endregion
 
@@ -21,6 +22,8 @@ namespace GodsGame
         [SerializeField]
         protected bool m_IsThrowable = true;
         protected Collider m_Collider;
+        protected SphereCollider m_SphereCollider;
+        protected MeshRenderer m_MeshRenderer;
         #endregion
 
         #region Properties
@@ -38,11 +41,14 @@ namespace GodsGame
         {
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Collider = GetComponent<Collider>();
+            m_SphereCollider = GetComponent<SphereCollider>();
+            m_MeshRenderer = GetComponent<MeshRenderer>();
             CreateSkill();
         }
 
         public void PickUpItem(PlayerBehaviour user, GameObject itemSocket)
         {
+            DisplaySword();
             m_Collider.isTrigger = true;
             m_Rigidbody.isKinematic = true;
             m_Rigidbody.detectCollisions = false;
@@ -60,6 +66,7 @@ namespace GodsGame
             m_Rigidbody.isKinematic = false;
             this.DelayAction(0.1f, () => { m_Rigidbody.detectCollisions = true; });
             transform.SetParent(null);
+            DisplayOrb();
             OnDrop.Invoke();
         }
 
@@ -70,6 +77,22 @@ namespace GodsGame
             m_Rigidbody.AddForce(direction.forward * force + direction.up * force, ForceMode.Impulse);
             m_Rigidbody.AddRelativeTorque(Vector3.left * force, ForceMode.Impulse);
             OnThrow.Invoke();
+        }
+
+        private void DisplayOrb()
+        {
+            m_MeshRenderer.enabled = false;
+            m_Collider.enabled = false;
+            m_SphereCollider.enabled = true;
+            pickUpOrb.SetActive(true);
+        }
+
+        private void DisplaySword()
+        {
+            m_MeshRenderer.enabled = true;
+            m_Collider.enabled = true;
+            m_SphereCollider.enabled = false;
+            pickUpOrb.SetActive(false);
         }
 
         public virtual void UseItem(bool startCooldown = true)
