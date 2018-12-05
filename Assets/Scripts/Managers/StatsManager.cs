@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GodsGame
 {
@@ -91,7 +89,9 @@ namespace GodsGame
 
         private void AddDodgeCount_P1()
         {
-            ++(ActiveLevelP1.LastStats.DodgeMade.Count);
+            ++(ActiveLevelP1.
+                LastStats.
+                DodgeMade.Count);
         }
 
         private void AddDodgeCount_P2()

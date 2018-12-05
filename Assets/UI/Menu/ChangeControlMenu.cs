@@ -119,5 +119,9 @@ namespace GodsGame
             cInput.ResetInputs();
         }
 
+        public bool ControlMenuIsActive()
+        {
+            return controlMenuUI.activeInHierarchy;
+        }
     }
 }

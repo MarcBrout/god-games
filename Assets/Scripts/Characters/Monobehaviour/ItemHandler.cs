@@ -45,7 +45,7 @@ namespace GodsGame
                 if (m_ItemUIImage)
                     m_ItemUIImage.sprite = Item.spriteUI;
                 if (m_CooldownSkillUI)
-                    m_CooldownSkillUI.CooldownSystem = Item.skill.CooldownSystem;
+                    m_CooldownSkillUI.CooldownSystem = Item.CooldownSystem;
             }
         }
 
@@ -69,7 +69,7 @@ namespace GodsGame
 
         public bool CanUseItem()
         {
-            return IsItemEquiped() && Item.skill.CanUse();
+            return IsItemEquiped() && Item.CanUse();
         }
 
         public void UseItem()
