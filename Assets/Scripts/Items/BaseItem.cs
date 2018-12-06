@@ -81,7 +81,6 @@ namespace GodsGame
 
         private void DisplayOrb()
         {
-            m_MeshRenderer.enabled = false;
             m_Collider.enabled = false;
             m_SphereCollider.enabled = true;
             pickUpOrb.SetActive(true);
@@ -89,7 +88,6 @@ namespace GodsGame
 
         private void DisplaySword()
         {
-            m_MeshRenderer.enabled = true;
             m_Collider.enabled = true;
             m_SphereCollider.enabled = false;
             pickUpOrb.SetActive(false);
