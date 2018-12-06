@@ -23,7 +23,7 @@ namespace GodsGame
         public override void UpdateExecute()
         {
             m_Duration += Time.deltaTime;
-            Debug.Log(m_MonoBehaviour.CInput.normalized * dashSpeed * curve.Evaluate(m_Duration / maxSpeedReachIn));
+            //Debug.Log(m_MonoBehaviour.CInput.normalized * dashSpeed * curve.Evaluate(m_Duration / maxSpeedReachIn));
             m_MonoBehaviour.SetMoveVector(m_MonoBehaviour.CInput.normalized * dashSpeed * curve.Evaluate(m_Duration / maxSpeedReachIn));
         }
        

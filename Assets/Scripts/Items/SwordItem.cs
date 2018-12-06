@@ -4,9 +4,10 @@ namespace GodsGame
 {
     public class SwordItem : BaseItem
     {
-        public override void CreateSkill()
+        public override void Start()
         {
-            skill = new SwordSkill();
+            base.Start();
+            //skill = new SwordSkill();
             TriggerAnimatorHash = Animator.StringToHash("UseSword");
         }
 

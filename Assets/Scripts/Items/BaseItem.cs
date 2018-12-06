@@ -4,14 +4,13 @@ using UnityEngine.Events;
 namespace GodsGame
 {
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class BaseItem : MonoBehaviour
+    public abstract class BaseItem : CooldownSkill<PlayerBehaviour>
     {
         #region Public Var
         public Vector3 pickUpPosition;
         public Vector3 pickUpRotations;
         public Sprite spriteUI;
         public GameObject pickUpOrb;
-        public CooldownSkill<PlayerBehaviour> skill;
         #endregion
 
         #region Private Var
@@ -37,13 +36,13 @@ namespace GodsGame
         public UnityEvent OnThrow;
         #endregion
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             m_Rigidbody = GetComponent<Rigidbody>();
             m_Collider = GetComponent<Collider>();
             m_SphereCollider = GetComponent<SphereCollider>();
             m_MeshRenderer = GetComponent<MeshRenderer>();
-            CreateSkill();
         }
 
         public void PickUpItem(PlayerBehaviour user, GameObject itemSocket)
@@ -55,8 +54,7 @@ namespace GodsGame
             transform.SetParent(itemSocket.transform);
             transform.localPosition = pickUpPosition;
             transform.localEulerAngles = pickUpRotations;
-            if (skill != null)
-                skill.AssignUser(user);
+            AssignUser(user);
             OnPickUp.Invoke();
         }
 
@@ -95,9 +93,7 @@ namespace GodsGame
 
         public virtual void UseItem(bool startCooldown = true)
         {
-            skill.StartExecute(startCooldown);
+            StartExecute(startCooldown);
         }
-
-        public abstract void CreateSkill();
     }
 }
