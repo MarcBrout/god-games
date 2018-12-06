@@ -58,7 +58,6 @@ namespace GodsGame
         protected readonly int _HashHurtPara = Animator.StringToHash("Hurt");
         protected readonly int _HashDashPara = Animator.StringToHash("Dash");
         protected readonly int _HashIdlePara = Animator.StringToHash("Idle");
-        protected readonly int _HashUseItemPara = Animator.StringToHash("UseItem");
         protected readonly int _HashUseSwordPara = Animator.StringToHash("UseSword");
         protected readonly int _HashUseShieldPara = Animator.StringToHash("UseShield");
         protected readonly int _HashDiedPara = Animator.StringToHash("Died");
@@ -289,7 +288,6 @@ namespace GodsGame
 
         public void UseItem()
         {
-            //_Animator.SetTrigger(_HashUseItemPara);
             _Animator.SetTrigger(_itemHandler.Item.TriggerAnimatorHash);
             _itemHandler.UseItem();
         }

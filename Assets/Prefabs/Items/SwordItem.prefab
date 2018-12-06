@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697292441842342}
   m_LocalRotation: {x: -0.022003058, y: 0.0000007238085, z: 0.0000037879586, w: -0.9997579}
-  m_LocalPosition: {x: 0, y: 1.63, z: 0.03}
+  m_LocalPosition: {x: 9.734, y: 2.22, z: 1.814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4248726488050930}
@@ -333,6 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c639cc0950af24caaa49302129bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Cooldown: 3
+  m_MaxChargeNumber: 1
   pickUpPosition: {x: -0.368, y: 0.033, z: 0.023}
   pickUpRotations: {x: 0, y: -90, z: 90}
   spriteUI: {fileID: 21300000, guid: 3ed202f294e58dc4ebde939432248098, type: 3}

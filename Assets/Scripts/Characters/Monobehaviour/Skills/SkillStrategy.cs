@@ -15,15 +15,15 @@ namespace GodsGame
     {
         #region Protected Variables
         protected TMonoBehaviour m_MonoBehaviour;
+        [SerializeField]
+        [Tooltip("Cooldown of the abillity in seconds")]
+        protected float m_Cooldown;
+        [SerializeField]
+        [Tooltip("Number of charged of the abillity")]
+        protected int m_MaxChargeNumber;
         #endregion
 
         #region Public Variables
-        [SerializeField]
-        [Tooltip("Cooldown of the abillity in seconds")]
-        private float m_Cooldown;
-        [SerializeField]
-        [Tooltip("Number of charged of the abillity")]
-        private int m_MaxChargeNumber;
         public event Action OnExecute;
         #endregion
 
@@ -33,7 +33,7 @@ namespace GodsGame
         public int MaxChargeNumber { get { return m_MaxChargeNumber; } protected set { m_MaxChargeNumber = value; } }
         #endregion
 
-        private void Start()
+        public virtual void Start()
         {
             m_MonoBehaviour = GetComponent<TMonoBehaviour>();
             CooldownSystem = new CooldownSystem(m_Cooldown, m_MaxChargeNumber);
@@ -42,16 +42,6 @@ namespace GodsGame
         public void AssignUser(TMonoBehaviour monoBehaviour)
         {
             m_MonoBehaviour = monoBehaviour;
-        }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="cooldown"></param>
-        /// <param name="maxChargeNumber"></param>
-        public CooldownSkill(float cooldown = 3, int maxChargeNumber = 1)
-        {
-            CooldownSystem = new CooldownSystem(cooldown, maxChargeNumber);
         }
 
         /// <summary>
