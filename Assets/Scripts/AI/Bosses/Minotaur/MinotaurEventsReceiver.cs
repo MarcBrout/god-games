@@ -82,6 +82,16 @@ namespace GodsGame
             //    SpeechBubbleManager.SpeechbubbleType.ANGRY);
         }
 
+        public void ActivateFist()
+        {
+
+        }
+
+        public void DeactivateFist()
+        {
+
+        }
+
         public void ActivateAxe()
         {
             if (_axeCollider)
