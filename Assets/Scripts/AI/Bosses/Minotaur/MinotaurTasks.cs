@@ -78,6 +78,7 @@ namespace GodsGames
         public GameObject[] _ShockWaves;
 
         public float _shockWaveRange;
+        public float _shockWaveHeight;
         public float _prepareShockWaveDuration;
         public float _shockWaveDuration;
         public float _preparePhaseShockWaveDelay;
@@ -390,7 +391,7 @@ namespace GodsGames
             //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
             //    i += 1;
             //}
-            _ShockWaves[_SWIndex % 2].transform.position = transform.position;
+            _ShockWaves[_SWIndex % 2].transform.position = new Vector3(transform.position.x, transform.position.y + _shockWaveHeight, transform.position.z);
             _ShockWaves[_SWIndex % 2].transform.rotation = transform.rotation;
             _ShockWaves[_SWIndex % 2].SetActive(true);
             _ShockWaves[(++_SWIndex) % 2].SetActive(false);
