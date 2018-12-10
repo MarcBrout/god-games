@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114837288533542660}
   - component: {fileID: 82897635242421354}
   - component: {fileID: 114427328214092778}
+  - component: {fileID: 135415582801932656}
   m_Layer: 0
   m_Name: ThrowableRock_03
   m_TagString: Untagged
@@ -275,6 +276,18 @@ SphereCollider:
   m_GameObject: {fileID: 1067461744138900}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.59
+  m_Center: {x: -0.0005197525, y: 0, z: 0}
+--- !u!135 &135415582801932656
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067461744138900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.59
