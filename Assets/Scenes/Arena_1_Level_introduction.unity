@@ -357,7 +357,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 25.26975
+  field of view: 17.11811
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -3500,6 +3500,11 @@ Prefab:
       propertyPath: useItemButton
       value: UseItem_P2
       objectReference: {fileID: 0}
+    - target: {fileID: 137719599735341124, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.2817404
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
@@ -4419,7 +4424,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684104402}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 18375494}
@@ -5026,7 +5031,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 25.26975
+    FieldOfView: 17.11811
     OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -8395,6 +8400,7 @@ GameObject:
   - component: {fileID: 1306040968}
   - component: {fileID: 1306040972}
   - component: {fileID: 1306040971}
+  - component: {fileID: 1306040973}
   m_Layer: 0
   m_Name: CanvasTutorialMovement
   m_TagString: Untagged
@@ -8464,7 +8470,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1306040966}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 18375494}
@@ -8543,6 +8549,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1306040970}
+--- !u!225 &1306040973
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306040966}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1309983560
 Prefab:
   m_ObjectHideFlags: 0
@@ -10796,6 +10813,7 @@ GameObject:
   - component: {fileID: 1709208144}
   - component: {fileID: 1709208143}
   - component: {fileID: 1709208142}
+  - component: {fileID: 1709208146}
   m_Layer: 0
   m_Name: movementTutorial
   m_TagString: Untagged
@@ -10902,6 +10920,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1709208140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1709208146
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709208140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae3f93eff884544bb5f37134b43fd9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1715829063
 Prefab:
   m_ObjectHideFlags: 0

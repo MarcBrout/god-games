@@ -6,21 +6,20 @@ using UnityEngine;
 public class CanvasEvent : MonoBehaviour {
 
     public Canvas canvas;
+    private Animator animator;
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private void Awake()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
 
     public void OnActivate(Activable activable, Trigger trigger)
     {
-        canvas.GetComponent<Canvas>().enabled = true;
+        animator.SetTrigger("FadeIn");
     }
 
     public void OnDeactivate(Activable activable, Trigger trigger)
     {
-        Debug.Log("LEL");
-        canvas.GetComponent<Canvas>().enabled = false;
+        animator.SetTrigger("FadeOut");
     }
 }
