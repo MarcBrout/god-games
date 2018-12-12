@@ -14,17 +14,13 @@ namespace GodsGame {
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
-            Debug.Log("BOSS IS HIT !");
-            Debug.Log(damageable.CurrentHealth);
             if (damageable.CurrentHealth == 5)
             {
-                Debug.Log("Timeline PLAY !");
                 timeline.Play();
             }
             CrowdManager.Instance.SetState(SpectatorBehaviour.STATES.PLAYER_HITTEN, 1000);
-            AudioManager.Instance.PlaySfx(BoohSounds[Random.Range(0, BoohSounds.Length)], "arena_ambience");
+            AudioManager.Instance.PlaySfx(BoohSounds[UnityEngine.Random.Range(0, BoohSounds.Length)], "arena_ambience");
             animator.SetInteger("life", damageable.CurrentHealth);
-            animator.SetTrigger("hit");
         }
     }
 }
