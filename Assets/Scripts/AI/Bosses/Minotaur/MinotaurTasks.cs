@@ -6,6 +6,7 @@ using UnityEngine;
 using GodsGame;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 namespace GodsGames
 {
@@ -40,8 +41,8 @@ namespace GodsGames
         private float _endPrepareShockWaveTime;
 
         private const string IS_WALKING = "isWalking";
-        private const string CHARGING = "charge";
         private const string ATTACKING = "attack";
+        private const string SHOCKWAVE = "shockwave";
 
         private bool _isLighningInvoke = false;
         private PandaBehaviour _bt;
@@ -54,6 +55,7 @@ namespace GodsGames
         public Animator animator;
         public new Rigidbody rigidbody;
         public NavMeshAgent agent;
+        public PlayableDirector timeline;
         public List<GameObject> targets;
         public List<GameObject> _throwableObjects;
 
@@ -78,6 +80,7 @@ namespace GodsGames
         public GameObject[] _ShockWaves;
 
         public float _shockWaveRange;
+        public float _shockWaveHeight;
         public float _prepareShockWaveDuration;
         public float _shockWaveDuration;
         public float _preparePhaseShockWaveDelay;
@@ -93,6 +96,12 @@ namespace GodsGames
 
         public bool _isShockWavePrepared;
         public bool _isUsingShockWave;
+
+        private void OnEnable()
+        {
+            GoToNextPhase();
+            InternalActivateBerserkMode();
+        }
 
         void Start()
         {
@@ -363,7 +372,7 @@ namespace GodsGames
         {
             if (!_isUsingShockWave)
             {
-                animator.SetTrigger(CHARGING); // TODO: SHOCKWAVE
+                animator.SetTrigger(SHOCKWAVE); // TODO: SHOCKWAVE
                 _isUsingShockWave = true;
                 _lastShockWaveTime = DateTime.Now;
                 StartCoroutine(ShockWaveCoroutine());
@@ -390,7 +399,7 @@ namespace GodsGames
             //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
             //    i += 1;
             //}
-            _ShockWaves[_SWIndex % 2].transform.position = transform.position;
+            _ShockWaves[_SWIndex % 2].transform.position = new Vector3(transform.position.x, transform.position.y + _shockWaveHeight, transform.position.z);
             _ShockWaves[_SWIndex % 2].transform.rotation = transform.rotation;
             _ShockWaves[_SWIndex % 2].SetActive(true);
             _ShockWaves[(++_SWIndex) % 2].SetActive(false);
@@ -486,10 +495,13 @@ namespace GodsGames
 
         public void OnTakeDamage(Damager damager, Damageable damageable)
         {
-            GoToNextPhase();
-            if (!lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
-                lightningPhase = true;
-            InternalActivateBerserkMode();
+            if (damageable.CurrentHealth != 5)
+            {
+                GoToNextPhase();
+                if (!lightningPhase && damageable.CurrentHealth <= damageable.startingHealth / 2)
+                    lightningPhase = true;
+                InternalActivateBerserkMode();
+            }
         }
 
         public void OnDieBoss(Damager damager, Damageable damageable)

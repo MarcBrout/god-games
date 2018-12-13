@@ -5,10 +5,16 @@ tree "Root"
 			tree("__AcquireNewTargetIfNeeded__")
 			tree("__ImproveCyclopAttacksIfNeeded__")
 			fallback
-				tree("__RainOfRocks__")
+				tree("__Transition__")
 				tree("__EvolvedAttack__")
 				tree("__BasicAttack__")
 				tree("__idle__")
+
+tree "__Transition__"
+	sequence
+		IsTransitionAvailable
+		UseTransition
+		GoToNextTransition
 
 tree "__AcquireNewTargetIfNeeded__"
 	fallback

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 namespace GodsGame
@@ -6,6 +7,8 @@ namespace GodsGame
     public class PlayerEventReceiver : MonoBehaviour
     {
         public GameObject head;
+        public GameObject electricMesh;
+        public float disableElectricMeshAfter;
 
         private AudioSource _audio;
         private int dashCount = 0;
@@ -66,6 +69,12 @@ namespace GodsGame
             AudioManager.Instance.PlaySfx(_cheerSounds[Random.Range(0, _cheerSounds.Length)], "arena_ambience");
             AudioManager.Instance.PlayRandomSfx3D("player_hit", ref _audio);
 
+            if (damager.gameObject.layer == LayerMask.NameToLayer("Electricity"))
+            {
+                electricMesh.SetActive(true);
+                StartCoroutine(DisableEletricMesh());
+            }
+
             if (hitCount >= 3)
             {
                 SpeechBubbleManager.Instance.AddSpeechBubble
@@ -74,6 +83,12 @@ namespace GodsGame
             }
             else
                 ++hitCount;
+        }
+
+        IEnumerator DisableEletricMesh()
+        {
+            yield return new WaitForSeconds(disableElectricMeshAfter);
+            electricMesh.SetActive(false);
         }
 
         public void AttackSound()

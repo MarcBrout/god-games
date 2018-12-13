@@ -6,6 +6,7 @@ using UnityEngine;
 using GodsGame;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 namespace GodsGames
 {
@@ -19,6 +20,17 @@ namespace GodsGames
         public Animator _animator;
         public List<GameObject> _ropes;
         public int _lastAmountOfRopes;
+
+        [Header("Phases")]
+        public int _startTransition;
+        public int _endTransition;
+        public int _currentTransition;
+        public float _transitionDuration;
+        public string[] _transitionsMethod;
+        public float _transitionObjectsLifetime;
+        public int _transitionObjectPoolSize;
+        public float _transitionTimeBetweenObjects;
+        private List<GameObject> _transitionObjectPool;
 
         [Header("Global attack")]
         public float _attackLevel = 1f;
@@ -57,6 +69,7 @@ namespace GodsGames
         public bool _evolvedAttackActivated = false;
         public bool _rainOfRocksAvailable = false;
         public bool _isUsingRainOfRocks = false;
+        public bool _isTransitionAvailable = false;
 
         private TimeSpan _maxFocusTimeOnTarget = new TimeSpan(0, 0, 6);
         private DateTime _startFocusTimeOnCurrentTarget;
@@ -72,6 +85,7 @@ namespace GodsGames
             _lastAmountOfRopes = GetActiveRopesCount();
             _towerColliders = transform.root.GetComponentsInChildren<Collider>();
             _towerBodies = transform.root.GetComponentsInChildren<Rigidbody>();
+            FillTransitionObjectPool();
             if (_targets.Count == 0)
                 _targets = new List<GameObject>(GameObject.FindGameObjectsWithTag(_targetTag));
             foreach (Collider collider in _towerColliders)
@@ -90,6 +104,19 @@ namespace GodsGames
         /**
          * TOOLS
          **/
+
+        private void FillTransitionObjectPool()
+        {
+            _transitionObjectPool = new List<GameObject>();
+            for (int i = 0; i < _transitionObjectPoolSize; ++i)
+            {
+                GameObject item = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)]);
+                item.SetActive(false);
+                item.AddComponent<Rigidbody>();
+                _transitionObjectPool.Add(item);
+            }
+
+        }
 
         void ResetStates()
         {
@@ -344,6 +371,105 @@ namespace GodsGames
         }
 
         /**
+         * TRANSITIONS
+         **/
+        [Task]
+        public bool IsTransitionAvailable()
+        {
+            return _isTransitionAvailable;
+        }
+
+        [Task]
+        public void GoToNextTransition()
+        {
+            if (_currentTransition < _endTransition && _currentTransition < _transitionsMethod.Length)
+                _currentTransition++;
+            Task.current.Succeed();
+        }
+
+        [Task]
+        public void UseTransition()
+        {
+            StartCoroutine(_transitionsMethod[_currentTransition]);
+            _isTransitionAvailable = false;
+
+            Task.current.Succeed();
+        }
+
+        public IEnumerator TransitionPartialFloodTopRight()
+        {
+            StartCoroutine("TransitionPartialArenaFlood", new Vector2(1, 1));
+            yield return null;
+        }
+
+        public IEnumerator TransitionPartialFloodTopLeft()
+        {
+            StartCoroutine("TransitionPartialArenaFlood", new Vector2(-1, 1));
+            yield return null;
+        }
+
+        public IEnumerator TransitionFloodTop()
+        {
+            StartCoroutine("TransitionArenaFlood", 1);
+            yield return null;
+        }
+
+        public IEnumerator TransitionFloodBottom()
+        {
+            StartCoroutine("TransitionArenaFlood", -1);
+            yield return null;
+        }
+
+        public IEnumerator TransitionPartialArenaFlood(Vector2 initialZone)
+        {
+            foreach (var item in _transitionObjectPool)
+            {
+                SpawnTransitionRock(item, initialZone);
+                yield return new WaitForSeconds(_transitionTimeBetweenObjects);
+            }
+            yield return new WaitForSeconds(_transitionObjectsLifetime);
+            StartCoroutine("EmptyTransitionObjectPool");
+            yield return null;
+        }
+
+        public IEnumerator TransitionArenaFlood(int directionY)
+        {
+            var directionsX = new[] { -1, 1 };
+
+            foreach (var item in _transitionObjectPool)
+            {
+                int directionX = directionsX[UnityEngine.Random.Range(0, directionsX.Length)];
+                SpawnTransitionRock(item, new Vector2(directionX, directionY));
+                yield return new WaitForSeconds(_transitionTimeBetweenObjects / 2);
+            }
+            yield return new WaitForSeconds(_transitionObjectsLifetime);
+            StartCoroutine("EmptyTransitionObjectPool");
+            yield return null;
+        }
+
+
+        public void SpawnTransitionRock(GameObject item, Vector2 initialZone)
+        {
+            Vector2 initialPos = new Vector2(initialZone.x * _rorSpawnRadius / 2, initialZone.y * _rorSpawnRadius / 2);
+            Vector2 xz = initialPos + UnityEngine.Random.insideUnitCircle * _rorSpawnRadius / 2;
+            item.transform.position = new Vector3(xz.x, _rorSpawnHeight, xz.y);
+            item.SetActive(true);
+            item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            item.GetComponent<Rigidbody>().AddForce(new Vector3(0, _rorSpawnImpulsion * _attackLevel, 0), ForceMode.Impulse);
+        }
+
+        public IEnumerator EmptyTransitionObjectPool()
+        {
+            foreach (var item in _transitionObjectPool)
+            {
+                item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                item.SetActive(false);
+                yield return new WaitForSeconds(_transitionTimeBetweenObjects / 10);
+            }
+            yield return null;
+        }
+
+        /**
          * DEATH
          **/
         [Task]
@@ -376,6 +502,11 @@ namespace GodsGames
         public void Failure()
         {
             Task.current.Fail();
+        }
+
+        public void OnDamageBoss()
+        {
+            _isTransitionAvailable = true;
         }
 
         public void OnDieBoss()
