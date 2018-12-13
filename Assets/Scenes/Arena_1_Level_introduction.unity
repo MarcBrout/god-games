@@ -357,7 +357,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 17.11811
+  field of view: 39.99495
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -4355,8 +4355,9 @@ GameObject:
   - component: {fileID: 684104404}
   - component: {fileID: 684104408}
   - component: {fileID: 684104407}
+  - component: {fileID: 684104409}
   m_Layer: 0
-  m_Name: CanvasDashTutorial
+  m_Name: CanvasTutorialMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4370,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684104402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.087}
+  m_LocalPosition: {x: 0, y: 0, z: -0.058}
   m_LocalScale: {x: 0.0015199779, y: 0.009547, z: 0.009547}
   m_Children:
   - {fileID: 68833541}
@@ -4378,7 +4379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.211, y: 5.46}
+  m_AnchoredPosition: {x: -0.161, y: 5}
   m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684104404
@@ -4424,7 +4425,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684104402}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 18375494}
@@ -4503,6 +4504,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 684104406}
+--- !u!225 &684104409
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684104402}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &684185450
 Prefab:
   m_ObjectHideFlags: 0
@@ -5031,7 +5043,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 17.11811
+    FieldOfView: 39.99495
     OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5380,6 +5392,7 @@ GameObject:
   - component: {fileID: 787628112}
   - component: {fileID: 787628111}
   - component: {fileID: 787628110}
+  - component: {fileID: 787628114}
   m_Layer: 0
   m_Name: dashTutorial
   m_TagString: Untagged
@@ -5394,7 +5407,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787628108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.13, y: -0.27, z: 0}
+  m_LocalPosition: {x: -37.71, y: -0.27, z: 0}
   m_LocalScale: {x: 5.8916, y: 1, z: 13.24}
   m_Children:
   - {fileID: 684104403}
@@ -5443,7 +5456,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.38, y: 0.06, z: 0}
 --- !u!23 &787628112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5486,6 +5499,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787628108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &787628114
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787628108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae3f93eff884544bb5f37134b43fd9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &799743458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
@@ -8424,7 +8455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.161, y: 5.67}
+  m_AnchoredPosition: {x: -0.161, y: 5}
   m_SizeDelta: {x: 700, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306040968
