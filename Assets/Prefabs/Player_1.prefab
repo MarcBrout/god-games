@@ -942,7 +942,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 4054181752936886}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4023097868658012
 Transform:
@@ -965,7 +965,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460723872798476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2340317, y: 0.5282976, z: -6.5146475}
+  m_LocalPosition: {x: -5.92, y: 0.47, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4570998775363878}
@@ -988,7 +988,6 @@ Transform:
   m_Children:
   - {fileID: 4490275752091024}
   - {fileID: 4008267343317086}
-  - {fileID: 4480614791992158}
   - {fileID: 4017854192249224}
   - {fileID: 4289500425069400}
   m_Father: {fileID: 4044620197981282}
@@ -1033,6 +1032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4924567637233562}
+  - {fileID: 4480614791992158}
   m_Father: {fileID: 4832937453532584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1148,7 +1148,7 @@ Transform:
   - {fileID: 4832937453532584}
   - {fileID: 4275224327651000}
   m_Father: {fileID: 4054181752936886}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4290205018249806
 Transform:
@@ -1239,13 +1239,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700814277164762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.97, z: 0}
+  m_LocalRotation: {x: 0.041433904, y: -7.0914125e-12, z: -1.4242096e-13, w: 0.9991413}
+  m_LocalPosition: {x: -0, y: 0.041089304, z: 0.028800664}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4544052192369594}
-  m_Father: {fileID: 4054181752936886}
-  m_RootOrder: 2
+  m_Father: {fileID: 4072899162006324}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4485176032290804
 Transform:
@@ -1916,16 +1916,16 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 1024
-  usingController: 0
+  usingController: 1
   useEightDirectionMovement: 0
-  verticalAxis: Vertical_P1
-  horizontalAxis: Horizontal_P1
-  rVerticalAxis: RVertical_P1
-  rHorizontalAxis: RHorizontal_P1
-  jumpButton: Jump_P1
-  dashButton: Dash_P1
-  throwItemButton: ThrowItem_P1
-  useItemButton: UseItem_P1
+  verticalAxis: Vertical_P2
+  horizontalAxis: Horizontal_P2
+  rVerticalAxis: RVertical_P2
+  rHorizontalAxis: RHorizontal_P2
+  jumpButton: Jump_P2
+  dashButton: Dash_P2
+  throwItemButton: ThrowItem_P2
+  useItemButton: UseItem_P2
   dustEffectRepeatDelay: 0.1
 --- !u!114 &114780348900313158
 MonoBehaviour:
@@ -1955,17 +1955,6 @@ MonoBehaviour:
       - m_Target: {fileID: 114241613367412050}
         m_MethodName: HitSound
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: deprecate
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2143,7 +2132,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100008, guid: d8f5b61d7261ab24982071cf9cc923c7, type: 3}
+  - {fileID: 2100000, guid: fa24fb9c4c1522d458013ae71bd725df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2438,8 +2427,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.00000047683716, y: -0.37555528, z: 0.046277046}
-    m_Extent: {x: 0.2355164, y: 0.28174034, z: 0.15022871}
+    m_Center: {x: 0, y: -0.37555504, z: 0.046277523}
+    m_Extent: {x: 0.2355164, y: 0.28174034, z: 0.15022853}
   m_DirtyAABB: 0
 --- !u!183 &183230427105291840
 Cloth:
