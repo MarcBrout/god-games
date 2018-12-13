@@ -357,7 +357,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 39.99495
+  field of view: 13.29134
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -3505,6 +3505,11 @@ Prefab:
       propertyPath: m_AABB.m_Extent.y
       value: 0.2817404
       objectReference: {fileID: 0}
+    - target: {fileID: 137719599735341124, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.15022871
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
@@ -4067,6 +4072,51 @@ Prefab:
       propertyPath: m_AABB.m_Extent.z
       value: 0.15022871
       objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: verticalAxis
+      value: Vertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: horizontalAxis
+      value: Horizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rVerticalAxis
+      value: RVertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rHorizontalAxis
+      value: RHorizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: jumpButton
+      value: Jump_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: dashButton
+      value: Dash_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: throwItemButton
+      value: ThrowItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: useItemButton
+      value: UseItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137192340189858494, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100008, guid: 04b7d0a7de364034f870e70f38d1b1ca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
@@ -5043,7 +5093,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 39.99495
+    FieldOfView: 13.29134
     OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000

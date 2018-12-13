@@ -3190,7 +3190,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526982299}
-  m_LocalRotation: {x: 0.035861015, y: 0.94840646, z: -0.11614519, w: 0.2928302}
+  m_LocalRotation: {x: 0.035861015, y: 0.94840646, z: -0.11614517, w: 0.29283023}
   m_LocalPosition: {x: -2.6716943, y: -2.670268, z: 3.2472754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11168,6 +11168,51 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: verticalAxis
+      value: Vertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: horizontalAxis
+      value: Horizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rVerticalAxis
+      value: RVertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rHorizontalAxis
+      value: RHorizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: jumpButton
+      value: Jump_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: dashButton
+      value: Dash_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: throwItemButton
+      value: ThrowItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: useItemButton
+      value: UseItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137192340189858494, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100008, guid: 04b7d0a7de364034f870e70f38d1b1ca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
