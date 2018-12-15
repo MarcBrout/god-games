@@ -55,7 +55,6 @@ namespace GodsGames
         public Animator animator;
         public new Rigidbody rigidbody;
         public NavMeshAgent agent;
-        public PlayableDirector timeline;
         public List<GameObject> targets;
         public List<GameObject> _throwableObjects;
 
