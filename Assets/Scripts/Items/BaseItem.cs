@@ -23,6 +23,7 @@ namespace GodsGame
         protected Collider m_Collider;
         protected SphereCollider m_SphereCollider;
         protected MeshRenderer m_MeshRenderer;
+        //protected Animator m_animator;
         #endregion
 
         #region Properties
@@ -43,6 +44,7 @@ namespace GodsGame
             m_Collider = GetComponent<Collider>();
             m_SphereCollider = GetComponent<SphereCollider>();
             m_MeshRenderer = GetComponent<MeshRenderer>();
+            //m_animator = GetComponent<Animator>();
         }
 
         public void PickUpItem(PlayerBehaviour user, GameObject itemSocket)
@@ -62,7 +64,7 @@ namespace GodsGame
         {
             m_Collider.isTrigger = false;
             m_Rigidbody.isKinematic = false;
-            this.DelayAction(0.1f, () => { m_Rigidbody.detectCollisions = true; });
+            this.DelayAction(0.2f, () => { m_Rigidbody.detectCollisions = true; });
             transform.SetParent(null);
             DisplayOrb();
             OnDrop.Invoke();
@@ -82,6 +84,7 @@ namespace GodsGame
             m_Collider.enabled = false;
             m_SphereCollider.enabled = true;
             pickUpOrb.SetActive(true);
+            //m_animator.SetBool("isEquipped", false);
         }
 
         private void DisplaySword()
@@ -89,11 +92,24 @@ namespace GodsGame
             m_Collider.enabled = true;
             m_SphereCollider.enabled = false;
             pickUpOrb.SetActive(false);
+            //m_animator.enabled = false; ;
+            //m_animator.SetBool("isEquipped", true);
         }
 
         public virtual void UseItem(bool startCooldown = true)
         {
             StartExecute(startCooldown);
         }
+
+        /*
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                if (!m_animator.GetBool("isEquipped")) {
+                    m_animator.enabled = true;
+                }
+            {
+            }
+        }*/
     }
 }
