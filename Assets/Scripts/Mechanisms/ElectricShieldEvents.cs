@@ -29,7 +29,6 @@ namespace GodsGame
 
         public void Disable(Activable activable, Trigger trigger)
         {
-            _collider.enabled = false;
             StartCoroutine(DisableOverTime());
             AudioManager.Instance.PlaySfx3D("shield_down", "items_common", ref _audioSource);
         }
@@ -64,7 +63,6 @@ namespace GodsGame
         public IEnumerator enableAfter()
         {
             yield return new WaitForSeconds(1000);
-            _collider.enabled = true;
         }
 
         IEnumerator EnableOverTime()

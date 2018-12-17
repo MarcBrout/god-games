@@ -4,15 +4,19 @@ using SpeechBubbleManager = VikingCrewTools.UI.SpeechBubbleManager;
 
 namespace GodsGame
 {
+    [RequireComponent(typeof(Animator))]
     public class PlayerEventReceiver : MonoBehaviour
     {
-        public GameObject head;
-        public GameObject electricMesh;
-        public float disableElectricMeshAfter;
+        public GameObject _head;
+        public GameObject _electricMesh;
+        public float _disableElectricMeshAfter;
 
         private AudioSource _audio;
-        private int dashCount = 0;
-        private int hitCount = 0;
+        private int _dashCount = 0;
+        private int _hitCount = 0;
+        private Animator _animator;
+        private readonly int _SwordPickUp = Animator.StringToHash("HasItem");
+        private readonly int _UseSword = Animator.StringToHash("UseSword");
 
         static private string[] _deathSounds = new string[] {
             "arena_crowd_laugh_01",
@@ -30,6 +34,7 @@ namespace GodsGame
 
         void Start()
         {
+            _animator = GetComponent<Animator>();
             _audio = GetComponent<AudioSource>();
         }
 
@@ -42,14 +47,14 @@ namespace GodsGame
         {
             AudioManager.Instance.PlayRandomSfx3D("player_dash", ref _audio);
 
-            if (dashCount >= 3)
+            if (_dashCount >= 3)
             {
                 VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                    (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
-                dashCount = 0;
+                    (_head.transform, Speech.GetSpeech(EnumAction.PLAYER_DASH, EnumLevel.ANY));
+                _dashCount = 0;
             }
             else
-                ++dashCount;
+                ++_dashCount;
         }
 
         public void DeathSound(Damager damager, Damageable damageable)
@@ -59,7 +64,7 @@ namespace GodsGame
             AudioManager.Instance.PlaySfx(_deathSounds[Random.Range(0, _deathSounds.Length)], "arena_ambience");
 
             VikingCrewTools.UI.SpeechBubbleManager.Instance.AddSpeechBubble
-                (head.transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
+                (_head.transform, Speech.GetSpeech(EnumAction.PLAYER_DIES, EnumLevel.ANY));
         }
 
         public void HitSound(Damager damager, Damageable damageable)
@@ -71,29 +76,44 @@ namespace GodsGame
 
             if (damager.gameObject.layer == LayerMask.NameToLayer("Electricity"))
             {
-                electricMesh.SetActive(true);
+                _electricMesh.SetActive(true);
                 StartCoroutine(DisableEletricMesh());
             }
 
-            if (hitCount >= 3)
+            if (_hitCount >= 3)
             {
                 SpeechBubbleManager.Instance.AddSpeechBubble
-                    (head.transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
-                hitCount = 0;
+                    (_head.transform, Speech.GetSpeech(EnumAction.PLAYER_TAKESDAMAGE, EnumLevel.ANY));
+                _hitCount = 0;
             }
             else
-                ++hitCount;
+                ++_hitCount;
         }
 
         IEnumerator DisableEletricMesh()
         {
-            yield return new WaitForSeconds(disableElectricMeshAfter);
-            electricMesh.SetActive(false);
+            yield return new WaitForSeconds(_disableElectricMeshAfter);
+            _electricMesh.SetActive(false);
         }
 
         public void AttackSound()
         {
             AudioManager.Instance.PlayRandomSfx3D("items_sword_hit_nothing", ref _audio);
+        }
+
+        public void OnSwordPickUp()
+        {
+            _animator.SetFloat(_SwordPickUp, 1f);
+        }
+
+        public void OnSwordDrop()
+        {
+            _animator.SetFloat(_SwordPickUp, 0f);
+        }
+
+        public void OnSwordAttack()
+        {
+            _animator.SetTrigger(_UseSword);
         }
     }
 }

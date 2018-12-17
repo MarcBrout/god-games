@@ -357,7 +357,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 25.26975
+  field of view: 13.29134
   orthographic: 0
   orthographic size: 20
   m_Depth: -1
@@ -3500,6 +3500,16 @@ Prefab:
       propertyPath: useItemButton
       value: UseItem_P2
       objectReference: {fileID: 0}
+    - target: {fileID: 137719599735341124, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.2817404
+      objectReference: {fileID: 0}
+    - target: {fileID: 137719599735341124, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.15022871
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
@@ -4062,6 +4072,51 @@ Prefab:
       propertyPath: m_AABB.m_Extent.z
       value: 0.15022871
       objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: verticalAxis
+      value: Vertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: horizontalAxis
+      value: Horizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rVerticalAxis
+      value: RVertical_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: rHorizontalAxis
+      value: RHorizontal_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: jumpButton
+      value: Jump_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: dashButton
+      value: Dash_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: throwItemButton
+      value: ThrowItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: useItemButton
+      value: UseItem_P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137192340189858494, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100008, guid: 04b7d0a7de364034f870e70f38d1b1ca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
   m_IsPrefabAsset: 0
@@ -4350,8 +4405,9 @@ GameObject:
   - component: {fileID: 684104404}
   - component: {fileID: 684104408}
   - component: {fileID: 684104407}
+  - component: {fileID: 684104409}
   m_Layer: 0
-  m_Name: CanvasDashTutorial
+  m_Name: CanvasTutorialMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4364,7 +4420,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684104402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.087}
+  m_LocalPosition: {x: 0, y: 0, z: -0.058}
   m_LocalScale: {x: 0.0015199779, y: 0.009547, z: 0.009547}
   m_Children:
   - {fileID: 68833541}
@@ -4373,7 +4429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.211, y: 5.46}
+  m_AnchoredPosition: {x: -0.161, y: 5}
   m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684104404
@@ -4498,6 +4554,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 684104406}
+--- !u!225 &684104409
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684104402}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &684185450
 Prefab:
   m_ObjectHideFlags: 0
@@ -5026,7 +5093,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 25.26975
+    FieldOfView: 13.29134
     OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5375,6 +5442,7 @@ GameObject:
   - component: {fileID: 787628112}
   - component: {fileID: 787628111}
   - component: {fileID: 787628110}
+  - component: {fileID: 787628114}
   m_Layer: 0
   m_Name: dashTutorial
   m_TagString: Untagged
@@ -5389,7 +5457,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787628108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.13, y: -0.27, z: 0}
+  m_LocalPosition: {x: -37.71, y: -0.27, z: 0}
   m_LocalScale: {x: 5.8916, y: 1, z: 13.24}
   m_Children:
   - {fileID: 684104403}
@@ -5438,7 +5506,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.38, y: 0.06, z: 0}
 --- !u!23 &787628112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5481,6 +5549,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787628108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &787628114
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787628108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae3f93eff884544bb5f37134b43fd9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &799743458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
@@ -8395,6 +8481,7 @@ GameObject:
   - component: {fileID: 1306040968}
   - component: {fileID: 1306040972}
   - component: {fileID: 1306040971}
+  - component: {fileID: 1306040973}
   m_Layer: 0
   m_Name: CanvasTutorialMovement
   m_TagString: Untagged
@@ -8418,7 +8505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.161, y: 5.67}
+  m_AnchoredPosition: {x: -0.161, y: 5}
   m_SizeDelta: {x: 700, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306040968
@@ -8464,7 +8551,7 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1306040966}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 18375494}
@@ -8543,6 +8630,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1306040970}
+--- !u!225 &1306040973
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306040966}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1309983560
 Prefab:
   m_ObjectHideFlags: 0
@@ -10796,6 +10894,7 @@ GameObject:
   - component: {fileID: 1709208144}
   - component: {fileID: 1709208143}
   - component: {fileID: 1709208142}
+  - component: {fileID: 1709208146}
   m_Layer: 0
   m_Name: movementTutorial
   m_TagString: Untagged
@@ -10902,6 +11001,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1709208140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1709208146
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709208140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae3f93eff884544bb5f37134b43fd9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1715829063
 Prefab:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ namespace GodsGame
         #endregion
 
         #region Private Var
+        GameObject m_currentOwner;
         #endregion
 
         #region Protected Var
@@ -44,6 +45,7 @@ namespace GodsGame
             m_Collider = GetComponent<Collider>();
             m_SphereCollider = GetComponent<SphereCollider>();
             m_MeshRenderer = GetComponent<MeshRenderer>();
+            m_currentOwner = null;
             //m_animator = GetComponent<Animator>();
         }
 
@@ -56,6 +58,8 @@ namespace GodsGame
             transform.SetParent(itemSocket.transform);
             transform.localPosition = pickUpPosition;
             transform.localEulerAngles = pickUpRotations;
+            user.gameObject.GetComponent<PlayerEventReceiver>().OnSwordPickUp();
+            m_currentOwner = user.gameObject;
             AssignUser(user);
             OnPickUp.Invoke();
         }
@@ -64,7 +68,8 @@ namespace GodsGame
         {
             m_Collider.isTrigger = false;
             m_Rigidbody.isKinematic = false;
-            this.DelayAction(0.2f, () => { m_Rigidbody.detectCollisions = true; });
+            this.DelayAction(0.1f, () => { m_Rigidbody.detectCollisions = true; });
+            m_currentOwner.gameObject.GetComponent<PlayerEventReceiver>().OnSwordDrop();
             transform.SetParent(null);
             DisplayOrb();
             OnDrop.Invoke();
@@ -76,6 +81,7 @@ namespace GodsGame
             transform.rotation = direction.rotation;
             m_Rigidbody.AddForce(direction.forward * force + direction.up * force, ForceMode.Impulse);
             m_Rigidbody.AddRelativeTorque(Vector3.left * force, ForceMode.Impulse);
+            m_currentOwner.gameObject.GetComponent<PlayerEventReceiver>().OnSwordDrop();
             OnThrow.Invoke();
         }
 
