@@ -398,11 +398,11 @@ namespace GodsGames
             //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
             //    i += 1;
             //}
-            _ShockWaves[_SWIndex % 2].transform.position = new Vector3(transform.position.x, transform.position.y + _shockWaveHeight, transform.position.z);
-            _ShockWaves[_SWIndex % 2].transform.rotation = transform.rotation;
-            _ShockWaves[_SWIndex % 2].SetActive(true);
-            _ShockWaves[(++_SWIndex) % 2].SetActive(false);
-            yield return new WaitForSeconds(1);
+            _ShockWaves[_SWIndex % _ShockWaves.Length].transform.position = new Vector3(transform.position.x, transform.position.y + _shockWaveHeight, transform.position.z);
+            _ShockWaves[_SWIndex % _ShockWaves.Length].transform.rotation = transform.rotation;
+            _ShockWaves[_SWIndex % _ShockWaves.Length].SetActive(true);
+            yield return new WaitForSeconds(_shockWaveCooldown.Seconds);
+            _ShockWaves[(++_SWIndex) % _ShockWaves.Length].SetActive(false);
             agent.speed = berserkMode ? berserkSpeed : defaultSpeed;
             agent.isStopped = false;
             _isUsingShockWave = false;
