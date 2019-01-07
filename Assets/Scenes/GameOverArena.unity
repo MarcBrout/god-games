@@ -2005,6 +2005,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff496b2a0661daf449e1752547b6ab61, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &432337798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+    type: 2}
+  m_PrefabInternal: {fileID: 1354015304}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &438008354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
@@ -5681,6 +5687,56 @@ Prefab:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 763621741}
+    - target: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1791211069}
+    - target: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1791211069}
+    - target: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 1791211069}
+    - target: {fileID: 114286371544118450, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 1791211069}
+    - target: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 432337798}
+    - target: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 432337798}
+    - target: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 432337798}
+    - target: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 432337798}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af1c214a36593224997fd7bc9a205858, type: 2}
   m_IsPrefabAsset: 0
@@ -7926,6 +7982,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff496b2a0661daf449e1752547b6ab61, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1791211069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114259762881951556, guid: af1c214a36593224997fd7bc9a205858,
+    type: 2}
+  m_PrefabInternal: {fileID: 1354015304}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1795657301
 Prefab:
   m_ObjectHideFlags: 0
