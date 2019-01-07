@@ -512,7 +512,7 @@ namespace GodsGames
         IEnumerator LoadLevelCompleteScene()
         {
             yield return new WaitForSeconds(3);
-            SceneManager.LoadScene("LevelComplete");
+            SceneManager.LoadScene("LevelCompleteArena");
         }
     }
 }

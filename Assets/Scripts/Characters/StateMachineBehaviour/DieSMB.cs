@@ -38,7 +38,7 @@ namespace GodsGame
         {
             yield return new WaitForSeconds(gameOverDelay);
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOverArena");
         }
     }
 }
