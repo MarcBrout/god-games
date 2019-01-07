@@ -3952,6 +3952,56 @@ Prefab:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 62142687}
+    - target: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 765168288}
+    - target: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 765168288}
+    - target: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 765168288}
+    - target: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 765168288}
+    - target: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 765168289}
+    - target: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 765168289}
+    - target: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 765168289}
+    - target: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+        type: 2}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 765168289}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcdf4f20cb2674246832732882be8b25, type: 2}
   m_IsPrefabAsset: 0
@@ -3979,6 +4029,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 765168283}
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+--- !u!114 &765168288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114963286726788322, guid: bcdf4f20cb2674246832732882be8b25,
+    type: 2}
+  m_PrefabInternal: {fileID: 765168283}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &765168289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114377684257237288, guid: bcdf4f20cb2674246832732882be8b25,
+    type: 2}
+  m_PrefabInternal: {fileID: 765168283}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &778059136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4278079935581120, guid: ff496b2a0661daf449e1752547b6ab61,
