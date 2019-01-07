@@ -7,10 +7,12 @@ namespace GodsGame
     {
         public GameObject head;
         public ParticleSystem _AxeSlash;
+        public GameObject leftFist;
 
         AudioSource _audio;
         int axeWindCount = 0;
         Collider _axeCollider;
+        Collider _FistCollider;
 
         // VISUAL EFFECTS
         ParticleSystem _SlashEffect;
@@ -19,6 +21,7 @@ namespace GodsGame
         {
             _audio = GetComponent<AudioSource>();
             _axeCollider = GetComponentInChildren<Collider>();
+            _FistCollider = leftFist.GetComponent<Collider>();
         }
 
         public void AxeWind()
@@ -84,12 +87,14 @@ namespace GodsGame
 
         public void ActivateFist()
         {
-
+            if (_FistCollider)
+                _FistCollider.enabled = true;
         }
-
+        
         public void DeactivateFist()
         {
-
+            if (_FistCollider)
+                _FistCollider.enabled = false;
         }
 
         public void ActivateAxe()
