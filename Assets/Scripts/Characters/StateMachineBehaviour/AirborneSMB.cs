@@ -7,10 +7,22 @@ namespace GodsGame
 {
     public class AirborneSMB : SceneLinkedSMB<PlayerBehaviour>
     {
+        public override void OnStart(Animator animator)
+        {
+            base.OnStart(animator);
+            if (m_MonoBehaviour == null)
+            {
+                Debug.Log("Behaviour is Null");
+            }
+        }
+
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (m_MonoBehaviour != null)
+            {
                 m_MonoBehaviour.GetInput();
                 m_MonoBehaviour.CheckForGrounded();
+            }
         }
     }
 }
