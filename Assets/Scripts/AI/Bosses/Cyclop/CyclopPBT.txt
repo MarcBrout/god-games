@@ -28,7 +28,6 @@ tree "__ImproveCyclopAttacksIfNeeded__"
 	fallback
 		sequence
 			DoesARopeHasBeenCutted
-			ActivateRainOfRocksState
 			ImproveBasicAttackLevel
 		Success
 
@@ -43,13 +42,6 @@ tree "__EvolvedAttack__"
 		HasCurrentTarget
 		IsEvolvedAttackAvailable
 		UseEvolvedAttack
-
-tree "__RainOfRocks__"
-	sequence
-		IsRainOfRocksAvailable
-		ActivateRainOfRocks
-		WaitForRainOfRocksDuration
-		DeactivateRainOfRocks
 
 tree "__idle__"
 	Idle
