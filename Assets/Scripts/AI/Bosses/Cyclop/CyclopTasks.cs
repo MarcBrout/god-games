@@ -148,7 +148,7 @@ namespace GodsGames
                 yield return null;
             }
 
-            Destroy(thrownItem, lifetime);
+            //Destroy(thrownItem, lifetime);
         }
 
 
