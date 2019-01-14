@@ -11,23 +11,25 @@ namespace GodsGame
         private AudioSource _audioSource;
         private Vector3 _lastPosition;
 
+        private Damager _damager;
         // Use this for initialization
         void Start()
         {
             _audioSource = GetComponent<AudioSource>();
+            _damager = GetComponent<Damager>();
         }
 
         private void Update()
         {
             float _speed = (transform.position - _lastPosition).magnitude / Time.deltaTime;
             _lastPosition = transform.position;
-            if (_speed == 0)
+            if (_speed <= 0.1)
             {
                 AudioManager.Instance.PlayRandomSfx3D("minotaur_step", ref _audioSource);
-                Damager damager = GetComponent<Damager>();
-                if (damager)
+                if (_damager)
                 {
-                    damager.DisableDamage();
+                    _damager.DisableDamage();
+                    _damager.enabled = false;
                 }
                 enabled = false;
             }

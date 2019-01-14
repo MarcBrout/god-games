@@ -147,15 +147,9 @@ namespace GodsGames
                 yield return null;
             }
 
-            StartCoroutine(DeactivateDamage(duration, thrownItem.GetComponent<Damager>()));
             Destroy(thrownItem, lifetime);
         }
 
-        private IEnumerator DeactivateDamage(float seconds, Damager damager)
-        {
-            yield return new WaitForSeconds(seconds);
-            damager.DisableDamage();
-        }
 
         /**
          * ROPES UTILS
