@@ -130,6 +130,7 @@ namespace GodsGames
 
         private IEnumerator ThrowItemCoroutine(Vector3 targetPosition, float angle, float gravity, float duration, float lifetime)
         {
+            yield return new WaitForSeconds(0.5f);
             Vector3 offset = new Vector3(0, transform.localScale.y, 0);
             GameObject thrownItem = GameObject.Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Length)], transform.position + offset, new Quaternion());
 
