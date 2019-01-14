@@ -3903,6 +3903,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnGainHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4146312719767378, guid: 50ba5cf9dfcf1e2478b235da036630e3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 14.92
@@ -3965,6 +3975,136 @@ Prefab:
       propertyPath: _ShockWaves.Array.data[2]
       value: 
       objectReference: {fileID: 1599737185}
+    - target: {fileID: 114949603533667664, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: startingHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 567136893}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetHorizontalMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1789227358}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: SetHorizontalMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnGainHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnGainHealth.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 1789227358}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 567136893}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: SetVerticalMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
+      value: SetVerticalMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ba5cf9dfcf1e2478b235da036630e3, type: 2}
   m_IsPrefabAsset: 0
@@ -10760,6 +10900,52 @@ Prefab:
     - target: {fileID: 4773633130155098, guid: 64209882c271a2d4bb48ee2a4a0de471, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 95480331295402966, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+        'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tand
+        more ...\n\tFrom animation clip 'Victory'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.37555516
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.046277523
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.2817404
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.15022871
+      objectReference: {fileID: 0}
+    - target: {fileID: 95480331295402966, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137572788932784230, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.2355164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64209882c271a2d4bb48ee2a4a0de471, type: 2}

@@ -371,6 +371,7 @@ namespace GodsGames
         {
             if (!_isUsingShockWave)
             {
+                agent.isStopped = true;
                 animator.SetTrigger(SHOCKWAVE); // TODO: SHOCKWAVE
                 _isUsingShockWave = true;
                 _lastShockWaveTime = DateTime.Now;
@@ -381,23 +382,7 @@ namespace GodsGames
 
         private IEnumerator ShockWaveCoroutine()
         {
-            //Vector3 heading = _currentTarget.transform.position - transform.position;
-            //Vector3 basePosition = transform.position;
-            //Vector3 direction = heading / heading.magnitude;
-            //float range = Mathf.Max(_shockWaveRange, heading.magnitude);
-            //basePosition.y = 0;
-            //direction.y = 0;
-
-            //float i = 0;
-            //while (i < range)
-            //{
-            //    Vector3 initialPosition = basePosition + direction * i;
-            //    initialPosition.y = UnityEngine.Random.Range(_shockWaveRockMinHeight, _shockWaveRockMaxHeight);
-            //    GameObject boulder = Instantiate(_throwableObjects[UnityEngine.Random.Range(0, _throwableObjects.Count)], initialPosition, new Quaternion());
-            //    Destroy(boulder, _shockWaveRockLifeTime);
-            //    yield return new WaitForSeconds(_shockWaveDelayBetweenTwoRocks);
-            //    i += 1;
-            //}
+            yield return new WaitForSeconds(1);
             _ShockWaves[_SWIndex % _ShockWaves.Length].transform.position = new Vector3(transform.position.x, transform.position.y + _shockWaveHeight, transform.position.z);
             _ShockWaves[_SWIndex % _ShockWaves.Length].transform.rotation = transform.rotation;
             _ShockWaves[_SWIndex % _ShockWaves.Length].SetActive(true);
@@ -452,7 +437,9 @@ namespace GodsGames
         [Task]
         public void AttackTarget()
         {
+            agent.isStopped = true;
             animator.SetTrigger(ATTACKING);
+            agent.isStopped = false;
             Task.current.Succeed();
         }
 
