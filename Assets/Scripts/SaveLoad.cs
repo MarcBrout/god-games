@@ -11,6 +11,29 @@ namespace GodsGame
         private static readonly string m_ProfilePath = Application.persistentDataPath + "/"; // + "/Profiles/";
         private static readonly string m_FileExtension = ".pgg";
 
+        public static void SaveHighscore(Highscore highscore) {
+            BinaryFormatter bf = new BinaryFormatter();
+            Debug.Log("Saving to: " + FormatPath("highscore"+highscore.Level));
+            FileStream file = File.Create(FormatPath("highscore" + highscore.Level));
+            bf.Serialize(file, highscore);
+            file.Close();
+        }
+
+        public static Highscore LoadHighscore(int level) {
+            //Debug.Log(m_ProfilePath);
+            Highscore highscore = null;
+            string path = FormatPath("highscore" + level);
+            Debug.Log("PATH: "+FormatPath("highscore" + level));
+            if (File.Exists(path))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(path, FileMode.Open);
+                highscore = (Highscore)bf.Deserialize(file);
+                file.Close();
+            }
+            return highscore;
+        }
+
         public static void SaveProfile(PlayerProfile profile)
         {
             BinaryFormatter bf = new BinaryFormatter();

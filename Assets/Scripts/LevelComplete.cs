@@ -10,6 +10,7 @@ namespace GodsGame
         public TextMeshProUGUI hitP1;
         public TextMeshProUGUI hitP2;
         public TextMeshProUGUI score;
+        public HighScoreScript HighScoreScript;
 
         void Start()
         {
@@ -21,6 +22,10 @@ namespace GodsGame
             hitP1.text += p1Stat.HitTaken.Score.ToString();
             hitP2.text += p2Stat.HitTaken.Score.ToString();
             score.text += (p1Stat.TotalScore + p2Stat.TotalScore).ToString();
+            HighScoreScript.SubmitScore(p1Stat.TotalScore + p2Stat.TotalScore);
+            
+            //HighScoreScript.SubmitScore(100);
+
         }
 
     }
