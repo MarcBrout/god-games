@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace GodsGame
@@ -91,6 +92,7 @@ namespace GodsGame
             m_SphereCollider.enabled = true;
             pickUpOrb.SetActive(true);
             //m_animator.SetBool("isEquipped", false);
+           
         }
 
         private void DisplaySword()
@@ -98,7 +100,6 @@ namespace GodsGame
             m_Collider.enabled = true;
             m_SphereCollider.enabled = false;
             pickUpOrb.SetActive(false);
-            //m_animator.enabled = false; ;
             //m_animator.SetBool("isEquipped", true);
         }
 
