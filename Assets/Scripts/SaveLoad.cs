@@ -13,17 +13,14 @@ namespace GodsGame
 
         public static void SaveHighscore(Highscore highscore) {
             BinaryFormatter bf = new BinaryFormatter();
-            Debug.Log("Saving to: " + FormatPath("highscore"+highscore.Level));
             FileStream file = File.Create(FormatPath("highscore" + highscore.Level));
             bf.Serialize(file, highscore);
             file.Close();
         }
 
         public static Highscore LoadHighscore(int level) {
-            //Debug.Log(m_ProfilePath);
             Highscore highscore = null;
             string path = FormatPath("highscore" + level);
-            Debug.Log("PATH: "+FormatPath("highscore" + level));
             if (File.Exists(path))
             {
                 BinaryFormatter bf = new BinaryFormatter();

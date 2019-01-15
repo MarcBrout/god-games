@@ -33,6 +33,7 @@ namespace GodsGame {
         void Update()
         {
             if (newHighscoreIndex >= 0) {
+                inputField.text = inputField.text.ToUpper();
                 rankingList[newHighscoreIndex].text = (newHighscoreIndex+1) + ". " + inputField.text + " - " + highscore.HighscoreArr[newHighscoreIndex].Value;
 ;            }
         }
