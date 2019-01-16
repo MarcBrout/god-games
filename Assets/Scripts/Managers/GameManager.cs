@@ -10,6 +10,7 @@ namespace GodsGame
         #region Public Var
         [HideInInspector]
         public Timer timer;
+        public int previousLevel;
         #endregion
 
         #region Private Var
@@ -63,6 +64,9 @@ namespace GodsGame
                 StatsManager.ActiveLevelP1.CalulateTotal();
                 StatsManager.ActiveLevelP2.CalulateTotal();
                 StatsManager.PlayerProfiles.ForEach((x) => { x.CalculateTotal(); SaveLoad.SaveProfile(x); });
+                Debug.Log(m_CurrentSceneName);
+                Debug.Log(m_CurrentSceneName[m_CurrentSceneName.Length - 1]);
+                previousLevel = int.Parse(""+m_CurrentSceneName[m_CurrentSceneName.Length - 1]);
             }
         }
 

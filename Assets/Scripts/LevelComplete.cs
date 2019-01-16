@@ -14,7 +14,6 @@ namespace GodsGame
 
         void Start()
         {
-            
             PlayerLevelStats p1Stat = GameManager.Instance.StatsManager.ActiveLevelP1.LastStats;
             PlayerLevelStats p2Stat = GameManager.Instance.StatsManager.ActiveLevelP2.LastStats;
 
@@ -29,6 +28,5 @@ namespace GodsGame
             //HighScoreScript.SubmitScore(1500);
 
         }
-
     }
 }
