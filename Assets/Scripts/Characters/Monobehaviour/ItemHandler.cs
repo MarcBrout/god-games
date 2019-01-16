@@ -43,7 +43,10 @@ namespace GodsGame
                 Item = col.transform.GetComponent<BaseItem>();
                 Item.PickUpItem(player, itemSocket);
                 if (m_ItemUIImage)
+                {
+                    m_ItemUIImage.color = Color.white;
                     m_ItemUIImage.sprite = Item.spriteUI;
+                }
                 if (m_CooldownSkillUI)
                     m_CooldownSkillUI.CooldownSystem = Item.CooldownSystem;
             }
@@ -59,7 +62,10 @@ namespace GodsGame
             Item.ThrowItem(transform, 30);
             Item = null;
             if (m_ItemUIImage)
+            {
+                m_ItemUIImage.color = new Color(0, 0, 0, 0);
                 m_ItemUIImage.sprite = null;
+            }
         }
 
         public bool IsItemEquiped()

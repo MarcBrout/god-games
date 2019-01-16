@@ -11,10 +11,8 @@ public class PlayTimeline : MonoBehaviour {
 
     public void Launch()
     {
-        Debug.Log("Sword Pick Up");
         if (!firstPick)
         {
-            Debug.Log("Cinematic Begin");
             timeline.Play();
             firstPick = true;
         }
