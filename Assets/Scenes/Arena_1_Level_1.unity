@@ -3912,7 +3912,7 @@ Prefab:
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
@@ -3989,7 +3989,7 @@ Prefab:
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: startingHealth
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
@@ -4015,7 +4015,7 @@ Prefab:
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1608956562}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -4035,11 +4035,11 @@ Prefab:
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1608956562}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: SetHorizontalMovement
+      value: SetVerticalMovement
       objectReference: {fileID: 0}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
@@ -4085,16 +4085,16 @@ Prefab:
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1479445101}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1479445101}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: SetVerticalMovement
+      value: SetHorizontalMovement
       objectReference: {fileID: 0}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
@@ -4110,6 +4110,36 @@ Prefab:
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_Target
+      value: 
+      objectReference: {fileID: 848596608}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_StringArgument
+      value: die
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ba5cf9dfcf1e2478b235da036630e3, type: 2}
@@ -8100,6 +8130,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479445101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114538881039525506, guid: c0ac416fdb983a94883cc913a1ed96c5,
+    type: 2}
+  m_PrefabInternal: {fileID: 860024334}
+  m_Script: {fileID: 11500000, guid: 74d133cc65af94a45a1931252ce37f1a, type: 3}
 --- !u!1001 &1513403890
 Prefab:
   m_ObjectHideFlags: 0
@@ -8307,6 +8343,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1227194117561510, guid: db2b83ce1ce832949b540eb32f976ede,
     type: 2}
   m_PrefabInternal: {fileID: 1278409248}
+--- !u!114 &1608956562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114917957146739214, guid: 64209882c271a2d4bb48ee2a4a0de471,
+    type: 2}
+  m_PrefabInternal: {fileID: 1984057514}
+  m_Script: {fileID: 11500000, guid: 74d133cc65af94a45a1931252ce37f1a, type: 3}
 --- !u!1 &1623623856
 GameObject:
   m_ObjectHideFlags: 0
