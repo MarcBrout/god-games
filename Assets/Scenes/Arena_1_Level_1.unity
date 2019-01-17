@@ -3989,7 +3989,7 @@ Prefab:
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
       propertyPath: startingHealth
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114961753878887266, guid: 50ba5cf9dfcf1e2478b235da036630e3,
         type: 2}
@@ -4140,6 +4140,31 @@ Prefab:
         type: 2}
       propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_StringArgument
       value: die
+      objectReference: {fileID: 0}
+    - target: {fileID: 136515077538860390, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: m_Radius
+      value: 9.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 136515077538860390, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: m_Height
+      value: 32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 136515077538860390, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 136515077538860390, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 9.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 136515077538860390, guid: 50ba5cf9dfcf1e2478b235da036630e3,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 2.86
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ba5cf9dfcf1e2478b235da036630e3, type: 2}
@@ -4604,6 +4629,11 @@ Prefab:
     - target: {fileID: 4044620197981282, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
       propertyPath: m_RootOrder
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 54551094142972322, guid: c0ac416fdb983a94883cc913a1ed96c5,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ac416fdb983a94883cc913a1ed96c5, type: 2}
@@ -11006,6 +11036,11 @@ Prefab:
         type: 2}
       propertyPath: m_AABB.m_Extent.x
       value: 0.2355164
+      objectReference: {fileID: 0}
+    - target: {fileID: 54302031105308620, guid: 64209882c271a2d4bb48ee2a4a0de471,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64209882c271a2d4bb48ee2a4a0de471, type: 2}
