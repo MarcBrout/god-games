@@ -25,12 +25,14 @@ namespace GodsGame
         protected Collider m_Collider;
         protected SphereCollider m_SphereCollider;
         protected MeshRenderer m_MeshRenderer;
+        protected bool m_using = false;
         //protected Animator m_animator;
         #endregion
 
         #region Properties
         public int TriggerAnimatorHash { get; protected set; }
         public bool IsThrowable { get { return m_IsThrowable; } }
+        public bool Using { get { return m_using; } set { m_using = value; } }
         #endregion
 
         #region Event
@@ -78,12 +80,15 @@ namespace GodsGame
 
         public void ThrowItem(Transform direction, float force)
         {
-            DropItem();
-            transform.rotation = direction.rotation;
-            m_Rigidbody.AddForce(direction.forward * force + direction.up * force, ForceMode.Impulse);
-            m_Rigidbody.AddRelativeTorque(Vector3.left * force, ForceMode.Impulse);
-            m_currentOwner.gameObject.GetComponent<PlayerEventReceiver>().OnSwordDrop();
-            OnThrow.Invoke();
+            if (!m_using)
+            {
+                DropItem();
+                transform.rotation = direction.rotation;
+                m_Rigidbody.AddForce(direction.forward * force + direction.up * force, ForceMode.Impulse);
+                m_Rigidbody.AddRelativeTorque(Vector3.left * force, ForceMode.Impulse);
+                m_currentOwner.gameObject.GetComponent<PlayerEventReceiver>().OnSwordDrop();
+                OnThrow.Invoke();
+            }
         }
 
         private void DisplayOrb()
@@ -92,7 +97,7 @@ namespace GodsGame
             m_SphereCollider.enabled = true;
             pickUpOrb.SetActive(true);
             //m_animator.SetBool("isEquipped", false);
-           
+
         }
 
         private void DisplaySword()

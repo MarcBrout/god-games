@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+
 
 namespace GodsGame
 {
@@ -59,13 +61,22 @@ namespace GodsGame
 
         public void ThrowItem()
         {
-            Item.ThrowItem(transform, 30);
-            Item = null;
-            if (m_ItemUIImage)
+            if (!Item.Using)
             {
-                m_ItemUIImage.color = new Color(0, 0, 0, 0);
-                m_ItemUIImage.sprite = null;
+                Item.ThrowItem(transform, 30);
+                Item = null;
+                if (m_ItemUIImage)
+                {
+                    m_ItemUIImage.color = new Color(0, 0, 0, 0);
+                    m_ItemUIImage.sprite = null;
+                }
             }
+        }
+
+        IEnumerator DeactivateUsing(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            Item.Using = false;
         }
 
         public bool IsItemEquiped()
@@ -81,6 +92,8 @@ namespace GodsGame
         public void UseItem()
         {
             Item.UseItem();
+            Item.Using = true;
+            StartCoroutine(DeactivateUsing(Item.Cooldown));
         }
     }
 }
